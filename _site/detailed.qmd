@@ -565,6 +565,7 @@ contested_dat <- contested_dat %>%
 ### `r last30days_string`
 
 ```{r}
+# debugonce(get_contested_graph)
 thegraph30 <- get_contested_graph(election_dat30, minamount = 100)
 
 if(length(thegraph30$x$hc_opts$series)!=0){

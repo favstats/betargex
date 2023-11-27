@@ -59,7 +59,9 @@ election_dat30 <- readRDS("../data/election_dat30.rds") %>%
     party == "GRO" ~ "Groen",
     party == "Eng" ~ "Les Engagés",
     party == "VLD" ~ "Open Vld",
-  ))
+    T ~ party
+  )) %>% 
+  drop_na(party)
 
 
 
@@ -77,7 +79,9 @@ election_dat7 <- readRDS("../data/election_dat7.rds") %>%
     party == "GRO" ~ "Groen",
     party == "Eng" ~ "Les Engagés",
     party == "VLD" ~ "Open Vld",
-  ))
+    T ~ party
+  )) %>% 
+  drop_na(party)
 
 
 # saveRDS(election_dat30, "../data/election_dat30.rds")
