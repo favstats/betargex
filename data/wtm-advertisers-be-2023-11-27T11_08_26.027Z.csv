@@ -1,0 +1,631 @@
+id,name,created_at,advertisers_entities.id,entities.short_name,entities.is_active,entities.is_political,countries.name,countries.alpha2,advertisers_platforms.advertiser_platform_ref,advertisers_platforms.advertiser_platform_name,platforms.name
+005cc1e5-8de2-4975-a000-cb468419531b,Céline Tellier,2023-02-07T15:05:55.985Z,7ffe9322-00ce-4131-ab22-6f1c89ea74c5,Eco,true,true,Belgium,be,103317697766869,Céline Tellier,Facebook
+07a0d89f-b2db-4554-b89e-7709cf76288a,Ecolo Jodoigne,2023-05-29T06:51:22.539Z,d5a4e2c5-fba8-49f4-b5c9-02e3da508410,Eco,true,true,Belgium,be,1613883875494995,Ecolo Jodoigne,Facebook
+19fc388b-7303-4468-94d1-0c0d7cb8e46b,Bart Dhondt,2023-08-20T05:06:05.560Z,774ba52a-db92-417d-8cc5-d057bf5fd29e,Eco,true,true,Belgium,be,111901330427976,Bart Dhondt,Facebook
+29a7fd98-c1e5-4d42-a936-43ff777286a8,Ecolo Ostbelgien,2023-07-18T06:05:42.638Z,31ea5702-d8ef-46ae-ac69-153f56e2c1ff,Eco,true,true,Belgium,be,321847415140,Ecolo Ostbelgien,Facebook
+2b5a44c5-4161-47dd-863e-39486a4ce84c,Ecolo Mons,2023-03-08T14:49:21.015Z,52724d11-b5e8-443d-918d-e7f86d7f2b9a,Eco,true,true,Belgium,be,184684811578171,Ecolo Mons,Facebook
+44e56944-d6fe-434c-a61b-e7917525611a,Zoubida Jellab - Ėchevine Ville de Bruxelles,2023-02-07T15:05:56.373Z,d568036f-d9c8-4d15-8ac1-0f47dd7fb161,Eco,true,true,Belgium,be,109484780808030,Zoubida Jellab - Ėchevine Ville de Bruxelles,Facebook
+481dd4b3-e64a-44ed-81cf-0a45b01eacf3,Ecolo Saint-Nicolas,2023-03-24T10:51:38.727Z,d8304a1c-bba3-4b0a-9de6-93aca0b7da48,Eco,true,true,Belgium,be,188585807940572,Ecolo Saint-Nicolas,Facebook
+4a20731a-d9ab-4043-bde0-11533afa478e,Ecolo Brabant wallon,2023-04-22T06:01:53.676Z,5f4c1661-9f97-4b51-8ae6-39d72bde64ee,Eco,true,true,Belgium,be,1712357138983896,Ecolo Brabant wallon,Facebook
+557828df-fb17-4fda-803c-58bbbbcd8009,Ecolo Ottignies-Louvain la Neuve,2023-03-08T19:18:28.223Z,237586bc-5e61-4fe1-a6bd-8350d2758208,Eco,true,true,Belgium,be,897684793612363,Ecolo Ottignies-Louvain la Neuve,Facebook
+594c0740-f5c0-4d63-8cd8-aa9a09eb298c,Ecolo-Groen St-Gilles,2023-06-19T18:23:27.903Z,aefdd16d-7f26-4ae4-a4f7-89e6e1b8185e,Eco,true,true,Belgium,be,101762312957658,Ecolo-Groen St-Gilles,Facebook
+5f1d4d06-17e9-438e-b177-d943c24ee5bc,Province : il est temps de faire bouger les choses avec ECOLO,2023-03-08T15:18:53.180Z,14fe85a5-dae6-4a84-bac8-536fb23dca8a,Eco,true,true,Belgium,be,2132853950059181,Province : il est temps de faire bouger les choses avec ECOLO,Facebook
+5f73d149-d505-47d5-be16-e0fb8344479e,Barbara Trachte,2023-02-07T15:05:55.911Z,7e4eb98e-2faf-420b-9a3c-117faa3089a8,Eco,true,true,Belgium,be,114995313234557,Barbara Trachte,Facebook
+60a286de-5872-4ee3-ba20-5c6fe3cb06a3,Bénédicte Linard,2023-02-07T15:05:56.128Z,abe0c4db-d144-474f-80c8-229b4102e314,Eco,true,true,Belgium,be,109617560619207,Bénédicte Linard,Facebook
+636fd99e-6e99-4bb6-99c9-cb1e2531dcc3,Ecolo Villers-la-Ville,2023-04-24T06:51:29.316Z,428c0770-8349-4327-9aca-abd1b2eadd21,Eco,true,true,Belgium,be,487177894793966,Ecolo Villers-la-Ville,Facebook
+64496d10-b8ba-49ce-ae10-e5ff6d713cc7,Ecolo Braine Le Comte,2023-03-08T17:31:29.530Z,b27b1e80-ac25-48db-8df4-7badad836cec,Eco,true,true,Belgium,be,775758055853342,Ecolo Braine Le Comte,Facebook
+7e3d74a2-e0e4-40c8-b83a-bccd5f77ab34,Philippe Henry,2023-03-02T10:51:36.036Z,cc76156d-d19b-4446-a7d3-8b5131480c3c,Eco,true,true,Belgium,be,376493959151704,Philippe Henry,Facebook
+7f9ab40a-9494-479c-bd3e-8f2a08e617f4,Georges Gilkinet,2023-02-07T15:05:56.363Z,9f131da1-c419-4ffe-ba88-efa46a5a6903,Eco,true,true,Belgium,be,100590008596220,Georges Gilkinet,Facebook
+88049a88-132a-47cc-99aa-d5208c5ccac4,Rajae Maouane,2023-04-17T08:17:49.062Z,71fc3331-f32b-43e5-b046-51c4d49a9595,Eco,true,true,Belgium,be,110237177033759,Rajae Maouane,Facebook
+8ec94db5-18d5-4744-93d4-94ce63156838,Ecolo J LouvainlaNeuve,2023-02-17T10:51:27.316Z,10b63940-d863-4e9e-91cd-9a7d7a4fd7e1,Eco,true,true,Belgium,be,1403842909933822,Ecolo J LouvainlaNeuve,Facebook
+92934e3d-16f4-492f-a114-3186aa07fe45,Ecolo Genappe & #créonsdemain,2023-02-07T15:05:56.524Z,314f7a1c-e348-493f-a2ee-dabe0c41de2a,Eco,true,true,Belgium,be,137857776355537,Ecolo Genappe & #créonsdemain,Facebook
+987b3074-ff7a-403a-b717-627dcda4fe2a,Ecolo-Groen 1190,2023-05-09T06:51:24.315Z,81fdd5a2-ae74-444c-a6fd-f2d2ffe41428,Eco,true,true,Belgium,be,138112209583631,Ecolo-Groen 1190,Facebook
+9bdd26c3-a5b7-45f4-854b-72116837ff22,Ecolo Court-Saint-Etienne,2023-05-18T06:51:35.362Z,37b22eac-556e-437a-9d36-27cebb7f1ea5,Eco,true,true,Belgium,be,271699126277396,Ecolo Court-Saint-Etienne,Facebook
+a109e7b2-bcfa-4af4-9d98-d77dd0e0e60f,écolo j ULB,2023-03-19T10:51:27.171Z,afd12ed3-6b9e-4ede-b81e-e68225f375ab,Eco,true,true,Belgium,be,387932901271912,écolo j ULB,Facebook
+a1a02613-7d40-48e1-a71d-3f4d2178b0b7,Alain Maron,2023-02-07T15:05:55.862Z,53e5293d-796e-4896-8660-5a1b1e147311,Eco,true,true,Belgium,be,108148930584601,Alain Maron,Facebook
+a1c47a20-261c-4255-a8dc-dd88eb7db592,Arnaud Pinxteren,2023-02-24T10:51:40.831Z,48687a5a-7b95-4ecb-9074-cfffbab016d8,Eco,true,true,Belgium,be,107694834306348,Arnaud Pinxteren,Facebook
+a52edf01-f36d-480a-b5c3-fb475052a900,Ecolo,2022-08-16T15:24:28.784Z,c90cdb64-cc09-4f66-bfd9-bd595cd74d57,Eco,true,true,Belgium,be,38296327361,Ecolo,Facebook
+b61c16d1-6a6e-46f3-aef2-e1ab8a9af48c,Sarah Schlitz,2023-02-07T15:05:55.880Z,0485fb92-2439-43f2-a7bd-520c618c4a8c,Eco,true,true,Belgium,be,102084208341677,Sarah Schlitz,Facebook
+cd365a19-870f-4b6d-91b1-529ba946a3da,Zakia Khattabi,2023-02-07T15:05:56.670Z,99b61cc2-05d3-461b-b438-d907e58ded44,Eco,true,true,Belgium,be,110049460908305,Zakia Khattabi,Facebook
+e1aed83a-54fd-47ba-8aa9-3c8e17e8ef66,Ecolo Comines-Warneton,2023-08-08T05:05:40.809Z,00c96e14-fe50-4dda-8792-44d1c35b449f,Eco,true,true,Belgium,be,837716809728863,Ecolo Comines-Warneton,Facebook
+f3eaf2ce-bef6-4329-b0a5-c85e7522c110,Albert Vicaire,2023-02-08T05:54:34.833Z,e10937a3-c07c-4519-910f-1582e02877ac,Eco,true,true,Belgium,be,106189634104097,Albert Vicaire,Facebook
+11519bcf-feca-48cb-9c06-216c18d7ef1f,Benoît Dispa,2023-03-08T10:51:40.441Z,5f8f75ee-51c8-4c19-b6e8-d869cb9d1e7a,Eng,true,true,Belgium,be,114020116968807,Benoît Dispa,Facebook
+1559c888-75c6-44f6-86bb-34b9158e5614,André Antoine,2023-02-13T10:51:47.855Z,e7a9728d-f187-4e4e-818c-b25bc3afc653,Eng,true,true,Belgium,be,16123379845,André Antoine,Facebook
+32c33770-3de4-457a-acee-0e2198b578ad,Mathilde Vandorpe,2023-03-22T10:51:17.884Z,b4637182-29c1-4dff-970c-abd720073b3b,Eng,true,true,Belgium,be,1072946686097546,Mathilde Vandorpe,Facebook
+4ff4594d-8c96-4889-ad2c-2a54d323a1d5,Julien Matagne,2023-02-08T05:54:34.821Z,0a9c60d4-a178-4d34-8fc9-bc4e7bfb05c6,Eng,true,true,Belgium,be,361250950623072,Julien Matagne,Facebook
+56a65821-b792-4ce7-b9ab-e41a36b0eb23,Christophe Bastin,2023-02-07T15:05:56.394Z,f711c9b6-056a-4b10-9d16-bc8f643478bd,Eng,true,true,Belgium,be,273659720232767,Christophe Bastin,Facebook
+5be81f72-0b0d-4aa0-ae54-29986b7a6024,Benjamin Goes,2023-03-03T10:51:36.907Z,47711e70-eb5d-4ff0-bc13-7106980944f0,Eng,true,true,Belgium,be,201672843294545,Benjamin Goes,Facebook
+67f37532-c766-47ea-ad6d-52f45aa75987,Génération Engagée  - Province de Liège,2023-10-03T05:05:22.830Z,2ab4eb1d-4125-4b82-8bc6-d4c135ff97fb,Eng,true,true,Belgium,be,753065948053050,Génération Engagée  - Province de Liège,Facebook
+727476d1-8a02-448e-b865-b8e3da069551,Gladys Kazadi,2023-02-08T06:19:17.889Z,62b38aaa-b5a7-4933-ae25-636399859be7,Eng,true,true,Belgium,be,1747704655296978,Gladys Kazadi,Facebook
+7b08f24a-2f5e-4272-a983-4bb1cbe3176f,Les Engagés.be - OVA,2023-06-19T18:23:27.867Z,7d7a75ab-c513-4977-97dd-18e2cdf368be,Eng,true,true,Belgium,be,110317581615480,Les Engagés.be - OVA,Facebook
+7fee137c-2e87-4f61-9a6c-0892e4936e95,Anne-Catherine Goffinet,2023-02-07T15:05:56.576Z,8fddbea2-78e9-470c-86d5-58f21f303fb9,Eng,true,true,Belgium,be,805999309414488,Anne-Catherine Goffinet,Facebook
+8056bfc5-7f2c-4866-8440-f3ff52824882,Centre démocrate humaniste,2022-08-16T15:24:28.713Z,ea575a91-3f9b-48bb-a36d-bee3d98b3d71,Eng,true,true,Belgium,be,189649407806135,Centre démocrate humaniste,Facebook
+93c64ad7-8714-48e4-ba85-cb085933fe7d,Vanessa Matz,2023-02-08T05:54:34.815Z,9492c163-fb86-4f70-abd8-1f25b6a1a1d9,Eng,true,true,Belgium,be,278758345625756,Vanessa Matz,Facebook
+95b11ec9-fadf-4f02-9972-1781f8af5b47,Les Engagé.e.s Brabant wallon,2023-09-25T05:05:30.789Z,2b187cf7-769a-4039-90d4-dd305b1390a3,Eng,true,true,Belgium,be,101788185813749,Les Engagé.e.s Brabant wallon,Facebook
+a39d7a85-d351-462c-8f5b-d6c7f9a98b96,Ismaël Nuino,2023-02-19T10:51:52.101Z,e4d673f2-1f8e-4ec8-8ece-6a6839a474d4,Eng,true,true,Belgium,be,184050812425204,Ismaël Nuino,Facebook
+a6380929-fcd2-4fb5-a475-cc7bbc3af5e4,Céline Fremault,2023-02-07T15:05:56.573Z,4abb7efb-b871-48d0-b9e6-d70fac7096d8,Eng,true,true,Belgium,be,470737366388554,Céline Fremault,Facebook
+a8f862fe-4e67-45b0-956b-6e9d599d5c8b,Les Engagés de Mouscron,2023-06-07T06:51:18.476Z,ab98078c-dda7-4e36-865f-f4f7bba6f168,Eng,true,true,Belgium,be,547098852073003,Les Engagés de Mouscron,Facebook
+ac0ae6b6-8f9b-4253-bd40-7576b07c5a98,Christophe De Beukelaer,2023-02-07T15:05:56.246Z,e8511d22-ce2d-49a5-87a5-d34dd7d9b06b,Eng,true,true,Belgium,be,234267906711043,Christophe De Beukelaer,Facebook
+ae24a5ec-8143-4a59-815e-4d931eb700f5,Yvan Verougstraete,2023-02-08T05:54:34.100Z,d26eebdf-f020-4a6e-a2b9-b6d1daa046ae,Eng,true,true,Belgium,be,109303661918715,Yvan Verougstraete,Facebook
+b578343f-b26e-4baa-bb53-fca33a019873,Pierre Kompany,2023-03-08T10:51:40.270Z,cb1d6a21-666e-4bc3-bb82-822c25588913,Eng,true,true,Belgium,be,634051606697086,Pierre Kompany,Facebook
+c535eae5-260e-4953-a1af-e550770c6f8e,Les Engagés 1070 Anderlecht,2023-04-17T08:17:40.557Z,741bc7ba-7e9d-4179-860d-1cc53ec7ea38,Eng,true,true,Belgium,be,674529542702824,Les Engagés 1070 Anderlecht,Facebook
+cb9432c3-778e-45d7-b37f-455508dc1328,Arnaud Piplart,2023-03-06T10:51:40.781Z,8b40a6b6-1e0b-4d5e-bb7d-7b8302d64b0a,Eng,true,true,Belgium,be,885579701636000,Arnaud Piplart,Facebook
+cf4bdfb0-5504-43db-ae8b-e746db284482,Les Engagés - Mouvement participatif,2023-02-07T15:05:55.612Z,3dcb4547-18da-4fae-b479-276f7ebc0f00,Eng,true,true,Belgium,be,108820070638334,Les Engagés - Mouvement participatif,Facebook
+cf7fe334-cb23-4f0a-9ce6-d0a7f7d13f90,Les Engagés Bruxelles,2023-05-25T06:51:26.111Z,4ac6097b-1aa4-4df7-bb62-5be3a8143e09,Eng,true,true,Belgium,be,299083026820606,Les Engagés Bruxelles,Facebook
+dbe5627a-7f68-402e-ab16-ed84ba627838,Les Engagé.e.s  Ham-sur-Heure Nalinnes,2023-03-21T10:51:19.594Z,4557b0d5-f452-496c-a980-09a2887f2928,Eng,true,true,Belgium,be,107158371942580,Les Engagé.e.s  Ham-sur-Heure Nalinnes,Facebook
+e594f108-7c8d-478f-b37f-c15d19a8e643,Les Engagés du Bassin de Vie de Liège-Seraing,2023-03-10T10:51:31.604Z,35e1c2c3-88ef-464a-a916-cbbaae43fa2b,Eng,true,true,Belgium,be,546608812184232,Les Engagés du Bassin de Vie de Liège-Seraing,Facebook
+e782ee18-6adb-40d4-bb86-1455c7e3b44e,François Desquesnes,2023-02-07T15:05:56.254Z,024f939a-bb68-4c3f-9c8c-916c4e240cce,Eng,true,true,Belgium,be,279758248890258,François Desquesnes,Facebook
+e79ce646-d4f1-4bc0-b742-0a722a364c46,Agora-CDH Mons,2023-03-04T10:51:43.940Z,4a54f35b-2492-4cf1-b6b1-e8941a411b81,Eng,true,true,Belgium,be,1630276830552738,Agora-CDH Mons,Facebook
+f150ef5b-a1dd-4157-af97-85c42c3175ec,Les Engagés Mons-Borinage & Hauts-Pays,2023-03-11T10:51:42.502Z,9336be26-bed5-43be-a019-611df3a56cca,Eng,true,true,Belgium,be,1744047362503928,Les Engagés Mons-Borinage & Hauts-Pays,Facebook
+00caa830-e424-4bcd-82de-a7d5c289245d,CD&V Kortrijk,2023-09-03T05:05:22.795Z,fe6c7ffc-cb9e-486a-9a14-7df62b818ba7,CDV,true,true,Belgium,be,480276998707702,CD&V Kortrijk,Facebook
+027d0b03-f6ee-4bb7-aca7-9fbd2be04c28,CD&V Oostkamp,2023-05-08T06:51:08.317Z,2bc1c228-c62d-4cac-b36e-632a8c726a06,CDV,true,true,Belgium,be,2062142307347631,CD&V Oostkamp,Facebook
+031bd3a4-49f6-4747-9ce1-d7e59e028514,CD&V Waasmunster,2023-10-04T05:05:23.087Z,7aa8b8b8-6a39-4959-b68a-8756d919d918,CDV,true,true,Belgium,be,562102867185538,CD&V Waasmunster,Facebook
+0c377a22-42c4-4c96-9025-69a058adc739,CNCD-11.11.11,2023-02-27T10:51:38.934Z,7d68ce32-ae2d-44c7-8f25-6781fa51c080,CDV,true,true,Belgium,be,118510721519982,CNCD-11.11.11,Facebook
+0e8d39a6-33f1-480e-852e-63b94fb54771,CD&V Antwerpen,2023-08-22T05:07:16.856Z,cac02c39-a0a0-4494-9555-c8168b388f2d,CDV,true,true,Belgium,be,1916143261955206,CD&V Antwerpen,Facebook
+11cf8a37-f8e1-47a6-9cc4-a7b48054d446,CD&V Provincie West-Vlaanderen,2023-03-09T10:51:44.767Z,07cb67bb-02b1-407d-8748-bf69fa98fcb8,CDV,true,true,Belgium,be,1362491840500648,CD&V Provincie West-Vlaanderen,Facebook
+12e85e39-4e82-4b7b-8c7b-7ca8aa9b4f00,Tinne Rombouts,2023-10-24T05:05:26.201Z,d4704147-6277-4a0f-bc44-aeb534f2b62c,CDV,true,true,Belgium,be,602555389834704,Tinne Rombouts,Facebook
+14eb30f9-2d14-45d8-8853-237f83c18ce4,Nicole de Moor,2023-02-08T06:19:17.952Z,bba22b91-91bc-49d0-98e1-7289fcef917b,CDV,true,true,Belgium,be,330950987560426,Nicole de Moor,Facebook
+2032c0fa-187f-493e-b9ce-429787e9458f,Stijn De Roo,2023-02-13T10:51:47.527Z,ff23f107-e1fc-4b63-9511-c3c2c6b42d55,CDV,true,true,Belgium,be,251722678703408,Stijn De Roo,Facebook
+21ccab94-65a9-4a1b-8088-ae8223fb2349,CD&V Deerlijk,2023-09-10T05:05:24.129Z,e378bdea-5233-4f3a-85a8-6383fcbeb5f7,CDV,true,true,Belgium,be,445534995469608,CD&V Deerlijk,Facebook
+2207b088-96b1-4c6b-8723-cf4dfcf52a45,CD&V Heuvelland,2023-04-22T06:01:53.833Z,e350f761-da3f-42f7-aa3a-71dd2b2f2df4,CDV,true,true,Belgium,be,1600529816838907,CD&V Heuvelland,Facebook
+240b1903-fefb-4193-a864-54acaa00c2eb,CD&V Oosterzele,2023-03-10T10:51:31.868Z,9e9175fa-0c2b-4ba1-9d32-682f66b053ca,CDV,true,true,Belgium,be,152830995374313,CD&V Oosterzele,Facebook
+249922b7-e606-4f12-9a87-9d254ab06db2,CD&V Oudsbergen,2023-02-21T10:51:34.662Z,09ccbdff-30a5-4817-b634-c01d8b1d457c,CDV,true,true,Belgium,be,272413106196814,CD&V Oudsbergen,Facebook
+2e543ccf-8d31-42c6-a7d7-bfbdf0d65925,CD&V Aarschot,2023-03-28T10:51:32.414Z,5bd43973-c9c1-4e2b-bf94-7e60724e3fa2,CDV,true,true,Belgium,be,478394428997691,CD&V Aarschot,Facebook
+34608bd5-a226-467e-8be8-39f71dd56546,cd&v Brecht,2023-03-08T17:10:32.860Z,1d6a09d7-5966-41d9-9d43-de44f9ca6afe,CDV,true,true,Belgium,be,498148503537207,cd&v Brecht,Facebook
+3b9b6f0c-07c4-486f-806d-9837de30b69c,CD&V Zaventem,2023-03-08T17:31:29.529Z,59508c72-9cd2-4ea2-a223-f445a63745f9,CDV,true,true,Belgium,be,1129266210498643,CD&V Zaventem,Facebook
+3c5c360b-287e-4a16-a335-f717fe78c81d,CD&V Halle,2023-06-15T06:51:32.526Z,bc9d6ba3-a0d7-43b3-a5e2-54c75a0ca044,CDV,true,true,Belgium,be,210120179102105,CD&V Halle,Facebook
+44e5be09-e3e5-420a-b979-bf357a9d87e8,CD&V Diksmuide,2023-05-13T06:51:29.894Z,1ae96b25-bc0c-4087-aa20-5458df0a482d,CDV,true,true,Belgium,be,625936054280293,CD&V Diksmuide,Facebook
+46537be4-9cc3-4659-a14c-07573b557469,Kortrijk Kiest,2023-09-10T05:05:23.656Z,0582ccdf-7d9f-420b-9f8e-5db57c17ab92,CDV,true,true,Belgium,be,100653659800306,Kortrijk Kiest,Facebook
+479e02b5-745c-4f0c-9509-9ef663d3bf2d,CD&V Zwijndrecht,2023-06-24T06:45:55.742Z,2464e45f-0661-4f5f-921b-6ece5ee293aa,CDV,true,true,Belgium,be,1855497174767563,CD&V Zwijndrecht,Facebook
+47c9054a-bb20-4d4f-8e09-75d35d861fe6,CD&V Wingene-Zwevezele,2023-03-07T10:51:35.341Z,2ea4f4fb-ca8b-4086-9bbc-2ca57d3e0c61,CDV,true,true,Belgium,be,391744777602083,CD&V Wingene-Zwevezele,Facebook
+4b0d6f4f-2960-4152-a79d-d4819e6aab0b,Respect,2023-09-12T05:04:57.104Z,500c992e-0e9a-410e-800f-55be42dc2b18,CDV,true,true,Belgium,be,114407351678953,Respect,Facebook
+5180a9ce-4ccd-4c2f-bcc3-609f287e3826,CD&V Oost-Vlaanderen,2023-04-08T10:51:33.550Z,bbe99b87-9a33-4013-b0d7-31405bc99656,CDV,true,true,Belgium,be,604371212959441,CD&V Oost-Vlaanderen,Facebook
+54b6de67-3a2b-4c7a-9c9f-78c646bc1371,CD&V Beveren,2023-02-27T10:51:39.505Z,75c90e2a-5526-4666-98bd-d8f82a23bff8,CDV,true,true,Belgium,be,506229622764069,CD&V Beveren,Facebook
+5ba4dc60-c2a6-40e8-a782-450529cb90b0,CD&V Genk,2023-07-10T06:49:42.535Z,ad7f9a72-fabd-4d24-a3a5-41f2690e3a48,CDV,true,true,Belgium,be,299555693572290,CD&V Genk,Facebook
+5d439164-b464-499b-889e-808f8b2b87e0,CD&VPlus Blankenberge - Uitkerke,2023-08-03T05:06:04.217Z,cbf87b4b-a94e-475b-8f9d-251f4b458b6e,CDV,true,true,Belgium,be,1419238388313717,CD&VPlus Blankenberge - Uitkerke,Facebook
+60cffa9c-8778-4296-aea8-a7f947559700,CD&V Torhout,2023-09-08T05:05:33.042Z,045d0426-387d-41b7-a7ab-f2f47aa7839d,CDV,true,true,Belgium,be,1061352197257593,CD&V Torhout,Facebook
+62b4585c-0bf2-42e5-90a7-00563dd23755,CD&V Ronse,2023-03-08T15:28:27.756Z,dbe43b71-1efe-422c-b9a4-2d9b4047d462,CDV,true,true,Belgium,be,433222720110101,CD&V Ronse,Facebook
+65d89fe9-dc59-4758-84c6-0557746dcf73,CD&V Buggenhout,2023-03-08T17:10:32.904Z,4558b6dd-54f7-494e-89fc-19e95c9eaf53,CDV,true,true,Belgium,be,273324452732220,CD&V Buggenhout,Facebook
+687bf6f7-eb40-48c7-8d7a-4025b4ed7158,Tom Vandenkendelaere,2023-03-27T10:51:41.496Z,a284466f-b9f9-4432-8392-9bb663ebdee7,CDV,true,true,Belgium,be,676737302477960,Tom Vandenkendelaere,Facebook
+68cbbed9-fc98-45ea-b201-a5ae721a58e6,Jo Brouns,2023-02-07T15:05:55.668Z,0c1029b5-901a-4b4c-9dcf-8653560936d4,CDV,true,true,Belgium,be,583742175322666,Jo Brouns,Facebook
+6984b6df-1e79-4859-b39c-80b36d638131,CD&V Wevelgem,2023-03-19T10:51:26.784Z,fb73a90a-fbd4-4064-89c3-36edd031bc47,CDV,true,true,Belgium,be,147295085675565,CD&V Wevelgem,Facebook
+6a2af05c-8b7b-4ffb-9ef8-3f54ff11d753,Christen-Democratisch en Vlaams,2022-08-16T15:24:28.665Z,051b0fc8-c8e9-498f-8277-6e446b138ac7,CDV,true,true,Belgium,be,52997544531,Christen-Democratisch en Vlaams,Facebook
+6d387033-79e0-413b-98db-79dd320b6b00,Cdenv Sint Pieters Leeuw,2023-03-08T17:10:33.102Z,2eed3c8d-decb-4802-ac23-7a6f45d1c6ce,CDV,true,true,Belgium,be,871825949575578,Cdenv Sint Pieters Leeuw,Facebook
+6f06fb7b-e507-465e-8531-65b0fcea30f5,Thomas Vints,2023-02-07T15:05:56.626Z,a817d48d-4221-4364-a6a8-3594942f186d,CDV,true,true,Belgium,be,505900563118265,Thomas Vints,Facebook
+6f2abb1f-2467-4911-bb0b-4b637458ae92,cd&v Brussel,2023-06-07T06:51:18.102Z,76090967-d92e-4336-8147-1257905b1c36,CDV,true,true,Belgium,be,650865328369779,cd&v Brussel,Facebook
+7108c1f5-0f5c-40b4-a723-41b3014cc06d,Team Geraardsbergen,2023-10-03T05:05:22.828Z,0fdbbb7a-cecd-46c4-9ec5-cedb03178ece,CDV,true,true,Belgium,be,115562794896404,Team Geraardsbergen,Facebook
+71e80ff8-2382-4228-89b0-0390f12eba62,CD&V Lubbeek,2023-03-08T17:52:37.306Z,7e28fa9e-eef7-4630-8b82-6e89e0ab40f5,CDV,true,true,Belgium,be,345156382212555,CD&V Lubbeek,Facebook
+74832603-07c4-4ea6-8246-fcb9621952fe,CD&V Kortessem,2023-02-07T15:05:56.720Z,1d1f3753-c85b-4d0d-8ef1-f60c5e1ee456,CDV,true,true,Belgium,be,394092547382002,CD&V Kortessem,Facebook
+770f3a40-95ea-44c3-a173-f8055f0ca3b5,CD&V Waregem,2023-09-06T05:05:26.773Z,9f949fd0-4bd2-4cba-b321-016c0c85acfc,CDV,true,true,Belgium,be,430988037304711,CD&V Waregem,Facebook
+7c4077e6-4b5d-450f-9335-ef74405035d1,Brecht Warnez,2023-02-07T15:05:55.799Z,6deabbba-e798-49f3-abe5-8c0646845579,CDV,true,true,Belgium,be,998887823550443,Brecht Warnez,Facebook
+7e8c31b5-743b-4cda-97bb-059688992377,Els Van Hoof,2023-08-16T05:06:04.553Z,9d15da95-82f1-4a45-80dc-0927d049d6fa,CDV,true,true,Belgium,be,315278555648437,Els Van Hoof,Facebook
+80df769e-afc5-4f21-ba9f-7f2f4e0f0551,CD&V Aalst,2023-05-23T06:51:27.582Z,dc25443e-02a9-4def-ba31-84533fca3dd9,CDV,true,true,Belgium,be,444241855722052,CD&V Aalst,Facebook
+82a58754-380c-4d25-9101-145450107db0,CD&V Maaseik,2023-03-20T10:51:26.711Z,42a32385-3502-44b8-b2fc-655ac7ffbdbc,CDV,true,true,Belgium,be,1244516975570041,CD&V Maaseik,Facebook
+87da50e2-bcf2-4d32-ac94-3a102ea96f37,CD&V Tienen,2023-05-05T06:51:17.400Z,4b800b93-a268-4305-9088-db3dc880922b,CDV,true,true,Belgium,be,271386519684985,CD&V Tienen,Facebook
+88cf20f5-7366-4720-891f-4ad500ccd775,CD&V Wetteren,2023-02-20T10:51:39.218Z,269e3fb8-7838-44f6-a350-999dab3c418d,CDV,true,true,Belgium,be,1230227683712552,CD&V Wetteren,Facebook
+91f86090-0baa-40aa-bf4a-d8cbe39fda63,CD&V+ Oudenburg,2023-06-27T06:55:37.207Z,69cd25c9-2090-41b5-b5f0-9b0a71795c3d,CDV,true,true,Belgium,be,663458100333434,CD&V+ Oudenburg,Facebook
+9520f67a-fae4-413a-b520-3c7106173959,Dominic Tholen. CD&V Zonhoven,2023-04-17T08:17:40.683Z,f09e517e-e3a8-4a21-b330-761ca69ff194,CDV,true,true,Belgium,be,449347242139552,Dominic Tholen. CD&V Zonhoven,Facebook
+9564f1b3-d35f-4c48-964b-10d43d9d6bbe,CD&V Limburg,2023-02-15T10:51:28.898Z,f31d8356-05c1-423a-8c1c-f3bc68746af2,CDV,true,true,Belgium,be,495564387205601,CD&V Limburg,Facebook
+97c26212-b5ea-4ef4-bc13-1c4d27a31ca2,Cdenv Riemst,2023-08-07T05:06:29.579Z,6012108f-3a10-4ab7-b151-a5a8e2f44d46,CDV,true,true,Belgium,be,968371546547238,Cdenv Riemst,Facebook
+98b8d074-42d0-48e3-8229-cb812ac72eae,CD&V Halen,2023-03-08T15:18:53.272Z,b64d527a-5203-4d86-be86-a9a53a74524d,CDV,true,true,Belgium,be,1601194410163114,CD&V Halen,Facebook
+9baf719e-b198-42fc-adb3-005fa0583fd3,Margot Desmet,2023-09-13T05:05:16.861Z,a4e31c9f-8f48-41cc-a16f-ecb1ca3754a3,CDV,true,true,Belgium,be,253943212160826,Margot Desmet,Facebook
+9c6ae12e-d396-4293-9ed7-d5092c242be5,CD&V Dendermonde,2023-09-09T05:05:27.840Z,bbff8619-b112-47b9-b076-87162705248e,CDV,true,true,Belgium,be,2116022961998656,CD&V Dendermonde,Facebook
+a4ef120c-9ff4-4ced-a447-6e97d6c9a69c,Benjamin Vandorpe gemeenteraadslid,2023-09-17T05:05:21.459Z,375b2085-dab8-4e83-95f4-4bd0b8d1ed13,CDV,true,true,Belgium,be,2185578008125333,Benjamin Vandorpe gemeenteraadslid,Facebook
+a5e30738-01b8-4d1d-9c07-e4620f64127f,cd&v Poperinge,2023-03-28T10:51:32.431Z,7a82a6ea-d980-4953-8c58-bbe5eb9eb446,CDV,true,true,Belgium,be,307812402752406,cd&v Poperinge,Facebook
+aed5b031-2584-44f9-852c-b775795f3160,CD&V Heist o/d Berg,2023-02-28T10:51:44.238Z,d216ef62-9911-4e97-bd9f-b8f89cd2e3a4,CDV,true,true,Belgium,be,207886086332140,CD&V Heist o/d Berg,Facebook
+affb763b-056a-4629-8978-32014d975931,Bart Dochy,2023-05-13T06:51:30.238Z,a9b5a79f-4675-43b9-873a-6bf759d16d26,CDV,true,true,Belgium,be,187298941910854,Bart Dochy,Facebook
+b4f55a22-9532-4e38-bac5-dbe595b55bee,CD&V Wielsbeke,2023-02-07T15:05:56.921Z,016f6c89-f1df-4b20-8d04-0d6591681966,CDV,true,true,Belgium,be,126129940761150,CD&V Wielsbeke,Facebook
+b5b65621-42f0-4857-9ccb-02ba6ea91ff6,Karl Lauwers,2023-03-17T10:51:46.095Z,de79aa2e-8adc-4bba-b3c7-aded2e7e5527,CDV,true,true,Belgium,be,237709603536149,Karl Lauwers,Facebook
+bdf623c8-81cb-4c5d-a5b6-09442fb084a8,Sammy Mahdi,2023-02-07T15:05:55.810Z,5f25e216-bf11-46c8-bf23-36125de69157,CDV,true,true,Belgium,be,1947077568914353,Sammy Mahdi,Facebook
+c7235734-77c8-4262-8019-57d03be5ff8a,Vera Jans,2023-02-07T15:05:56.664Z,0f4aec19-b9ef-413a-bcfa-b15661313f99,CDV,true,true,Belgium,be,105636332067896,Vera Jans,Facebook
+c851439f-4c23-4b23-86d4-3b05105ce055,CD&V Hasselt,2023-06-27T06:55:37.269Z,1e8ae2e0-3bc2-433a-89c7-3390a203c4bd,CDV,true,true,Belgium,be,225170100929346,CD&V Hasselt,Facebook
+d49a5604-be0f-4bf1-901c-1e6d194580a7,JONG CD&V Herentals,2023-03-08T14:39:31.279Z,3b870522-c2e9-4f90-823a-c8cdb71c0337,CDV,true,true,Belgium,be,101399405063513,JONG CD&V Herentals,Facebook
+e4d5e990-ebb3-48f6-b42b-0214a7a693b0,CD&V Gent,2023-06-30T05:06:10.457Z,8b98c79f-ea87-4d75-89db-0eef75786954,CDV,true,true,Belgium,be,356457127803897,CD&V Gent,Facebook
+e58f5ad3-eb92-4d13-9f97-0b5a2033666a,CD&V Laakdal,2023-02-07T15:05:56.711Z,677750d4-caee-4fb8-a178-ec61ca72e935,CDV,true,true,Belgium,be,910441742347121,CD&V Laakdal,Facebook
+e898de79-5790-4d1f-88a2-3a323f9604ee,CD&V Izegem,2023-03-21T10:51:19.550Z,459e403d-6417-4e43-9724-76e8c22cacea,CDV,true,true,Belgium,be,214309558599122,CD&V Izegem,Facebook
+eeb4db9b-ecbb-407d-a910-cbfb2cdb7019,Brugse cd&v,2023-07-11T06:05:57.880Z,80ebd9c2-6309-4375-8302-fccba01cd2b4,CDV,true,true,Belgium,be,124926687526811,Brugse cd&v,Facebook
+f05eb569-9d30-46bd-b87d-a5bb04731859,CD&V Roeselare,2023-08-19T05:06:18.787Z,b2685550-2255-49fc-aa31-624ba4b27fe6,CDV,true,true,Belgium,be,225983864251033,CD&V Roeselare,Facebook
+f41a7cdc-d731-4bdb-8f80-e418ec31d8d3,CD&V Sint-Niklaas,2023-02-19T10:51:52.458Z,c31646bc-4fcd-4842-ad7b-f9f0cced744c,CDV,true,true,Belgium,be,260711457326124,CD&V Sint-Niklaas,Facebook
+f4580261-804c-475d-8c34-6eb50834c343,Cd&v Zonnebeke,2023-03-08T14:49:21.016Z,79add3db-252a-410c-a446-583eed35e0b0,CDV,true,true,Belgium,be,618435361699487,Cd&v Zonnebeke,Facebook
+fbfc9901-e54e-4349-9604-57b902887190,CD&V Fractie Vlaams-Brabant,2023-09-24T05:05:35.219Z,b4cbb436-f5b4-401f-a03d-4b0d42a48038,CDV,true,true,Belgium,be,2273319266226651,CD&V Fractie Vlaams-Brabant,Facebook
+022de52a-7a3a-4667-a83c-ca5ae5d571e3,MR Sprimont,2023-04-27T06:51:26.050Z,97a39e08-d5fb-4557-97ac-646801f7d519,MR,true,true,Belgium,be,614670408634470,MR Sprimont,Facebook
+104a194d-2ce4-4f9a-a987-f7a7473dc50b,MR Brabant wallon,2023-03-08T16:18:36.372Z,df4f1df7-ccd2-4dba-b8ad-2d8b6b9e7dea,MR,true,true,Belgium,be,287134971346679,MR Brabant wallon,Facebook
+27bc1286-90cd-4a77-a653-aa2e310ef7fc,Anthony Smets D’Alelio,2023-02-25T10:51:42.291Z,c44e5026-ddff-4b93-9e76-c75ba4faf017,MR,true,true,Belgium,be,112477238234304,Anthony Smets D’Alelio,Facebook
+2d5bd092-be6f-4c77-b179-e2e8ab1ccf06,Georges-Louis Bouchez,2023-02-07T15:05:55.716Z,81273f26-4023-46e9-afb3-665bc22cebbc,MR,true,true,Belgium,be,341174129258800,Georges-Louis Bouchez,Facebook
+2dcb76eb-b4f1-439b-b43b-9d12c6525471,Jeunes MR / Open MR Berchem-Sainte-Agathe,2023-02-17T10:51:27.754Z,3d1485ea-d660-41f6-bc7b-afb6630b251f,MR,true,true,Belgium,be,1465974833694979,Jeunes MR / Open MR Berchem-Sainte-Agathe,Facebook
+2f66712f-f223-48e4-87a9-ce98df0ce6d9,MR Bruxelles,2023-03-07T10:51:34.983Z,e4cca8a1-cb46-4639-beca-0cd0e7a1b1ca,MR,true,true,Belgium,be,249473338453614,MR Bruxelles,Facebook
+368c37e2-2809-4414-b268-c3c5cabd99d5,Jeunes MR du Brabant Wallon,2023-08-25T05:05:15.481Z,c60ecf84-cf04-4e0f-a921-7e1afe20c629,MR,true,true,Belgium,be,392814957480081,Jeunes MR du Brabant Wallon,Facebook
+42936af8-77f2-41aa-bc34-fe22c23bfc35,MR Ville BXL,2023-06-13T06:51:34.533Z,ee0f041f-1179-41c7-b184-c3dca8c023d0,MR,true,true,Belgium,be,165598653467979,MR Ville BXL,Facebook
+4a63401d-07dd-43b5-8bad-ba658409ed5e,Mathieu Michel,2023-02-07T15:05:55.815Z,e5b53dd0-d718-4d8c-8c4b-7ee669c38b5c,MR,true,true,Belgium,be,103434371544296,Mathieu Michel,Facebook
+6e58869a-c725-494d-8027-510937c3a040,Geoffrey Van Hecke,2023-02-28T10:51:44.239Z,603f1450-7bfa-44f0-aca6-812780306486,MR,true,true,Belgium,be,1757220271074342,Geoffrey Van Hecke,Facebook
+6f80e213-2f08-4d30-97f7-a4b570182c98,Aurelie Czekalski,2023-02-07T15:05:55.837Z,99f0d2a1-ff44-4e17-a1c0-50ad12f0cb38,MR,true,true,Belgium,be,572079523148892,Aurelie Czekalski,Facebook
+77a602f1-c3f7-4b89-8518-7f2b132a5cdd,Jeunes MR,2023-02-08T05:54:34.636Z,6afab395-c63f-4fed-a75d-66105d5bf3ee,MR,true,true,Belgium,be,155785394464556,Jeunes MR,Facebook
+7870dfcf-f9fa-4bff-9412-b9915e8e8457,Denis Ducarme,2023-02-09T06:26:05.890Z,97dbda91-22e7-466e-827c-7231aa1f7447,MR,true,true,Belgium,be,367577357909,Denis Ducarme,Facebook
+7fe3f63e-8897-4160-b8c3-35c9b3da4603,Jeunes MR Ville BXL,2023-05-12T06:51:28.122Z,433fa203-f31c-463d-992e-477a68413f0f,MR,true,true,Belgium,be,446045598895929,Jeunes MR Ville BXL,Facebook
+88ce8ee3-578a-4058-b4ad-6c9d49c507b1,Marc Castel MR Mouscron Renouveau,2023-04-16T15:03:44.999Z,fbd34114-e4c4-410e-b417-b64e6311097a,MR,true,true,Belgium,be,115786048149096,Marc Castel MR Mouscron Renouveau,Facebook
+8d626f35-2713-4417-9293-173b6c116219,MR Braine-l'Alleud,2023-03-08T14:39:31.298Z,a3e9ee90-fdc5-4724-a7e2-72965b1bf22b,MR,true,true,Belgium,be,113379202062538,MR Braine-l'Alleud,Facebook
+929fc257-e21a-4b8b-9442-521b8fae7e73,Clémentine Barzin,2023-02-07T15:05:55.801Z,7381b7db-582e-4ae2-a121-6433fbe5a2de,MR,true,true,Belgium,be,175743819727736,Clémentine Barzin,Facebook
+936cc639-43fc-4e7a-816c-94d2e45d7977,Mouvement Réformateur,2022-08-16T15:24:28.715Z,2b1bd9a7-0133-48f4-bffe-7beabaa27513,MR,true,true,Belgium,be,236330169511,Mouvement Réformateur,Facebook
+97fb2b24-25a7-4086-b28f-5327c53c313b,Louis Rifaut,2023-02-07T15:05:56.879Z,66308100-89d5-4bf8-b6c7-3d4131550c59,MR,true,true,Belgium,be,518660798584987,Louis Rifaut,Facebook
+a08d8dc0-412a-4681-8d33-8f2b8818558b,MR Marche,2023-03-08T15:38:16.217Z,86b1b638-c2e7-46ef-9d10-60f2a5dd5a5a,MR,true,true,Belgium,be,116981425151908,MR Marche,Facebook
+bc6e1788-a363-48cc-8e95-a98899308450,Anne-Charlotte d'Ursel,2023-02-07T15:05:55.907Z,cb57dc62-f446-49ef-863f-eab56bbb918f,MR,true,true,Belgium,be,101649348369099,Anne-Charlotte d'Ursel,Facebook
+c98bcdeb-3b3e-4371-be09-3bc83f6cc990,MR Schaerbeek,2023-03-19T10:51:27.085Z,d2dfb91b-636f-4eb5-9893-24103ab0334b,MR,true,true,Belgium,be,969571503073539,MR Schaerbeek,Facebook
+d21c7faa-f74b-4fe2-92a3-f38762f58451,MR Namur,2023-09-24T05:05:35.244Z,d6fc13e8-0cc2-49c6-b125-9c9986e1d088,MR,true,true,Belgium,be,1630391097209078,MR Namur,Facebook
+d8a3c926-6fd2-45c9-b599-6bd5ec9e9775,MR Sénat,2023-03-20T10:51:26.653Z,b7116444-3d54-4feb-ab08-e63b1ab3df64,MR,true,true,Belgium,be,320596994646781,MR Sénat,Facebook
+d9e0093d-9c5b-4a10-8c70-4f9f41311470,Jeunes MR de la Province de Liège,2023-06-23T05:15:17.785Z,c20a89a1-5673-4862-a649-24f43aa62ebc,MR,true,true,Belgium,be,102891941193842,Jeunes MR de la Province de Liège,Facebook
+fbb40df4-b801-4a0d-adc0-62d29d69f100,MR Orne-Thyle,2023-05-09T06:51:24.142Z,f813a974-87e5-49f8-a084-54502382acf0,MR,true,true,Belgium,be,101610772916555,MR Orne-Thyle,Facebook
+ffd1c055-5e65-44a0-aeb8-babc97c196b9,MR Mouscron Renouveau,2023-04-12T10:51:06.646Z,3cbb71b4-6e1d-4a7b-8eeb-2cd493c32833,MR,true,true,Belgium,be,101799198142505,MR Mouscron Renouveau,Facebook
+0043c14e-c5e6-4bc3-ab3d-aba69ca449b4,Groen Ronse,2023-09-22T04:11:51.019Z,25afca1a-e5cb-4dc9-b951-0fc973e39994,GRO,true,true,Belgium,be,472008732984124,Groen Ronse,Facebook
+081cb3f5-0d17-4274-9cbe-15baf6b505fa,Groen Pajottenland,2023-10-21T05:06:06.909Z,cbeadcda-73e6-4f0e-9390-37ba78a40960,GRO,true,true,Belgium,be,1885286311486258,Groen Pajottenland,Facebook
+0a00166b-66d4-495d-add1-49eb32d5cd7d,Groen Halle,2023-06-23T05:15:17.612Z,6d0c38b1-d20d-45af-8804-7763c6924d22,GRO,true,true,Belgium,be,346595832081424,Groen Halle,Facebook
+0abb790f-a92b-471e-8674-a78da69c01f7,Fourat Ben Chikha,2023-05-14T06:51:25.545Z,7623e631-2b57-4036-908a-cd0a31b47a2b,GRO,true,true,Belgium,be,100182262524998,Fourat Ben Chikha,Facebook
+0c4bd9bd-372e-41ea-b32d-6a84dd2a8f7e,Groen Lokeren & Moerbeke,2023-10-08T05:05:50.808Z,1f3b000c-b065-479b-a2cb-44c282224260,GRO,true,true,Belgium,be,1484388421876493,Groen Lokeren & Moerbeke,Facebook
+119da151-5031-4097-9a07-be7f705e4ab0,Groen Lede,2023-03-24T10:51:38.940Z,e2d3362d-c21d-47f6-8bd5-77d983444e0e,GRO,true,true,Belgium,be,306179206096965,Groen Lede,Facebook
+14c9ed15-f75a-4683-8576-e77422a3079e,Groen Brussel,2023-02-08T05:54:34.726Z,1aeb5d32-c74e-436c-9d46-4fd77b55ef7e,GRO,true,true,Belgium,be,144986545155,Groen Brussel,Facebook
+169d2f0c-88d6-41f5-9e4c-1fa26488a4c6,Evita Willaert,2023-03-08T18:03:51.130Z,3902d054-6f3a-49f0-a324-00bdb64f5841,GRO,true,true,Belgium,be,100901611358264,Evita Willaert,Facebook
+1a176a84-c6bd-4318-b620-e9f021e33934,Groen Duffel,2023-02-08T05:54:34.991Z,12abf209-8389-41e5-b86f-a40420e0d691,GRO,true,true,Belgium,be,311379702280746,Groen Duffel,Facebook
+1ce34318-92c8-4ccc-b17e-f80f73f30833,Groen Alken,2023-03-08T17:20:54.532Z,12a5b880-dc91-4828-a509-d7008bd8ccc3,GRO,true,true,Belgium,be,288482777839963,Groen Alken,Facebook
+1e66c12b-a04e-48a7-9328-ddcee2e46802,Groen,2022-08-16T15:24:28.702Z,25ebb549-9819-4338-9b53-85eb7b6e4d15,GRO,true,true,Belgium,be,84920854319,Groen,Facebook
+2332a1ee-2e8d-4ce2-be12-755b08eb4804,Wouter De Vriendt,2023-04-30T06:51:07.067Z,2bbe2ac0-249c-4958-8ba0-31d0f1c6123a,GRO,true,true,Belgium,be,2148775248546904,Wouter De Vriendt,Facebook
+2b4eb61f-d735-4b35-bdfa-c7ee385a8457,Groen Antwerpen,2023-02-27T10:51:39.003Z,bf6bf2dd-56ff-4ae3-ba0a-7e4904857968,GRO,true,true,Belgium,be,189169954496226,Groen Antwerpen,Facebook
+325ddf4d-c1e4-4e89-8e42-7711e816b77c,Mieke Schauvliege,2023-04-22T06:01:53.653Z,1d2affbe-b825-46cc-9aac-e70da54b01ea,GRO,true,true,Belgium,be,580909235603988,Mieke Schauvliege,Facebook
+326b80f5-9959-4d34-b413-e2a6a2868cad,Groen Kortenberg,2023-04-22T06:01:53.760Z,22f23938-8dfd-4da5-be81-d8dcd713b9ae,GRO,true,true,Belgium,be,83001720087,Groen Kortenberg,Facebook
+3275d85c-64d8-47ca-bf8e-03fdeb3bd71e,Jeremie Vaneeckhout,2023-02-07T15:05:55.641Z,ae9e86d8-d5e9-4acf-8a4d-b178577ac105,GRO,true,true,Belgium,be,1373626132778895,Jeremie Vaneeckhout,Facebook
+3290873b-fcf8-4ce6-9308-66a49532d90f,GroenPlus,2023-02-07T15:05:56.849Z,8e68197a-1003-4de8-96c7-ebe2586dd99e,GRO,true,true,Belgium,be,130349730380,GroenPlus,Facebook
+3944ddc5-ec6a-4bf5-ac27-39ea4ce55a52,GroenPlus Limburg,2023-03-07T10:51:35.322Z,fdc6a38a-3b18-4bdc-a22c-de8db57bd7fb,GRO,true,true,Belgium,be,596498330504863,GroenPlus Limburg,Facebook
+3b72ab4a-1d7a-4c22-96f1-9aff8cfb33c9,Groen Kortrijk,2023-03-08T18:35:40.890Z,2af3238e-84e5-4fdc-9d4a-6953df9706d8,GRO,true,true,Belgium,be,132080716908256,Groen Kortrijk,Facebook
+3d3e2c54-08d3-4211-a46a-305f46ac1e4b,Centrum Duurzaam Groen,2023-05-12T06:51:28.326Z,96dc1517-e9f1-4efa-a9f1-2fcb5b7064ce,GRO,true,true,Belgium,be,231574033670978,Centrum Duurzaam Groen,Facebook
+3fe1d9c1-2847-4fcd-a887-12b43a788c11,Elke Van den Brandt,2023-04-04T10:51:39.039Z,53b7f870-ac54-40c6-a580-630e36558123,GRO,true,true,Belgium,be,103670281004702,Elke Van den Brandt,Facebook
+3fe25751-304a-4434-bbf9-e0ecd264412b,Groen Beringen,2023-03-08T18:03:51.110Z,55a09d9f-fec5-4903-a884-412f13ba5666,GRO,true,true,Belgium,be,301987393213958,Groen Beringen,Facebook
+42a365d2-2dd0-45fa-a71e-71afed06e528,Groen Waregem,2023-10-08T05:05:50.788Z,be79b2c4-9ef7-455d-8f69-8cfca4f375c7,GRO,true,true,Belgium,be,324514444311146,Groen Waregem,Facebook
+4ab6716f-5fa3-4308-8212-130f2202e230,Stijn Bex,2023-03-08T19:29:04.989Z,315c2128-0af2-4e3b-a957-bcdac6590eff,GRO,true,true,Belgium,be,110887440305963,Stijn Bex,Facebook
+4b9038d3-49e5-49e0-889a-87307b124072,Meyrem Almaci,2023-05-14T06:51:25.580Z,5f45986e-94bc-437e-909f-ee14e0cea357,GRO,true,true,Belgium,be,1943402032590802,Meyrem Almaci,Facebook
+4c8ce2ef-0835-49f5-bc54-208564044934,Groen Asse,2023-03-08T14:39:31.339Z,a88065fb-0e20-4a45-a4b4-22d89c3813fa,GRO,true,true,Belgium,be,452579224871241,Groen Asse,Facebook
+4d49d361-312d-4173-a72b-820d56841801,Groen Heist-op-den-Berg,2023-02-21T10:51:34.763Z,779f5241-eef9-4aa9-ad32-8876305b8574,GRO,true,true,Belgium,be,339534859473119,Groen Heist-op-den-Berg,Facebook
+4ea95b94-2bc9-4b3a-8a08-6a3e59bb72a2,GROEN Jabbeke,2023-04-13T10:51:27.901Z,0bb1aae0-50d1-4e41-beb8-1059424af094,GRO,true,true,Belgium,be,1533367223354836,GROEN Jabbeke,Facebook
+4eff005e-b9c6-439e-aaf3-8029c4c4491b,Staf Aerts,2023-02-08T05:54:34.553Z,3c6b2684-62f8-4dec-9f18-d8cdc9a58cf5,GRO,true,true,Belgium,be,2481762051886842,Staf Aerts,Facebook
+503d4aa1-f1f7-415b-b732-5b8525bd371a,Groen+ Tervuren,2023-09-04T05:05:27.857Z,f3d334f8-b588-4475-b5b8-e0ff3d28724c,GRO,true,true,Belgium,be,232700896835752,Groen+ Tervuren,Facebook
+546e6804-a56d-4102-b4f4-010cb835857a,Sara Matthieu,2023-02-07T15:05:55.776Z,6764b571-48c6-43ff-9c1d-bbb821b7408c,GRO,true,true,Belgium,be,111213851043035,Sara Matthieu,Facebook
+56523d33-bb69-4137-acb8-95723a8ab8b0,Groen Haacht,2023-03-04T10:51:43.777Z,7869cf09-5b9f-428d-93ad-032b2ca5862d,GRO,true,true,Belgium,be,201043033241910,Groen Haacht,Facebook
+568c9c93-db69-4ecc-90fc-ad9814b477e6,Groen Bornem,2023-02-10T10:51:44.645Z,0294f286-71e7-46fb-96d5-9de9cd0c23dc,GRO,true,true,Belgium,be,309047425798648,Groen Bornem,Facebook
+5983ace0-bad0-446c-9f60-cedd15c3508c,Petra De Sutter,2023-02-07T15:05:55.594Z,f100b33f-f7d2-4b06-8d47-19f9d41eb536,GRO,true,true,Belgium,be,372776579930604,Petra De Sutter,Facebook
+5b38d42d-dd60-4bac-8c09-332aee237a44,Groen Mechelen,2023-05-27T06:51:24.405Z,730c2169-89ba-4343-9511-606ab4f48db0,GRO,true,true,Belgium,be,271920120222,Groen Mechelen,Facebook
+5d39efc7-5758-4237-900f-77518f0537ca,Stefaan Van Hecke,2023-02-07T15:05:56.963Z,abcbb559-98b9-4d5c-a466-0b8c35435daf,GRO,true,true,Belgium,be,105089891184089,Stefaan Van Hecke,Facebook
+5de52931-4d39-48c3-a38b-de3aa0014546,Benoit Hellings,2023-02-07T15:05:55.923Z,4ce9ef7b-1cb8-481d-9791-331a474f246c,GRO,true,true,Belgium,be,104408037854162,Benoit Hellings,Facebook
+60f71c05-78b9-4c72-b23c-9c40e9059688,Groen Melle,2023-02-11T10:51:23.928Z,1581489c-3de6-4a9f-95bf-cfc8247ced2b,GRO,true,true,Belgium,be,223275334353783,Groen Melle,Facebook
+619dbd88-18fe-4513-9b9b-a3b749b19cbb,Groen Turnhout,2023-03-08T16:18:36.398Z,ca63f891-e34e-4926-bac7-1e6662ad7949,GRO,true,true,Belgium,be,207080699171,Groen Turnhout,Facebook
+64176a54-b2d6-4dbf-a721-02ecceb1f71f,Groen Tielt,2023-02-25T10:51:42.333Z,3bf60d1a-6b83-45d6-98ac-e1f1573708fc,GRO,true,true,Belgium,be,154377651362057,Groen Tielt,Facebook
+67511573-b579-427e-93cb-9871be6a4eb5,Groen Bilzen,2023-02-07T15:05:55.871Z,da012dc1-c37a-491e-a4b6-aa61d7928efc,GRO,true,true,Belgium,be,772078416239307,Groen Bilzen,Facebook
+77f0b121-07c0-46d2-b272-679c8de28025,Groen Tongeren,2023-08-13T05:06:29.313Z,d3067b6a-a81e-4f2c-9fb7-15c15b9239fe,GRO,true,true,Belgium,be,283140135089291,Groen Tongeren,Facebook
+7bb50cf4-6248-4798-bc3c-f8a5339ae3a9,Groen Edegem,2023-02-22T10:51:49.770Z,bcb805d0-1a1a-48de-8823-8c43a291acd9,GRO,true,true,Belgium,be,132812442651,Groen Edegem,Facebook
+7c7238c1-1e04-429f-83df-f3c871f49be8,Kristof Calvo,2023-02-07T15:05:56.847Z,54c48252-7b54-41e8-9b35-2b528510cf2d,GRO,true,true,Belgium,be,345099982367937,Kristof Calvo,Facebook
+807d1c1c-6cef-4c5b-95f9-ba6471d86077,Groen Sint-Gillis-Waas,2023-03-08T10:51:40.726Z,c2e98551-f7da-4496-b83c-bf9dd5bc485c,GRO,true,true,Belgium,be,932872670066965,Groen Sint-Gillis-Waas,Facebook
+86064fc1-a764-4719-bddc-bca0e9004485,Groen West-Vlaanderen,2023-03-08T18:56:59.468Z,c4dd8280-2d99-4c57-8296-31ad8bf34ec8,GRO,true,true,Belgium,be,1421739791462833,Groen West-Vlaanderen,Facebook
+8acb2d12-17de-4a56-a684-7a375ce4266e,Groen Torhout,2023-10-08T05:05:50.850Z,a61e3aa0-a69e-4b8e-a4ed-92d1d04b5f35,GRO,true,true,Belgium,be,525142024235381,Groen Torhout,Facebook
+914116a5-b839-4649-9c73-25837f056466,Groen Sint-Pieters-Leeuw,2023-04-09T10:51:35.567Z,08b33bf1-a3ca-45ad-b418-a5929db41aea,GRO,true,true,Belgium,be,242055236220123,Groen Sint-Pieters-Leeuw,Facebook
+95f8fab9-ec05-40f9-8fef-0d8478553e83,Groen Eeklo,2023-03-08T18:56:59.368Z,75a07d42-5d97-4b01-8f15-a29bd7d554be,GRO,true,true,Belgium,be,117814391580050,Groen Eeklo,Facebook
+9e29f6cc-3a94-494e-b005-a732e8afc08e,Nadia Naji,2023-02-07T15:05:55.653Z,826b3e6f-7557-4878-b831-ff21340996c6,GRO,true,true,Belgium,be,107781141962077,Nadia Naji,Facebook
+a2216cd7-8b5d-4b2b-a904-7b92bdc54e13,Groen Destelbergen - Heusden,2023-09-23T05:05:30.398Z,c60f5f3e-8b66-4792-94de-e47a33bd39d1,GRO,true,true,Belgium,be,479342395582530,Groen Destelbergen - Heusden,Facebook
+a8760640-fef2-46f5-be77-9f4eface512b,Groen Aalst,2023-04-25T06:51:13.537Z,a15a677c-5723-4eb2-8689-c8cd077e2c5c,GRO,true,true,Belgium,be,405702556152026,Groen Aalst,Facebook
+a997fb70-7322-49a6-a2e8-993fc993cd4c,Groen Mortsel,2023-02-13T10:51:47.956Z,eb9f232d-bf15-40f7-9006-0bd5f8b7fd28,GRO,true,true,Belgium,be,169133963220150,Groen Mortsel,Facebook
+c2cddda0-5136-465a-8594-2dcbaf225a40,Groen Borgerhout,2023-02-07T15:05:56.637Z,09aee7c4-8d8b-400e-8d5c-910583dde067,GRO,true,true,Belgium,be,199155710190195,Groen Borgerhout,Facebook
+c4a7c0e2-cfc1-4a86-94fd-861a3101a338,Kim Buyst,2023-02-07T15:05:56.874Z,5f3d02a6-8129-4bf6-8513-1641c2f677ec,GRO,true,true,Belgium,be,114469963314412,Kim Buyst,Facebook
+c57112cf-9362-4370-9419-786cccb0ae16,Tinne Van der Straeten,2023-02-07T15:05:55.765Z,21ea9cba-1173-43e0-9df1-3cbfc4210502,GRO,true,true,Belgium,be,111723720244690,Tinne Van der Straeten,Facebook
+c8ec062f-f720-48bf-9942-b12d60fb8eda,Dieter Van Besien,2023-05-27T06:51:24.579Z,ef8ca13d-6689-443c-b793-9c32b1a6e9d5,GRO,true,true,Belgium,be,292662445877890,Dieter Van Besien,Facebook
+ca263791-012d-40e1-9fd3-b1e9b4278fbd,Groen Berlaar,2023-05-07T06:51:14.356Z,ebbfb12b-e3ee-452d-a253-71b6ba6328d7,GRO,true,true,Belgium,be,679061702254548,Groen Berlaar,Facebook
+cad36b5f-6798-4cc7-b77a-f1eb09d741bb,Groen Ranst,2023-02-07T15:05:56.742Z,1c71f7c5-b058-4067-9cf9-ec4f3ab71908,GRO,true,true,Belgium,be,159346510813300,Groen Ranst,Facebook
+cc22caac-a799-4aa8-b0c4-f14a3e17b75e,Groen Genk,2023-03-18T10:51:29.236Z,2cb944fd-a6e6-4591-b1c9-1380d789b668,GRO,true,true,Belgium,be,1106112076191995,Groen Genk,Facebook
+cfaa9d60-c6eb-4c48-b6ae-e4d7a283a38b,Groen Tienen,2023-03-08T15:48:06.973Z,7f22c431-f2b6-43f8-bae9-0cd745f9b176,GRO,true,true,Belgium,be,172627916131316,Groen Tienen,Facebook
+d14e80da-89c4-4529-9708-8f44e4f9d625,Groen Hamme,2023-02-10T10:51:44.686Z,05574c23-1bc7-4673-a508-baf44b6dc42b,GRO,true,true,Belgium,be,278042498937412,Groen Hamme,Facebook
+d300a593-fe3c-48ab-9437-17764081fd25,Groen Ieper,2023-02-28T10:51:44.143Z,45d7657a-242b-4a51-a395-7a2cfdf01df6,GRO,true,true,Belgium,be,309816492449559,Groen Ieper,Facebook
+dab2de0c-b63c-44e4-ad3f-39fe4b66b4b2,Groen Sint-Niklaas,2023-03-18T10:51:29.132Z,957dacdd-0076-4970-ac8a-7fd93b80003a,GRO,true,true,Belgium,be,155881261174460,Groen Sint-Niklaas,Facebook
+e985d23a-6804-4a8f-b932-069cf226aab4,Groen Diest,2023-03-08T16:08:21.954Z,38a3369a-7ebd-4771-afd0-93993e9cbb9a,GRO,true,true,Belgium,be,208574229265120,Groen Diest,Facebook
+f20c2bfb-ebc3-484c-8fcc-4dfccab39a2e,Celia Groothedde Ledoux,2023-06-07T06:51:18.472Z,608f6da3-05a4-4cc2-a04b-906844b15de1,GRO,true,true,Belgium,be,151949808206070,Celia Groothedde Ledoux,Facebook
+f5e8b775-92ab-4f0d-ad3e-3467cd5ecd92,Groen Hechtel-Eksel,2023-03-08T14:59:22.955Z,90bd7ea7-a193-422c-a78d-f0a73d20c2c0,GRO,true,true,Belgium,be,357102811037161,Groen Hechtel-Eksel,Facebook
+f8be636e-0dc3-4d8a-89ec-3bbdd4621f37,Groen Pelt,2023-08-08T05:05:40.665Z,1489f1d4-b44a-4ce8-8b1c-ffb3f122781f,GRO,true,true,Belgium,be,434374056596106,Groen Pelt,Facebook
+f97f9a76-b4a0-4bbd-a142-e7cb1ace8bd9,Groen Gent,2023-02-07T15:05:56.375Z,f7921862-db1a-474a-8135-10e9c226c16b,GRO,true,true,Belgium,be,156982520361,Groen Gent,Facebook
+756038d4-aa2c-470b-a781-72f19602ddd9,Horizon Comines-Warneton,2023-07-21T05:06:32.917Z,162c838d-cddd-4146-8f5c-505ccd08fbca,Aut,true,true,Belgium,be,104033675564123,Horizon Comines-Warneton,Facebook
+b1db05fb-df0b-441c-97e5-365499bc4887,Vlaams Parlement,2023-02-07T15:05:55.728Z,b867ee66-d180-48ab-8e02-38b504aa2178,Aut,true,true,Belgium,be,408479362538591,Vlaams Parlement,Facebook
+be0617ea-3779-48bf-9163-25a88c94e745,Partei für Freiheit und Fortschritt,2022-08-16T15:24:28.835Z,80c748ce-8e41-46c9-b9a7-1f49d4bd96d1,Aut,true,true,Belgium,be,75534801064,Partei für Freiheit und Fortschritt,Facebook
+bf8c8db8-a54b-4808-9c3e-60d1498a7c3b,Parti du travail de Belgique,2022-08-16T15:24:28.809Z,349bf2ab-6e55-4671-b6e0-63191c211c60,Aut,true,true,Belgium,be,53838654385,Parti du travail de Belgique,Facebook
+c504150d-a405-4628-86c7-54249cbefd0f,Parti Populaire,2022-08-16T15:24:28.788Z,fb35b926-cc1f-47d1-a3a7-660d36b69528,Aut,true,true,Belgium,be,482811111771571,Parti Populaire,Facebook
+ca7346bf-c469-433a-8831-53ff0bfa3e95,Volt Belgium,2023-03-02T10:51:36.275Z,4ef15d94-5283-4cc2-84a9-0517d774533f,Aut,true,true,Belgium,be,1620310611353628,Volt Belgium,Facebook
+d1f24357-9dcf-4fa9-9feb-d65a5b377f7f,Socialistische Partij Anders,2022-08-16T15:24:28.685Z,320afb8a-9ef0-45ce-81d7-9516719c6a13,Aut,true,true,Belgium,be,57253967150,Socialistische Partij Anders,Facebook
+f55a21b1-4780-4d16-992c-d7e7bb9c1292,ProDG,2022-08-16T15:24:28.813Z,be5c30ee-bc28-4053-8512-f7620e7f788f,Aut,true,true,Belgium,be,119271231424655,ProDG,Facebook
+0308ee0e-1c4c-4bb4-ab9c-a8d52369c60f,N-VA Sint-Gillis-Waas,2023-04-09T10:51:34.577Z,0689d458-574c-463c-8df3-47011a25e53e,NVA,true,true,Belgium,be,367970566557817,N-VA Sint-Gillis-Waas,Facebook
+0372917e-3622-4fca-82b1-9d7614682394,N-VA Hoogstraten,2023-09-13T05:05:16.905Z,f47ea808-fc62-4ad3-8aab-4cd212af1d41,NVA,true,true,Belgium,be,102032849898754,N-VA Hoogstraten,Facebook
+04a0d20a-050f-4787-bf8f-0bf62e74c33c,N-VA Zedelgem,2023-06-08T06:51:32.234Z,c2aba8fb-40fe-48d6-b118-e522f54f36fd,NVA,true,true,Belgium,be,162547307128673,N-VA Zedelgem,Facebook
+0db95caa-173d-4892-917a-4ddaba09ce27,N-VA Wilrijk,2023-08-07T05:06:29.503Z,1040f2a2-8832-4bed-bcde-a91f212041d4,NVA,true,true,Belgium,be,720694961348723,N-VA Wilrijk,Facebook
+0f517fc3-8508-4247-90dd-2f36bf480663,N-VA Bierbeek,2023-04-19T06:51:26.134Z,57fbaf1a-73e2-4bba-9be9-118208d0a0d5,NVA,true,true,Belgium,be,438024846217978,N-VA Bierbeek,Facebook
+0f8d691c-1c99-4e5f-aab6-8959ed82053f,N-VA Ranst,2023-04-17T08:17:49.035Z,ead41742-ee69-499a-a076-a4b41c45caab,NVA,true,true,Belgium,be,234283406585144,N-VA Ranst,Facebook
+0fb83e2a-ae87-4e35-883a-938de7041d1a,N-VA Asse,2023-03-08T14:39:31.182Z,21fa2389-2170-48ad-813a-c604d7ee1a51,NVA,true,true,Belgium,be,205566099630305,N-VA Asse,Facebook
+10ef95f1-9361-4022-9ecb-38937ba24a2e,N-VA Eeklo,2023-07-03T06:14:22.044Z,02bffc75-c937-4a54-864c-2a3165051d63,NVA,true,true,Belgium,be,242336175887225,N-VA Eeklo,Facebook
+12afc3c1-3c8d-4db3-9c0d-f11fa8ea5ee6,Arnout Coel,2023-07-03T06:14:21.899Z,4a53386d-fadc-4c8d-a458-a1ccb85e1201,NVA,true,true,Belgium,be,100714091441300,Arnout Coel,Facebook
+13d07aa2-f39a-437b-b380-b9577f718941,Bart De Wever,2023-02-08T06:19:17.390Z,79e629a7-81b5-4a9d-85d8-5d168d9893fb,NVA,true,true,Belgium,be,24079407056,Bart De Wever,Facebook
+140f82f1-4f96-412b-a301-5a76cc8f1d3d,N-VA Hamme,2023-06-03T06:51:31.862Z,f7e96855-c7ba-4479-8182-f3d991f00015,NVA,true,true,Belgium,be,485250825018948,N-VA Hamme,Facebook
+14475426-2895-4dc2-ac47-11f117b05b98,Steven Vandeput,2023-02-07T15:05:56.801Z,ac7ad27d-93f6-48f9-b0e5-82f795779ef5,NVA,true,true,Belgium,be,983442595060481,Steven Vandeput,Facebook
+147ef0b2-331e-41e5-bcbb-18c78da3037c,N-VA Kortenberg,2023-03-08T16:49:32.800Z,56e03840-d494-4481-8144-b048e43407f2,NVA,true,true,Belgium,be,367803719903150,N-VA Kortenberg,Facebook
+1580ca7f-6148-4736-af8d-41d8b1f3e0e9,N-VA De Pinte,2023-05-14T06:51:25.574Z,ab85b6a0-096f-47f4-8cb3-9fd5d14f54b5,NVA,true,true,Belgium,be,1650195985301982,N-VA De Pinte,Facebook
+1698f99c-946d-45b6-a251-e8299f86996f,N-VA Groot Aalst,2023-02-07T15:05:55.903Z,d0063b55-ef9f-4a08-9b20-4f7cf3ebaeba,NVA,true,true,Belgium,be,274961409207861,N-VA Groot Aalst,Facebook
+1700f9c8-ada7-4771-8106-ac1dcd19c12a,Stijn Janssens,2023-03-08T14:39:31.303Z,148536d1-1a9e-47c9-9925-82aecae78db2,NVA,true,true,Belgium,be,292310480800963,Stijn Janssens,Facebook
+1a18930b-97ff-4d4b-a0d5-747f4a4e2079,Jeroen Tiebout,2023-03-01T10:51:34.824Z,a2b9a91a-d001-45ff-929e-c003c8b51a0b,NVA,true,true,Belgium,be,991297737741165,Jeroen Tiebout,Facebook
+1fe98c8d-e51f-458a-a352-098fad3c047c,N-VA Lanaken,2023-03-11T10:51:42.282Z,1f9ace6f-a8b6-4af7-ae69-77232ab8da0e,NVA,true,true,Belgium,be,126500024110082,N-VA Lanaken,Facebook
+20045207-2f7e-4704-ae90-35a72ea8dea4,N-VA Zandhoven,2023-02-07T15:05:56.434Z,70cbaad6-52a5-49a8-afea-5e702596f31d,NVA,true,true,Belgium,be,642347695866093,N-VA Zandhoven,Facebook
+202076c5-87c2-4fff-bff4-87d99621fb9d,N-VA Sint-Niklaas,2023-02-07T15:05:55.936Z,0e561734-78c1-4c25-812c-9a88d9a9286e,NVA,true,true,Belgium,be,194951997194401,N-VA Sint-Niklaas,Facebook
+20cfcd60-0fea-4b0c-856c-ee7a888daa8b,N-VA Lennik,2023-04-28T06:51:16.397Z,8f3cbc41-d3c7-497e-9789-80bb166b189a,NVA,true,true,Belgium,be,730408007032886,N-VA Lennik,Facebook
+220aad12-b1af-49c6-9265-5b14108f5a04,N-VA Oudsbergen,2023-03-09T10:51:44.910Z,9a8433c9-d738-4bcb-a1da-41a578cc0817,NVA,true,true,Belgium,be,125255587613102,N-VA Oudsbergen,Facebook
+22b409df-88f8-42c3-a66f-bb0820e1f1ed,Jan Jambon,2023-02-07T15:05:55.584Z,02b233d9-1e8f-4418-91c4-9b0633bef584,NVA,true,true,Belgium,be,60317812912,Jan Jambon,Facebook
+2930e976-a0dd-45cd-8474-76349844e204,Sander Loones,2023-03-08T14:39:30.896Z,cad62d3b-8e6a-4e96-86d7-88f791c7be8a,NVA,true,true,Belgium,be,575160279283539,Sander Loones,Facebook
+33bc1606-cafc-4db1-83de-81b3f0bfb474,N-VA Machelen Diegem,2023-02-07T15:05:56.000Z,2c1c7db8-1c11-4747-ae09-945059896cd8,NVA,true,true,Belgium,be,181122735418917,N-VA Machelen Diegem,Facebook
+33bffadd-fd9c-4752-81fd-efd5aa717dc4,Andries Gryffroy,2023-02-11T10:51:23.711Z,0fa7c4a4-068d-4aca-a7d7-ce081877bfa2,NVA,true,true,Belgium,be,277891335706685,Andries Gryffroy,Facebook
+34b3ca1f-07f2-46c7-9dc9-e08ea00d6c24,N-VA Tongeren,2023-02-16T10:51:37.103Z,a266b8cc-a351-4210-ae89-872dca43fecb,NVA,true,true,Belgium,be,152685908120740,N-VA Tongeren,Facebook
+3623ceaf-f54e-40eb-952f-be11bb25fd6a,N-VA Zele,2023-03-08T14:39:31.324Z,6b2719ec-22b7-4e2c-bca4-0777b8d66c06,NVA,true,true,Belgium,be,229668570510688,N-VA Zele,Facebook
+39136333-4986-444e-b0b6-a43ccd6e1a28,N-VA Hove,2023-03-08T14:39:31.378Z,1a62563b-9ae6-4cda-9873-59da8c2e2511,NVA,true,true,Belgium,be,1008120962543443,N-VA Hove,Facebook
+39bc88e3-a2d2-4fac-9efe-a2e5e45fbee1,N-VA Bilzen,2023-08-20T05:06:05.780Z,709b79e5-0ac2-40e3-8d8a-c37cae16888b,NVA,true,true,Belgium,be,139964386086732,N-VA Bilzen,Facebook
+3d4fc2f1-8249-45b9-b40e-c7867331d4b9,N-VA Stad Antwerpen,2023-02-07T15:05:55.669Z,ed928819-ba8e-4f2e-9e04-fb5ce2733e74,NVA,true,true,Belgium,be,379749768826697,N-VA Stad Antwerpen,Facebook
+3efc3e92-7eaf-4b8b-b3fe-9add27e19911,N-VA Aartselaar,2023-02-19T10:51:52.400Z,66a4d104-03cf-4408-8300-5829c753b65a,NVA,true,true,Belgium,be,359472364111011,N-VA Aartselaar,Facebook
+3f362b95-4e27-47dd-ab2b-dc88ad9f3f2f,N-VA Halle,2023-03-08T16:59:59.810Z,ab76d98b-4d87-4295-860e-836258951b44,NVA,true,true,Belgium,be,326946264053271,N-VA Halle,Facebook
+3f9983df-68e8-4e76-90bb-918d99cb7d90,N-VA Geel,2023-03-08T16:18:36.290Z,a273c0f9-685f-48ac-826a-cdeae01c48a9,NVA,true,true,Belgium,be,211226345601081,N-VA Geel,Facebook
+4430fdc6-a76e-4c28-b8c3-02b05ab95d4e,N-VA Mechelen,2023-02-07T15:05:55.936Z,5d35c41e-f14c-4ca4-9a89-348aaca84526,NVA,true,true,Belgium,be,250836601610919,N-VA Mechelen,Facebook
+467af1e9-9ef2-41fd-a9f2-6d8adc2e7f0f,Theo Francken,2023-02-08T06:19:17.408Z,133a922b-f81e-40e9-8d77-b9a6a5f18124,NVA,true,true,Belgium,be,483497581789280,Theo Francken,Facebook
+46c90bdf-4e0f-4cc8-83fc-0959dda6a737,Zuhal Demir,2023-02-07T15:05:55.537Z,da25a6eb-9f2a-4ff1-be72-e740c3f19606,NVA,true,true,Belgium,be,453932394796444,Zuhal Demir,Facebook
+4a429ab5-54f4-4948-8fce-e8e6d6638d77,N-VA Lede,2023-03-08T18:35:40.990Z,c21ac9e7-fb25-46e4-abe5-c150f4a552e9,NVA,true,true,Belgium,be,160789700677134,N-VA Lede,Facebook
+4bd56257-d579-4053-a450-44b148ea65aa,Thomas Van Hoof,2023-04-06T10:51:56.357Z,7880693c-6fab-486d-9f29-3f4c8bc64374,NVA,true,true,Belgium,be,113338641258983,Thomas Van Hoof,Facebook
+4c562f2d-6227-4fff-a4de-07c8a7cb9a6a,N-VA Boortmeerbeek,2023-05-20T06:51:28.283Z,d715ff13-5ff5-49a7-a71e-b9eddd51afe2,NVA,true,true,Belgium,be,1052338541490404,N-VA Boortmeerbeek,Facebook
+4f7c13ea-a3b5-46f9-b995-c30cf801a193,N-VA Oudenaarde,2023-02-07T15:05:56.436Z,fda6991b-5a04-4b5f-8701-aa63eb2c03d9,NVA,true,true,Belgium,be,302626103088803,N-VA Oudenaarde,Facebook
+4f7cb4b3-68e9-4fff-a2b4-1be85107ffa0,N-VA Deinze,2023-03-08T19:18:27.977Z,b0425801-6b39-40f8-ae59-39e03047d126,NVA,true,true,Belgium,be,692537344177107,N-VA Deinze,Facebook
+512c9f92-2648-4517-8f21-aa18cd03f857,Assita Kanko,2023-02-07T15:05:55.580Z,7ba1b465-6cb4-4922-b8a4-6f4e5ce152fa,NVA,true,true,Belgium,be,150977208365420,Assita Kanko,Facebook
+53baa976-c324-4f2e-bc8a-e20d5fcb5ae5,N-VA Herzele,2023-03-08T16:39:10.824Z,a32ad2c0-d10b-4d28-bc89-42a14bbe6f46,NVA,true,true,Belgium,be,730312467037810,N-VA Herzele,Facebook
+5415ab2d-0745-4970-84ad-18c439ec9346,Anneleen Van Bossuyt,2023-02-07T15:05:55.560Z,b710ee52-73a6-4d2f-86d4-d148429ac2d6,NVA,true,true,Belgium,be,1375436739430055,Anneleen Van Bossuyt,Facebook
+54d2f273-5ff0-4e93-9ac1-b10fb7096f4f,Thomas Lansens,2023-02-08T05:54:34.672Z,e93ece34-c98b-49ec-ac6a-7179f5076339,NVA,true,true,Belgium,be,107432185561594,Thomas Lansens,Facebook
+575db2b4-ba14-4971-99bb-dfa2e45e5135,Bob Cammaert,2023-02-07T15:05:56.921Z,26f8a6a2-bbd4-4e2d-bc94-394ac6242efb,NVA,true,true,Belgium,be,281823389023108,Bob Cammaert,Facebook
+5a84d7cc-db42-435e-8c44-2664c6055d73,Johan Van Overtveldt,2023-02-07T15:05:55.666Z,5dd5c74a-dad7-462e-9d68-e105f36c2e5e,NVA,true,true,Belgium,be,275607285891320,Johan Van Overtveldt,Facebook
+6159a9a4-b8f6-45d1-8afc-9e433cc83d34,Ben Weyts,2023-02-07T15:05:55.523Z,ffd01f71-7f41-496c-b630-669cb4caaf14,NVA,true,true,Belgium,be,133467219125,Ben Weyts,Facebook
+6441e8ed-2a07-45d5-b937-2a87cc289cfa,N-VA Schaarbeek Evere Sint Joost ten Node,2023-04-12T10:51:06.945Z,0596f6a4-f1e3-497a-912f-d3b39a51e531,NVA,true,true,Belgium,be,505170636206268,N-VA Schaarbeek Evere Sint Joost ten Node,Facebook
+65fffcc0-a406-4ddd-89b9-da1ac8a7b165,Mark Beelaert,2023-02-11T10:51:23.750Z,e8000b6b-633e-4dd7-b0cd-5c7f4a761e55,NVA,true,true,Belgium,be,335536840372530,Mark Beelaert,Facebook
+679428da-171a-4171-975a-5ee8c6974f7f,Jong N-VA,2023-02-07T15:05:55.859Z,a67f4dff-c012-4ebc-acfc-0a6c283641a0,NVA,true,true,Belgium,be,106265382759554,Jong N-VA,Facebook
+6edb8b53-1e38-4ebd-a3c0-61215c458c0c,N-VA Ronse,2023-03-08T15:48:06.780Z,f3018b6b-d1d6-4900-b393-56dcce4ba503,NVA,true,true,Belgium,be,166525380128528,N-VA Ronse,Facebook
+7035b786-ff8b-4a29-aba0-53854d1fefc4,N-VA Brussels Hoofdstedelijk Gewest,2023-02-07T15:05:55.588Z,8a38c250-db4c-405c-9373-721c46df66e7,NVA,true,true,Belgium,be,1480604288895159,N-VA Brussels Hoofdstedelijk Gewest,Facebook
+7411bcb9-65c7-483d-a8c2-10cc377a9e1b,N-VA Holsbeek,2023-04-17T08:17:40.683Z,9b30f439-849b-4c88-bc14-b9cbefbee6a5,NVA,true,true,Belgium,be,390512594322420,N-VA Holsbeek,Facebook
+7418e4b9-1eac-4853-b797-6b72d4cdd442,Freya Perdaens,2023-05-23T06:51:27.579Z,6d65d39a-6d55-4cdb-9615-a73e25c26e2a,NVA,true,true,Belgium,be,1411253522462277,Freya Perdaens,Facebook
+74336fc4-8fb6-468e-9e72-3f7fafda50a8,Tomas Roggeman,2023-03-08T19:18:28.143Z,aaf0b7b7-2542-4285-a79e-21daa43abb21,NVA,true,true,Belgium,be,583612691972550,Tomas Roggeman,Facebook
+770ee8e3-435c-4fa2-bc9b-10579ffc0084,N-VA Meise-Wolvertem,2023-02-12T10:51:31.224Z,e25c332f-b3ec-48d5-8759-3805f3b2a8d4,NVA,true,true,Belgium,be,174022599321378,N-VA Meise-Wolvertem,Facebook
+776f490d-a705-4a9a-a113-09d13d4909ca,N-VA Balen-Olmen,2023-03-01T10:51:34.627Z,5631b0c4-6655-42da-8d2a-a5eb7d970eb7,NVA,true,true,Belgium,be,982642271761232,N-VA Balen-Olmen,Facebook
+796e03fc-5235-4877-97da-f9c6d8b1e5ae,Peter De Roover,2023-02-07T15:05:55.543Z,6a414f21-5127-43c6-9a6e-44bf7f00fd57,NVA,true,true,Belgium,be,1661453500556261,Peter De Roover,Facebook
+79e085ad-cd02-4852-b355-2d32c1abd047,N-VA Diest,2023-03-05T10:51:46.283Z,64fe478f-f0ad-4f5a-95d0-1bea621cf626,NVA,true,true,Belgium,be,628587350532977,N-VA Diest,Facebook
+7a6e4333-c9da-4302-9e9e-9ed65a36920d,N-VA Peer,2023-04-16T15:03:45.660Z,1e1d2c7c-727c-4f72-9486-f489be765477,NVA,true,true,Belgium,be,173201806116016,N-VA Peer,Facebook
+7b6fa50d-0f0e-4e62-a371-c870b9dbf1e5,Cathy Coudyser,2023-03-08T16:39:11.022Z,05a6fcbc-e94b-47df-b66f-3791e7f37704,NVA,true,true,Belgium,be,2127979580768851,Cathy Coudyser,Facebook
+813de947-bc8d-4386-b329-352844b610c2,N-VA Ternat,2023-02-26T10:51:45.005Z,d6a645b3-e333-4417-8641-390a9a65ab03,NVA,true,true,Belgium,be,191042847594588,N-VA Ternat,Facebook
+86740650-c10b-4d1e-95ff-7857e151056e,N-VA Rumst,2023-02-09T06:26:06.207Z,d0b73c49-9731-4970-ab8f-f084bf4b912b,NVA,true,true,Belgium,be,182565175118171,N-VA Rumst,Facebook
+87097fe1-ce39-4f05-b4f8-b91da5d39e6d,N-VA Oostende,2023-02-08T05:54:34.828Z,e690ee29-e995-4d99-86e1-accc4f0a771d,NVA,true,true,Belgium,be,512227765628811,N-VA Oostende,Facebook
+8a22971e-e34a-4f8d-9d61-2dcc94a8271e,N-VA Beerse-Vlimmeren,2023-03-05T10:51:46.647Z,b6f6c971-a7c3-4f3f-a931-fe02bc2a9845,NVA,true,true,Belgium,be,246679618727906,N-VA Beerse-Vlimmeren,Facebook
+8a7359d0-c67a-4ad7-bb4a-f53b1c54ba6f,Matthias Diependaele,2023-02-07T15:05:55.560Z,73efb066-d3fb-467e-aba8-3d7bc9c995c1,NVA,true,true,Belgium,be,543319679114946,Matthias Diependaele,Facebook
+8b87ff3f-b22a-40ed-9ae6-be7e0d50fa46,N-VA Scherpenheuvel-Zichem,2023-02-19T10:51:52.616Z,d9e58d6e-05be-4173-91eb-2f579586b417,NVA,true,true,Belgium,be,135966279809587,N-VA Scherpenheuvel-Zichem,Facebook
+8b8b5836-fa05-461b-83fa-660a06829063,N-VA Zoersel,2023-09-25T05:05:30.832Z,fa7461ad-f876-4ef3-9bb9-170d8f6e404e,NVA,true,true,Belgium,be,282785075094439,N-VA Zoersel,Facebook
+8edccd89-62f5-4781-89af-a7f5ff35554b,N-VA Turnhout,2023-02-07T15:05:56.741Z,0164aa4f-1f86-4e3e-9109-1d0fc42bda4d,NVA,true,true,Belgium,be,150932761651575,N-VA Turnhout,Facebook
+8ef1635a-efa1-435f-93fa-1da84a43073f,N-VA Koksijde - Oostduinkerke,2023-03-08T14:39:31.282Z,c15fc6a5-ac6c-490e-a6e5-8403654c5d98,NVA,true,true,Belgium,be,1627713740845969,N-VA Koksijde - Oostduinkerke,Facebook
+918d1a69-d6d2-4e9a-8fac-d33cb49fb86c,N-VA Keerbergen,2023-03-08T16:59:59.907Z,c314c7f7-2ddd-4d2d-a6f1-bb7002e00bd3,NVA,true,true,Belgium,be,191427474202875,N-VA Keerbergen,Facebook
+9313e95b-1064-4c02-8495-d04d2a00a115,N-VA Wevelgem,2023-09-22T04:11:51.221Z,fb9e430f-17ce-46d4-8f42-531db4d07fa7,NVA,true,true,Belgium,be,1426093684365439,N-VA Wevelgem,Facebook
+952d3a3c-17fe-4772-9689-9744c75a4fda,N-VA Laarne-Kalken,2023-03-03T10:51:37.526Z,367941f2-11eb-41aa-a89f-49d81af6e7b5,NVA,true,true,Belgium,be,281007358613309,N-VA Laarne-Kalken,Facebook
+963af3fb-7173-4616-9e7a-b60f9fe465f6,N-VA Katelijne & Waver,2023-09-26T05:07:15.614Z,149b03f3-75f5-42f9-9f24-b07c3837a80f,NVA,true,true,Belgium,be,289744314420894,N-VA Katelijne & Waver,Facebook
+974100b0-30fe-4f12-8781-29b3afc20a3c,N-VA Destelbergen-Heusden,2023-04-30T06:51:07.283Z,7a7ad871-3913-4f4c-8bf3-d07ef95a79c2,NVA,true,true,Belgium,be,1534216250196455,N-VA Destelbergen-Heusden,Facebook
+98c5c93e-df7e-4074-be88-4c515830ce62,N-VA Ieper,2023-02-07T15:05:56.168Z,3b6cb370-9b27-4c4b-b5bf-641304cccfde,NVA,true,true,Belgium,be,637075649732468,N-VA Ieper,Facebook
+99865dc4-6094-4537-9267-2d971e3cf100,N-VA Lint,2023-10-04T05:05:23.134Z,3237cc09-3f09-423a-8e83-2277bea54f59,NVA,true,true,Belgium,be,172534909894134,N-VA Lint,Facebook
+9a1a2b00-8da0-4781-ac66-56de9788062e,Inez De Coninck,2023-03-08T14:39:31.365Z,0ee932b1-1df1-42d9-a55d-82da7c2b2b0a,NVA,true,true,Belgium,be,371610010117710,Inez De Coninck,Facebook
+9b657930-3045-4093-b0c2-8ca58810068c,N-VA Roeselare,2023-02-07T15:05:55.984Z,6854ed74-02a1-400e-be5e-5bd616e284c3,NVA,true,true,Belgium,be,168411579894593,N-VA Roeselare,Facebook
+9bd3a837-0d0f-4cfc-b654-66dac9f0773a,Annick De Ridder,2023-02-07T15:05:56.285Z,0faf5ffe-995a-4352-8347-08ea6defdc4e,NVA,true,true,Belgium,be,260207497491940,Annick De Ridder,Facebook
+9c227fc4-c6f4-4057-9b51-5bac4cb87544,N-VA Tremelo-Baal,2023-02-13T10:51:48.027Z,76485745-2d5c-407b-b015-6d3939e61bbf,NVA,true,true,Belgium,be,335272263301424,N-VA Tremelo-Baal,Facebook
+a09d8a4d-242d-4d7d-b30b-ec8221ce1bc8,N-VA Wetteren,2023-09-01T05:05:26.005Z,3a9c0f37-c326-4163-b685-b0b776ed7439,NVA,true,true,Belgium,be,271556093261265,N-VA Wetteren,Facebook
+a1c90602-83e3-4594-9394-7d7da82ffeec,N-VA Zwalm,2023-03-08T15:28:27.904Z,ebfa94ae-560e-462a-a117-d5ee5e3d25dc,NVA,true,true,Belgium,be,724966350851212,N-VA Zwalm,Facebook
+a309fb91-746d-426b-b62d-ee007c9c4a62,Jong N-VA Dessel,2023-04-10T10:51:02.290Z,003f723f-3b84-488c-9825-a319a9dc442a,NVA,true,true,Belgium,be,696365747150194,Jong N-VA Dessel,Facebook
+a632628b-db46-48f9-bdfb-61761b01e1a2,N-VA Bonheiden-Rijmenam,2023-02-19T10:51:52.612Z,8a6553e1-dd83-40af-b40e-048b779ab816,NVA,true,true,Belgium,be,337220426480814,N-VA Bonheiden-Rijmenam,Facebook
+abca8b0c-4f77-4a9b-906d-28337e468c42,N-VA Leuven,2023-02-07T15:05:55.925Z,d5c202ca-fac9-4323-a0fc-13e51ce82a83,NVA,true,true,Belgium,be,251034964924788,N-VA Leuven,Facebook
+acac0eab-fb69-4913-a6b0-d1f888e42ece,N-VA Ingelmunster,2023-09-17T05:05:21.898Z,0839dede-2541-4073-a4c8-1e1d45fb8091,NVA,true,true,Belgium,be,1625353267793910,N-VA Ingelmunster,Facebook
+b00f64f1-3def-4a97-8e69-8d9e9f666378,N-VA Begijnendijk-Betekom,2023-09-12T05:04:58.033Z,493ac1b9-78ab-4896-82ad-8c124650b20f,NVA,true,true,Belgium,be,115510488528045,N-VA Begijnendijk-Betekom,Facebook
+b01f71ac-730b-4b80-8de0-10087e9e9231,N-VA Schelle,2023-03-08T15:18:53.371Z,c0ced510-3159-4017-a2ad-52150ab1a88e,NVA,true,true,Belgium,be,309253255760002,N-VA Schelle,Facebook
+b6208bb8-2242-4ac5-8b02-2236ccbc29b9,N-VA Genk,2023-02-08T06:19:17.766Z,81ff2199-032d-4870-b6f9-befadcd170f5,NVA,true,true,Belgium,be,182914008446995,N-VA Genk,Facebook
+b684fd81-a754-412f-90df-a29851ee502d,N-VA Tienen,2023-02-07T15:05:56.712Z,29a8b84d-c2b8-4691-9ae7-93172598a649,NVA,true,true,Belgium,be,146201658812226,N-VA Tienen,Facebook
+bcf0c6b6-a54f-4d14-ad51-fe3a4549aaa6,Axel Ronse,2023-02-08T05:54:35.219Z,be576a81-1eba-484e-a899-101c4ba59e51,NVA,true,true,Belgium,be,2375576969141695,Axel Ronse,Facebook
+bd78ef0c-6566-450a-93f4-d7b1ab730fee,N-VA West-Vlaanderen,2023-03-08T14:39:31.340Z,7d9469de-ab43-4544-824c-f817a503379c,NVA,true,true,Belgium,be,518573208206444,N-VA West-Vlaanderen,Facebook
+c0294d4c-8367-44b3-94f5-9798fd48bc26,N-VA/Open Vld Waregem,2023-03-12T10:51:34.982Z,eaea170b-6c19-4288-9342-9ecef28602e0,NVA,true,true,Belgium,be,192845391536739,N-VA/Open Vld Waregem,Facebook
+c4263a4a-27c1-4747-bf88-8a1d59067392,N-VA Puurs Sint-Amands,2023-09-10T05:05:24.119Z,4b8aa4e9-5428-462e-9cc8-a533696c4a34,NVA,true,true,Belgium,be,542725032437048,N-VA Puurs Sint-Amands,Facebook
+c4de3d1b-d25f-4ff6-852a-d9020afbbf6b,Arnout Geys,2023-05-19T06:51:25.187Z,27fcdc0f-5bc5-461c-b919-d93bddedee96,NVA,true,true,Belgium,be,275272626445408,Arnout Geys,Facebook
+c6a5e8cb-8454-4208-a325-b83eaa5d3d86,N-VA Aalter,2023-03-09T10:51:45.426Z,555ec58d-9916-49b3-907b-c6f0b38400fd,NVA,true,true,Belgium,be,183728085015968,N-VA Aalter,Facebook
+c89a893b-1563-46cc-a4b7-1eddadd4d0a0,N-VA HeistopdenBerg,2023-03-19T10:51:26.902Z,c9e2f565-1775-4bad-8820-123e2b1f5dfa,NVA,true,true,Belgium,be,821251041256391,N-VA HeistopdenBerg,Facebook
+c9ba4c1c-e088-464e-be65-f45f5fe14a89,N-VA Duffel,2023-02-14T10:51:36.302Z,cae22786-b982-47a6-9de5-ec27cc730167,NVA,true,true,Belgium,be,157510097620272,N-VA Duffel,Facebook
+cd6f1eec-c04b-4608-a949-c9a82282616e,N-VA Brugge,2023-02-07T15:05:55.889Z,8f28a10f-bc19-4df4-8756-3e8b299f4956,NVA,true,true,Belgium,be,103746756361685,N-VA Brugge,Facebook
+ce5a402f-4c80-4fbf-a31a-6a980dbf70ad,N-VA Oosterzele,2023-03-19T10:51:26.791Z,69f96e81-5957-414d-8457-3db20214e446,NVA,true,true,Belgium,be,1515563638675722,N-VA Oosterzele,Facebook
+d0c2422a-1651-4777-a666-6af5e4eb47bc,N-VA Sint Pieters Leeuw,2023-03-08T17:20:54.790Z,e90866a7-cead-479e-8d01-cec4cc5374f2,NVA,true,true,Belgium,be,881960671842091,N-VA Sint Pieters Leeuw,Facebook
+d14f171a-4ad1-4d91-9357-0d86f6d15b51,N-VA Lier&Koningshooikt,2023-06-06T06:51:22.088Z,7521942e-5053-4c44-9c72-5562ee3d1710,NVA,true,true,Belgium,be,1435852153302619,N-VA Lier&Koningshooikt,Facebook
+d445ec01-0ac0-4ae2-b260-f5a9113de68b,N-VA Gent,2023-02-07T15:05:55.787Z,b2cf792e-1603-4667-b6bb-f0d4b3f80ca1,NVA,true,true,Belgium,be,125138890876117,N-VA Gent,Facebook
+d4f2f5bd-92d4-4516-ab61-d27d346b9ee3,N-VA Merelbeke,2023-02-08T05:54:35.232Z,5526417d-1759-46ab-93be-478b6af34676,NVA,true,true,Belgium,be,133545640085984,N-VA Merelbeke,Facebook
+d5358b6b-dfc6-4e95-a8af-b533eb74b2e5,Jong N-VA Vilvoorde,2023-04-14T08:46:54.354Z,7b87bc5f-8ab0-4aeb-8c4f-23d9bdda1729,NVA,true,true,Belgium,be,437368509634258,Jong N-VA Vilvoorde,Facebook
+d773b017-c6b4-4d3b-ad14-697ca764b2d8,N-VA Oud-Turnhout,2023-05-26T06:51:35.354Z,ec4eb9ad-6e62-45c7-aeea-f047a21a4154,NVA,true,true,Belgium,be,251493598285227,N-VA Oud-Turnhout,Facebook
+d81e769f-86cc-4c87-a9df-f40991ca4b47,N-VA Lebbeke Denderbelle Wieze,2023-03-08T16:18:36.399Z,887f780c-03bc-47f1-b7a4-64f2841d7e9d,NVA,true,true,Belgium,be,260007397359368,N-VA Lebbeke Denderbelle Wieze,Facebook
+d8da0858-1b4c-4fae-be84-cfad28ea97d1,N-VA Diksmuide,2023-03-08T18:03:51.074Z,45749464-a347-42e7-ad64-e41a2299e4db,NVA,true,true,Belgium,be,158614034613,N-VA Diksmuide,Facebook
+d91240ae-ac3d-4a58-902c-203cb92aca03,N-VA Sint-Genesius-Rode,2023-07-10T06:49:42.834Z,ed6d6435-a29c-4c08-ae11-a3b6b0646dd3,NVA,true,true,Belgium,be,112708012170616,N-VA Sint-Genesius-Rode,Facebook
+ddf07480-4b31-47ea-a9a6-504ab42cd6da,N-VA Zonnebeke,2023-02-13T10:51:48.049Z,233992cd-9afa-41ff-ad3b-508e7ea6ef28,NVA,true,true,Belgium,be,393604210796848,N-VA Zonnebeke,Facebook
+de4017ec-d944-4b3a-bff9-d9c03197bdf0,Filip Herman - N-VA Sint-Niklaas,2023-02-08T05:54:34.927Z,3c78c8c9-f8cc-4aec-8d8b-cd25d84fe546,NVA,true,true,Belgium,be,475195679166815,Filip Herman - N-VA Sint-Niklaas,Facebook
+df4e1b00-36f9-4bb3-980f-332a1fd4edf5,N-VA Temse,2023-03-08T15:09:07.629Z,3ec5ca0f-0d0b-41fa-93f7-dee5531ced1f,NVA,true,true,Belgium,be,157739524296696,N-VA Temse,Facebook
+e052b40e-cdbe-4430-a099-db1ca84d268e,N-VA Tielt-Winge,2023-03-08T16:28:57.163Z,c8da073d-7dd2-4206-ad30-f468dae712a6,NVA,true,true,Belgium,be,751491741586000,N-VA Tielt-Winge,Facebook
+e05601b0-155a-41a5-b2c1-313015e92cd7,N-VA Lokeren,2023-03-08T17:10:33.091Z,dd41acc2-fd00-4a7e-9ba2-7a94b47dddb9,NVA,true,true,Belgium,be,361558280542900,N-VA Lokeren,Facebook
+f0c20107-7e5f-4231-910e-8a1828a869ad,N-VA Hasselt,2023-02-07T15:05:56.767Z,00bfc4f1-76f4-4c00-bab6-2693963cd7a1,NVA,true,true,Belgium,be,131167466986260,N-VA Hasselt,Facebook
+f7693fb4-8be2-4a9e-a2d8-7fcb9473e2bf,Nieuw-Vlaamse Alliantie,2022-08-16T15:24:28.661Z,9ac4f210-f947-4d13-9de2-45428f45015a,NVA,true,true,Belgium,be,334361224413,Nieuw-Vlaamse Alliantie,Facebook
+f82ce836-917c-418d-b50c-1ba6da96a8a1,N-VA Wuustwezel,2023-05-02T06:51:27.408Z,bb5d4b4d-8fe6-4fa8-aef1-e6ccd4f74ef1,NVA,true,true,Belgium,be,358524347606368,N-VA Wuustwezel,Facebook
+f9955424-95c7-4276-a36a-764cbb472262,N-VA Kortrijk,2023-02-08T05:54:34.704Z,00cd2cd6-a215-491b-a9cb-791885d8e188,NVA,true,true,Belgium,be,362996563734991,N-VA Kortrijk,Facebook
+fa582263-8a92-4a84-9186-be09511727a6,N-VA Heuvelland,2023-04-28T06:51:16.399Z,43e4354a-6c61-48b9-9dc6-e72d7f682e1b,NVA,true,true,Belgium,be,306052169533288,N-VA Heuvelland,Facebook
+fb9f5c77-d16c-4d8b-967a-ce5425ad9acd,N-VA Dendermonde,2023-03-08T16:28:57.060Z,aaca203d-6c4f-45f3-ae3b-92451a8a9037,NVA,true,true,Belgium,be,316805121784897,N-VA Dendermonde,Facebook
+fd62dab7-0e42-4d91-8269-3430bbff6067,Jong N-VA Tongeren,2023-02-07T15:05:56.719Z,cac96cdf-8d43-446e-93dd-af269d92b93c,NVA,true,true,Belgium,be,167256123357466,Jong N-VA Tongeren,Facebook
+fd921c12-ec54-46ba-acfa-101fb6211b2d,N-VA Ekeren,2023-06-24T06:45:55.778Z,5b37da44-1dc9-4af1-afc8-37997d8ef959,NVA,true,true,Belgium,be,134994873233490,N-VA Ekeren,Facebook
+05496b6d-bed8-4ada-9487-8da4e5c5e797,Vlaams Belang Heuvelland,2023-05-02T06:51:27.469Z,e19476e5-94fa-44e2-810c-7c6ddf57e913,VB,true,true,Belgium,be,103176421377378,Vlaams Belang Heuvelland,Facebook
+058cb9d7-f8da-4796-bf5a-ca0b7e766dbd,Vlaams Belang Dilbeek,2023-02-08T05:54:34.541Z,fcf76e69-b729-4d1a-b220-6426b65301d4,VB,true,true,Belgium,be,1486617638225229,Vlaams Belang Dilbeek,Facebook
+05fe1f02-44a8-426b-99a8-031c0fc9a405,Bart Claes,2023-10-15T05:05:32.357Z,8ac7122d-e730-497b-9f9a-6704873ba695,VB,true,true,Belgium,be,206798700258264,Bart Claes,Facebook
+06204eee-fcb0-47fa-83a6-de3a210cce83,Vlaams Belang Dendermonde,2023-03-15T10:51:46.806Z,5ae25b76-9de1-4424-a1a4-d945632cf1df,VB,true,true,Belgium,be,1167810113339853,Vlaams Belang Dendermonde,Facebook
+0732117f-4d95-420e-bb29-834270560294,Vlaams Belang Zonhoven,2023-07-10T06:49:42.679Z,d29e36bf-ba75-4451-b305-3f080457559b,VB,true,true,Belgium,be,300822910365495,Vlaams Belang Zonhoven,Facebook
+11341d4d-8e72-4d66-afe2-7a45366990b2,Vlaams Belang Ieper,2023-02-27T10:51:39.441Z,b83b38fb-da69-4ec8-8ce0-a8b2662fde59,VB,true,true,Belgium,be,106609767689970,Vlaams Belang Ieper,Facebook
+11a4e799-6a7e-43e6-ad90-d46dc8c88a27,Vlaams Belang Diksmuide,2023-03-08T16:28:57.140Z,37e23434-0454-447f-99f3-a1dd18fdb232,VB,true,true,Belgium,be,210546035951447,Vlaams Belang Diksmuide,Facebook
+1689da4e-da16-42ec-afa5-4bef9adfce4b,Vlaams Belang Olen,2023-07-01T05:06:22.187Z,6cbad9b4-f74e-4311-a959-4d2c0a9ed309,VB,true,true,Belgium,be,104021605855598,Vlaams Belang Olen,Facebook
+1700577c-9d58-4c8c-b611-176f68d7f5fd,Vlaams Belang Ekeren,2023-03-09T10:51:44.884Z,101d7c0e-cb43-4052-818e-a1991e1e52f1,VB,true,true,Belgium,be,110008099112275,Vlaams Belang Ekeren,Facebook
+185605d0-1022-4455-ad80-628673d70476,Vlaams Belang Knokke-Heist,2023-06-26T05:06:44.143Z,896d96db-dac9-4f29-a41d-29201d572a31,VB,true,true,Belgium,be,257022087730209,Vlaams Belang Knokke-Heist,Facebook
+1c5622bd-634d-4b94-8c30-8b907c55b58d,Vlaams Belang Waregem,2023-05-15T06:51:36.635Z,484181df-c783-4fa3-9958-5d599d79ea46,VB,true,true,Belgium,be,110854707171890,Vlaams Belang Waregem,Facebook
+1c95a8ea-e8ae-438f-9813-309a4c4d6ae6,Vlaams Belang Ham,2023-03-05T10:51:46.669Z,bed792f7-faee-46ba-a3d9-5cc14aa52b40,VB,true,true,Belgium,be,329166224252438,Vlaams Belang Ham,Facebook
+1cae3bd8-fcf7-4580-a18f-aed3fc245233,Vlaams Belang Roeselare,2023-02-07T15:05:56.519Z,13405eaa-1c4b-4831-898a-7e72902bf777,VB,true,true,Belgium,be,702858679855350,Vlaams Belang Roeselare,Facebook
+1d8fd992-b06a-4963-9019-83157bb3f0c5,Vlaams Belang Zaventem,2023-03-29T10:51:32.549Z,c46cadf5-1a1b-4c04-9dab-e048efd79214,VB,true,true,Belgium,be,113793330322255,Vlaams Belang Zaventem,Facebook
+1ea52351-6709-44f3-bc6a-53de3bf03df9,VLAAMS BELANG MALLE,2023-02-07T15:05:56.655Z,372d4def-6c25-42f3-acee-26c05c2ff1fe,VB,true,true,Belgium,be,225129783361,VLAAMS BELANG MALLE,Facebook
+221d25f3-1074-46f4-bd38-dcbbedacb030,Vlaams Belang Hulshout,2023-03-08T14:39:31.358Z,30af1583-0d76-4c6b-9957-6df33f230587,VB,true,true,Belgium,be,109848554045434,Vlaams Belang Hulshout,Facebook
+2454d52d-208c-442a-a583-dc4c8f37775f,Vlaams Belang Berlare,2023-04-26T06:51:42.368Z,652b7f10-cc30-4a4b-b7c6-b446f698c61e,VB,true,true,Belgium,be,107876694323894,Vlaams Belang Berlare,Facebook
+24a38234-8de4-476f-a4b9-6fbf30c3baa8,Vlaams Belang Aalter,2023-03-02T10:51:36.262Z,c3bdc948-b410-408b-913d-b9f621c2fb01,VB,true,true,Belgium,be,739661236389080,Vlaams Belang Aalter,Facebook
+263f21fa-59ca-4e3a-aea8-74cd60b1ba4d,Vlaams Belang Haaltert,2023-03-08T14:39:31.263Z,ea78d0fe-be54-4a74-aedb-ade15f287836,VB,true,true,Belgium,be,419661805102578,Vlaams Belang Haaltert,Facebook
+26b292a4-68f5-4732-8ab3-9994bf96bbb9,Vlaams Belang Izegem,2023-03-08T18:46:22.848Z,07afdb50-02fc-4097-a148-a20cfd60bb0c,VB,true,true,Belgium,be,240122740090629,Vlaams Belang Izegem,Facebook
+29373744-9fad-4e85-a917-81a49ff653e2,Vlaams Belang Kuurne,2023-03-19T10:51:26.950Z,049ae9da-55c8-4158-bb8d-76aff3da61c0,VB,true,true,Belgium,be,100371478329071,Vlaams Belang Kuurne,Facebook
+2af47812-352d-4511-a819-135fde5955f4,Vlaams Belang Zandhoven,2023-02-11T10:51:23.948Z,aa00d542-1424-46e1-93ad-8751aa9d5d0f,VB,true,true,Belgium,be,559457604253298,Vlaams Belang Zandhoven,Facebook
+2afb7fb7-61ad-47e5-bd97-79fb9d5b25cb,Vlaams Belang Lebbeke,2023-02-08T05:54:34.644Z,fd15e46a-662d-4496-8c84-3195fdf620ec,VB,true,true,Belgium,be,134813254052332,Vlaams Belang Lebbeke,Facebook
+2c2a7d4e-2250-4941-9627-3bef8e53db56,Vlaams Belang Sint-Lievens-Houtem,2023-02-07T15:05:56.889Z,cf2dc590-87d1-41c4-8cba-051582576398,VB,true,true,Belgium,be,101112011674510,Vlaams Belang Sint-Lievens-Houtem,Facebook
+2c94cfca-42bc-457c-87e0-387e1180919f,Vlaams Belang De Haan,2023-10-22T05:05:36.640Z,6bad6147-c6ed-4f0b-a680-267e24bb11bf,VB,true,true,Belgium,be,106685177781228,Vlaams Belang De Haan,Facebook
+2dfd5e04-e5a6-4c33-9909-6e85b6b2e49c,Vlaams Belang,2022-08-16T15:24:28.702Z,bc8cf94f-1117-4ecc-8990-d73ba4615d6f,VB,true,true,Belgium,be,56605856504,Vlaams Belang,Facebook
+2e7c51f5-8757-4698-9850-77083f1d7148,Vlaams Belang Zonnebeke,2023-03-22T10:51:18.263Z,738a8f57-0a5a-46a9-94a0-b2a9878a20b5,VB,true,true,Belgium,be,102064498157175,Vlaams Belang Zonnebeke,Facebook
+2f9fbed5-cd24-409f-93bf-95bbfbbe62cb,Vlaams Belang Zutendaal,2023-09-07T05:05:12.624Z,b131b349-ada7-433c-8b10-a653fa7448ad,VB,true,true,Belgium,be,168469827080277,Vlaams Belang Zutendaal,Facebook
+2fd127f2-13c5-42f2-a8bf-ec1b9e1df470,Kurt Van Noten - districtsraadslid voor het Vlaams Belang in Ekeren,2023-03-08T10:51:40.803Z,3c1ed95f-8c30-43bf-a0a4-76d8e375d1d7,VB,true,true,Belgium,be,563697593799419,Kurt Van Noten - districtsraadslid voor het Vlaams Belang in Ekeren,Facebook
+345a275b-274c-4c12-b6bd-190b68746a78,Vlaams Belang Zemst,2023-05-14T06:51:25.542Z,eedc9a3d-0d53-497e-91af-a7476d81c243,VB,true,true,Belgium,be,242421363174506,Vlaams Belang Zemst,Facebook
+37a11727-ef8e-4111-81ee-2c99669ab6bb,Vlaams Belang Grimbergen,2023-05-12T06:51:28.040Z,6f576a2c-7b30-441e-b3b5-4030862d8274,VB,true,true,Belgium,be,112611357176868,Vlaams Belang Grimbergen,Facebook
+3ae42386-6707-47e7-b1e8-9ed25b092727,Vlaams Belang West-Vlaanderen,2023-03-08T18:35:40.868Z,fab451df-4123-4b95-9adb-eeae7aef14c9,VB,true,true,Belgium,be,759865230747904,Vlaams Belang West-Vlaanderen,Facebook
+3bd75159-5960-4120-97a0-7b11275120df,Vlaams Belang Kampenhout,2023-03-13T10:51:26.825Z,caac2a8b-d49f-4c13-b108-31c3dfbd52ff,VB,true,true,Belgium,be,325394924218947,Vlaams Belang Kampenhout,Facebook
+3c5a56c0-5e3e-4a7d-b2d5-9a994a86f401,Vlaams Belang Harelbeke,2023-02-14T10:51:36.661Z,3b86a14d-0245-46f6-a386-aa2c04a1c04e,VB,true,true,Belgium,be,105114087649592,Vlaams Belang Harelbeke,Facebook
+3d0341cb-8bf3-4f31-8fe8-ac82826f8188,Vlaams Belang Kruisem,2023-03-08T15:48:06.912Z,9348c421-e991-47a3-82f2-9501b6108035,VB,true,true,Belgium,be,100589798054658,Vlaams Belang Kruisem,Facebook
+3d30031a-e35a-4909-8471-baa85063ada2,Tom Van Grieken,2023-02-07T15:05:55.500Z,c4c6c04b-4dee-4c47-afde-253be22cbcf6,VB,true,true,Belgium,be,584806884924010,Tom Van Grieken,Facebook
+3f010fea-d0b2-48fe-ad62-ae8f1969524a,Vlaams Belang Bornem,2023-03-05T10:51:46.307Z,902ec9a6-7e74-430f-84cd-3095a589aca5,VB,true,true,Belgium,be,305705393492661,Vlaams Belang Bornem,Facebook
+4117ffa4-45eb-4b17-9e17-8960eccfc93c,Vlaams Belang Hechtel-Eksel,2023-02-17T10:51:27.670Z,87192769-ca85-4e2d-bd26-7183e7dfc537,VB,true,true,Belgium,be,1616405871795502,Vlaams Belang Hechtel-Eksel,Facebook
+42539f8c-5bb3-4bcc-9919-406236b21975,Vlaams Belang Wijnegem,2023-03-17T10:51:46.026Z,dc4147e0-6652-4a99-bad4-cecac564e3dc,VB,true,true,Belgium,be,505199909509274,Vlaams Belang Wijnegem,Facebook
+43e32c47-29de-4c13-815d-d67b36158192,Vlaams Belang Zwevegem,2023-07-18T06:05:42.882Z,487662de-753a-4f33-bf5c-12337e35c142,VB,true,true,Belgium,be,103378214522413,Vlaams Belang Zwevegem,Facebook
+4dfc7557-1c43-4ed9-84fe-0c55ece94830,Vlaams Belang Mol,2023-03-22T10:51:18.335Z,45f71e5a-ae9c-453f-8ad6-8a2b4d821365,VB,true,true,Belgium,be,392559660799332,Vlaams Belang Mol,Facebook
+4e407161-dd3e-4c8c-be51-3a5aba5214e3,Tom Vandendriessche,2023-02-08T05:54:33.888Z,7f50471f-902a-4c96-a970-f4edacf80445,VB,true,true,Belgium,be,603811736730421,Tom Vandendriessche,Facebook
+4f138af7-f7dd-47d0-90ec-4d4f9059b762,Vlaams Belang Oostende,2023-06-23T05:15:17.682Z,306cada0-a7e3-4ba8-92a0-fb3cca2ab628,VB,true,true,Belgium,be,1749093525420719,Vlaams Belang Oostende,Facebook
+50311fbc-89bd-4fdd-92a2-39750ab79140,Vlaams Belang Wetteren,2023-05-23T06:51:27.772Z,e5ecde1d-6042-4a1e-9990-151efd0415f2,VB,true,true,Belgium,be,107712958368976,Vlaams Belang Wetteren,Facebook
+5159b70d-758b-4b81-bd75-9fdf1fe079d5,Vlaams Belang Leuven,2023-03-08T14:39:30.995Z,115c42e7-54c4-4f77-854b-687a102a6e04,VB,true,true,Belgium,be,311324832291184,Vlaams Belang Leuven,Facebook
+51ee56dd-5175-40a1-a3da-10d1216377bc,Vlaams Belang Blankenberge,2023-03-08T17:42:02.868Z,6d590f40-24bf-4e87-90fc-68b99d96ef57,VB,true,true,Belgium,be,108538157200534,Vlaams Belang Blankenberge,Facebook
+59072ca4-3b57-48ee-b03e-6c14696e145b,Vlaams Belang Brugge,2023-02-07T15:05:56.271Z,5490f124-b7a3-4ccd-b5ec-83322cceed03,VB,true,true,Belgium,be,244030075734828,Vlaams Belang Brugge,Facebook
+590e51a1-1d1f-4810-9b7d-fe2d0c2cac55,Suzy Wouters,2023-02-07T15:05:56.353Z,a157740b-aa74-4c4c-bea8-ed5186b9c3d1,VB,true,true,Belgium,be,109025321921423,Suzy Wouters,Facebook
+598209c7-d0ff-49cf-92ab-4476cb69e2af,Vlaams Belang Zoersel,2023-02-07T15:05:56.666Z,59039dfb-25c6-4696-a619-765ef1022e6c,VB,true,true,Belgium,be,1644231522509042,Vlaams Belang Zoersel,Facebook
+5b922ca8-b8f4-4c41-a950-2cab872978cb,Vlaams Belang Antwerpen,2023-08-05T05:06:21.265Z,48b221e5-fbd2-42a0-837c-29f732d8a06b,VB,true,true,Belgium,be,242132409704254,Vlaams Belang Antwerpen,Facebook
+5d7cb144-5837-495d-8fab-5c84677b8dbd,Vlaams Belang Sint-Truiden,2023-02-08T05:54:34.656Z,25be66de-1dc0-4ad6-b2c5-9f63d5204a10,VB,true,true,Belgium,be,2223303044582113,Vlaams Belang Sint-Truiden,Facebook
+60197aae-c0a6-4008-b11e-ebfbfe820a4c,Vlaams Belang Aarschot,2023-10-23T05:05:11.579Z,e9cabcea-d138-4fad-8e82-bb8509909a2f,VB,true,true,Belgium,be,810792032317572,Vlaams Belang Aarschot,Facebook
+62a4768d-6433-4f47-b18d-77a7b0e04d8e,Vlaams Belang Hasselt,2023-02-12T10:51:31.331Z,c4e7095f-b7d5-4ae2-974f-5a5bc044fafc,VB,true,true,Belgium,be,445828842533862,Vlaams Belang Hasselt,Facebook
+63168a62-d699-4f5c-a319-e3af05c8f0a6,Vlaams Belang Grobbendonk - Bouwel,2023-05-15T06:51:36.824Z,a7365c83-c12c-4039-bb8c-4fb63364c5b0,VB,true,true,Belgium,be,279025336147471,Vlaams Belang Grobbendonk - Bouwel,Facebook
+66d4442d-9f4f-410e-9909-feb350a7e1d5,Guy D'haeseleer,2023-02-08T05:54:34.791Z,ce359624-6344-468d-899e-0c817041ba18,VB,true,true,Belgium,be,1070595116362186,Guy D'haeseleer,Facebook
+68a92ae4-ca75-45e8-bb09-0191fc617e72,Vlaams Belang Brecht,2023-10-09T05:05:37.245Z,ce15b05b-e336-40ec-bfba-8c3d545aed05,VB,true,true,Belgium,be,1396368140585316,Vlaams Belang Brecht,Facebook
+6dc9bf2d-8435-4ea6-84d9-9bab97ad33cd,Vlaams Belang Jongeren,2023-02-11T10:51:23.517Z,4f6dd9f3-7138-465d-8afe-d3d585564dd8,VB,true,true,Belgium,be,203903005659,Vlaams Belang Jongeren,Facebook
+6f5f64c3-f568-4267-b75a-8d9fd025708c,Vlaams Belang Lendelede,2023-03-08T16:49:32.791Z,4af80066-b4a2-42da-b182-193fb7acd3ac,VB,true,true,Belgium,be,101009714863824,Vlaams Belang Lendelede,Facebook
+6fd99fcd-c89b-461b-b070-34affb953fb3,Vlaams Belang Beernem,2023-10-14T05:05:21.987Z,c82b4e16-f357-44f8-b837-1b7b775a36a1,VB,true,true,Belgium,be,107474690757652,Vlaams Belang Beernem,Facebook
+710c8269-0f5a-42c9-ac7c-ec9f76d31c3e,Vlaams Belang Hamont-Achel,2023-06-20T05:11:06.857Z,5954ea99-38b2-4aa8-9499-11452f7ecb33,VB,true,true,Belgium,be,107049980771420,Vlaams Belang Hamont-Achel,Facebook
+73c75529-ad7e-4534-9ad7-5089e615cf2b,Vlaams Belang Stabroek,2023-04-26T06:51:42.368Z,506a69d2-2ee3-4d2c-91e1-387e18a440b6,VB,true,true,Belgium,be,2009347979135225,Vlaams Belang Stabroek,Facebook
+7497267a-631f-4210-a9a5-fd13f4b5567f,Vlaams Belang Borgloon,2023-05-07T06:51:14.577Z,1e971201-6026-4b46-8680-bb04796c29ea,VB,true,true,Belgium,be,514382732338688,Vlaams Belang Borgloon,Facebook
+753711a2-b994-480d-9762-93e087b6e356,Vlaams Belang Wielsbeke,2023-02-08T05:54:34.618Z,7359da22-dc72-45ec-ad52-dc94408964ce,VB,true,true,Belgium,be,113860036970877,Vlaams Belang Wielsbeke,Facebook
+7a11d099-98cb-41bb-a930-c6d8ee7b6cfc,Vlaams Belang Kortrijk,2023-07-18T06:05:42.837Z,b228e3d7-76b7-4188-8bcf-c87049c5c2d9,VB,true,true,Belgium,be,1657893191169110,Vlaams Belang Kortrijk,Facebook
+7b1dae05-d6ad-4154-b31d-ecb3d23d593e,Vlaams Belang Brakel,2023-02-25T10:51:42.036Z,58059854-ee0e-44b2-bfb8-1a66ce5a8813,VB,true,true,Belgium,be,1626966657517271,Vlaams Belang Brakel,Facebook
+7bf71129-4c11-4cf4-9d53-39b72a2db7bc,Vlaams Belang Wichelen,2023-06-20T05:11:06.856Z,f55739d5-5cb3-4939-9445-037066d713ae,VB,true,true,Belgium,be,1437242629856204,Vlaams Belang Wichelen,Facebook
+7cfa24bd-0fd2-44d7-bf2d-b3e8739f5ace,Vlaams Belang Hoeselt,2023-02-07T15:05:56.710Z,72e73810-b4be-4236-b19e-832f01f8b52c,VB,true,true,Belgium,be,109387837431070,Vlaams Belang Hoeselt,Facebook
+7d310053-b973-463a-a407-35b05e6595d1,Vlaams Belang Sint-Gillis-Waas,2023-02-09T06:26:06.493Z,b1494eeb-0373-4b1c-9f33-2336963b40e4,VB,true,true,Belgium,be,153917655547506,Vlaams Belang Sint-Gillis-Waas,Facebook
+7d6a24ed-c5b4-4f0c-ade5-a92954657da5,Vlaams Belang Gent,2023-02-07T15:05:55.833Z,f5c2961d-9ced-4fb2-81ea-974a57729298,VB,true,true,Belgium,be,142133146307105,Vlaams Belang Gent,Facebook
+80c27478-a046-4c79-9c0e-56d3e9b0d440,Jolan Deschepper,2023-02-07T15:05:55.854Z,74c60cf5-3564-4dca-bbc6-232051b23667,VB,true,true,Belgium,be,116316761352642,Jolan Deschepper,Facebook
+874a7e49-5942-4318-9a4c-6d15c8610255,Vlaams Belang Herk-de-Stad,2023-09-18T05:05:26.411Z,bab1debb-2a93-408e-ba3e-b1ac146ffade,VB,true,true,Belgium,be,114052113627975,Vlaams Belang Herk-de-Stad,Facebook
+8cf4d5a4-fb4b-4bf6-a9dd-23286d4824c7,Vlaams Belang Koksijde,2023-03-08T18:35:41.009Z,983ec1ef-a8bd-4341-91cd-b9c0d2cd632c,VB,true,true,Belgium,be,104684644558527,Vlaams Belang Koksijde,Facebook
+8e245324-97fa-4781-8da1-f7f40bd157e3,Vlaams Belang Turnhout,2023-03-08T16:18:36.332Z,d2c4e221-57c3-41ba-bc17-50a440a68144,VB,true,true,Belgium,be,799646470125764,Vlaams Belang Turnhout,Facebook
+933a48e8-62dc-4eff-bcd3-2f2d7b4e9dc4,Vlaams Belang Beersel,2023-02-12T10:51:31.069Z,d7523125-549e-4347-9f7a-e2ba26e4e24a,VB,true,true,Belgium,be,537943959730602,Vlaams Belang Beersel,Facebook
+9353d705-f6e6-434f-9216-873efe373d43,Vlaams Belang Erpe-Mere,2023-02-07T15:05:56.878Z,de2a8d42-013e-4034-90da-e2cd5487d65e,VB,true,true,Belgium,be,698188993711184,Vlaams Belang Erpe-Mere,Facebook
+95c164c8-037c-44db-9e78-4bb326547ee2,Vlaams Belang Staden,2023-07-18T06:05:42.864Z,60ee39cf-c8e5-4dfd-875a-8b55755780b0,VB,true,true,Belgium,be,100889278276331,Vlaams Belang Staden,Facebook
+95e3479a-fda0-4aa4-923e-046d3e513b6a,Vlaams Belang Herselt,2023-02-12T10:51:31.144Z,d092f995-8dcf-49c1-a557-bee3616cf4b0,VB,true,true,Belgium,be,109496054081017,Vlaams Belang Herselt,Facebook
+96ebbca9-b29d-445a-85da-962e9e9dfea9,Vlaams Belang Ardooie,2023-02-14T10:51:36.622Z,3be19a73-6bd7-483d-8964-bfd100ff7cf0,VB,true,true,Belgium,be,113413990341055,Vlaams Belang Ardooie,Facebook
+9adadf7b-8550-4032-a01b-72befbdffa2d,Vlaams Belang Edegem,2023-04-04T10:51:38.900Z,44d4e884-ff94-41a5-af70-ffcd6ea63534,VB,true,true,Belgium,be,655867521130906,Vlaams Belang Edegem,Facebook
+9cf8ec05-ee40-43d1-9a86-c2a7b053e089,Vlaams Belang Oostrozebeke,2023-07-18T06:05:42.866Z,13b22c87-0502-485c-9afa-5059ea560c62,VB,true,true,Belgium,be,109561204063814,Vlaams Belang Oostrozebeke,Facebook
+9f1ccb27-8974-4522-8203-3fb2063c93c1,Vlaams Belang Zulte,2023-03-30T10:51:27.109Z,a05ffc14-2e42-4cbf-b15d-af68d1eed0f2,VB,true,true,Belgium,be,113535327086192,Vlaams Belang Zulte,Facebook
+a20fae50-f0e9-40c1-a891-0cae2b6bb645,Vlaams Belang Deinze,2023-03-08T10:51:40.653Z,c72e0aa8-67d3-4326-b4b7-1184ef4b2520,VB,true,true,Belgium,be,271441273413145,Vlaams Belang Deinze,Facebook
+a427f91c-59d2-455f-8c70-bc958d77ab11,Roosmarijn Beckers,2023-08-28T05:05:18.100Z,a03e200b-d493-41a4-807f-b91183f25365,VB,true,true,Belgium,be,767305460320631,Roosmarijn Beckers,Facebook
+a62b2e32-7be7-4457-b256-4f911b4e324b,Vlaams Belang Kortessem,2023-03-08T17:42:02.539Z,154ce82d-9a7a-46fc-b791-6a092d9b525f,VB,true,true,Belgium,be,102053648174431,Vlaams Belang Kortessem,Facebook
+a6ad8201-2295-4e69-94ed-dc25328c2103,Vlaams Belang Steenokkerzeel,2023-03-13T10:51:26.689Z,762e583d-a155-4d32-ba69-5931a094185e,VB,true,true,Belgium,be,108387204201505,Vlaams Belang Steenokkerzeel,Facebook
+a8085f35-54d7-490e-bcc3-cb9ec75eb9e6,Vlaams Belang Holsbeek,2023-03-08T19:07:46.342Z,9175e6ac-9c36-4583-a859-746d8a08dbe2,VB,true,true,Belgium,be,109979150473844,Vlaams Belang Holsbeek,Facebook
+a8320181-0d5f-4e5e-8b96-1e8abd56be1a,Vlaams  Belang Leopoldsburg - Heppen,2023-02-07T15:05:56.671Z,b5c3d47d-3643-4c31-bfae-f9ef6cf9ac3e,VB,true,true,Belgium,be,1821648927902553,Vlaams  Belang Leopoldsburg - Heppen,Facebook
+abb27434-fcba-442f-b8a6-3e457b41cf7f,Vlaams Belang Zele,2023-06-06T06:51:22.004Z,2b9ec465-7923-43e7-92bb-616a2940533b,VB,true,true,Belgium,be,110268730747899,Vlaams Belang Zele,Facebook
+ac70bdf0-ad90-49b0-ac2c-b62713e05cd2,Vlaams Belang Anzegem,2023-07-17T06:30:41.650Z,6cd639a8-048b-4707-a171-a4268a91b4da,VB,true,true,Belgium,be,100104655022722,Vlaams Belang Anzegem,Facebook
+ace7d8ee-b912-4edd-88d2-e7548e3ed94e,Vlaams Belang Galmaarden,2023-03-03T10:51:37.328Z,2ec9d78d-f83e-48e2-91dd-348b4d2ed852,VB,true,true,Belgium,be,1711277942296706,Vlaams Belang Galmaarden,Facebook
+b03524a8-c244-4e35-b653-61e2e81c8eac,Vlaams Belang Halle,2023-05-15T06:51:36.598Z,bd6f5f64-e35b-4773-84c1-57de734c0504,VB,true,true,Belgium,be,1644203465678341,Vlaams Belang Halle,Facebook
+b0d39345-c5e2-4d0f-9d80-9299d897566e,Vlaams Belang Bredene,2023-03-08T17:10:33.111Z,dcf413dc-b99a-44a7-8f05-1dfa8ff21aab,VB,true,true,Belgium,be,274054956365958,Vlaams Belang Bredene,Facebook
+b22abdba-8f6e-4ec8-8275-75cc2e2f3ede,Vlaams Belang Kalmthout,2023-02-13T10:51:47.855Z,e358137e-5e14-434b-8e6e-8fd67b82b507,VB,true,true,Belgium,be,479644862236665,Vlaams Belang Kalmthout,Facebook
+b4392d35-fa6e-4205-b3d2-0836aacef0fd,Vlaams Belang Buggenhout,2023-02-19T10:51:52.572Z,94792695-feb6-49be-a9db-ea71b36bd326,VB,true,true,Belgium,be,670216333161980,Vlaams Belang Buggenhout,Facebook
+bf8f04b3-f1ec-4977-812c-a1f488dc180f,Vlaams Belang Sint-Pieters-Leeuw,2023-02-25T10:51:41.951Z,5a23cacd-0854-4ce3-b398-ed8a4de28176,VB,true,true,Belgium,be,1426612427553086,Vlaams Belang Sint-Pieters-Leeuw,Facebook
+c1a65504-1a1b-4978-8798-b9406df5847d,Vlaams Belang Brussel,2023-02-20T10:51:38.556Z,a8dbe782-a041-4176-b4d3-9863ebff7c6d,VB,true,true,Belgium,be,499682940133305,Vlaams Belang Brussel,Facebook
+c63dcf84-316b-4ed1-9ffe-fa1c00bb5417,Vlaams Belang Asse,2023-05-19T06:51:25.151Z,877d3713-35cd-48e7-af58-c2f9cac7327a,VB,true,true,Belgium,be,323200548211209,Vlaams Belang Asse,Facebook
+c79ad933-44b0-44ae-8ec8-e6f6f016913b,Vlaams Belang Eeklo,2023-02-13T10:51:47.796Z,1701ba90-f935-46cd-96d1-dd3e1975a351,VB,true,true,Belgium,be,100139751453863,Vlaams Belang Eeklo,Facebook
+c7c9fcd5-d813-4219-83d3-e25ad27f4d7f,Vlaams Belang Denderleeuw,2023-04-04T10:51:38.505Z,79504291-e056-4d47-8ad3-fde9c900bb9f,VB,true,true,Belgium,be,1065128483499955,Vlaams Belang Denderleeuw,Facebook
+c7e709f2-57f4-48bd-9b9e-a4ad9119a8ab,Vlaams Belang Lokeren,2023-03-21T10:51:19.376Z,8563d87d-9fd6-4d30-8501-f9d466698188,VB,true,true,Belgium,be,394303941029159,Vlaams Belang Lokeren,Facebook
+c9da6ab6-89c3-40f4-ba8c-bb054a9c1a42,Vlaams Belang Beringen,2023-02-07T15:05:56.683Z,5283c483-32b7-4cc0-8707-1a68c08a66e6,VB,true,true,Belgium,be,2114707135460275,Vlaams Belang Beringen,Facebook
+ccdaf6d3-69e1-4ebd-a79a-bc203b344aca,Vlaams Belang Beerse/Vlimmeren,2023-03-17T10:51:45.870Z,cdce7847-b0a5-4bab-86ba-f7297fab05f5,VB,true,true,Belgium,be,2093845954274342,Vlaams Belang Beerse/Vlimmeren,Facebook
+cfec5a59-ecb6-4435-9cc2-6989f0b920a6,Vlaams Belang Jabbeke,2023-02-07T15:05:56.700Z,fb7f88fb-cf3b-43fa-9f9b-febc54f0766a,VB,true,true,Belgium,be,400158513505219,Vlaams Belang Jabbeke,Facebook
+d1178a40-54a3-4d35-907b-2a9aeb16d17b,Vlaams Belang Deerlijk,2023-03-08T16:28:56.981Z,1cb1ab19-fa97-44d2-bdb9-022593df4851,VB,true,true,Belgium,be,111371293880997,Vlaams Belang Deerlijk,Facebook
+d1493aee-bf44-4ab3-bf2b-4dcb0d9aedee,Vlaams Belang Lommel,2023-03-08T18:03:51.277Z,71b218ca-6855-4004-bbb0-bef1ab9f4dbd,VB,true,true,Belgium,be,110105903684649,Vlaams Belang Lommel,Facebook
+d4308c29-2c1d-4ac9-9bb3-d627bc0b6c67,Vlaams Belang Boortmeerbeek,2023-02-14T10:51:36.381Z,fb6b63f4-4e0f-4c50-abc6-04ab45ef8b4c,VB,true,true,Belgium,be,113375250343092,Vlaams Belang Boortmeerbeek,Facebook
+d4ade91d-2cdf-4ba1-a712-baf8c6ac4ead,Vlaams Belang Wilrijk,2023-04-09T10:51:34.512Z,a1092529-04f6-4e93-80cb-d7206ab572dc,VB,true,true,Belgium,be,252906332233234,Vlaams Belang Wilrijk,Facebook
+d521eac8-11f3-4bf2-b424-020a308c3ae4,Vlaams Belang Lier,2023-03-14T10:51:18.233Z,992a2340-4924-4f81-a228-a82fffe7a993,VB,true,true,Belgium,be,1617502105155174,Vlaams Belang Lier,Facebook
+d64b9deb-ec8d-4aed-908a-3a1f4c83b18f,Vlaams Belang Stekene,2023-03-01T10:51:34.848Z,1bd241e4-bbd5-42fa-b7d4-695c54fa7654,VB,true,true,Belgium,be,1866599903632659,Vlaams Belang Stekene,Facebook
+d768b899-648a-4482-9f0b-52a02d13e787,Vlaams Belang Sint-Niklaas,2023-05-04T06:51:24.155Z,6131cfd9-bb31-4703-95d8-eb647f25a6cf,VB,true,true,Belgium,be,288442248561938,Vlaams Belang Sint-Niklaas,Facebook
+d7f6b5a2-384d-4922-97ae-421916b86f37,Vlaams Belang Ronse,2023-02-13T10:51:48.133Z,14e13043-4750-4959-8fda-c69babacb919,VB,true,true,Belgium,be,101284838242055,Vlaams Belang Ronse,Facebook
+da58ed53-4413-47a4-a84d-491ca07a78b5,Vlaams Belang Assenede,2023-02-07T15:05:56.616Z,77d31656-b965-4d99-bc04-e44b39070551,VB,true,true,Belgium,be,1430501343944560,Vlaams Belang Assenede,Facebook
+dce7a45b-7b72-40ac-b633-97e97171ff78,Vlaams Belang Menen,2023-08-31T06:12:36.577Z,0b49f058-cf6d-4020-bfd0-6f9b8b383557,VB,true,true,Belgium,be,265236934195957,Vlaams Belang Menen,Facebook
+e10d44a3-c1d3-4e2c-96a4-9b76f61b30ee,Het Belang van Limburg,2023-02-07T15:05:55.579Z,6b2a7e5b-071c-41c7-84b2-0a506476cdab,VB,true,true,Belgium,be,14619952769,Het Belang van Limburg,Facebook
+e23ab655-54db-4a1d-ba62-fcb609684e0c,Vlaams Belang Borsbeek,2023-06-19T18:23:27.637Z,32b28df8-a221-4dc9-9134-c39aefcad8f8,VB,true,true,Belgium,be,105647864469734,Vlaams Belang Borsbeek,Facebook
+e3b87c2a-0070-418c-bc64-d14a3c72a3a9,Vlaams Belang Vosselaar,2023-04-08T10:51:33.757Z,74fa08d0-3b7c-4360-ab76-fde4f4e8ceb3,VB,true,true,Belgium,be,102582221525115,Vlaams Belang Vosselaar,Facebook
+e4d2e710-61aa-4878-98d8-87c0f7cce8fa,Vlaams Belang Wingene,2023-07-18T06:05:42.820Z,60c8ab83-7e03-47ef-8fd5-34591b26feea,VB,true,true,Belgium,be,111164103901702,Vlaams Belang Wingene,Facebook
+e6d69494-fe87-4468-af2d-503c5ac96042,Vlaams Belang Waasmunster,2023-03-06T10:51:40.607Z,249fab40-66a5-4e2d-a202-d4557c732e02,VB,true,true,Belgium,be,1354772694581392,Vlaams Belang Waasmunster,Facebook
+e9c07e4d-7394-4d7e-aa16-2170d5b918ee,Vlaams Belang Tremelo-Baal,2023-02-13T10:51:47.889Z,026838de-5b2d-4d9f-a835-0626b785512e,VB,true,true,Belgium,be,496732257110744,Vlaams Belang Tremelo-Baal,Facebook
+ef6eb255-4ea4-4077-96cb-34b2c9ed15d9,Vlaams Belang Hooglede,2023-07-17T06:30:41.642Z,a2cbf0df-8431-4e8f-ad1f-c1aba56cecf9,VB,true,true,Belgium,be,108938870794182,Vlaams Belang Hooglede,Facebook
+f0306c4f-e514-4fa1-91d2-3df39e0e2434,Vlaams Belang Bilzen,2023-03-13T10:51:26.985Z,19ec39b3-3d0a-4a7b-84ec-3ff8993ca2e8,VB,true,true,Belgium,be,1796765513978532,Vlaams Belang Bilzen,Facebook
+f2b09e76-b714-4566-baa2-c657bbc78117,Tom Vandendriessche MEP,2023-04-06T10:51:55.614Z,94bc24fe-eb17-412a-ac42-3fed0bbee46f,VB,true,true,Belgium,be,100606792498147,Tom Vandendriessche MEP,Facebook
+f5446ddd-3b1e-4b6c-84dd-430f146ff2f2,Vlaams Belang Geraardsbergen,2023-02-20T10:51:39.415Z,c2fb4d50-60a4-4a4a-93c2-728d8a1041e8,VB,true,true,Belgium,be,251314822084953,Vlaams Belang Geraardsbergen,Facebook
+fc2d391c-53a5-44c9-88c7-f3a6323e7fdd,Vlaams Belang Boom,2023-05-09T06:51:23.904Z,33f7279d-c341-446d-b0fa-69e2a0aeca33,VB,true,true,Belgium,be,168914296546229,Vlaams Belang Boom,Facebook
+fda499aa-168f-4320-9430-da374622bee0,Vlaams Belang Wevelgem,2023-07-18T06:05:42.856Z,56318e5e-bb28-439f-aaad-0b0f52a74229,VB,true,true,Belgium,be,2123715647884111,Vlaams Belang Wevelgem,Facebook
+fe839707-e46f-4066-b16f-6f7b0e437744,Vlaams Belang Pelt,2023-10-18T05:05:32.082Z,10e1f77c-2082-42a2-b265-571ac7ef2b3e,VB,true,true,Belgium,be,110696970403615,Vlaams Belang Pelt,Facebook
+ff5d66dd-934f-4422-9d66-54d43b99641f,Vlaams Belang Schoten,2023-02-16T10:51:36.925Z,0cef092e-7ab2-4dee-9bf5-7557509873c1,VB,true,true,Belgium,be,112754688746186,Vlaams Belang Schoten,Facebook
+ffae1cd1-4a35-4442-a506-9636b04206d3,Vlaams Belang Aalst,2023-02-07T15:05:56.030Z,5208a96d-b3a0-4ee8-98f3-aeb7c16e4b03,VB,true,true,Belgium,be,105818905411643,Vlaams Belang Aalst,Facebook
+042a751c-d4e0-4c43-95da-6ad8881b23e6,Steven De Vuyst,2023-03-08T14:39:31.160Z,3b5f61d3-99ed-416a-a98c-3a0ca9a98b14,PVDA,true,true,Belgium,be,108065747712601,Steven De Vuyst,Facebook
+047b5cfa-f757-4ec6-b481-c5defd2c7c88,PTB Liège,2023-02-07T15:05:55.765Z,7e4872ed-4f62-4022-bc15-784ff9f2c72e,PVDA,true,true,Belgium,be,138659832930357,PTB Liège,Facebook
+07f6cdd6-b977-4e3f-a795-0f72ca8bf37b,Peter Mertens,2023-02-07T15:05:55.637Z,f1753158-8c57-4636-a4a1-847b3a58fa43,PVDA,true,true,Belgium,be,236485149843971,Peter Mertens,Facebook
+090444bb-189f-425b-be8b-e41215aa0186,Sofie Merckx,2023-02-08T06:19:17.390Z,3cc3347e-7340-4a2a-b9ba-d0b14b800236,PVDA,true,true,Belgium,be,296289134485339,Sofie Merckx,Facebook
+20563bd1-676e-450d-88e8-6bcdcb625dab,PVDA Diest,2023-03-08T17:42:02.987Z,6a765544-9e5d-4737-b447-0738b4f90525,PVDA,true,true,Belgium,be,103675418242405,PVDA Diest,Facebook
+24416474-f1c6-4248-9cd6-c1b0ce84c79f,PVDA Limburg,2023-07-17T06:30:41.344Z,d7887bd7-59cf-4607-8521-9cf10e877172,PVDA,true,true,Belgium,be,828918810501252,PVDA Limburg,Facebook
+27ca30c5-100e-400d-b3df-f8385903a20f,Marianne - Belgique,2023-02-14T10:51:36.484Z,01b60afe-be77-45b7-bb10-23ecab3ae8b2,PVDA,true,true,Belgium,be,103095447779775,Marianne - Belgique,Facebook
+29460f2f-40c4-4184-84ec-72c6efd23acd,Ilona Vandenberghe,2023-05-02T06:51:27.059Z,683eaa0c-5e0a-4a05-aae0-2e6ce68a1bc1,PVDA,true,true,Belgium,be,108910747598716,Ilona Vandenberghe,Facebook
+3240fb45-cba9-41ea-a108-a4c69c81354e,PVDA Aalst,2023-03-08T17:31:29.381Z,926a2cfd-1982-457c-9867-1c8629e1fdf6,PVDA,true,true,Belgium,be,151437321633867,PVDA Aalst,Facebook
+379b4846-5043-4ccd-9108-f68df89b781d,PVDA,2023-02-08T06:19:17.390Z,2cea6d50-678c-4750-932f-731252332a12,PVDA,true,true,Belgium,be,54970503767,PVDA,Facebook
+3e358a63-18c1-48e9-ab7c-9ef692a1ac1f,Sofie Merckx - PVDA,2023-02-08T05:54:34.627Z,2443bc04-75fc-4ad2-a9b6-d3041aa25a7d,PVDA,true,true,Belgium,be,105843370822509,Sofie Merckx - PVDA,Facebook
+4012460f-e17e-43d3-a0df-86ffa0887b23,PTB La Louvière - région du Centre,2023-06-19T18:23:27.843Z,c5342ba7-5e3e-4a1a-af35-71323d8372a6,PVDA,true,true,Belgium,be,215267375213081,PTB La Louvière - région du Centre,Facebook
+453260ab-4d61-4b47-8b78-b6394bbde830,Pauline Boninsegna,2023-07-04T06:14:46.654Z,22f76719-64fd-4b5b-a3c1-65c6aec11bdb,PVDA,true,true,Belgium,be,109860938208221,Pauline Boninsegna,Facebook
+4891bb9b-5049-41fe-8f0f-60fd5ba5fb98,Gaby Colebunders,2023-04-23T06:51:05.606Z,2e2e031a-b4d5-418d-84bb-1aa23ff63e79,PVDA,true,true,Belgium,be,320505575247082,Gaby Colebunders,Facebook
+535d9b2b-c7d5-4a4f-998a-ecd32359c9d3,PTB Charleroi / Sud-Hainaut,2023-03-08T16:39:10.668Z,5ba8332e-422b-4950-b2ff-adcbda4bee1d,PVDA,true,true,Belgium,be,456513607703209,PTB Charleroi / Sud-Hainaut,Facebook
+575d0665-be02-481e-830e-a3b19d55d6ff,Ben Van Duppen,2023-03-06T10:51:39.839Z,b8f95a9c-689a-4648-a8a6-187cf3b1e347,PVDA,true,true,Belgium,be,111501451789338,Ben Van Duppen,Facebook
+5a028952-d088-4ded-8f47-a081174bed54,PVDA Antwerpen,2023-02-17T10:51:27.633Z,34f19ef4-c2d6-4143-ae3a-195fac62ada6,PVDA,true,true,Belgium,be,241932369235970,PVDA Antwerpen,Facebook
+5a561a25-af69-4dcc-a018-3f94cab5f6d7,Nabil Boukili,2023-03-21T10:51:18.990Z,cc0ba097-d5f7-4d19-bec4-c2d604f9ef9b,PVDA,true,true,Belgium,be,126457192087445,Nabil Boukili,Facebook
+6ea9e379-bad5-424c-a76e-5b7af8b834fa,Raoul Hedebouw - PVDA,2023-02-08T06:19:17.390Z,693bca88-06f1-4693-a1ac-6ebf4138aa8e,PVDA,true,true,Belgium,be,305365056290036,Raoul Hedebouw - PVDA,Facebook
+7cdba03e-24f5-4af0-90fc-6308ca48d897,Fakto,2023-07-17T06:30:41.119Z,164207c1-5a0f-4831-bc0b-4cb01181eb6f,PVDA,true,true,Belgium,be,107832182291703,Fakto,Facebook
+92f81fe1-be4b-4cd2-a64f-f93d2cab259e,PTB Namur,2023-03-07T10:51:34.904Z,4389e0a3-3945-4a01-818d-9d0d91831c40,PVDA,true,true,Belgium,be,353115738171647,PTB Namur,Facebook
+9759fd55-a67f-47d5-8576-6bc17ceef70e,Fakto,2023-07-17T06:30:41.175Z,845e2b9d-40c4-4b6c-a6e4-b824719413e5,PVDA,true,true,Belgium,be,100697946349295,Fakto,Facebook
+9ed067fe-553a-44bc-99fe-21b27e25c6f1,PVDA PTB Halle,2023-07-03T06:14:21.785Z,a35eaf2e-63d0-4a0e-8eeb-d64a2c71bdf0,PVDA,true,true,Belgium,be,1896959233917847,PVDA PTB Halle,Facebook
+a22163a3-5020-40bb-8404-20977e3fda49,Line De Witte,2023-02-07T15:05:55.715Z,7c5e2862-c1b7-4e5d-bf42-60b08972de2f,PVDA,true,true,Belgium,be,1094451167319305,Line De Witte,Facebook
+a4d28fa0-6fec-4548-a131-0fe77ce3bce4,PVDA West-Vlaanderen,2023-03-08T14:39:31.016Z,4146e19a-900d-41f1-b2cc-d6dce4d30a57,PVDA,true,true,Belgium,be,1661103980836335,PVDA West-Vlaanderen,Facebook
+a50ee554-0892-4c89-bdf3-a54b4d8f0cf2,Sander Vandecapelle,2023-02-26T10:51:45.473Z,7a8f69d9-3573-40aa-b2a3-9fe6cc1b73c4,PVDA,true,true,Belgium,be,288654088488077,Sander Vandecapelle,Facebook
+a9fb0b0f-861e-463e-972c-299425e7dd9f,PVDA Maasmechelen,2023-03-18T10:51:29.253Z,9cde61db-b87b-4a34-aed1-c1676d8be4cc,PVDA,true,true,Belgium,be,133419873471192,PVDA Maasmechelen,Facebook
+b6f60920-37b1-49ac-b613-57a9379b4e39,Kim De Witte,2023-02-07T15:05:55.674Z,480bb4fa-fd59-47f9-b963-c781b9ef31f1,PVDA,true,true,Belgium,be,315662412174661,Kim De Witte,Facebook
+b9b1b039-b1a9-47be-8d65-4f9d4f74d786,Youssef Handichi,2023-02-22T10:51:50.300Z,f01cfba5-1e75-490d-910b-429138d399ef,PVDA,true,true,Belgium,be,109519493980477,Youssef Handichi,Facebook
+c76f8b24-cc84-4b6e-b287-d6447581814d,PVDA Geraardsbergen,2023-04-09T10:51:34.933Z,63171cc2-318a-40a1-a097-b05af981e1a1,PVDA,true,true,Belgium,be,411030959031750,PVDA Geraardsbergen,Facebook
+d4e3f043-c377-4ab1-a230-37db92075764,Natalie Eggermont,2023-02-24T10:51:40.691Z,5caf73c5-1ebf-491a-bba5-c4dc01562d31,PVDA,true,true,Belgium,be,415595709204858,Natalie Eggermont,Facebook
+d55ca6bf-fc8b-4cd4-987e-d6d99f8dda03,PVDA Gent,2023-02-07T15:05:56.256Z,1b2f1441-adb7-4880-99d8-e50f01068775,PVDA,true,true,Belgium,be,184940138213799,PVDA Gent,Facebook
+d60ebd4b-7cf9-443e-aa2e-d784cc7c49a0,Marc Botenga,2023-09-09T05:05:27.617Z,bee9406a-b498-4a3c-ab0d-5193f28cb9b5,PVDA,true,true,Belgium,be,544164299401463,Marc Botenga,Facebook
+d8cb878c-f6c8-47ae-8a0f-c1062adcaec3,Marianne - België,2023-02-14T10:51:36.302Z,e413ed27-fb52-4ecd-bfba-c27e49b553b2,PVDA,true,true,Belgium,be,103185044437485,Marianne - België,Facebook
+df4f3088-9bd4-46c6-98cb-b9599ca31b2b,Raoul Hedebouw,2023-02-07T15:05:55.559Z,8c63c98b-7cd2-489b-8844-807f88b36629,PVDA,true,true,Belgium,be,181975318662681,Raoul Hedebouw,Facebook
+e026dad5-348f-46e4-a326-a0f530a641d8,Jos D'Haese,2023-02-08T05:54:33.925Z,de866aea-ac2b-4075-b0f0-9a6063656bd0,PVDA,true,true,Belgium,be,1397002987227704,Jos D'Haese,Facebook
+e071625f-2b71-4891-a209-5793104ddb34,PVDA Zelzate,2023-07-03T06:14:21.782Z,58c9861e-4c6e-4c49-b2bb-2d35682d442a,PVDA,true,true,Belgium,be,426377394044032,PVDA Zelzate,Facebook
+e0ecf258-be79-45f2-ad52-bc8b3f7b5cd0,Nadia Moscufo,2023-02-08T05:54:33.961Z,daecde17-e17c-46e0-9275-f44558869515,PVDA,true,true,Belgium,be,106960738389089,Nadia Moscufo,Facebook
+e2829a8c-d9a8-41a5-9176-0367e5b67f49,Tom De Meester,2023-03-08T16:39:10.726Z,a2bcfe2c-69f7-4e96-bb92-fb58209e55f4,PVDA,true,true,Belgium,be,409051602452966,Tom De Meester,Facebook
+e8064121-0a11-4908-ba7a-e7ea12ce620a,Françoise De Smedt,2023-02-11T10:51:23.710Z,4111e1d5-5150-4d38-897e-a0d0e2fcc0e5,PVDA,true,true,Belgium,be,105098291361811,Françoise De Smedt,Facebook
+e8fdc397-6517-4709-aba0-cba2046a0304,Ayse Yigit,2023-02-15T10:51:28.820Z,4ea87861-00c2-4d1e-adb6-4c30bd3009cc,PVDA,true,true,Belgium,be,103275904506451,Ayse Yigit,Facebook
+efe125d3-aaed-4300-84d3-03c9951bde26,PVDA Sint-Niklaas,2023-03-08T17:31:29.462Z,baeaedf8-2a86-43f1-bdb0-e424198683c5,PVDA,true,true,Belgium,be,1474035399518584,PVDA Sint-Niklaas,Facebook
+f011c6b1-b3cf-431d-834a-0a761fde2df6,Lise Vandecasteele,2023-02-07T15:05:55.785Z,03826df7-3581-45d1-8461-061fb16036a2,PVDA,true,true,Belgium,be,2433030616715564,Lise Vandecasteele,Facebook
+f8ff3170-5b5a-4034-bffd-8480a915705c,PTB Région Bruxelles-Capitale /  PVDA Brussels Hoofdstedelijk Gewest,2023-02-25T10:51:41.730Z,e673208f-8ff8-445f-ad98-ad02ca820631,PVDA,true,true,Belgium,be,162499363939852,PTB Région Bruxelles-Capitale /  PVDA Brussels Hoofdstedelijk Gewest,Facebook
+047065ca-3462-479a-b7f6-7035754bd6bb,SP Ostbelgien,2023-02-07T15:05:56.904Z,eff9d668-08eb-44e2-ac75-b2d1039815c2,PS-V,true,true,Belgium,be,183856108612877,SP Ostbelgien,Facebook
+059bbc22-dbbc-4f9e-bf72-6e77c82d0cf9,Caroline Désir,2023-06-26T05:06:43.939Z,0b7b71c8-011d-4095-ac9c-c62de9aa3a73,PS-V,true,true,Belgium,be,107102184155699,Caroline Désir,Facebook
+0af68388-72fb-4f78-8cd9-3799ffe3c104,Les Fourmis Rouges - PS Frasnes,2023-03-21T10:51:19.565Z,3fbbbaf6-329c-4bd0-9b29-927893b096b4,PS-V,true,true,Belgium,be,424760587864415,Les Fourmis Rouges - PS Frasnes,Facebook
+0fec4b20-0a19-47a9-8ad5-1800c7c5cff5,Fédé PS de Charleroi,2023-03-08T18:14:11.496Z,36da2a83-6e31-4160-aeb8-dfdd5a9d7584,PS-V,true,true,Belgium,be,933376160013291,Fédé PS de Charleroi,Facebook
+11060782-5db9-43ff-9f94-234c372552d2,Vooruit oost-vlaanderen,2023-05-07T06:51:14.316Z,c612edd5-c075-47a2-a303-d82909795b2c,PS-V,true,true,Belgium,be,543987882348921,Vooruit oost-vlaanderen,Facebook
+129d5bbf-e52b-4f73-b77c-a42b351f2818,Vooruit Leuven,2023-09-29T05:05:34.142Z,7d4c7b8b-f875-4218-aa4d-b8d78d971092,PS-V,true,true,Belgium,be,467752603266265,Vooruit Leuven,Facebook
+15cbec65-dc2d-4477-b680-f52c343f2eb6,Vooruit Beveren,2023-07-13T12:47:02.547Z,ffddb820-17d7-406a-87e4-6f204942e21a,PS-V,true,true,Belgium,be,940801029293711,Vooruit Beveren,Facebook
+17524045-0eb5-4111-929d-dac6d7dc6f58,Ans Persoons,2023-06-07T06:51:18.452Z,d0baea85-447c-4b7b-b454-5f89372dfa08,PS-V,true,true,Belgium,be,415834035419919,Ans Persoons,Facebook
+1a64aff2-6b8f-4f3c-b3b1-9619ba373088,PS Virton,2023-06-08T06:51:32.393Z,56e416a2-1966-4829-85e2-fb0914f0a14f,PS-V,true,true,Belgium,be,102263991939263,PS Virton,Facebook
+1e9e0130-2ee5-41a1-9a62-8748a7594318,Vooruit Zuienkerke,2023-06-13T06:51:34.937Z,52dd2653-223f-4f29-b771-b364d4aade29,PS-V,true,true,Belgium,be,104169932708134,Vooruit Zuienkerke,Facebook
+2066e967-dd88-422e-b081-b852776142f6,Paul Magnette,2023-02-07T15:05:55.611Z,ff50b050-9685-488e-acbc-a4a44b67b989,PS-V,true,true,Belgium,be,29384148415,Paul Magnette,Facebook
+22450ed3-cbb2-4b3b-b294-293fc540f16a,Vooruit Peer,2023-04-12T10:51:06.737Z,6a2c81e7-728d-46ef-85b7-6fbbe795b8a2,PS-V,true,true,Belgium,be,316804578418423,Vooruit Peer,Facebook
+2268b6ab-71c4-41e2-a2eb-ac8418dd30ac,Fédération PS Verviers,2023-03-03T10:51:37.626Z,8354ad1d-0243-4bf6-8ea3-e1da6c6d4e09,PS-V,true,true,Belgium,be,101389761771028,Fédération PS Verviers,Facebook
+23f2d099-2df9-49fa-b80f-9265ce3bd73b,Catherine Moureaux Bourgmestre,2023-04-07T10:51:33.135Z,22353da5-0389-4991-813b-aad301954786,PS-V,true,true,Belgium,be,109861908689973,Catherine Moureaux Bourgmestre,Facebook
+24baeb88-9751-4e28-874a-959582da12a5,Vooruit Gent,2023-03-08T18:03:51.412Z,047fb874-a2c1-49cf-b3ed-58b7ab1043e9,PS-V,true,true,Belgium,be,145214795544742,Vooruit Gent,Facebook
+28bcc20f-76d5-4557-b208-734ba161c0d8,Vooruit Denderleeuw,2023-09-10T05:05:23.848Z,14d71d3e-7a8e-4d52-b6cb-66228e48faa2,PS-V,true,true,Belgium,be,118930597808377,Vooruit Denderleeuw,Facebook
+28eec8fa-4c02-468c-a7a2-2612b8ac41b1,Caroline Gennez,2023-05-21T06:51:20.664Z,11f75a90-c969-4c7f-9a96-d7d0e088e786,PS-V,true,true,Belgium,be,208965559294791,Caroline Gennez,Facebook
+2ebfb7bd-f189-485f-98ef-97e235e6b16e,Vooruit Aarschot,2023-04-08T10:51:33.896Z,615b1e4f-b3a3-4664-aa99-2da5e845eb7b,PS-V,true,true,Belgium,be,1518444555087171,Vooruit Aarschot,Facebook
+2fa9cad5-885e-47ca-b2e9-6d9d18420835,Vooruit Herentals,2023-06-11T06:51:26.469Z,dd2fc0a2-6860-46f6-93ee-782d31708aa2,PS-V,true,true,Belgium,be,1484670711796843,Vooruit Herentals,Facebook
+43cd5ee3-0151-4a0f-87d5-a7a71aebc38e,Astrid De Bruycker,2023-02-07T15:05:56.663Z,0ddefccf-2387-4ad6-b582-55260db7fe0f,PS-V,true,true,Belgium,be,1985957014956157,Astrid De Bruycker,Facebook
+45b313ad-0b21-4ffb-96a6-d41d8dc0244f,Vooruit Hemiksem,2023-02-21T10:51:34.371Z,2411a4fd-a9e6-47bb-a18d-2a0d3af470e3,PS-V,true,true,Belgium,be,189913087722338,Vooruit Hemiksem,Facebook
+622587ec-ed39-41b3-95d7-6a4fd7036f29,Vooruit Tielt,2023-06-08T06:51:32.450Z,5f2ccf68-8e0f-4155-b726-2688989f0cfc,PS-V,true,true,Belgium,be,343048849132754,Vooruit Tielt,Facebook
+6249f185-e827-40ce-b268-f0ddfd7992a3,Vooruit Wilrijk,2023-02-20T10:51:39.115Z,61f74275-1670-4a3d-9031-a29db24b5a8e,PS-V,true,true,Belgium,be,142346395835805,Vooruit Wilrijk,Facebook
+6576c568-8baa-426e-8fb0-b50396927c29,Vooruit Sint-Niklaas,2023-02-08T05:54:34.912Z,fcc09c6f-7967-4072-aa1a-b47b8790105d,PS-V,true,true,Belgium,be,123571580986816,Vooruit Sint-Niklaas,Facebook
+671356f6-14c7-4965-87ef-4f980c49a22a,Pablo Annys,2023-04-01T10:51:16.411Z,e3381d51-357a-4e8e-aee4-196edec58551,PS-V,true,true,Belgium,be,1161608023962638,Pablo Annys,Facebook
+69005475-23b6-434e-9215-64f861b8b277,Parti Socialiste,2022-08-16T15:24:28.709Z,81282511-3ace-4a58-82ca-88b6a672a9b1,PS-V,true,true,Belgium,be,518402351504731,Parti Socialiste,Facebook
+6db99060-e0f7-45a8-9d14-ba239f4e2e1f,Vooruit Brugge,2023-03-08T14:39:31.377Z,582e73fc-e2f5-4ae6-b8d1-8f19798fe34a,PS-V,true,true,Belgium,be,167720696603373,Vooruit Brugge,Facebook
+751ef1ab-6569-405c-bf8d-afe4ba0d0820,Vooruit Kalmthout,2023-05-17T06:50:54.058Z,b5e8d1c6-715b-419a-892b-3544911b2c39,PS-V,true,true,Belgium,be,447918821968918,Vooruit Kalmthout,Facebook
+75ca6bed-b6a0-428d-83d7-a30b369c1750,Vooruit Lummen,2023-05-05T06:51:17.264Z,17c07099-40f7-4989-b2fb-2235a5192b61,PS-V,true,true,Belgium,be,1482083348470803,Vooruit Lummen,Facebook
+79f809c9-ae0f-4787-92a6-0f1583d54fcc,Anja Vanrobaeys,2023-09-18T05:05:26.542Z,c61145e5-d7c1-4402-9b45-e6ca68578ce3,PS-V,true,true,Belgium,be,795798820785493,Anja Vanrobaeys,Facebook
+7aaa626e-1a27-4e7a-8b8b-c77ebf816f8d,Marian Clément,2023-09-10T05:05:24.236Z,f690a7c6-4b4c-441a-8e1a-0534a812fb6e,PS-V,true,true,Belgium,be,770976623288341,Marian Clément,Facebook
+7e4fd9f9-1632-4cb6-a41d-5082f4bd5968,Thomas Dermine,2023-02-07T15:05:55.927Z,93e6fbc8-718d-4c59-bfcf-96c83116dae2,PS-V,true,true,Belgium,be,106327084648481,Thomas Dermine,Facebook
+7f12fddc-b641-43ad-9bc7-a585cc963cd6,Vooruit in Niel,2023-03-08T15:18:53.378Z,dbcf8a26-1ee4-426a-aa7a-0d1d19c930c9,PS-V,true,true,Belgium,be,796751540415821,Vooruit in Niel,Facebook
+7f1ebde5-1cd6-4f8c-9639-7ca5d5a78a0c,Vooruit Lommel,2023-05-29T06:51:22.617Z,4d864d20-b5e2-4def-ac89-e96ac78055c7,PS-V,true,true,Belgium,be,1219913924824136,Vooruit Lommel,Facebook
+84ac3a86-206b-48a9-b6ac-d0afd1111413,Vooruit Turnhout,2023-02-26T10:51:45.459Z,064731b1-8cf0-415e-9c5e-49da44428634,PS-V,true,true,Belgium,be,156768187790267,Vooruit Turnhout,Facebook
+85247eac-99d6-43c7-9ab6-6290a9743f3f,Conner Rousseau,2023-02-08T05:54:34.156Z,7ed2c9c0-a145-4714-b007-331b453de2dc,PS-V,true,true,Belgium,be,942750852588816,Conner Rousseau,Facebook
+876c9c56-2d80-4a29-b45d-f7893f6349ee,Vooruit-Meise,2023-04-19T06:51:26.432Z,9611bbc9-f1fe-4975-a394-79609b585783,PS-V,true,true,Belgium,be,418332591668385,Vooruit-Meise,Facebook
+8dbf2ddf-5544-4c2c-82a9-f4ae96a4f15f,Melissa Depraetere,2023-02-07T15:05:55.824Z,8c255b4c-bb71-4624-a01a-c9d73c94542d,PS-V,true,true,Belgium,be,2101118869952701,Melissa Depraetere,Facebook
+989e7399-a774-4d56-89fd-f42a4487b2c3,Rudy Coddens,2023-05-13T06:51:30.213Z,2c228979-add7-4940-8987-ba8549a8327c,PS-V,true,true,Belgium,be,133373016673522,Rudy Coddens,Facebook
+9fe288e0-0f41-4b8f-8042-60c55eed6cb9,Vooruit Diest,2023-02-16T10:51:37.083Z,9089a14a-a9a8-40d3-bd29-60f368d9b4f3,PS-V,true,true,Belgium,be,639669252790836,Vooruit Diest,Facebook
+a11ea25c-435a-4bf9-a73b-6b2bbe1ba983,Bassambi Yves,2023-03-08T14:39:31.165Z,30124111-6396-4716-b114-40bbedf76f55,PS-V,true,true,Belgium,be,482572432191133,Bassambi Yves,Facebook
+a5558f03-2cf2-45fe-8645-f511fe975a0c,PS Herstal,2023-03-08T19:39:47.933Z,9ef2a49b-990d-408f-8831-7a6054503940,PS-V,true,true,Belgium,be,1719509894948080,PS Herstal,Facebook
+a72cc94c-0d67-4bb3-a604-46c84c04c7da,Vooruit Ingelmunster,2023-02-19T10:51:52.616Z,163bfd8d-6c9c-43bf-b5bb-cb1d5f8241c6,PS-V,true,true,Belgium,be,330707510330732,Vooruit Ingelmunster,Facebook
+a7f622f1-96e5-4552-b697-460365ddf8a5,Vooruit Stad Antwerpen,2023-05-02T06:51:27.453Z,9746d4bb-6d70-4809-8491-daa3392c0ace,PS-V,true,true,Belgium,be,180522308775157,Vooruit Stad Antwerpen,Facebook
+aaa86ff1-c560-49cb-becb-375e58d51d63,PS Forest,2023-03-08T14:39:31.302Z,988159b5-0219-4851-8568-38416d33a440,PS-V,true,true,Belgium,be,358545264199021,PS Forest,Facebook
+b06fb19a-493e-4ef1-b319-eaf725aa680b,Vooruit Oud-Heverlee,2023-03-08T19:39:48.187Z,d9ecbdf2-bdd4-428a-87a9-899829d62f0f,PS-V,true,true,Belgium,be,158691941554784,Vooruit Oud-Heverlee,Facebook
+b8d97a02-6b1b-4310-8130-963de2cd3aac,Vooruit Bree,2023-02-20T10:51:39.288Z,fb85723c-1d63-4e40-9cdc-b9a75cf84f13,PS-V,true,true,Belgium,be,106280537407043,Vooruit Bree,Facebook
+bad2fe12-aa3b-42d7-8b7b-aeb972289955,Vooruit Tielt-Winge,2023-02-07T15:05:56.609Z,d04ef62e-a58a-4eb8-a71d-7613d899a23a,PS-V,true,true,Belgium,be,108057434411189,Vooruit Tielt-Winge,Facebook
+c98dff2e-389e-4862-b5b7-48064756c81e,Parti Socialiste de Pepinster,2023-05-31T06:51:25.985Z,979f0110-156c-4b39-93fa-98c60efe8492,PS-V,true,true,Belgium,be,460985940687835,Parti Socialiste de Pepinster,Facebook
+caacca2a-4ec8-4fb8-8bd6-22d9a8edeec7,Vooruit Mechelen,2023-02-10T10:51:44.818Z,1f6f2bc3-13c4-4722-9693-2f7b78ef41bd,PS-V,true,true,Belgium,be,149277595117860,Vooruit Mechelen,Facebook
+cd64aa3e-ad6b-4d8c-88a1-5c1624a316fc,Hannes Anaf,2023-04-10T10:51:02.228Z,eeda019f-babb-4294-bcbd-740a71458f9b,PS-V,true,true,Belgium,be,2328617477370183,Hannes Anaf,Facebook
+cfa9bdf9-4949-4a24-bae0-e7ba6d145a09,Jurgen Vanlerberghe,2023-02-08T06:19:17.764Z,dc9a1be6-18e2-4fc7-b0d0-34625d41acde,PS-V,true,true,Belgium,be,1664229433634791,Jurgen Vanlerberghe,Facebook
+de131f0a-9de2-4fff-8f41-f029f9cdebda,Vooruit Herent,2023-02-27T10:51:39.277Z,8824ed34-a70a-4971-b40f-55f1b6e80c5d,PS-V,true,true,Belgium,be,714414248608786,Vooruit Herent,Facebook
+e710c7ba-9871-4db3-b708-955f70fd6841,PS Mons-Borinage,2023-02-25T10:51:42.291Z,853b7d35-8e93-4e76-99f4-55b5ece006dc,PS-V,true,true,Belgium,be,132596773464688,PS Mons-Borinage,Facebook
+f412fe87-2266-48bf-9843-41d7f8781478,Vooruit Linter,2023-03-24T10:51:38.782Z,a1fec6da-7b02-41be-9b0a-9265e3302731,PS-V,true,true,Belgium,be,140835949920579,Vooruit Linter,Facebook
+fc2bd083-f4c1-4c7e-91ca-dd9ac9f031eb,Arno Pirolo,2023-02-07T15:05:55.820Z,d6d9c0bd-21a7-40ab-bd7c-34319b687877,PS-V,true,true,Belgium,be,560188074394074,Arno Pirolo,Facebook
+fc8ebbae-a3f5-4898-bedd-a31755492036,Joris Vandenbroucke,2023-02-19T10:51:52.673Z,a6188b46-5cfe-4d79-a3aa-53fb7d4c6d37,PS-V,true,true,Belgium,be,984867054996076,Joris Vandenbroucke,Facebook
+043459c0-9581-4b2f-a4d8-d835b792bf4b,Open VLD Zonhoven,2023-05-21T06:51:20.771Z,036c21f6-a0a2-4d9a-a0b3-14f2dce5675f,VLD,true,true,Belgium,be,287927211265668,Open VLD Zonhoven,Facebook
+0bf8ac2a-581b-4f10-b257-9dea44c9b3f3,Open VLD Herent,2023-02-19T10:51:52.417Z,22dd177a-8eb9-48c8-8f9f-5d73c1b2373c,VLD,true,true,Belgium,be,248271332105,Open VLD Herent,Facebook
+0d8bb2af-74df-433d-823e-7adff80bdb65,Tania De Jonge,2023-02-20T10:51:39.352Z,f95d2544-c3ba-4a92-9747-8d8c624cd3f6,VLD,true,true,Belgium,be,109089337470987,Tania De Jonge,Facebook
+0de4c9e0-e0ed-4932-8065-7b6a1bb5ae6e,Frank Dewael,2023-02-21T10:51:34.627Z,bbdfdc38-2404-4fbc-9719-3c7e63f4d856,VLD,true,true,Belgium,be,109093170672516,Frank Dewael,Facebook
+132aaf70-ae55-4e06-816d-2e56c50465b1,Bart Somers,2023-02-08T05:54:34.786Z,72cdeedd-0852-4e28-8311-9e935357aae4,VLD,true,true,Belgium,be,596946040405796,Bart Somers,Facebook
+18a6ecc4-ffc2-490f-a0e0-51daa696feba,Lydia Peeters,2023-02-08T06:19:17.946Z,38c0eea5-233d-438c-830d-23feec3b3f2b,VLD,true,true,Belgium,be,539909526473870,Lydia Peeters,Facebook
+1ed18baa-b5b5-4fef-be5a-27a1c357991c,Alexander De Croo,2023-03-02T10:51:35.569Z,a469517d-b02f-4210-81f6-ccb1375b4894,VLD,true,true,Belgium,be,228307843991539,Alexander De Croo,Facebook
+344c7e9c-86b5-4518-834a-7fd61e98e0e7,Open Vld Tielt,2023-02-07T15:05:56.609Z,71ff35f9-11e6-4197-b28c-5999440e368c,VLD,true,true,Belgium,be,580913948708077,Open Vld Tielt,Facebook
+373a79c5-a1fe-450e-8a07-b76bd4b8448d,Stephanie D'Hose,2023-02-07T15:05:55.964Z,1340e551-5c46-43b2-b076-0cb53c1100c9,VLD,true,true,Belgium,be,164046407701632,Stephanie D'Hose,Facebook
+45e3a3b3-2418-4a42-b334-965ee42d041a,Open Vld Brussel,2023-03-08T15:28:27.864Z,7427f0cb-a1c4-4142-aba4-cf8703c20791,VLD,true,true,Belgium,be,1589760981258549,Open Vld Brussel,Facebook
+46e94efd-7898-48c0-81d7-bd99fc0fa064,Bewust - Open VLD Poperinge,2023-07-09T06:06:46.925Z,37b1baa3-24cc-4165-ae44-c75a1f165461,VLD,true,true,Belgium,be,248461311915752,Bewust - Open VLD Poperinge,Facebook
+4b1e33c7-7a0d-48c2-a546-81c5b6a314ee,Sven Gatz,2023-02-07T15:05:56.955Z,66090d9d-c36b-4e02-94b3-3b72640bad7d,VLD,true,true,Belgium,be,100947845480,Sven Gatz,Facebook
+4d00e2b4-6813-41ff-8ab2-0cb5c5a53937,Open Vld Wortegem-Petegem,2023-06-23T05:15:17.641Z,125d3dc3-9d7d-44ac-a48a-e904490aa901,VLD,true,true,Belgium,be,229674743819427,Open Vld Wortegem-Petegem,Facebook
+5e277036-5571-4347-8d36-dcfbd7a8c58e,Tim Vandenput,2023-02-08T05:54:34.503Z,8167cb47-37c8-4b85-b165-54523a30b97b,VLD,true,true,Belgium,be,1389489154658124,Tim Vandenput,Facebook
+5fbde120-69a9-40b8-8bfb-785398d465a1,Open Vld Sint-Niklaas,2023-03-08T14:39:31.138Z,0b068a32-6d5b-40ed-b5ed-fe0616d0639f,VLD,true,true,Belgium,be,239526012768903,Open Vld Sint-Niklaas,Facebook
+61341407-cfa2-4d2b-8efb-def442fe02ca,Egbert Lachaert,2023-02-07T15:05:55.548Z,af8761fb-1114-4c89-884b-98e73fca0ee5,VLD,true,true,Belgium,be,504580942987092,Egbert Lachaert,Facebook
+6ec70c59-30ef-4157-ba2b-0f6ac4604261,Sofie Bracke,2023-09-12T05:04:57.912Z,37796b91-a99e-4801-aa69-bc415a1c066f,VLD,true,true,Belgium,be,104064067767729,Sofie Bracke,Facebook
+73352a5d-8b67-4595-9776-7190ce278e15,Open Vld plus Oosterzele,2023-09-04T05:05:27.959Z,e33c1a66-bad9-4217-bda1-bab80f20f7e0,VLD,true,true,Belgium,be,105190954640352,Open Vld plus Oosterzele,Facebook
+74fc4dd2-ac67-4e0e-b30c-74d1639e19e1,Alexia Bertrand,2023-02-15T10:51:28.777Z,cbc49242-7dd3-4a8b-b37c-a2facfa104df,VLD,true,true,Belgium,be,443445539013483,Alexia Bertrand,Facebook
+7d99ae7c-67de-4fb3-8899-9af28c548aec,Open Vld Hulshout,2023-03-08T15:28:27.975Z,a3890689-f061-44d9-bb7a-34a5ca8e228e,VLD,true,true,Belgium,be,1401267179901865,Open Vld Hulshout,Facebook
+89e7a0e2-c115-4391-b33e-a2256c4838f1,Willem-Frederik Schiltz,2023-04-23T06:51:05.685Z,3d47a0e0-3b85-4526-b1f1-67346477b473,VLD,true,true,Belgium,be,607196916040605,Willem-Frederik Schiltz,Facebook
+8ca0b6d1-5d52-4350-8f35-2591b65552d6,Democraten Tervuren,2023-02-07T15:05:56.642Z,840d867e-af64-474d-8c20-82272d366b12,VLD,true,true,Belgium,be,422966247749927,Democraten Tervuren,Facebook
+91be1108-5455-4a6b-82ef-56b7b04dda9b,Jong VLD,2023-02-07T15:05:56.591Z,596de0e5-6541-48ff-a2a0-75caf4ff49c1,VLD,true,true,Belgium,be,274353765974285,Jong VLD,Facebook
+9c9ed2de-928d-471b-ad21-c0785e655a94,Open Vld Zottegem,2023-02-07T15:05:56.809Z,243f9c97-23c3-45a9-a4d3-72b2c9d1db2f,VLD,true,true,Belgium,be,103510682631654,Open Vld Zottegem,Facebook
+a15bcc87-a3bd-4fc2-9c19-76385e55d6a6,Maggie De Block,2023-02-07T15:05:55.822Z,f6378097-52e2-4400-828e-4c304068f254,VLD,true,true,Belgium,be,1410219772556421,Maggie De Block,Facebook
+b3b653d7-cb71-4a93-b1bc-a582042597e3,Tom Ongena,2023-04-29T06:51:23.792Z,233200c1-b32f-4251-b985-df453fc2ce17,VLD,true,true,Belgium,be,111768860301470,Tom Ongena,Facebook
+ba3224f5-dcb9-4a67-82cc-9f8a28698dd5,Jasper Pillen,2023-02-07T15:05:55.652Z,24b8a243-9af9-4aa4-abf9-d8ad16863a28,VLD,true,true,Belgium,be,440758486069432,Jasper Pillen,Facebook
+c01a8cf8-9f55-4ffb-b58a-8705721f0cd5,Open Vld Hemiksem,2023-03-01T10:51:34.875Z,527d22e2-35f1-4f4f-ae58-bfa6c4820941,VLD,true,true,Belgium,be,192242654157261,Open Vld Hemiksem,Facebook
+c92e8471-79c3-4f20-8af9-e36ede2a045d,Open VLD Niel,2023-02-17T10:51:27.672Z,a4f50712-7174-46b5-8416-5b478858f253,VLD,true,true,Belgium,be,996900070326561,Open VLD Niel,Facebook
+decc4a24-74e6-41f3-9119-2d15dd77ca28,Open vld Melle,2023-02-07T15:05:56.048Z,8586f610-90f7-4387-911a-14e21ab65c39,VLD,true,true,Belgium,be,394567607272629,Open vld Melle,Facebook
+deeb0afe-1eaa-4612-9941-093014bd963a,Open VLD Geraardsbergen,2023-03-08T17:20:54.848Z,e0dba20c-0ed4-4e39-977d-0dbb11fcc8f7,VLD,true,true,Belgium,be,1732305490353218,Open VLD Geraardsbergen,Facebook
+e4c00a1e-16bf-4b54-9596-1ca33bf02f8a,Open Vlaamse Liberalen en Democraten,2022-08-16T15:24:28.675Z,7e3f71bc-1fb0-4b9c-a8c6-33516f4ad463,VLD,true,true,Belgium,be,53668151866,Open Vlaamse Liberalen en Democraten,Facebook
+fcd03add-59a3-42e4-aa84-e241906540b4,Open Vld Beveren,2023-03-08T16:28:57.159Z,2a763af9-0041-474a-9e97-dda67fd842ee,VLD,true,true,Belgium,be,225919340851046,Open Vld Beveren,Facebook
+fdd54d85-6d5a-41ac-a1d4-18a4d17ecbd3,Open Diest,2023-02-07T15:05:55.793Z,4c0d1733-1ca7-499d-93cb-2546097199d6,VLD,true,true,Belgium,be,252751761458943,Open Diest,Facebook
+fe429ec4-f53b-4791-80c8-bb5f376a96b0,Herman De Croo,2023-03-08T18:46:22.592Z,6b29add0-dfe1-4e50-a2b7-34cec7bff59b,VLD,true,true,Belgium,be,506988542748737,Herman De Croo,Facebook
+2278f9f5-0d0b-44b4-a57d-235acaa10510,DéFI en Wallonie,2023-02-13T10:51:47.773Z,2721e6ab-3d03-4c49-a393-1dfb2637ce83,DéFI,true,true,Belgium,be,187079152019,DéFI en Wallonie,Facebook
+255d30eb-8f14-43e1-87a7-1eeb3c0e45c0,DéFI Bruxelles,2023-02-07T15:05:55.919Z,90814f27-c306-46f7-9b3c-e5f60668c19a,DéFI,true,true,Belgium,be,241175786018898,DéFI Bruxelles,Facebook
+2f98acfb-4c58-4e72-b9e6-f772f80dff1f,DéFI Ville de Bruxelles,2023-06-15T06:51:32.282Z,973ce172-93ed-4e9b-9bd7-403835d760ec,DéFI,true,true,Belgium,be,395371063809872,DéFI Ville de Bruxelles,Facebook
+372f8513-bd3a-4033-a2e2-ec49b4743cbb,Centre d'Etudes Jacques Georgin,2023-03-31T10:51:39.393Z,b036fdef-63a6-45b8-85d7-87fc9759c13d,DéFI,true,true,Belgium,be,976617655742655,Centre d'Etudes Jacques Georgin,Facebook
+3c2ba6b8-4d63-44ab-ac5c-307c1c3c1d8a,Démocrate Fédéraliste Indépendant,2022-08-16T15:24:28.785Z,167ea538-1dd1-48f9-bf74-85cb3e0beb9a,DéFI,true,true,Belgium,be,173518112695794,Démocrate Fédéraliste Indépendant,Facebook
+54a53eff-d7ca-411b-a6f2-44993bd7df6f,DéFI Woluwe-Saint-Pierre,2023-03-08T17:31:29.549Z,f3d89f78-74bc-4d46-8054-ff78b09ca0ba,DéFI,true,true,Belgium,be,2057252241209167,DéFI Woluwe-Saint-Pierre,Facebook
+5ff06143-c151-432e-b391-34bb3d768802,DéFI Forest,2023-02-07T15:05:56.764Z,3975b54b-50c3-401c-8db1-0520adf3fec9,DéFI,true,true,Belgium,be,1432153277111247,DéFI Forest,Facebook
+952369ec-9c2b-43c9-9b51-5d9a3866046d,François De Smet,2023-07-17T06:30:41.458Z,f80208b3-75dc-42be-bcbd-d0b264565925,DéFI,true,true,Belgium,be,576069462821364,François De Smet,Facebook
