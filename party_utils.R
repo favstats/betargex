@@ -21,12 +21,12 @@ options(scipen = 999)
 # source("../party_utils.R")
 color_dat <- tibble(
   party = c("N-VA", "Vlaams Belang", "PS", "CD&V", "PVDA", "MR", "Ecolo", 
-            "Groen", "DéFI", "Les Engagés", "Open Vld"),
+            "Groen", "DéFI", "Les Engagés", "Open Vld", "Vooruit"),
   colors = c("#f9ce19", "#000000", "#ff0000", "#ff6200", "#8b0000", "#1f5db5", "#6eb651", 
-             "#01796f", "#df1e8f", "#00e6d2", "#0087dc")
+             "#01796f", "#df1e8f", "#00e6d2", "#0087dc", "#c60000")
 )
 
-most_left_party <- "BJP"
+most_left_party <- "Vooruit"
 
 
 scale_fill_parties <- function(...){

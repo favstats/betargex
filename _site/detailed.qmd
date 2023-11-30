@@ -170,7 +170,7 @@ generate_plots <- function(data, exclusion = F) {
         hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
         hc_yAxis(
           title = list(text = paste0("% party budget spent on ", wooord2, " audience")),
-          max = max(.x$perc)#,
+          max = max(data$perc*100)#,
           # min = 0
         ) %>%
         hc_xAxis(title = "", labels = list(style = list(fontSize = "10px"))) %>%

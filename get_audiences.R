@@ -20,7 +20,7 @@ sets <- jsonlite::fromJSON("settings.json")
 
 if(Sys.info()[["sysname"]]=="Windows"){
   ### CHANGE ME WHEN LOCAL!
-  tf <- "30"
+  tf <- "7"
 }
 
 jb <- get_targeting("7860876103", timeframe = glue::glue("LAST_90_DAYS"))
@@ -49,14 +49,15 @@ write_lines(lubridate::as_date(tstamp), "tstamp.txt")
 
 
 
-wtm_data <- read_csv("data/wtm-advertisers-be-2023-11-27T11_08_26.027Z.csv") %>% #names
+wtm_data <- read_csv("data/wtm-advertisers-be-2023-11-30T14_47_32.751Z.csv") %>% #names
   select(page_id = advertisers_platforms.advertiser_platform_ref,
          page_name = name, party = entities.short_name)  %>%
   mutate(page_id = as.character(page_id)) %>% 
   mutate(party = case_when(
     party == "NVA" ~ "N-VA",
     party == "VB" ~ "Vlaams Belang",
-    party == "PS-V" ~ "PS",
+    party == "PS" ~ "PS",
+    party == "V" ~ "Vooruit",
     party == "CDV" ~ "CD&V",
     party == "Eco" ~ "Ecolo",
     party == "GRO" ~ "Groen",
