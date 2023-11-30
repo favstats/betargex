@@ -26,7 +26,7 @@ color_dat <- tibble(
              "#01796f", "#df1e8f", "#00e6d2", "#0087dc", "#c60000")
 )
 
-most_left_party <- "Vooruit"
+most_left_party <- "Groen"
 
 
 scale_fill_parties <- function(...){
