@@ -53,12 +53,13 @@ election_dat30 <- readRDS("../data/election_dat30.rds") %>%
   mutate(party = case_when(
     party == "NVA" ~ "N-VA",
     party == "VB" ~ "Vlaams Belang",
-    party == "PS-V" ~ "PS",
+    party == "PS" ~ "PS",
+    party == "V" ~ "Vooruit",
     party == "CDV" ~ "CD&V",
     party == "Eco" ~ "Ecolo",
     party == "GRO" ~ "Groen",
     party == "Eng" ~ "Les Engagés",
-    party == "VLD" ~ "Open Vld",
+    party == "Open VLD" ~ "Open Vld",
     T ~ party
   )) %>% 
   drop_na(party)
@@ -73,12 +74,13 @@ election_dat7 <- readRDS("../data/election_dat7.rds") %>%
   mutate(party = case_when(
     party == "NVA" ~ "N-VA",
     party == "VB" ~ "Vlaams Belang",
-    party == "PS-V" ~ "PS",
+    party == "PS" ~ "PS",
+    party == "V" ~ "Vooruit",
     party == "CDV" ~ "CD&V",
     party == "Eco" ~ "Ecolo",
     party == "GRO" ~ "Groen",
     party == "Eng" ~ "Les Engagés",
-    party == "VLD" ~ "Open Vld",
+    party == "Open VLD" ~ "Open Vld",
     T ~ party
   )) %>% 
   drop_na(party)

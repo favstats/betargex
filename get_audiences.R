@@ -63,7 +63,7 @@ wtm_data <- read_csv("data/wtm-advertisers-be-2023-12-04T09_18_56.410Z.csv") %>%
     party == "Eco" ~ "Ecolo",
     party == "GRO" ~ "Groen",
     party == "Eng" ~ "Les Engagés",
-    party == "VLD" ~ "Open Vld",
+    party == "Open VLD" ~ "Open Vld",
     T ~ party
   ))
   
