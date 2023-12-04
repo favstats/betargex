@@ -9,7 +9,7 @@ format:
 library(tidyverse)
 sets <- jsonlite::fromJSON("../settings.json")
 
-
+source("../party_utils.R")
 ```
 
 
@@ -22,8 +22,8 @@ In collaboration with [Who Targets Me](https://whotargets.me/), we monitored `r 
 
 To better understand the election, we kept only advertisers who:
 
-1. Advertised in the last 7 days (`r read_csv("../data/lastdays.csv")$last7days`)
-2. Advertised in the last 30 days (`r read_csv("../data/lastdays.csv")$last30days`)
+1. Advertised in the last 7 days (`r last7days_string`)
+2. Advertised in the last 30 days (`r last30days_string`)
 
 
 ::: {.callout-note}
