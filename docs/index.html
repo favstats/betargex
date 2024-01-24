@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl" xml:lang="nl"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -46,7 +46,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Geen resultaten",
     "search-matching-documents-text": "Gevonden documenten",
@@ -55,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "meer overeenkomst in dit document",
     "search-more-matches-text": "meer overeenkomsten in dit document",
     "search-clear-button-title": "Wissen",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Annuleren",
     "search-submit-button-title": "Verzenden",
     "search-label": "Zoeken"
@@ -68,61 +75,61 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Belgian Microtargeting Dashboard</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Zoeken"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Schakel tussen navigatie" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Schakel navigatie" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Spending</span></a>
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Spending</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-targeting" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Targeting</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-targeting">    
         <li>
-    <a class="dropdown-item" href="./targeting.html" rel="" target="">
+    <a class="dropdown-item" href="./targeting.html">
  <span class="dropdown-text">Spending per Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./detailed.html" rel="" target="">
+    <a class="dropdown-item" href="./detailed.html">
  <span class="dropdown-text">Detailed Targeting</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./location.html" rel="" target="">
+    <a class="dropdown-item" href="./location.html">
  <span class="dropdown-text">Location</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./demographics.html" rel="" target="">
+    <a class="dropdown-item" href="./demographics.html">
  <span class="dropdown-text">Demographics</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/favstats/betargex" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/favstats/betargex"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -149,7 +156,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -159,28 +168,27 @@ ul.task-list li input[type="checkbox"] {
 <p>During this period, political parties spent a total of €632,389 and displayed 3294 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="bpzibxqbze" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="gwnufrbhuw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#bpzibxqbze table {
+#gwnufrbhuw table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bpzibxqbze thead, #bpzibxqbze tbody, #bpzibxqbze tfoot, #bpzibxqbze tr, #bpzibxqbze td, #bpzibxqbze th {
+#gwnufrbhuw thead, #gwnufrbhuw tbody, #gwnufrbhuw tfoot, #gwnufrbhuw tr, #gwnufrbhuw td, #gwnufrbhuw th {
   border-style: none;
 }
 
-#bpzibxqbze p {
+#gwnufrbhuw p {
   margin: 0;
   padding: 0;
 }
 
-#bpzibxqbze .gt_table {
+#gwnufrbhuw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -206,12 +214,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_caption {
+#gwnufrbhuw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bpzibxqbze .gt_title {
+#gwnufrbhuw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -223,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#bpzibxqbze .gt_subtitle {
+#gwnufrbhuw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -235,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#bpzibxqbze .gt_heading {
+#gwnufrbhuw .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -247,13 +255,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_bottom_border {
+#gwnufrbhuw .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_col_headings {
+#gwnufrbhuw .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -268,7 +276,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_col_heading {
+#gwnufrbhuw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -288,7 +296,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#bpzibxqbze .gt_column_spanner_outer {
+#gwnufrbhuw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -300,15 +308,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#bpzibxqbze .gt_column_spanner_outer:first-child {
+#gwnufrbhuw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bpzibxqbze .gt_column_spanner_outer:last-child {
+#gwnufrbhuw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bpzibxqbze .gt_column_spanner {
+#gwnufrbhuw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -320,11 +328,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#bpzibxqbze .gt_spanner_row {
+#gwnufrbhuw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bpzibxqbze .gt_group_heading {
+#gwnufrbhuw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -350,7 +358,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#bpzibxqbze .gt_empty_group_heading {
+#gwnufrbhuw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -365,15 +373,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#bpzibxqbze .gt_from_md > :first-child {
+#gwnufrbhuw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bpzibxqbze .gt_from_md > :last-child {
+#gwnufrbhuw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bpzibxqbze .gt_row {
+#gwnufrbhuw .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -392,7 +400,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#bpzibxqbze .gt_stub {
+#gwnufrbhuw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -405,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bpzibxqbze .gt_stub_row_group {
+#gwnufrbhuw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -419,15 +427,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#bpzibxqbze .gt_row_group_first td {
+#gwnufrbhuw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bpzibxqbze .gt_row_group_first th {
+#gwnufrbhuw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bpzibxqbze .gt_summary_row {
+#gwnufrbhuw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -437,16 +445,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bpzibxqbze .gt_first_summary_row {
+#gwnufrbhuw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_first_summary_row.thick {
+#gwnufrbhuw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bpzibxqbze .gt_last_summary_row {
+#gwnufrbhuw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -456,7 +464,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_grand_summary_row {
+#gwnufrbhuw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -466,7 +474,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bpzibxqbze .gt_first_grand_summary_row {
+#gwnufrbhuw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -476,7 +484,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_last_grand_summary_row_top {
+#gwnufrbhuw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -486,11 +494,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_striped {
+#gwnufrbhuw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bpzibxqbze .gt_table_body {
+#gwnufrbhuw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -499,7 +507,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_footnotes {
+#gwnufrbhuw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -513,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_footnote {
+#gwnufrbhuw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -522,7 +530,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bpzibxqbze .gt_sourcenotes {
+#gwnufrbhuw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -536,7 +544,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#bpzibxqbze .gt_sourcenote {
+#gwnufrbhuw .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -544,63 +552,63 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#bpzibxqbze .gt_left {
+#gwnufrbhuw .gt_left {
   text-align: left;
 }
 
-#bpzibxqbze .gt_center {
+#gwnufrbhuw .gt_center {
   text-align: center;
 }
 
-#bpzibxqbze .gt_right {
+#gwnufrbhuw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bpzibxqbze .gt_font_normal {
+#gwnufrbhuw .gt_font_normal {
   font-weight: normal;
 }
 
-#bpzibxqbze .gt_font_bold {
+#gwnufrbhuw .gt_font_bold {
   font-weight: bold;
 }
 
-#bpzibxqbze .gt_font_italic {
+#gwnufrbhuw .gt_font_italic {
   font-style: italic;
 }
 
-#bpzibxqbze .gt_super {
+#gwnufrbhuw .gt_super {
   font-size: 65%;
 }
 
-#bpzibxqbze .gt_footnote_marks {
+#gwnufrbhuw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bpzibxqbze .gt_asterisk {
+#gwnufrbhuw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bpzibxqbze .gt_indent_1 {
+#gwnufrbhuw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bpzibxqbze .gt_indent_2 {
+#gwnufrbhuw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bpzibxqbze .gt_indent_3 {
+#gwnufrbhuw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bpzibxqbze .gt_indent_4 {
+#gwnufrbhuw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bpzibxqbze .gt_indent_5 {
+#gwnufrbhuw .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -608,141 +616,112 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Vlaams Belang"><div class="gt_from_md"><p>Vlaams Belang</p>
-</div></div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000000;"><div data-qmd="57"><div class="gt_from_md"><p>57</p>
-</div></div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Vlaams Belang](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=56605856504) (€108,100)<br>2. [Tom Van Grieken](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=584806884924010) (€46,003)<br>3. [Tom Vandendriessche MEP](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100606792498147) (€5,374)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=56605856504">Vlaams Belang</a> (€108,100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=584806884924010">Tom Van Grieken</a> (€46,003)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100606792498147">Tom Vandendriessche MEP</a> (€5,374)<br><br></p>
-</div></div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div data-qmd="260"><div class="gt_from_md"><p>260</p>
-</div></div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div data-qmd="€181,620"><div class="gt_from_md"><p>€181,620</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="N-VA"><div class="gt_from_md"><p>N-VA</p>
-</div></div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f9ce19;"><div data-qmd="75"><div class="gt_from_md"><p>75</p>
-</div></div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Nieuw-Vlaamse Alliantie](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=334361224413) (€59,537)<br>2. [Bart De Wever](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=24079407056) (€17,884)<br>3. [Theo Francken](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=483497581789280) (€8,568)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=334361224413">Nieuw-Vlaamse Alliantie</a> (€59,537)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=24079407056">Bart De Wever</a> (€17,884)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=483497581789280">Theo Francken</a> (€8,568)<br><br></p>
-</div></div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div data-qmd="401"><div class="gt_from_md"><p>401</p>
-</div></div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div data-qmd="€133,689"><div class="gt_from_md"><p>€133,689</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="PVDA"><div class="gt_from_md"><p>PVDA</p>
-</div></div></th>
-<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #8b0000;"><div data-qmd="30"><div class="gt_from_md"><p>30</p>
-</div></div></td>
-<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [PVDA](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=54970503767) (€34,583)<br>2. [Raoul Hedebouw - PVDA](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=305365056290036) (€28,319)<br>3. [Jos D'Haese](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1397002987227704) (€5,698)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=54970503767">PVDA</a> (€34,583)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=305365056290036">Raoul Hedebouw - PVDA</a> (€28,319)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1397002987227704">Jos D’Haese</a> (€5,698)<br><br></p>
-</div></div></td>
-<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div data-qmd="449"><div class="gt_from_md"><p>449</p>
-</div></div></td>
-<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div data-qmd="€85,086"><div class="gt_from_md"><p>€85,086</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="CD&amp;V"><div class="gt_from_md"><p>CD&amp;V</p>
-</div></div></th>
-<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff6200;"><div data-qmd="66"><div class="gt_from_md"><p>66</p>
-</div></div></td>
-<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Vlaamse overheid](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=547978585231957) (€24,127)<br>2. [Christen-Democratisch en Vlaams](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=52997544531) (€19,370)<br>3. [Sammy Mahdi](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1947077568914353) (€3,255)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=547978585231957">Vlaamse overheid</a> (€24,127)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=52997544531">Christen-Democratisch en Vlaams</a> (€19,370)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1947077568914353">Sammy Mahdi</a> (€3,255)<br><br></p>
-</div></div></td>
-<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div data-qmd="812"><div class="gt_from_md"><p>812</p>
-</div></div></td>
-<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div data-qmd="€64,152"><div class="gt_from_md"><p>€64,152</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Vooruit"><div class="gt_from_md"><p>Vooruit</p>
-</div></div></th>
-<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #c60000;"><div data-qmd="21"><div class="gt_from_md"><p>21</p>
-</div></div></td>
-<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Melissa Depraetere](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=2101118869952701) (€48,507)<br>2. [Frank Vandenbroucke](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109464160926380) (€5,191)<br>3. [Kris Verduyckt](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=114970156588141) (€2,499)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=2101118869952701">Melissa Depraetere</a> (€48,507)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109464160926380">Frank Vandenbroucke</a> (€5,191)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=114970156588141">Kris Verduyckt</a> (€2,499)<br><br></p>
-</div></div></td>
-<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div data-qmd="265"><div class="gt_from_md"><p>265</p>
-</div></div></td>
-<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div data-qmd="€63,085"><div class="gt_from_md"><p>€63,085</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="MR"><div class="gt_from_md"><p>MR</p>
-</div></div></th>
-<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #1f5db5;"><div data-qmd="26"><div class="gt_from_md"><p>26</p>
-</div></div></td>
-<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Mouvement Réformateur](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236330169511) (€13,536)<br>2. [Georges-Louis Bouchez](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=341174129258800) (€8,339)<br>3. [David Leisterh](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=290536231471445) (€2,307)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236330169511">Mouvement Réformateur</a> (€13,536)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=341174129258800">Georges-Louis Bouchez</a> (€8,339)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=290536231471445">David Leisterh</a> (€2,307)<br><br></p>
-</div></div></td>
-<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div data-qmd="146"><div class="gt_from_md"><p>146</p>
-</div></div></td>
-<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div data-qmd="€30,622"><div class="gt_from_md"><p>€30,622</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Les Engagés"><div class="gt_from_md"><p>Les Engagés</p>
-</div></div></th>
-<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #00e6d2;"><div data-qmd="28"><div class="gt_from_md"><p>28</p>
-</div></div></td>
-<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Les Engagés - Mouvement participatif](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=108820070638334) (€11,393)<br>2. [Yvan Verougstraete](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109303661918715) (€1,383)<br>3. [Olivier de Wasseige](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=579713522041107) (€727)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=108820070638334">Les Engagés - Mouvement participatif</a> (€11,393)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109303661918715">Yvan Verougstraete</a> (€1,383)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=579713522041107">Olivier de Wasseige</a> (€727)<br><br></p>
-</div></div></td>
-<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div data-qmd="258"><div class="gt_from_md"><p>258</p>
-</div></div></td>
-<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div data-qmd="€19,034"><div class="gt_from_md"><p>€19,034</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Open Vld"><div class="gt_from_md"><p>Open Vld</p>
-</div></div></th>
-<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0087dc;"><div data-qmd="23"><div class="gt_from_md"><p>23</p>
-</div></div></td>
-<td headers="stub_1_8 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Alexander De Croo](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=228307843991539) (€9,177)<br>2. [Open Vlaamse Liberalen en Democraten](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=53668151866) (€4,105)<br>3. [Tom Ongena](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=111768860301470) (€2,452)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=228307843991539">Alexander De Croo</a> (€9,177)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=53668151866">Open Vlaamse Liberalen en Democraten</a> (€4,105)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=111768860301470">Tom Ongena</a> (€2,452)<br><br></p>
-</div></div></td>
-<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div data-qmd="94"><div class="gt_from_md"><p>94</p>
-</div></div></td>
-<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div data-qmd="€18,534"><div class="gt_from_md"><p>€18,534</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="PS"><div class="gt_from_md"><p>PS</p>
-</div></div></th>
-<td headers="stub_1_9 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff0000;"><div data-qmd="20"><div class="gt_from_md"><p>20</p>
-</div></div></td>
-<td headers="stub_1_9 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Pablo Annys](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1161608023962638) (€8,383)<br>2. [Parti Socialiste](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518402351504731) (€3,502)<br>3. [Paul Magnette](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=29384148415) (€3,282)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1161608023962638">Pablo Annys</a> (€8,383)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518402351504731">Parti Socialiste</a> (€3,502)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=29384148415">Paul Magnette</a> (€3,282)<br><br></p>
-</div></div></td>
-<td headers="stub_1_9 Number of Ads" class="gt_row gt_center"><div data-qmd="109"><div class="gt_from_md"><p>109</p>
-</div></div></td>
-<td headers="stub_1_9 Total Spend" class="gt_row gt_center"><div data-qmd="€16,910"><div class="gt_from_md"><p>€16,910</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Groen"><div class="gt_from_md"><p>Groen</p>
-</div></div></th>
-<td headers="stub_1_10 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #01796f;"><div data-qmd="27"><div class="gt_from_md"><p>27</p>
-</div></div></td>
-<td headers="stub_1_10 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Groen](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=84920854319) (€2,541)<br>2. [Groen Brussel](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=144986545155) (€1,183)<br>3. [Sara Matthieu](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=111213851043035) (€1,052)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=84920854319">Groen</a> (€2,541)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=144986545155">Groen Brussel</a> (€1,183)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=111213851043035">Sara Matthieu</a> (€1,052)<br><br></p>
-</div></div></td>
-<td headers="stub_1_10 Number of Ads" class="gt_row gt_center"><div data-qmd="394"><div class="gt_from_md"><p>394</p>
-</div></div></td>
-<td headers="stub_1_10 Total Spend" class="gt_row gt_center"><div data-qmd="€10,039"><div class="gt_from_md"><p>€10,039</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_11" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Ecolo"><div class="gt_from_md"><p>Ecolo</p>
-</div></div></th>
-<td headers="stub_1_11 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6eb651;"><div data-qmd="11"><div class="gt_from_md"><p>11</p>
-</div></div></td>
-<td headers="stub_1_11 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Ecolo](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=38296327361) (€5,071)<br>2. [Zakia Khattabi](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110049460908305) (€702)<br>3. [Rajae Maouane](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110237177033759) (€382)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=38296327361">Ecolo</a> (€5,071)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110049460908305">Zakia Khattabi</a> (€702)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110237177033759">Rajae Maouane</a> (€382)<br><br></p>
-</div></div></td>
-<td headers="stub_1_11 Number of Ads" class="gt_row gt_center"><div data-qmd="61"><div class="gt_from_md"><p>61</p>
-</div></div></td>
-<td headers="stub_1_11 Total Spend" class="gt_row gt_center"><div data-qmd="€6,955"><div class="gt_from_md"><p>€6,955</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_12" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="DéFI"><div class="gt_from_md"><p>DéFI</p>
-</div></div></th>
-<td headers="stub_1_12 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #df1e8f;"><div data-qmd="6"><div class="gt_from_md"><p>6</p>
-</div></div></td>
-<td headers="stub_1_12 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Démocrate Fédéraliste Indépendant](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=173518112695794) (€1,160)<br>2. [DéFI Bruxelles](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=241175786018898) (€1,008)<br>3. [DéFI en Wallonie](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=187079152019) (€195)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=173518112695794">Démocrate Fédéraliste Indépendant</a> (€1,160)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=241175786018898">DéFI Bruxelles</a> (€1,008)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=187079152019">DéFI en Wallonie</a> (€195)<br><br></p>
-</div></div></td>
-<td headers="stub_1_12 Number of Ads" class="gt_row gt_center"><div data-qmd="45"><div class="gt_from_md"><p>45</p>
-</div></div></td>
-<td headers="stub_1_12 Total Spend" class="gt_row gt_center"><div data-qmd="€2,663"><div class="gt_from_md"><p>€2,663</p>
-</div></div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Vlaams Belang</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000000"><p>57</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=56605856504">Vlaams Belang</a> (€108,100)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=584806884924010">Tom Van Grieken</a> (€46,003)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100606792498147">Tom Vandendriessche MEP</a> (€5,374)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>260</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€181,620</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>N-VA</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f9ce19"><p>75</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=334361224413">Nieuw-Vlaamse Alliantie</a> (€59,537)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=24079407056">Bart De Wever</a> (€17,884)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=483497581789280">Theo Francken</a> (€8,568)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>401</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€133,689</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>PVDA</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #8b0000"><p>30</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=54970503767">PVDA</a> (€34,583)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=305365056290036">Raoul Hedebouw - PVDA</a> (€28,319)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1397002987227704">Jos D’Haese</a> (€5,698)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>449</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€85,086</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>CD&amp;V</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff6200"><p>66</p></td>
+<td class="gt_row gt_left" headers="stub_1_4 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=547978585231957">Vlaamse overheid</a> (€24,127)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=52997544531">Christen-Democratisch en Vlaams</a> (€19,370)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1947077568914353">Sammy Mahdi</a> (€3,255)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Ads"><p>812</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Total Spend"><p>€64,152</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Vooruit</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #c60000"><p>21</p></td>
+<td class="gt_row gt_left" headers="stub_1_5 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=2101118869952701">Melissa Depraetere</a> (€48,507)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109464160926380">Frank Vandenbroucke</a> (€5,191)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=114970156588141">Kris Verduyckt</a> (€2,499)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Ads"><p>265</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Total Spend"><p>€63,085</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>MR</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #1f5db5"><p>26</p></td>
+<td class="gt_row gt_left" headers="stub_1_6 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236330169511">Mouvement Réformateur</a> (€13,536)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=341174129258800">Georges-Louis Bouchez</a> (€8,339)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=290536231471445">David Leisterh</a> (€2,307)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Ads"><p>146</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Total Spend"><p>€30,622</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_7" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Les Engagés</p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #00e6d2"><p>28</p></td>
+<td class="gt_row gt_left" headers="stub_1_7 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=108820070638334">Les Engagés - Mouvement participatif</a> (€11,393)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109303661918715">Yvan Verougstraete</a> (€1,383)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=579713522041107">Olivier de Wasseige</a> (€727)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Number of Ads"><p>258</p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Total Spend"><p>€19,034</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_8" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Open Vld</p></td>
+<td class="gt_row gt_center" headers="stub_1_8 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0087dc"><p>23</p></td>
+<td class="gt_row gt_left" headers="stub_1_8 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=228307843991539">Alexander De Croo</a> (€9,177)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=53668151866">Open Vlaamse Liberalen en Democraten</a> (€4,105)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=111768860301470">Tom Ongena</a> (€2,452)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_8 Number of Ads"><p>94</p></td>
+<td class="gt_row gt_center" headers="stub_1_8 Total Spend"><p>€18,534</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_9" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>PS</p></td>
+<td class="gt_row gt_center" headers="stub_1_9 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff0000"><p>20</p></td>
+<td class="gt_row gt_left" headers="stub_1_9 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1161608023962638">Pablo Annys</a> (€8,383)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518402351504731">Parti Socialiste</a> (€3,502)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=29384148415">Paul Magnette</a> (€3,282)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_9 Number of Ads"><p>109</p></td>
+<td class="gt_row gt_center" headers="stub_1_9 Total Spend"><p>€16,910</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_10" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Groen</p></td>
+<td class="gt_row gt_center" headers="stub_1_10 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #01796f"><p>27</p></td>
+<td class="gt_row gt_left" headers="stub_1_10 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=84920854319">Groen</a> (€2,541)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=144986545155">Groen Brussel</a> (€1,183)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=111213851043035">Sara Matthieu</a> (€1,052)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_10 Number of Ads"><p>394</p></td>
+<td class="gt_row gt_center" headers="stub_1_10 Total Spend"><p>€10,039</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_11" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Ecolo</p></td>
+<td class="gt_row gt_center" headers="stub_1_11 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6eb651"><p>11</p></td>
+<td class="gt_row gt_left" headers="stub_1_11 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=38296327361">Ecolo</a> (€5,071)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110049460908305">Zakia Khattabi</a> (€702)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110237177033759">Rajae Maouane</a> (€382)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_11 Number of Ads"><p>61</p></td>
+<td class="gt_row gt_center" headers="stub_1_11 Total Spend"><p>€6,955</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_12" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>DéFI</p></td>
+<td class="gt_row gt_center" headers="stub_1_12 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #df1e8f"><p>6</p></td>
+<td class="gt_row gt_left" headers="stub_1_12 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=173518112695794">Démocrate Fédéraliste Indépendant</a> (€1,160)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=241175786018898">DéFI Bruxelles</a> (€1,008)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=187079152019">DéFI en Wallonie</a> (€195)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_12 Number of Ads"><p>45</p></td>
+<td class="gt_row gt_center" headers="stub_1_12 Total Spend"><p>€2,663</p></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -751,28 +730,27 @@ tbody tr:last-child {
 <p>During this period, political parties spent a total of €206,398 and displayed 1863 advertisements on Meta.</p>
 <div class="cell">
 <div class="cell-output-display">
-
-<div id="nwjtoksjac" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="jjvbrflwke" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cairo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-#nwjtoksjac table {
+#jjvbrflwke table {
   font-family: Cairo, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nwjtoksjac thead, #nwjtoksjac tbody, #nwjtoksjac tfoot, #nwjtoksjac tr, #nwjtoksjac td, #nwjtoksjac th {
+#jjvbrflwke thead, #jjvbrflwke tbody, #jjvbrflwke tfoot, #jjvbrflwke tr, #jjvbrflwke td, #jjvbrflwke th {
   border-style: none;
 }
 
-#nwjtoksjac p {
+#jjvbrflwke p {
   margin: 0;
   padding: 0;
 }
 
-#nwjtoksjac .gt_table {
+#jjvbrflwke .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -798,12 +776,12 @@ tbody tr:last-child {
   border-left-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_caption {
+#jjvbrflwke .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nwjtoksjac .gt_title {
+#jjvbrflwke .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -815,7 +793,7 @@ tbody tr:last-child {
   border-bottom-width: 0;
 }
 
-#nwjtoksjac .gt_subtitle {
+#jjvbrflwke .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -827,7 +805,7 @@ tbody tr:last-child {
   border-top-width: 0;
 }
 
-#nwjtoksjac .gt_heading {
+#jjvbrflwke .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -839,13 +817,13 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_bottom_border {
+#jjvbrflwke .gt_bottom_border {
   border-bottom-style: none;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_col_headings {
+#jjvbrflwke .gt_col_headings {
   border-top-style: none;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -860,7 +838,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_col_heading {
+#jjvbrflwke .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -880,7 +858,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#nwjtoksjac .gt_column_spanner_outer {
+#jjvbrflwke .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -892,15 +870,15 @@ tbody tr:last-child {
   padding-right: 4px;
 }
 
-#nwjtoksjac .gt_column_spanner_outer:first-child {
+#jjvbrflwke .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nwjtoksjac .gt_column_spanner_outer:last-child {
+#jjvbrflwke .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nwjtoksjac .gt_column_spanner {
+#jjvbrflwke .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
@@ -912,11 +890,11 @@ tbody tr:last-child {
   width: 100%;
 }
 
-#nwjtoksjac .gt_spanner_row {
+#jjvbrflwke .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nwjtoksjac .gt_group_heading {
+#jjvbrflwke .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -942,7 +920,7 @@ tbody tr:last-child {
   text-align: left;
 }
 
-#nwjtoksjac .gt_empty_group_heading {
+#jjvbrflwke .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -957,15 +935,15 @@ tbody tr:last-child {
   vertical-align: middle;
 }
 
-#nwjtoksjac .gt_from_md > :first-child {
+#jjvbrflwke .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nwjtoksjac .gt_from_md > :last-child {
+#jjvbrflwke .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nwjtoksjac .gt_row {
+#jjvbrflwke .gt_row {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 5px;
@@ -984,7 +962,7 @@ tbody tr:last-child {
   overflow-x: hidden;
 }
 
-#nwjtoksjac .gt_stub {
+#jjvbrflwke .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -997,7 +975,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#nwjtoksjac .gt_stub_row_group {
+#jjvbrflwke .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1011,15 +989,15 @@ tbody tr:last-child {
   vertical-align: top;
 }
 
-#nwjtoksjac .gt_row_group_first td {
+#jjvbrflwke .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nwjtoksjac .gt_row_group_first th {
+#jjvbrflwke .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nwjtoksjac .gt_summary_row {
+#jjvbrflwke .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1029,16 +1007,16 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#nwjtoksjac .gt_first_summary_row {
+#jjvbrflwke .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_first_summary_row.thick {
+#jjvbrflwke .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nwjtoksjac .gt_last_summary_row {
+#jjvbrflwke .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1048,7 +1026,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_grand_summary_row {
+#jjvbrflwke .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1058,7 +1036,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#nwjtoksjac .gt_first_grand_summary_row {
+#jjvbrflwke .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1068,7 +1046,7 @@ tbody tr:last-child {
   border-top-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_last_grand_summary_row_top {
+#jjvbrflwke .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1078,11 +1056,11 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_striped {
+#jjvbrflwke .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nwjtoksjac .gt_table_body {
+#jjvbrflwke .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1091,7 +1069,7 @@ tbody tr:last-child {
   border-bottom-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_footnotes {
+#jjvbrflwke .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1105,7 +1083,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_footnote {
+#jjvbrflwke .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1114,7 +1092,7 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#nwjtoksjac .gt_sourcenotes {
+#jjvbrflwke .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1128,7 +1106,7 @@ tbody tr:last-child {
   border-right-color: #D3D3D3;
 }
 
-#nwjtoksjac .gt_sourcenote {
+#jjvbrflwke .gt_sourcenote {
   font-size: 12px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1136,63 +1114,63 @@ tbody tr:last-child {
   padding-right: 5px;
 }
 
-#nwjtoksjac .gt_left {
+#jjvbrflwke .gt_left {
   text-align: left;
 }
 
-#nwjtoksjac .gt_center {
+#jjvbrflwke .gt_center {
   text-align: center;
 }
 
-#nwjtoksjac .gt_right {
+#jjvbrflwke .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nwjtoksjac .gt_font_normal {
+#jjvbrflwke .gt_font_normal {
   font-weight: normal;
 }
 
-#nwjtoksjac .gt_font_bold {
+#jjvbrflwke .gt_font_bold {
   font-weight: bold;
 }
 
-#nwjtoksjac .gt_font_italic {
+#jjvbrflwke .gt_font_italic {
   font-style: italic;
 }
 
-#nwjtoksjac .gt_super {
+#jjvbrflwke .gt_super {
   font-size: 65%;
 }
 
-#nwjtoksjac .gt_footnote_marks {
+#jjvbrflwke .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nwjtoksjac .gt_asterisk {
+#jjvbrflwke .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nwjtoksjac .gt_indent_1 {
+#jjvbrflwke .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nwjtoksjac .gt_indent_2 {
+#jjvbrflwke .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nwjtoksjac .gt_indent_3 {
+#jjvbrflwke .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nwjtoksjac .gt_indent_4 {
+#jjvbrflwke .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nwjtoksjac .gt_indent_5 {
+#jjvbrflwke .gt_indent_5 {
   text-indent: 25px;
 }
 
@@ -1200,141 +1178,112 @@ tbody tr:last-child {
   border-bottom: 2px solid #ffffff00;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=""></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Advertisers">Number of Advertisers</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Top Spenders">Top Spenders</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Number of Ads">Number of Ads</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase;" scope="col" id="Total Spend">Total Spend</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><th id="stub_1_1" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Vlaams Belang"><div class="gt_from_md"><p>Vlaams Belang</p>
-</div></div></th>
-<td headers="stub_1_1 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000000;"><div data-qmd="37"><div class="gt_from_md"><p>37</p>
-</div></div></td>
-<td headers="stub_1_1 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Vlaams Belang](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=56605856504) (€30,520)<br>2. [Tom Van Grieken](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=584806884924010) (€24,963)<br>3. [Tom Vandendriessche MEP](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100606792498147) (€2,997)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=56605856504">Vlaams Belang</a> (€30,520)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=584806884924010">Tom Van Grieken</a> (€24,963)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100606792498147">Tom Vandendriessche MEP</a> (€2,997)<br><br></p>
-</div></div></td>
-<td headers="stub_1_1 Number of Ads" class="gt_row gt_center"><div data-qmd="108"><div class="gt_from_md"><p>108</p>
-</div></div></td>
-<td headers="stub_1_1 Total Spend" class="gt_row gt_center"><div data-qmd="€70,259"><div class="gt_from_md"><p>€70,259</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_2" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="N-VA"><div class="gt_from_md"><p>N-VA</p>
-</div></div></th>
-<td headers="stub_1_2 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f9ce19;"><div data-qmd="60"><div class="gt_from_md"><p>60</p>
-</div></div></td>
-<td headers="stub_1_2 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Nieuw-Vlaamse Alliantie](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=334361224413) (€26,468)<br>2. [Bart De Wever](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=24079407056) (€5,103)<br>3. [Theo Francken](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=483497581789280) (€1,613)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=334361224413">Nieuw-Vlaamse Alliantie</a> (€26,468)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=24079407056">Bart De Wever</a> (€5,103)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=483497581789280">Theo Francken</a> (€1,613)<br><br></p>
-</div></div></td>
-<td headers="stub_1_2 Number of Ads" class="gt_row gt_center"><div data-qmd="261"><div class="gt_from_md"><p>261</p>
-</div></div></td>
-<td headers="stub_1_2 Total Spend" class="gt_row gt_center"><div data-qmd="€45,332"><div class="gt_from_md"><p>€45,332</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_3" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="PVDA"><div class="gt_from_md"><p>PVDA</p>
-</div></div></th>
-<td headers="stub_1_3 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #8b0000;"><div data-qmd="22"><div class="gt_from_md"><p>22</p>
-</div></div></td>
-<td headers="stub_1_3 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Raoul Hedebouw - PVDA](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=305365056290036) (€6,600)<br>2. [PVDA](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=54970503767) (€6,339)<br>3. [Peter Mertens](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236485149843971) (€1,203)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=305365056290036">Raoul Hedebouw - PVDA</a> (€6,600)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=54970503767">PVDA</a> (€6,339)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236485149843971">Peter Mertens</a> (€1,203)<br><br></p>
-</div></div></td>
-<td headers="stub_1_3 Number of Ads" class="gt_row gt_center"><div data-qmd="356"><div class="gt_from_md"><p>356</p>
-</div></div></td>
-<td headers="stub_1_3 Total Spend" class="gt_row gt_center"><div data-qmd="€19,028"><div class="gt_from_md"><p>€19,028</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_4" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="CD&amp;V"><div class="gt_from_md"><p>CD&amp;V</p>
-</div></div></th>
-<td headers="stub_1_4 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff6200;"><div data-qmd="39"><div class="gt_from_md"><p>39</p>
-</div></div></td>
-<td headers="stub_1_4 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Vlaamse overheid](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=547978585231957) (€7,199)<br>2. [Christen-Democratisch en Vlaams](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=52997544531) (€5,568)<br>3. [Jo Brouns](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=583742175322666) (€810)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=547978585231957">Vlaamse overheid</a> (€7,199)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=52997544531">Christen-Democratisch en Vlaams</a> (€5,568)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=583742175322666">Jo Brouns</a> (€810)<br><br></p>
-</div></div></td>
-<td headers="stub_1_4 Number of Ads" class="gt_row gt_center"><div data-qmd="376"><div class="gt_from_md"><p>376</p>
-</div></div></td>
-<td headers="stub_1_4 Total Spend" class="gt_row gt_center"><div data-qmd="€18,534"><div class="gt_from_md"><p>€18,534</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_5" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Les Engagés"><div class="gt_from_md"><p>Les Engagés</p>
-</div></div></th>
-<td headers="stub_1_5 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #00e6d2;"><div data-qmd="25"><div class="gt_from_md"><p>25</p>
-</div></div></td>
-<td headers="stub_1_5 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Les Engagés - Mouvement participatif](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=108820070638334) (€8,989)<br>2. [Yvan Verougstraete](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109303661918715) (€814)<br>3. [Olivier de Wasseige](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=579713522041107) (€446)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=108820070638334">Les Engagés - Mouvement participatif</a> (€8,989)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109303661918715">Yvan Verougstraete</a> (€814)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=579713522041107">Olivier de Wasseige</a> (€446)<br><br></p>
-</div></div></td>
-<td headers="stub_1_5 Number of Ads" class="gt_row gt_center"><div data-qmd="197"><div class="gt_from_md"><p>197</p>
-</div></div></td>
-<td headers="stub_1_5 Total Spend" class="gt_row gt_center"><div data-qmd="€13,378"><div class="gt_from_md"><p>€13,378</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_6" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Vooruit"><div class="gt_from_md"><p>Vooruit</p>
-</div></div></th>
-<td headers="stub_1_6 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #c60000;"><div data-qmd="15"><div class="gt_from_md"><p>15</p>
-</div></div></td>
-<td headers="stub_1_6 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Melissa Depraetere](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=2101118869952701) (€6,622)<br>2. [Frank Vandenbroucke](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109464160926380) (€3,133)<br>3. [Kris Verduyckt](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=114970156588141) (€1,128)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=2101118869952701">Melissa Depraetere</a> (€6,622)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109464160926380">Frank Vandenbroucke</a> (€3,133)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=114970156588141">Kris Verduyckt</a> (€1,128)<br><br></p>
-</div></div></td>
-<td headers="stub_1_6 Number of Ads" class="gt_row gt_center"><div data-qmd="201"><div class="gt_from_md"><p>201</p>
-</div></div></td>
-<td headers="stub_1_6 Total Spend" class="gt_row gt_center"><div data-qmd="€13,224"><div class="gt_from_md"><p>€13,224</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_7" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="PS"><div class="gt_from_md"><p>PS</p>
-</div></div></th>
-<td headers="stub_1_7 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff0000;"><div data-qmd="17"><div class="gt_from_md"><p>17</p>
-</div></div></td>
-<td headers="stub_1_7 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Pablo Annys](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1161608023962638) (€2,511)<br>2. [Paul Magnette](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=29384148415) (€2,090)<br>3. [Parti Socialiste](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518402351504731) (€1,595)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1161608023962638">Pablo Annys</a> (€2,511)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=29384148415">Paul Magnette</a> (€2,090)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518402351504731">Parti Socialiste</a> (€1,595)<br><br></p>
-</div></div></td>
-<td headers="stub_1_7 Number of Ads" class="gt_row gt_center"><div data-qmd="70"><div class="gt_from_md"><p>70</p>
-</div></div></td>
-<td headers="stub_1_7 Total Spend" class="gt_row gt_center"><div data-qmd="€7,596"><div class="gt_from_md"><p>€7,596</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_8" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="MR"><div class="gt_from_md"><p>MR</p>
-</div></div></th>
-<td headers="stub_1_8 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #1f5db5;"><div data-qmd="19"><div class="gt_from_md"><p>19</p>
-</div></div></td>
-<td headers="stub_1_8 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Mouvement Réformateur](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236330169511) (€1,684)<br>2. [Georges-Louis Bouchez](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=341174129258800) (€1,205)<br>3. [David Leisterh](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=290536231471445) (€864)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236330169511">Mouvement Réformateur</a> (€1,684)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=341174129258800">Georges-Louis Bouchez</a> (€1,205)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=290536231471445">David Leisterh</a> (€864)<br><br></p>
-</div></div></td>
-<td headers="stub_1_8 Number of Ads" class="gt_row gt_center"><div data-qmd="61"><div class="gt_from_md"><p>61</p>
-</div></div></td>
-<td headers="stub_1_8 Total Spend" class="gt_row gt_center"><div data-qmd="€6,050"><div class="gt_from_md"><p>€6,050</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_9" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Open Vld"><div class="gt_from_md"><p>Open Vld</p>
-</div></div></th>
-<td headers="stub_1_9 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0087dc;"><div data-qmd="18"><div class="gt_from_md"><p>18</p>
-</div></div></td>
-<td headers="stub_1_9 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Open Vlaamse Liberalen en Democraten](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=53668151866) (€3,276)<br>2. [Alexander De Croo](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=228307843991539) (€648)<br>3. [Lydia Peeters](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=539909526473870) (€298)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=53668151866">Open Vlaamse Liberalen en Democraten</a> (€3,276)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=228307843991539">Alexander De Croo</a> (€648)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=539909526473870">Lydia Peeters</a> (€298)<br><br></p>
-</div></div></td>
-<td headers="stub_1_9 Number of Ads" class="gt_row gt_center"><div data-qmd="48"><div class="gt_from_md"><p>48</p>
-</div></div></td>
-<td headers="stub_1_9 Total Spend" class="gt_row gt_center"><div data-qmd="€5,913"><div class="gt_from_md"><p>€5,913</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_10" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Groen"><div class="gt_from_md"><p>Groen</p>
-</div></div></th>
-<td headers="stub_1_10 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #01796f;"><div data-qmd="22"><div class="gt_from_md"><p>22</p>
-</div></div></td>
-<td headers="stub_1_10 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Groen](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=84920854319) (€1,006)<br>2. [Groen Brussel](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=144986545155) (€282)<br>3. [Jeremie Vaneeckhout](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1373626132778895) (€273)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=84920854319">Groen</a> (€1,006)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=144986545155">Groen Brussel</a> (€282)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1373626132778895">Jeremie Vaneeckhout</a> (€273)<br><br></p>
-</div></div></td>
-<td headers="stub_1_10 Number of Ads" class="gt_row gt_center"><div data-qmd="131"><div class="gt_from_md"><p>131</p>
-</div></div></td>
-<td headers="stub_1_10 Total Spend" class="gt_row gt_center"><div data-qmd="€3,898"><div class="gt_from_md"><p>€3,898</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_11" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="Ecolo"><div class="gt_from_md"><p>Ecolo</p>
-</div></div></th>
-<td headers="stub_1_11 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6eb651;"><div data-qmd="6"><div class="gt_from_md"><p>6</p>
-</div></div></td>
-<td headers="stub_1_11 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Ecolo](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=38296327361) (€1,596)<br>2. [Rajae Maouane](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110237177033759) (€235)<br>3. [Zakia Khattabi](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110049460908305) (€102)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=38296327361">Ecolo</a> (€1,596)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110237177033759">Rajae Maouane</a> (€235)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110049460908305">Zakia Khattabi</a> (€102)<br><br></p>
-</div></div></td>
-<td headers="stub_1_11 Number of Ads" class="gt_row gt_center"><div data-qmd="31"><div class="gt_from_md"><p>31</p>
-</div></div></td>
-<td headers="stub_1_11 Total Spend" class="gt_row gt_center"><div data-qmd="€2,233"><div class="gt_from_md"><p>€2,233</p>
-</div></div></td></tr>
-    <tr><th id="stub_1_12" scope="row" class="gt_row gt_center gt_stub"><div data-qmd="DéFI"><div class="gt_from_md"><p>DéFI</p>
-</div></div></th>
-<td headers="stub_1_12 Number of Advertisers" class="gt_row gt_center" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #df1e8f;"><div data-qmd="4"><div class="gt_from_md"><p>4</p>
-</div></div></td>
-<td headers="stub_1_12 Top Spenders" class="gt_row gt_left" style="vertical-align:center"><div data-qmd="<br>1. [Démocrate Fédéraliste Indépendant](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=173518112695794) (€456)<br>2. [DéFI Bruxelles](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=241175786018898) (€235)<br>3. [DéFI en Wallonie](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=187079152019) (€162)<br><br>"><div class="gt_from_md"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=173518112695794">Démocrate Fédéraliste Indépendant</a> (€456)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=241175786018898">DéFI Bruxelles</a> (€235)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=187079152019">DéFI en Wallonie</a> (€162)<br><br></p>
-</div></div></td>
-<td headers="stub_1_12 Number of Ads" class="gt_row gt_center"><div data-qmd="23"><div class="gt_from_md"><p>23</p>
-</div></div></td>
-<td headers="stub_1_12 Total Spend" class="gt_row gt_center"><div data-qmd="€953"><div class="gt_from_md"><p>€953</p>
-</div></div></td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header gt_col_headings">
+<th class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"></th>
+<th id="Number of Advertisers" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Advertisers</th>
+<th id="Top Spenders" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Top Spenders</th>
+<th id="Number of Ads" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Number of Ads</th>
+<th id="Total Spend" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" style="border-top-width: 0px; border-top-style: solid; border-top-color: black; font-family: Chivo; font-size: 14px; vertical-align: bottom; font-weight: 200; text-transform: uppercase" scope="col">Total Spend</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td id="stub_1_1" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Vlaams Belang</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #000000"><p>37</p></td>
+<td class="gt_row gt_left" headers="stub_1_1 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=56605856504">Vlaams Belang</a> (€30,520)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=584806884924010">Tom Van Grieken</a> (€24,963)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=100606792498147">Tom Vandendriessche MEP</a> (€2,997)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Number of Ads"><p>108</p></td>
+<td class="gt_row gt_center" headers="stub_1_1 Total Spend"><p>€70,259</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_2" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>N-VA</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #f9ce19"><p>60</p></td>
+<td class="gt_row gt_left" headers="stub_1_2 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=334361224413">Nieuw-Vlaamse Alliantie</a> (€26,468)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=24079407056">Bart De Wever</a> (€5,103)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=483497581789280">Theo Francken</a> (€1,613)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Number of Ads"><p>261</p></td>
+<td class="gt_row gt_center" headers="stub_1_2 Total Spend"><p>€45,332</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_3" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>PVDA</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #8b0000"><p>22</p></td>
+<td class="gt_row gt_left" headers="stub_1_3 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=305365056290036">Raoul Hedebouw - PVDA</a> (€6,600)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=54970503767">PVDA</a> (€6,339)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236485149843971">Peter Mertens</a> (€1,203)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Number of Ads"><p>356</p></td>
+<td class="gt_row gt_center" headers="stub_1_3 Total Spend"><p>€19,028</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_4" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>CD&amp;V</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff6200"><p>39</p></td>
+<td class="gt_row gt_left" headers="stub_1_4 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=547978585231957">Vlaamse overheid</a> (€7,199)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=52997544531">Christen-Democratisch en Vlaams</a> (€5,568)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=583742175322666">Jo Brouns</a> (€810)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Number of Ads"><p>376</p></td>
+<td class="gt_row gt_center" headers="stub_1_4 Total Spend"><p>€18,534</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_5" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Les Engagés</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #00e6d2"><p>25</p></td>
+<td class="gt_row gt_left" headers="stub_1_5 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=108820070638334">Les Engagés - Mouvement participatif</a> (€8,989)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109303661918715">Yvan Verougstraete</a> (€814)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=579713522041107">Olivier de Wasseige</a> (€446)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Number of Ads"><p>197</p></td>
+<td class="gt_row gt_center" headers="stub_1_5 Total Spend"><p>€13,378</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_6" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Vooruit</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #c60000"><p>15</p></td>
+<td class="gt_row gt_left" headers="stub_1_6 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=2101118869952701">Melissa Depraetere</a> (€6,622)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=109464160926380">Frank Vandenbroucke</a> (€3,133)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=114970156588141">Kris Verduyckt</a> (€1,128)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Number of Ads"><p>201</p></td>
+<td class="gt_row gt_center" headers="stub_1_6 Total Spend"><p>€13,224</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_7" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>PS</p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #ff0000"><p>17</p></td>
+<td class="gt_row gt_left" headers="stub_1_7 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1161608023962638">Pablo Annys</a> (€2,511)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=29384148415">Paul Magnette</a> (€2,090)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=518402351504731">Parti Socialiste</a> (€1,595)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Number of Ads"><p>70</p></td>
+<td class="gt_row gt_center" headers="stub_1_7 Total Spend"><p>€7,596</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_8" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>MR</p></td>
+<td class="gt_row gt_center" headers="stub_1_8 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #1f5db5"><p>19</p></td>
+<td class="gt_row gt_left" headers="stub_1_8 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=236330169511">Mouvement Réformateur</a> (€1,684)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=341174129258800">Georges-Louis Bouchez</a> (€1,205)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=290536231471445">David Leisterh</a> (€864)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_8 Number of Ads"><p>61</p></td>
+<td class="gt_row gt_center" headers="stub_1_8 Total Spend"><p>€6,050</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_9" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Open Vld</p></td>
+<td class="gt_row gt_center" headers="stub_1_9 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #0087dc"><p>18</p></td>
+<td class="gt_row gt_left" headers="stub_1_9 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=53668151866">Open Vlaamse Liberalen en Democraten</a> (€3,276)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=228307843991539">Alexander De Croo</a> (€648)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=539909526473870">Lydia Peeters</a> (€298)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_9 Number of Ads"><p>48</p></td>
+<td class="gt_row gt_center" headers="stub_1_9 Total Spend"><p>€5,913</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_10" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Groen</p></td>
+<td class="gt_row gt_center" headers="stub_1_10 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #01796f"><p>22</p></td>
+<td class="gt_row gt_left" headers="stub_1_10 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=84920854319">Groen</a> (€1,006)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=144986545155">Groen Brussel</a> (€282)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=1373626132778895">Jeremie Vaneeckhout</a> (€273)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_10 Number of Ads"><p>131</p></td>
+<td class="gt_row gt_center" headers="stub_1_10 Total Spend"><p>€3,898</p></td>
+</tr>
+<tr class="odd">
+<td id="stub_1_11" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>Ecolo</p></td>
+<td class="gt_row gt_center" headers="stub_1_11 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #6eb651"><p>6</p></td>
+<td class="gt_row gt_left" headers="stub_1_11 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=38296327361">Ecolo</a> (€1,596)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110237177033759">Rajae Maouane</a> (€235)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=110049460908305">Zakia Khattabi</a> (€102)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_11 Number of Ads"><p>31</p></td>
+<td class="gt_row gt_center" headers="stub_1_11 Total Spend"><p>€2,233</p></td>
+</tr>
+<tr class="even">
+<td id="stub_1_12" class="gt_row gt_center gt_stub" data-quarto-table-cell-role="th" scope="row"><p>DéFI</p></td>
+<td class="gt_row gt_center" headers="stub_1_12 Number of Advertisers" style="border-left-width: 18.5px; border-left-style: solid; border-left-color: #df1e8f"><p>4</p></td>
+<td class="gt_row gt_left" headers="stub_1_12 Top Spenders" style="vertical-align: center"><p><br>1. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=173518112695794">Démocrate Fédéraliste Indépendant</a> (€456)<br>2. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=241175786018898">DéFI Bruxelles</a> (€235)<br>3. <a href="https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&amp;country=NL&amp;view_all_page_id=187079152019">DéFI en Wallonie</a> (€162)<br><br></p></td>
+<td class="gt_row gt_center" headers="stub_1_12 Number of Ads"><p>23</p></td>
+<td class="gt_row gt_center" headers="stub_1_12 Total Spend"><p>€953</p></td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1424,10 +1373,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1437,8 +1385,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1451,6 +1408,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1494,6 +1570,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1519,6 +1596,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1579,6 +1682,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
