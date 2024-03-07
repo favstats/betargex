@@ -5,10 +5,10 @@ pacman::p_load(tidyverse, janitor, highcharter, httr, furrr, lubridate, tidytext
 
 setwd(here::here())
 
-color_dat <- tibble(
-  colors = c("#00b13d", "#80c31c", "#0a2cca", "#008067", "#bf0000", "#ff0000", "#6f2421", "#02a6e9", "#92107d", "#04d3d4", "#242b57", "#66cdaa", "#242b57", "#006b28", "#012758", "#ea5b0b", "#582c83", "#698c0c", "#fdfd00", "#8da6d6"),
-  party = c("D66", "GroenLinks", "VVD", "CDA", "SP", "PvdA", "FvD", "ChristenUnie", "50PLUS", "Alliantie", "BVNL", "DENK", "Ja21", "PvdD", "PVV", "SGP", "Volt Nederland", "BBB", "BIJ1", "NSC"))
-
+# color_dat <- tibble(
+#   colors = c("#00b13d", "#80c31c", "#0a2cca", "#008067", "#bf0000", "#ff0000", "#6f2421", "#02a6e9", "#92107d", "#04d3d4", "#242b57", "#66cdaa", "#242b57", "#006b28", "#012758", "#ea5b0b", "#582c83", "#698c0c", "#fdfd00", "#8da6d6"),
+#   party = c("D66", "GroenLinks", "VVD", "CDA", "SP", "PvdA", "FvD", "ChristenUnie", "50PLUS", "Alliantie", "BVNL", "DENK", "Ja21", "PvdD", "PVV", "SGP", "Volt Nederland", "BBB", "BIJ1", "NSC"))
+# 
 
 if(!dir.exists("data")) dir.create("data")
 
@@ -85,7 +85,10 @@ elex30 <- readRDS("data/election_dat30.rds") %>%
 
 # readRenviron(".Renviron")
 
-token <- Sys.getenv("fb_token")
+# token <- Sys.getenv("fb_token")
+# token <- Sys.getenv("fb_token")
+token <<- "EAAYvLuOKpPkBO5poRyqZAjp0Qhsz4as1zSrFFZBKNZBWn5VJeuwZAi78E7yFt2UbhpUAiNvZAlQExV5CSpxTlbZBxN28osxBroUxdQfmHejouRHgJP0EZBleAUZBkVD6O3GVQNM5rlCmsT42cvZCe99UCNur36ZCHfWmWlsrf0obJIiCFjHmZCthOz0Q9Bp"
+
 
 #link to fb api
 my_link<- "https://graph.facebook.com"
@@ -139,7 +142,7 @@ get_em <- function(pgid, pgname) {
                                         search_page_ids=pgid,
                                         # ad_delivery_date_min = min_date,
                                         fields=search_fields,
-                                        ad_reached_countries="NL"))
+                                        ad_reached_countries="BE"))
   # print(page_one_response)
   page_one_content<<- content(page_one_response)
   
@@ -190,13 +193,14 @@ get_em <- function(pgid, pgname) {
 }
 
 df_imp2 <- elex30%>% 
-  filter(page_id == "320374518118") %>% 
+  # filter(page_id == "320374518118") %>% 
   # slice(92) %>% 
   # pull(page_id) %>% 
   # .[1] %>% 
   split(1:nrow(.)) %>% 
   map_dfr_progress(~get_em(.x$page_id, .x$page_name))
 
+saveRDS(df_imp2, "data/df_imp.rds")
 
 df_imp %>% 
   filter(page_id == "320374518118") %>% View()
@@ -245,11 +249,13 @@ unnest_wider(spend) %>%
   rename(spend_upper = upper_bound) %>% 
   glimpse() %>% 
   mutate(spend_lower = ifelse(spend_lower==0,1, spend_lower)) %>% 
-  # filter(eu_total_reach!=1) %>%
+  filter(eu_total_reach!=1) %>%
+  # filter(eu_total_reach>=1000) %>%
+  mutate(price = as.numeric(spend_lower)/as.numeric(imp_lower)*1000) %>% #View()
   mutate(price = as.numeric(spend_lower)/as.numeric(eu_total_reach)*1000) %>% #View()
   add_count(advertiser_name) %>% 
-  filter(n > 10) %>% 
-  # filter(price <= 100) %>% 
+  filter(n > 100) %>% 
+  filter(price <= 100) %>%
   mutate(advertiser_name = fct_reorder(advertiser_name, price)) %>% 
   ggplot(aes(advertiser_name, price)) +
   # geom_histograCm() +
@@ -266,10 +272,127 @@ unnest_wider(spend) %>%
     vjust=1, 
     hjust=-0.3,  # Adjust this value to move text left or right
     color="black"
-  )
+  ) +
+  labs(y = "price per 1000 impressions")
   # EnvStats::stat_median_iqr_text()
 
-ggsave("img/pay.png", width = 14, height = 10)
+ggsave("img/pay2.png", width = 14, height = 10)
+
+options(scipen = 999)
+
+fb_dat %>% #View()
+  select(id, advertiser_name, advertiser_id, impressions, spend, eu_total_reach, ad_delivery_start_time, ad_delivery_stop_time) %>% 
+  mutate(start = lubridate::ymd(ad_delivery_start_time)) %>% 
+  filter(start >= lubridate::ymd("2023-08-01")) %>% 
+  unnest_wider(impressions) %>% 
+  rename(imp_lower = lower_bound)%>% 
+  rename(imp_upper = upper_bound) %>% 
+  unnest_wider(spend) %>% 
+  rename(spend_lower = lower_bound)%>% 
+  rename(spend_upper = upper_bound) %>% 
+  glimpse() %>% 
+  mutate(spend_lower = ifelse(spend_lower==0,1, spend_lower)) %>% 
+  filter(eu_total_reach!=1) %>%
+  # filter(eu_total_reach>=1000) %>%
+  # mutate(price = as.numeric(spend_lower)/as.numeric(imp_lower)*1000) %>% #View()
+  mutate(price = as.numeric(spend_lower)/as.numeric(eu_total_reach)*1000) %>% #View()
+  add_count(advertiser_name) %>% 
+  # filter(n > 100) %>% 
+  filter(price <= 100) %>% 
+  group_by(advertiser_id) %>% 
+  mutate(total_spend = sum(as.numeric(spend_lower))) %>% 
+  ungroup() %>% 
+  ggplot(aes(total_spend, price)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  ggpubr::stat_cor() +
+  labs(y = "price per 1000 people")
+
+# ggsave("img/pp1kimp_total.png", width = 14, height = 10)
+ggsave("img/pp1kpeople_total.png", width = 14, height = 10)
+
+  
+fb_dat %>% #View()
+  select(id, advertiser_name, advertiser_id, impressions, spend, eu_total_reach, ad_delivery_start_time, ad_delivery_stop_time) %>% 
+  mutate(start = lubridate::ymd(ad_delivery_start_time)) %>% 
+  filter(start >= lubridate::ymd("2023-08-01")) %>% 
+  unnest_wider(impressions) %>% 
+  rename(imp_lower = lower_bound)%>% 
+  rename(imp_upper = upper_bound) %>% 
+  unnest_wider(spend) %>% 
+  rename(spend_lower = lower_bound)%>% 
+  rename(spend_upper = upper_bound) %>% 
+  glimpse() %>% 
+  mutate(spend_lower = ifelse(spend_lower==0,1, spend_lower)) %>% 
+  mutate(imp_upper = ifelse(imp_upper==0,1, imp_upper)) %>% 
+  filter(eu_total_reach!=1) %>%
+  # filter(eu_total_reach>=1000) %>%
+  # mutate(price = as.numeric(spend_lower)/as.numeric(imp_lower)*1000) %>% #View()
+  mutate(price = as.numeric(spend_lower)/as.numeric(eu_total_reach)*1000) %>% #View()
+  add_count(advertiser_name) %>% 
+  group_by(advertiser_name) %>% 
+  mutate(imp_upper = sum(as.numeric(imp_upper), na.rm = T),
+            imp_lower = sum(as.numeric(imp_lower), na.rm = T)) %>% 
+  arrange(imp_lower) %>%  
+  # filter(n > 100) %>% 
+  filter(price <= 100) %>% 
+  group_by(advertiser_id) %>% 
+  mutate(total_spend = sum(as.numeric(spend_lower))) %>% 
+  ungroup() %>% 
+  ggplot(aes(imp_lower, price)) +
+  geom_point() +
+  scale_x_log10() +
+  geom_smooth(method = "lm") +
+  ggpubr::stat_cor() +
+  labs(y = "price per 1000 people")
+
+# ggsave("img/pp1kimp_total.png", width = 14, height = 10)
+ggsave("img/pp1kpeople_total.png", width = 14, height = 10)
+
+options(scipen = 999)
+
+fb_dat %>% #View()
+  select(id, advertiser_name, advertiser_id, impressions, spend, eu_total_reach, ad_delivery_start_time, ad_delivery_stop_time) %>% 
+  mutate(start = lubridate::ymd(ad_delivery_start_time)) %>% 
+  filter(start >= lubridate::ymd("2023-08-01")) %>% 
+  unnest_wider(impressions) %>% 
+  rename(imp_lower = lower_bound)%>% 
+  rename(imp_upper = upper_bound) %>% 
+  unnest_wider(spend) %>% 
+  rename(spend_lower = lower_bound)%>% 
+  rename(spend_upper = upper_bound) %>% 
+  glimpse() %>% 
+  mutate(spend_lower = ifelse(spend_lower==0,1, spend_lower)) %>% 
+  mutate(imp_lower = ifelse(imp_lower==0,1, imp_lower)) %>% 
+  filter(eu_total_reach!=1) %>%
+  # filter(eu_total_reach>=1000) %>%
+  mutate(price = as.numeric(spend_lower)/as.numeric(imp_lower)*1000) %>% #View()
+  add_count(advertiser_name) %>% 
+  filter(n > 100) %>% 
+  group_by(advertiser_name) %>% 
+  summarize(imp_upper = sum(as.numeric(imp_upper), na.rm = T),
+            imp_lower = sum(as.numeric(imp_lower), na.rm = T)) %>% 
+  arrange(imp_lower) %>% 
+  mutate(imp_mid = (imp_lower+imp_upper)/2) %>% 
+  mutate(advertiser_name = fct_reorder(advertiser_name, imp_lower)) %>% 
+  ggplot(aes(advertiser_name, imp_mid)) +
+  geom_errorbar(aes(ymin = imp_lower, ymax = imp_upper)) +
+  coord_flip() +
+  scale_y_continuous(labels = scales::comma_format())  +
+  stat_summary(fun.y=mean, geom="point", shape=20, size=3, color="red", fill="red")  +
+  stat_summary(
+    fun=median, 
+    geom="label", 
+    aes(label=scales::comma_format()(round(..y..))), 
+    vjust=1, 
+    hjust=-0.3,  # Adjust this value to move text left or right
+    color="black"
+  )
+  # filter(price <= 100)
+
+ggsave("img/impressions.png", width = 18, height = 10)
+
 
 # df_imp2 <- df_imp
 # saveRDS(df_imp2, "data/df_imp2.rds")
@@ -290,7 +413,7 @@ cat("\n\nFB Data: Read in old data\n\n")
 cat("\n\nFB Data: Merge data\n\n")  
 
 
-fb_dat <- df_imp %>% 
+fb_dat <- df_imp2 %>% 
   rename(advertiser_name = page_name) %>% 
   rename(advertiser_id = page_id) %>% 
   bind_rows(fb_dat %>% select(-party)) %>%
@@ -537,3 +660,5 @@ saveRDS(fb_aggr, file = "data/fb_aggr.rds")
 
 
 cat("\n\nFB Data: Done\n\n") 
+
+tibble(cars)

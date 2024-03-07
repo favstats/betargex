@@ -268,6 +268,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 :::
 
+<br>
+<br>
+
 ## Top Excluded Audiences
 
 
@@ -434,6 +437,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 :::
+
+<br>
+<br>
 
 ## Top Contested Audiences
 

@@ -286,7 +286,90 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 
 
+### Over Time
+
+```{r}
+
+linkie <- function(.x) {
+    download.file(glue::glue("https://github.com/favstats/meta_ad_reports/releases/download/BE-lifelong/{.x}.rds"), destfile = "data.rds", quiet = T)
+    
+    fin <- read_rds("data.rds")
+    
+    Sys.sleep(0.1)
+    file.remove("data.rds")
+    
+    return(fin)
+}
+
+linkiesf <- possibly(linkie,otherwise = NULL, quiet = T)
+
+spending_dat <- seq.Date(from = as.Date("2024-01-01"), to = Sys.Date(), by = "day") %>% 
+  map_dfr_progress(linkiesf)
 
 
+hc_data_dafb <- spending_dat %>% 
+  left_join(election_dat30 %>% 
+              select(page_id = internal_id, party) %>% 
+              distinct(page_id, party)) %>% 
+  mutate(amount_spent_eur = parse_number(amount_spent_eur)) %>% 
+  mutate(amount_spent_eur = ifelse(amount_spent_eur == 100, 1, amount_spent_eur)) %>% 
+  group_by(date, party) %>% 
+  summarise(amount_spent_eur = sum(amount_spent_eur)) %>% 
+  ungroup() %>% 
+  group_by(date) %>% 
+  arrange(party)  %>% 
+  ungroup() %>% 
+  group_by(party) %>% 
+  mutate(`Daily Spend` = amount_spent_eur-lag(amount_spent_eur)) %>%
+  ungroup() %>% 
+  drop_na(party) %>% 
+  mutate(date = lubridate::ymd(date)) #%>%
+  # ggplot(aes(date, daily_spend, fill = party)) +
+  # geom_area()
 
+color_order <- color_dat %>%
+  distinct(party, .keep_all = T) %>%
+  arrange(party) %>%
+  pull(colors)
+
+hc_data_dafb %>%
+  left_join(color_dat) %>% 
+  # mutate(spend)
+  hchart("area", hcaes(x = date, y = `Daily Spend`, group = party, fill = colors)) %>%
+  hc_plotOptions(    area = list(
+      stacking = "normal",
+      lineWidth = 1,
+      marker = list(enabled = FALSE)
+    )) %>%
+  # hc_legend(share = TRUE)%>%
+  hc_colors(color_order)%>%
+  hc_tooltip(
+    shared = TRUE,
+    positioner = JS("function (labelWidth, labelHeight, point) {
+        return { x: 200, y: this.chart.plotTop };
+    }")
+  )  
+```
+
+
+```{r, eval = F, fig.width=8, fig.height=5}
+hc_data_dafb %>% 
+  mutate(sperperiod = case_when(
+    date %in%  seq.Date(from = as.Date("2024-01-01"), to = as.Date("2024-02-08"), by = "day") ~ "Pre 'sper' period",
+    date %in%  seq.Date(from = as.Date("2024-02-08"), to = Sys.Date(), by = "day") ~ "'sper' period",
+
+  )) %>% 
+  group_by(party, sperperiod) %>% 
+  summarize(amount_spent_eur = sum(`Daily Spend`)) %>% 
+  drop_na() %>% 
+  mutate(sperperiod = fct_relevel(sperperiod, "Pre 'sper' period")) %>% 
+  ggplot(aes(sperperiod, amount_spent_eur, group = party, color = party)) +
+  geom_line(size = 2) +
+  geom_point() +
+  scale_color_parties() +
+  theme_minimal() +
+  ggrepel::geom_text_repel(aes(x = 0.85,label = party), direction = "y")  +
+  # ggrepel::geom_text_repel(aes(x = 2,label = party), direction = "x") +
+  theme(legend.position = "none")
+```
 
