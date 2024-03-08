@@ -3,7 +3,7 @@ calc_targeting <- function(only_tags, exclude = NULL) {
   # if(sets$cntry=="TW"){
   #   age_limit <- 46
   # } else {
-  #   age_limit <- 48
+    age_limit <- 48
   # }
   
   # only_tags <- election_dat30 %>%
