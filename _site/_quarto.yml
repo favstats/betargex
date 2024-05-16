@@ -3,17 +3,16 @@ project:
   output-dir: ../docs
 
 website:
-  title: "Belgian Microtargeting Dashboard"
+  title: "Dashboard Verkiezingspropaganda"
+  favicon: "a_zwart-transp_RGB.svg"
   navbar:
+    logo: "apache.svg"
     left:
       - href: index.qmd
         text: Spending
       - sidebar:targeting
       - href: about.qmd
         text: About
-    right:
-      - icon: github
-        href: https://github.com/favstats/betargex
   sidebar:
     - id: ""
     - id: targeting
@@ -31,5 +30,4 @@ format:
     theme:
       - cosmo
       - custom.scss
-    mainfont: acumin-pro-semi-condensed, helvetica, arial, sans-serif
     fontsize: 1.2em

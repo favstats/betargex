@@ -289,8 +289,8 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 ### Over Time
 
 ```{r}
-
-linkie <- function(.x) {
+if(Sys.info()["user"] != "fabio"){
+  linkie <- function(.x) {
     download.file(glue::glue("https://github.com/favstats/meta_ad_reports/releases/download/BE-lifelong/{.x}.rds"), destfile = "data.rds", quiet = T)
     
     fin <- read_rds("data.rds")
@@ -332,8 +332,20 @@ color_order <- color_dat %>%
   arrange(party) %>%
   pull(colors)
 
-hc_data_dafb %>%
-  left_join(color_dat) %>% 
+endit <- hc_data_dafb %>%
+  left_join(color_dat) 
+
+saveRDS(endit, "endit.rds")
+} else {
+  endit <- readRDS("endit.rds")
+}
+
+color_order <- color_dat %>%
+  distinct(party, .keep_all = T) %>%
+  arrange(party) %>%
+  pull(colors)
+
+endit %>% 
   # mutate(spend)
   hchart("area", hcaes(x = date, y = `Daily Spend`, group = party, fill = colors)) %>%
   hc_plotOptions(    area = list(
@@ -350,26 +362,3 @@ hc_data_dafb %>%
     }")
   )  
 ```
-
-
-```{r, eval = F, fig.width=8, fig.height=5}
-hc_data_dafb %>% 
-  mutate(sperperiod = case_when(
-    date %in%  seq.Date(from = as.Date("2024-01-01"), to = as.Date("2024-02-08"), by = "day") ~ "Pre 'sper' period",
-    date %in%  seq.Date(from = as.Date("2024-02-08"), to = Sys.Date(), by = "day") ~ "'sper' period",
-
-  )) %>% 
-  group_by(party, sperperiod) %>% 
-  summarize(amount_spent_eur = sum(`Daily Spend`)) %>% 
-  drop_na() %>% 
-  mutate(sperperiod = fct_relevel(sperperiod, "Pre 'sper' period")) %>% 
-  ggplot(aes(sperperiod, amount_spent_eur, group = party, color = party)) +
-  geom_line(size = 2) +
-  geom_point() +
-  scale_color_parties() +
-  theme_minimal() +
-  ggrepel::geom_text_repel(aes(x = 0.85,label = party), direction = "y")  +
-  # ggrepel::geom_text_repel(aes(x = 2,label = party), direction = "x") +
-  theme(legend.position = "none")
-```
-

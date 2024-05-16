@@ -1,0 +1,106 @@
+---
+title: "analsys"
+output: html_document
+date: "2024-05-16"
+---
+
+
+```{r, eval = F, fig.width=8, fig.height=5}
+hc_data_dafb %>% 
+  mutate(sperperiod = case_when(
+    date %in%  seq.Date(from = as.Date("2024-01-08"), to = as.Date("2024-02-08"), by = "day") ~ "Pre 'sper' period",
+    date %in%  seq.Date(from = as.Date("2024-02-08"), to = Sys.Date(), by = "day") ~ "'sper' period",
+
+  )) %>% 
+  group_by(party, sperperiod) %>% 
+  summarize(amount_spent_eur = sum(`Daily Spend`)) %>% 
+  drop_na() %>% 
+  mutate(sperperiod = fct_relevel(sperperiod, "Pre 'sper' period")) %>% 
+  ggplot(aes(sperperiod, amount_spent_eur, group = party, color = party)) +
+  geom_line(size = 2) +
+  geom_point() +
+  scale_color_parties() +
+  theme_minimal() +
+  ggrepel::geom_text_repel(aes(x = 0.85,label = party), direction = "y")  +
+  # ggrepel::geom_text_repel(aes(x = 2,label = party), direction = "x") +
+  theme(legend.position = "none")
+```
+
+```{r, eval = F}
+spending_dat %>% 
+  mutate(amount_spent_eur = as.numeric(amount_spent_eur)) %>% 
+  arrange(desc(amount_spent_eur)) %>% 
+  distinct(page_id, .keep_all = T)   %>% 
+  left_join(election_dat30 %>% 
+              select(page_id = internal_id, party) %>% 
+              distinct(page_id, party)) %>% 
+  select(page_id, page_name, amount_spent_eur, party) %>% 
+  openxlsx::write.xlsx("be.xlsx")
+  
+```
+
+
+```{r}
+hc_data_dafb %>% 
+  mutate(sperperiod = case_when(
+    date %in%  seq.Date(from = as.Date("2024-01-08"), to = as.Date("2024-02-08"), by = "day") ~ "Pre 'sper' period",
+    date %in%  seq.Date(from = as.Date("2024-02-08"), to = Sys.Date(), by = "day") ~ "'sper' period",
+
+  )) %>% 
+  group_by(party, sperperiod) %>% 
+  summarize(amount_spent_eur = sum(`Daily Spend`)) %>% 
+  drop_na() %>% 
+  group_by(party) %>% 
+  mutate(perc = amount_spent_eur/sum(amount_spent_eur)*100)
+```
+
+```{r}
+calculatePercentageDecrease <- function(originalAmount, newAmount) {
+  percentageDecrease <- ((originalAmount - newAmount) / originalAmount) * 100 *-1
+  return(percentageDecrease)
+}
+
+# Example usage:
+originalAmount <- 348278
+newAmount <- 765575
+decrease <- calculatePercentageDecrease(originalAmount, newAmount)
+print(decrease)
+
+
+hc_data_dafb %>% 
+  mutate(sperperiod = case_when(
+    date %in%  seq.Date(from = as.Date("2024-01-08"), to = as.Date("2024-02-08"), by = "day") ~ "Pre 'sper' period",
+    date %in%  seq.Date(from = as.Date("2024-02-09"), to = Sys.Date(), by = "day") ~ "'sper' period",
+  )) %>% 
+  group_by(sperperiod) %>% 
+  summarize(amount_spent_eur = sum(`Daily Spend`)) %>% 
+  drop_na() %>% 
+  # group_by(party) %>% 
+  # mutate(perc = amount_spent_eur/sum(amount_spent_eur)*100) %>% 
+  pivot_wider(names_from = sperperiod, values_from = amount_spent_eur) %>% 
+  janitor::clean_names() %>% 
+  mutate(euro_change = sper_period-pre_sper_period) %>% 
+  mutate(perc_change = calculatePercentageDecrease(pre_sper_period, sper_period)) %>% 
+  select(pre_sper_period, sper_period, euro_change, perc_change)
+```
+
+
+```{r}
+hc_data_dafb %>% 
+  mutate(sperperiod = case_when(
+    date %in%  seq.Date(from = as.Date("2024-01-08"), to = as.Date("2024-02-08"), by = "day") ~ "Pre 'sper' period",
+    date %in%  seq.Date(from = as.Date("2024-02-09"), to = Sys.Date(), by = "day") ~ "'sper' period",
+
+  )) %>% 
+  group_by(party, sperperiod) %>% 
+  summarize(amount_spent_eur = sum(`Daily Spend`)) %>% 
+  drop_na() %>% 
+  group_by(party) %>% 
+  pivot_wider(names_from = sperperiod, values_from = amount_spent_eur) %>% 
+  janitor::clean_names() %>% 
+  mutate(euro_change = sper_period-pre_sper_period) %>% 
+  mutate(party, perc_change = calculatePercentageDecrease(pre_sper_period, sper_period)) %>% 
+  select(pre_sper_period, sper_period, euro_change, perc_change) %>% 
+  arrange(perc_change)
+```
+
