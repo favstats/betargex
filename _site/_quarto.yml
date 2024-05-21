@@ -9,14 +9,14 @@ website:
     logo: "apache.svg"
     left:
       - href: index.qmd
-        text: Spending
+        text: Uitgaven
       - sidebar:targeting
       - href: about.qmd
         text: About
   sidebar:
     - id: ""
     - id: targeting
-      title: "Targeting"
+      title: "Selectiecriteria"
       style: "docked"
       collapse-level: 2
       contents:
