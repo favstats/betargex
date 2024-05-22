@@ -50,11 +50,16 @@ knitr::opts_chunk$set(
 )
 ```
 
+:::: {.columns}
+
+::: {.column width="40%"}
 
 
 ::: {.panel-tabset}
 
 ## Partijen
+
+Choose a partij
 
 ```{r}
 
@@ -63,6 +68,8 @@ thedata <- election_dat30 %>%
   group_by(party) %>% 
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
   ungroup()
+
+
 
 highchart() %>%
   hc_chart(type = "venn") %>%
@@ -80,18 +87,7 @@ highchart() %>%
   hc_tooltip(
     useHTML = TRUE,
     pointFormat = "<b>{point.name}:</b> {point.value}"
-  )  %>%
-  hc_annotations(list(
-    labels = lapply(1:nrow(thedata), function(i) {
-      list(
-        point = list(
-          x = thedata$party[i],
-          y = thedata$total_spend_formatted[i]
-        ),
-        text = paste0(thedata$party[i], ": $", format(thedata$total_spend_formatted[i], big.mark = ","))
-      )
-    })
-  )) 
+  )  
 
 
 ```
@@ -144,6 +140,8 @@ hc %>%
 
 ## Map
 
+Choose a region
+
 ```{r}
 # Prepare demo data
 data <- data.frame(
@@ -191,11 +189,26 @@ hcmap(
                              });
                              document.getElementById(region).style.display = 'block';
                            }"))
-) %>% 
-  hc_title(text = "Highcharts Maps basic demo") %>% 
-  hc_size(height = 600)
+) #%>% 
+  # hc_title(text = "Highcharts Maps basic demo") %>% 
+  # hc_size(height = 600)
 
 ```
+
+
+
+::: 
+
+
+:::
+
+::: {.column width="10%"}
+<!-- empty column to create gap -->
+:::
+
+
+
+::: {.column width="50%"}
 
 
 <div id="content">
@@ -222,7 +235,11 @@ reactable(iris)
 </div>
 
 
-::: 
+
+:::
+
+::::
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -257,4 +274,13 @@ body, html {
   width: 100% !important;
   height: 100% !important;
 }
+
+.panel-tabset .tab-content {
+  border-top: none; /* Adds a subtle top border */
+  border-bottom: none; /* Adds a subtle top border */
+  border-left: none; /* Adds a subtle top border */
+  border-right: none; /* Adds a subtle top border */    
+}
+
+
 </style>
