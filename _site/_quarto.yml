@@ -9,6 +9,8 @@ website:
     logo: "apache.svg"
     left:
       - href: index.qmd
+        text: TEST
+      - href: oldindex.qmd
         text: Uitgaven
       - sidebar:targeting
       - href: about.qmd

@@ -41,6 +41,10 @@ total_spend_id <- election_dat30 %>%
   group_by(party) %>%
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>%
   ungroup()
+
+
+
+
 ```
 
 

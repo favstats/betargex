@@ -10,6 +10,36 @@ format:
 library(highcharter)
 library(jsonlite)
 
+
+sets <- jsonlite::fromJSON("../settings.json")
+
+## Global options
+knitr::opts_chunk$set(
+    cache = F,
+    echo = F,
+    warning = F,
+    message = F,
+    cache.lazy = FALSE
+)
+
+
+pacman::p_load(htmltools, tidyverse, highcharter, gt, gtExtras)
+
+options(scipen = 999)
+# print(getwd())
+# here::here("")
+# prCint(getwd())
+hcoptslang <- getOption("highcharter.lang")
+# 
+hcoptslang$shortMonths <- c("Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec")
+# 
+options(highcharter.lang = hcoptslang)
+
+
+source("../utils.R")
+source("../party_utils.R")
+
+
 ## Global options
 knitr::opts_chunk$set(
     cache = F,
@@ -25,6 +55,92 @@ knitr::opts_chunk$set(
 ::: {.panel-tabset}
 
 ## Partijen
+
+```{r}
+
+thedata <- election_dat30 %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  group_by(party) %>% 
+  summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
+  ungroup()
+
+highchart() %>%
+  hc_chart(type = "venn") %>%
+  hc_add_series(
+    dataLabels = list(style = list(fontSize = "20px")),
+    name = "Venn Diagram",
+    data = lapply(1:nrow(thedata), function(i) {
+      list(
+        name = thedata$party[i],
+        sets = list(thedata$party[i]),
+        value = thedata$total_spend_formatted[i]
+      )
+    })
+  ) %>%
+  hc_tooltip(
+    useHTML = TRUE,
+    pointFormat = "<b>{point.name}:</b> {point.value}"
+  )  %>%
+  hc_annotations(list(
+    labels = lapply(1:nrow(thedata), function(i) {
+      list(
+        point = list(
+          x = thedata$party[i],
+          y = thedata$total_spend_formatted[i]
+        ),
+        text = paste0(thedata$party[i], ": $", format(thedata$total_spend_formatted[i], big.mark = ","))
+      )
+    })
+  )) 
+
+
+```
+
+
+```{r, eval = F}
+
+data <- election_dat30 %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  group_by(party) %>% 
+  arrange(desc(total_spend_formatted)) %>% 
+  slice(1:5) %>% 
+  ungroup() 
+
+hc <- hchart(data, "packedbubble", hcaes(name = page_name, value = total_spend_formatted, group = party))
+
+
+hc %>% 
+  hc_tooltip(
+    useHTML = TRUE,
+    pointFormat = "<b>{point.name}:</b> {point.value}"
+  ) %>% 
+  hc_plotOptions(
+    packedbubble = list(
+      maxSize = "200%",
+      zMin = 0,
+      layoutAlgorithm = list(
+        gravitationalConstant = 0.1, # Increase to make it more stable
+        splitSeries = TRUE, # TRUE to group points by series
+        seriesInteraction = TRUE,
+        dragBetweenSeries = TRUE,
+        parentNodeLimit = TRUE,
+        initialPositions = "circle" # Default is random, can try 'circle'
+      ),
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{point.name}",
+        style = list(
+          color = "black",
+          textOutline = "none",
+          fontWeight = "normal"
+        )
+      )
+    )
+  )
+
+
+```
+
 
 ## Map
 
