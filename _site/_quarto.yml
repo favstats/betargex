@@ -10,7 +10,7 @@ website:
     left:
       - href: index.qmd
         text: TEST
-      - href: oldindex.qmd
+      - href: indexold.qmd
         text: Uitgaven
       - sidebar:targeting
       - href: about.qmd
