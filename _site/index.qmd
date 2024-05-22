@@ -72,7 +72,7 @@ thedata <- election_dat30 %>%
 
 
 highchart() %>%
-  hc_chart(type = "venn") %>%
+  hc_chart(type = "venn")  %>%
   hc_add_series(
     dataLabels = list(style = list(fontSize = "20px")),
     name = "Venn Diagram",
@@ -87,7 +87,28 @@ highchart() %>%
   hc_tooltip(
     useHTML = TRUE,
     pointFormat = "<b>{point.name}:</b> {point.value}"
-  )  
+  )  %>%
+  hc_plotOptions(
+    series = list(
+      events = list(
+        click = JS("function(event) { 
+                     var party = event.point.name;
+                     console.log('Party clicked:', party);
+                     document.querySelectorAll('.party-content').forEach(function(el) {
+                       el.style.display = 'none';
+                     });
+                     var partyElement = document.getElementById(party);
+                     if (partyElement) {
+                       partyElement.style.display = 'block';
+                     } else {
+                       console.error('Party element with ID ' + party + ' not found');
+                     }
+                   }")
+      )
+    )
+  )
+
+
 
 
 ```
@@ -211,19 +232,40 @@ hcmap(
 ::: {.column width="50%"}
 
 
+
 <div id="content">
-  <div id="Antwerp" class="region-content" style="display:none;">
 
-
+<div id="Groen" class="party-content" style="display:none;">
 ```{r}
 library(reactable)
 
 reactable(iris)
 ```
+</div>
+</div>
+
+<div id="content">
+  
+  
+<div id="Antwerp" class="region-content" style="display:none;">
+```{r}
+library(reactable)
+
+reactable(iris)
+```
+</div>
+  
+  
 
 
+<div id="N-VA" class="party-content" style="display:none;">
+```{r}
+library(reactable)
 
-  </div>
+reactable(iris)
+```
+</div>
+
   <div id="Limburg" class="region-content" style="display:none;">
     <h2>Limburg</h2>
     <p>show me</p>
@@ -247,6 +289,10 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.region-content').forEach(function(el) {
     el.style.display = 'none';
   });
+  document.querySelectorAll('.party-content').forEach(function(el) {
+    el.style.display = 'none';
+  });
+});
 
 
 });
