@@ -60,7 +60,11 @@ How much did the campaigns of political parties spend on different focus groups?
 
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
-col_each30 <- election_dat30 %>%
+
+if(Sys.info()[["user"]] == "fabio"){
+  col_each30 <- readRDS("col_each30.rds")
+} else {
+  col_each30 <- election_dat30 %>%
     mutate(total_spend = total_spend_formatted) %>%
     filter(main_currency == the_currency) %>%
     group_split(internal_id) %>%
@@ -73,6 +77,9 @@ col_each30 <- election_dat30 %>%
 
 
 saveRDS(col_each30, "col_each30.rds")
+}
+
+
 
 all_spend <- col_each30  %>% 
   distinct(internal_id, .keep_all = T) %>% 
@@ -285,6 +292,10 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
+
+# if(Sys.info()[["user"]] == "fabio"){
+#   col_each30 <- readRDS("col_each30.rds")
+# } else {
 col_each7 <- election_dat7 %>%
     mutate(total_spend = total_spend_formatted) %>%
     filter(main_currency == the_currency) %>%
@@ -295,6 +306,13 @@ col_each7 <- election_dat7 %>%
                    party = .x$party[1],
                    internal_id = .x$internal_id[1])
     })
+
+
+saveRDS(col_each7, "col_each7.rds")
+# }
+
+
+
 
 all_spend <- col_each7  %>% 
   distinct(internal_id, .keep_all = T) %>% 
