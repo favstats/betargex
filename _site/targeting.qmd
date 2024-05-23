@@ -293,9 +293,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```{r, fig.width=8, fig.height=5, dpi=300}
 
-# if(Sys.info()[["user"]] == "fabio"){
-#   col_each30 <- readRDS("col_each30.rds")
-# } else {
+if(Sys.info()[["user"]] == "fabio"){
+  col_each7 <- readRDS("col_each7.rds")
+} else {
 col_each7 <- election_dat7 %>%
     mutate(total_spend = total_spend_formatted) %>%
     filter(main_currency == the_currency) %>%
@@ -309,7 +309,7 @@ col_each7 <- election_dat7 %>%
 
 
 saveRDS(col_each7, "col_each7.rds")
-# }
+}
 
 
 
@@ -385,7 +385,7 @@ gg %>%
 ```
 
 
-#### By Party
+#### Per Partij
 
 ```{r echo=FALSE, results='asis'}
 
