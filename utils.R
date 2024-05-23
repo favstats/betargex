@@ -246,7 +246,7 @@ get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
   
   heads_up <- httr::add_headers(`User-Agent` = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
                                 Accept = "*/*",
-                                `Accept-Language` = 'en-US,en;q=0.5',
+                                `Accept-Language` = 'nl-NL,en;q=0.5',
                                 `X-FB-Friendly-Name` = "AdLibraryPageAudienceTabQuery",
                                 `X-FB-LSD`= "AVrNiQCSUnA",
                                 `Alt-Used`= "www.facebook.com",
