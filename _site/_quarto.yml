@@ -7,9 +7,8 @@ website:
   favicon: "a_zwart-transp_RGB.svg"
   navbar:
     logo: "apache.svg"
+    href: index.qmd  # This makes the logo a clickable link that directs to the main dashboard
     left:
-      - href: index.qmd
-        text: TEST
       - href: indexold.qmd
         text: Uitgaven
       - sidebar:targeting

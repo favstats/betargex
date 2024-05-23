@@ -51,8 +51,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-### Choose a partij
-
+<center>
+### Kies een partij
+</center>   
 
 
 ```{r}
@@ -193,19 +194,17 @@ hc %>%
 
 <div id="content">
 
-<div id="Groen" class="party-content" style="display:none;">
-```{r}
-library(reactable)
 
-reactable(iris)
-```
-</div>
 
 
 <div id="N-VA" class="party-content" style="display:none;">
 ```{r}
+
+
+ library(reactablefmtr)
+
 # Render a bar chart with a label on the left
-bar_chart <- function(label, width = "100%", height = "1rem", fill = "#00bfc4", background = NULL) {
+bar_chart <- function(label, width = "100%", height = "1rem", fill = "#4fd0e8", background = NULL) {
   bar <- div(style = list(background = fill, width = width, height = height))
   chart <- div(style = list(flexGrow = 1, marginLeft = "0.5rem", background = background), bar)
   div(style = list(display = "flex", alignItems = "center"), label, chart)
@@ -273,16 +272,36 @@ findat <- interest_targeting30 %>%
   bind_rows(col_each30%>% 
   mutate(perc = perc/100,
          perc_ads = perc_ads/100)) %>% 
-  filter(perc != 0)
+  filter(perc != 0)  %>%
+  filter(target != "countries") %>% 
+  filter(target != "interest") %>% 
+  # filter(n == 3) %>%
+  mutate(target = case_when(
+    target == "custom_audience" ~ "Custom Audiences",
+    target == "countries" ~ "GEOGRAPHY: Entire Country",
+    target == "regions" ~ "GEOGRAPHY: Regions",
+    target == "lookalike_audience" ~ "Lookalike Audiences",
+    target == "interest" ~ "Detailed",
+    target == "age" ~ "Age",
+    target == "zips" ~ "GEOGRAPHY: Postal Code",
+    target == "CITY" ~ "GEOGRAPHY: City",
+    target == "language" ~ "Language",
+    target == "gender" ~ "Gender",
+    target == "COMUNE" ~ "GEOGRAPHY: Municipality",
+    target == "electoral_districts" ~ "GEOGRAPHY: Electoral Districts",
+    target == "COUNTY" ~ "GEOGRAPHY: Counties",
+    str_detect(target, "NEIGHBOR") ~ "GEOGRAPHY: Neighborhood",
+    T ~ target
+  )) %>%
+    filter(target != "Unknown") 
 
-
-
-
+make_tab <- function(tp = "N-VA") {
+  
 yes <-  election_dat30 %>%
   select(-type) %>% 
   left_join(lts %>% select(-party)) %>%
   mutate(type = str_remove_all(type, "Lijsttrekkers_")) %>% 
-  filter(party == "N-VA") %>%
+  filter(party == tp) %>%
   filter(main_currency == the_currency) %>%
   distinct(internal_id, .keep_all = TRUE) %>%
   arrange(desc(total_spend_formatted)) %>%
@@ -291,8 +310,11 @@ yes <-  election_dat30 %>%
   set_names(c("Page", "Ads", "Spent (€)", "Race", "internal_id")) 
 
 # Assuming `election_dat30` and `lts` are your data frames
-styled_reactable <- yes %>% 
-  select(-internal_id) %>% 
+styled_reactable <- yes %>%
+  # select(-internal_id) %>%
+  left_join(data.frame(election_type_colors) %>%
+              rownames_to_column() %>%
+              rename(Race = rowname)) %>%
   reactable(
     fullWidth = T,
     pagination = T,
@@ -301,121 +323,213 @@ styled_reactable <- yes %>%
     columns = list(
       Page = colDef(
         cell = function(value) {
-          url <- paste0("https://facebook.com/", value)
+          internal_id <- yes$internal_id[yes$Page == value]
+
+          url <- glue::glue(    "https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=BE&view_all_page_id={internal_id}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=page&media_type=all"
+  )
           tags$a(href = url, target = "_blank", value)
         }
       ),
       `Ads` = colDef(
         defaultSortOrder = "desc",
-        cell = function(value) {
-          max_value <- max(yes$`Ads`, na.rm = TRUE)
-          width <- paste0(value * 100 / max_value, "%")
-          value <- format(value, big.mark = ",")
-          bar <- div(
-            class = "bar-chart",
-            style = list(marginRight = "0.375rem"),
-            div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
-          )
-          div(class = "bar-cell", span(class = "number", value), bar)
-        }
+        cell = data_bars(
+          data = .,
+          round_edges = TRUE,
+              fill_color = "#3fc1c9",
+          background = "transparent",
+          text_position = "outside-end",
+          # text_color = text_color,
+          fill_gradient = FALSE,
+          # fill_color_ref = "energy_source_color",
+          number_fmt = scales::label_number(big.mark = ","),
+          bar_height = 10
+        )
       ),
       `Spent (€)` = colDef(
         name = "Spent (€)",
-        defaultSortOrder = "desc",
-        cell = function(value) {
-          # Assuming total_spend_formatted is numeric for the bar calculation
-          
-          numeric_value <- as.numeric(gsub(",", "", value))
-          max_value <- max(as.numeric(gsub(",", "", yes$`Spent (€)`)), na.rm = TRUE)
-          width <- paste0(numeric_value * 100 / max_value, "%")
-          bar <- div(
-            class = "bar-chart",
-            style = list(marginRight = "0.375rem"),
-            div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
-          )
-          div(class = "bar-cell", span(class = "number", value), bar)
-        }
+        defaultSortOrder = "desc", 
+        cell = data_bars(
+          data = .,
+              fill_color = "#3fc1c9",
+          round_edges = TRUE,
+          background = "transparent",
+          text_position = "outside-end",
+          # text_color = text_color,
+          fill_gradient = FALSE,
+          # fill_color_ref = "energy_source_color",
+          number_fmt = scales::label_number(big.mark = ","),
+          bar_height = 10
+        )
       ),
-      Type = colDef(
-        cell = function(value) {
-          # div(class = "type-cell", value)
-          color <- election_type_colors[value]
-          div(style = list(backgroundColor = color, padding = "0.2rem 0.5rem"), value)
-        }
-      )
+      Race = colDef(
+        name = "Race",
+        cell = color_tiles(data = .,
+                           color_ref = 'election_type_colors')
+      ),
+      election_type_colors = colDef(show = FALSE),
+      internal_id = colDef(show = FALSE)
     ),
     # compact = TRUE,
     class = "styled-table",
-    meta = list(showColors = TRUE, electionTypeColors = election_type_colors),
     details = function(index) {
-  plant_data <- findat[findat$internal_id == yes$internal_id[index], ]
-  htmltools::div(style = "padding: 1rem",
-    reactable(
-      plant_data %>% select(target, ads_per, spend_per, perc, perc_ads),
-      outlined = TRUE,
-      pagination = T,
-    fullWidth = T,
-      defaultColDef = colDef(headerClass = "header", align = "left"),
-    defaultSorted = "perc",
-      columns = list(
-        target = colDef(header = "Target"),
-        ads_per = colDef(
-          header = "Ads Per",
-          cell = function(value) {
-            max_value <- max(plant_data$ads_per, na.rm = TRUE)
-            width <- paste0(value * 100 / max_value, "%")
-            value <- format(value, big.mark = ",")
-            bar <- div(
-              class = "bar-chart",
-              style = list(marginRight = "0.375rem"),
-              div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
-            )
-            div(class = "bar-cell", span(class = "number", value), bar)
-          }
-        ),
-        spend_per = colDef(
-          header = "Spend Per (€)",
-          cell = function(value) {
-            numeric_value <- as.numeric(gsub(",", "", value))
-            max_value <- max(as.numeric(gsub(",", "", plant_data$spend_per)), na.rm = TRUE)
-            width <- paste0(numeric_value * 100 / max_value, "%")
-            bar <- div(
-              class = "bar-chart",
-              style = list(marginRight = "0.375rem"),
-              div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
-            )
-            div(class = "bar-cell", span(class = "number", value), bar)
-          }
-        ),
-        perc = colDef(
-          header = "Perc",
-          defaultSortOrder = "desc",
-          format = colFormat(percent = TRUE, digits = 1),
-          cell = function(value) {
-        # Format as percentages with 1 decimal place
-        value <- paste0(format(value * 100, nsmall = 1), "%")
-        bar_chart(value, width = value, fill = "#fc5185", background = "#e1e1e1")
-      }
-        ),
-        perc_ads = colDef(
-          header = "Perc Ads",
-          defaultSortOrder = "desc",
-          format = colFormat(percent = TRUE, digits = 1)
+      plant_data <- findat[findat$internal_id == yes$internal_id[index],]
+      withindat <- plant_data %>% select(target, -ads_per, spend_per, perc, -perc_ads)
+      htmltools::div(
+        style = "padding: 1rem",
+        reactable(
+          withindat,
+          # outlined = TRUE,
+          pagination = T,
+          fullWidth = T,
+          defaultColDef = colDef(headerClass = "header", align = "left"),
+          defaultSorted = "perc",
+          columns = list(
+            target = colDef(header = "Target"),
+        #     ads_per = colDef(
+        #       header = "Ads",
+        #               cell = data_bars(
+        #   data =withindat,
+        #       fill_color = "#3fc1c9",
+        #   round_edges = TRUE,
+        #   background = "transparent",
+        #   text_position = "outside-end",
+        #   # text_color = text_color,
+        #   fill_gradient = FALSE,
+        #   # fill_color_ref = "energy_source_color",
+        #   number_fmt = scales::label_number(big.mark = ","),
+        #   bar_height = 10
+        # )
+        #     ),
+            spend_per = colDef(
+              header = "Spent (€)",
+                      cell = data_bars(
+          data = withindat,
+              fill_color = "#3fc1c9",
+          round_edges = TRUE,
+          background = "transparent",
+          text_position = "outside-end",
+          # text_color = text_color,
+          fill_gradient = FALSE,
+          # fill_color_ref = "energy_source_color",
+          number_fmt = scales::label_number(big.mark = ","),
+          bar_height = 10
         )
-      ),
-      # compact = TRUE,
-      class = "styled-table"
-    )
+            ),
+            perc = colDef(
+              header = "% Budget",
+              defaultSortOrder = "desc",
+              # format = colFormat(percent = TRUE, digits = 1),
+                                          cell = data_bars(
+              data = withindat,
+              fill_color = "#3fc1c9",
+              background = '#eafafc',  text_size = 12,
+              # text_color = "white",
+              brighten_text = T,
+              min_value = 0,
+              max_value = 1,
+              text_position = 'center',
+              number_fmt = scales::percent,
+          bar_height = 20)
+            )#,
+            # perc_ads = colDef(
+            #   header = "% Ads",
+            #   # format = colFormat(percent = TRUE, digits = 1),
+            #   cell = data_bars(
+            #   data = withindat,
+            #   fill_color = "#3fc1c9",
+            #   background = '#eafafc',  text_size = 12,
+            #   # text_color = "white",
+            #   brighten_text = T,
+            #   min_value = 0,
+            #   max_value = 1,
+            #   text_position = 'inside-base',
+            #   number_fmt = scales::percent))
+          ),
+          # compact = TRUE,
+          class = "styled-table"
+        )
+      )
+    }
   )
+
+return(styled_reactable)
 }
-  )
+
+
 
 # styled_reactable
-
-yes %>% 
-  select(-internal_id) %>% 
-  reactable()
+make_tab("N-VA")
+ 
 ```
+</div>
+
+<div id="Groen" class="party-content" style="display:none;">
+```{r}
+make_tab("Groen")
+```
+</div>
+
+
+<div id="Vooruit" class="party-content" style="display:none;">
+```{r}
+make_tab("Vooruit")
+```
+</div>
+
+<div id="Vlaams Belang" class="party-content" style="display:none;">
+```{r}
+make_tab("Vlaams Belang")
+```
+</div>
+
+<div id="PVDA" class="party-content" style="display:none;">
+```{r}
+make_tab("PVDA")
+```
+</div>
+
+<div id="PS" class="party-content" style="display:none;">
+```{r}
+make_tab("PS")
+```
+</div>
+
+<div id="MR" class="party-content" style="display:none;">
+```{r}
+make_tab("MR")
+```
+</div>
+
+<div id="Open Vld" class="party-content" style="display:none;">
+```{r}
+make_tab("Open Vld")
+```
+</div>
+
+<div id="CD&V" class="party-content" style="display:none;">
+```{r}
+make_tab("CD&V")
+```
+</div>
+
+<div id="DéFI" class="party-content" style="display:none;">
+```{r}
+make_tab("DéFI")
+```
+</div>
+
+<div id="Ecolo" class="party-content" style="display:none;">
+```{r}
+make_tab("Ecolo")
+```
+</div>
+
+<div id="Les Engagés" class="party-content" style="display:none;">
+```{r}
+make_tab("Les Engagés")
+```
+</div>
+
 
 
 </div>
@@ -475,7 +589,6 @@ body, html {
   /* Center the table */
   margin: 0 auto;
   /* Reduce the table width */
-  width: 575px;
   font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
