@@ -9,6 +9,7 @@ format:
 ```{r setup, include=FALSE}
 library(highcharter)
 library(jsonlite)
+library(reactable)
 
 
 sets <- jsonlite::fromJSON("../settings.json")
@@ -63,24 +64,41 @@ Choose a partij
 
 ```{r}
 
+lts <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0XNMGPHY1OLNpoZqxR6_dlF_kxJ0C7KpOKuXcIVgcf6oy8ljxLghXaAX6pPLXCgO-o/pub?output=csv") %>% 
+  janitor::clean_names() %>% 
+  rename(page_name = candidate)
+
+
+```
+
+
+```{r}
+
 thedata <- election_dat30 %>% 
   distinct(internal_id, .keep_all = T) %>% 
   group_by(party) %>% 
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
-  ungroup()
+  ungroup() %>% 
+  left_join(color_dat)
 
 
 
 highchart() %>%
   hc_chart(type = "venn")  %>%
   hc_add_series(
-    dataLabels = list(style = list(fontSize = "20px")),
-    name = "Venn Diagram",
+    dataLabels = list(
+      style = list(
+        fontSize = "20px"
+      ),
+      formatter = JS("function() { return '<span style=\"color:' + this.point.color + '\">' + this.point.name + '</span>'; }")
+    ),
+    name = "Total Spending in €",
     data = lapply(1:nrow(thedata), function(i) {
       list(
         name = thedata$party[i],
         sets = list(thedata$party[i]),
-        value = thedata$total_spend_formatted[i]
+        value = thedata$total_spend_formatted[i],
+        color = thedata$colors[i]
       )
     })
   ) %>%
@@ -223,13 +241,13 @@ hcmap(
 
 :::
 
-::: {.column width="10%"}
+::: {.column width="2.5%"}
 <!-- empty column to create gap -->
 :::
 
 
 
-::: {.column width="50%"}
+::: {.column width="57.5%"}
 
 
 
@@ -260,10 +278,215 @@ reactable(iris)
 
 <div id="N-VA" class="party-content" style="display:none;">
 ```{r}
-library(reactable)
+# Render a bar chart with a label on the left
+bar_chart <- function(label, width = "100%", height = "1rem", fill = "#00bfc4", background = NULL) {
+  bar <- div(style = list(background = fill, width = width, height = height))
+  chart <- div(style = list(flexGrow = 1, marginLeft = "0.5rem", background = background), bar)
+  div(style = list(display = "flex", alignItems = "center"), label, chart)
+}
 
-reactable(iris)
+# 
+# reactable(iris)
+election_type_colors <- c(
+  "federal_election" = "#FFDDC1",
+  "Flemish_election" = "#C1E1C1",
+  "Brussels_Gewest" = "#C1E3E1",
+  "EU" = "#C1D4E1"
+)
+
+election_types <- c("federal_election", 
+                    "Flemish_election", 
+                    "Brussels_Gewest",
+                    "EU")
+# election_type_colors <- rgb(colorRampPalette(c("#ffe4cc", "#ff9f1a"))(length(election_types)), maxColorValue = 255)
+names(election_type_colors) <- election_types
+
+
+
+byparty30 <- election_dat30 %>%
+  distinct(internal_id, party, .keep_all = T) %>%
+  group_by(party) %>%
+  summarize(total_spenderino = sum(total_spend_formatted)) %>%
+  ungroup() %>%
+  select(party, total_spenderino)
+
+col_each30 <- readRDS("col_each30.rds")
+
+
+interest_targeting30 <-  election_dat30 %>%
+    mutate(total_spend = total_spend_formatted) %>%
+    filter(type == "detailed") %>%
+    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
+    # mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
+    mutate(target_spend = total_spend * total_spend_pct) %>%
+    filter(main_currency == the_currency)  %>%
+    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
+    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
+    # drop_na(left_vs_right) %>%
+    mutate(value = paste0(detailed_type,": ", value)) %>%
+    # group_by(page_name, value, is_exclusion, detailed_type) %>%
+    # summarise(total_spend = sum(total_spend)) %>%
+    # ungroup() %>%
+    arrange(desc(total_spend))  %>%
+  filter(!is_exclusion) %>%
+  # filter(total_spend >= 40000) %>%
+  filter(total_spend >= 1) %>%
+  # add_count(value) %>%
+  # filter(n >= 5) %>%
+  # left_join(byparty30) %>%
+  # group_by(party) %>%
+  # mutate(total_spenderino = sum(total_spend)) %>%
+  mutate(perc = target_spend/total_spend)# %>%
+  # mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) 
+
+
+findat <- interest_targeting30 %>% 
+  mutate(perc_ads = num_ads / total_num_ads,
+         perc = target_spend/total_spend_formatted) %>% 
+  select(internal_id, target = value, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads) %>%
+  bind_rows(col_each30%>% 
+  mutate(perc = perc/100,
+         perc_ads = perc_ads/100)) %>% 
+  filter(perc != 0)
+
+
+
+
+yes <-  election_dat30 %>%
+  select(-type) %>% 
+  left_join(lts %>% select(-party)) %>%
+  mutate(type = str_remove_all(type, "Lijsttrekkers_")) %>% 
+  filter(party == "N-VA") %>%
+  filter(main_currency == the_currency) %>%
+  distinct(internal_id, .keep_all = TRUE) %>%
+  arrange(desc(total_spend_formatted)) %>%
+  # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
+  select(page_name, total_num_ads, total_spend_formatted, type, internal_id) %>%
+  set_names(c("Page", "Ads", "Spent (€)", "Race", "internal_id")) 
+
+# Assuming `election_dat30` and `lts` are your data frames
+styled_reactable <- yes %>% 
+  select(-internal_id) %>% 
+  reactable(
+    pagination = T,
+    defaultSorted = "Spent (€)",
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      Page = colDef(
+        cell = function(value) {
+          url <- paste0("https://facebook.com/", value)
+          tags$a(href = url, target = "_blank", value)
+        },
+        width = 150
+      ),
+      `Ads` = colDef(
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          max_value <- max(yes$`Ads`, na.rm = TRUE)
+          width <- paste0(value * 100 / max_value, "%")
+          value <- format(value, big.mark = ",")
+          bar <- div(
+            class = "bar-chart",
+            style = list(marginRight = "0.375rem"),
+            div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
+          )
+          div(class = "bar-cell", span(class = "number", value), bar)
+        }
+      ),
+      `Spent (€)` = colDef(
+        name = "Spent (€)",
+        defaultSortOrder = "desc",
+        cell = function(value) {
+          # Assuming total_spend_formatted is numeric for the bar calculation
+          
+          numeric_value <- as.numeric(gsub(",", "", value))
+          max_value <- max(as.numeric(gsub(",", "", yes$`Spent (€)`)), na.rm = TRUE)
+          width <- paste0(numeric_value * 100 / max_value, "%")
+          bar <- div(
+            class = "bar-chart",
+            style = list(marginRight = "0.375rem"),
+            div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
+          )
+          div(class = "bar-cell", span(class = "number", value), bar)
+        }
+      ),
+      Type = colDef(
+        cell = function(value) {
+          # div(class = "type-cell", value)
+          color <- election_type_colors[value]
+          div(style = list(backgroundColor = color, padding = "0.2rem 0.5rem"), value)
+        }
+      )
+    ),
+    compact = TRUE,
+    class = "styled-table",
+    meta = list(showColors = TRUE, electionTypeColors = election_type_colors),
+    details = function(index) {
+  plant_data <- findat[findat$internal_id == yes$internal_id[index], ]
+  htmltools::div(style = "padding: 1rem",
+    reactable(
+      plant_data %>% select(target, ads_per, spend_per, perc, perc_ads),
+      outlined = TRUE,
+      pagination = T,
+      defaultColDef = colDef(headerClass = "header", align = "left"),
+    defaultSorted = "perc",
+      columns = list(
+        target = colDef(header = "Target"),
+        ads_per = colDef(
+          header = "Ads Per",
+          cell = function(value) {
+            max_value <- max(plant_data$ads_per, na.rm = TRUE)
+            width <- paste0(value * 100 / max_value, "%")
+            value <- format(value, big.mark = ",")
+            bar <- div(
+              class = "bar-chart",
+              style = list(marginRight = "0.375rem"),
+              div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
+            )
+            div(class = "bar-cell", span(class = "number", value), bar)
+          }
+        ),
+        spend_per = colDef(
+          header = "Spend Per (€)",
+          cell = function(value) {
+            numeric_value <- as.numeric(gsub(",", "", value))
+            max_value <- max(as.numeric(gsub(",", "", plant_data$spend_per)), na.rm = TRUE)
+            width <- paste0(numeric_value * 100 / max_value, "%")
+            bar <- div(
+              class = "bar-chart",
+              style = list(marginRight = "0.375rem"),
+              div(class = "bar", style = list(width = width, backgroundColor = "#3fc1c9"))
+            )
+            div(class = "bar-cell", span(class = "number", value), bar)
+          }
+        ),
+        perc = colDef(
+          header = "Perc",
+          defaultSortOrder = "desc",
+          format = colFormat(percent = TRUE, digits = 1),
+          cell = function(value) {
+        # Format as percentages with 1 decimal place
+        value <- paste0(format(value * 100, nsmall = 1), "%")
+        bar_chart(value, width = value, fill = "#fc5185", background = "#e1e1e1")
+      }
+        ),
+        perc_ads = colDef(
+          header = "Perc Ads",
+          defaultSortOrder = "desc",
+          format = colFormat(percent = TRUE, digits = 1)
+        )
+      ),
+      compact = TRUE,
+      class = "styled-table"
+    )
+  )
+}
+  )
+
+styled_reactable
 ```
+
+
 </div>
 
   <div id="Limburg" class="region-content" style="display:none;">
@@ -286,15 +509,37 @@ reactable(iris)
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   console.log('DOM fully loaded and parsed');
+
+  // Hide all content initially
   document.querySelectorAll('.region-content').forEach(function(el) {
     el.style.display = 'none';
   });
   document.querySelectorAll('.party-content').forEach(function(el) {
     el.style.display = 'none';
   });
-});
 
+  // Handle tab switching logic
+  document.querySelectorAll('.panel-tabset .nav-link').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      const selectedTab = tab.textContent.trim();
 
+      if (selectedTab === 'Partijen') {
+        document.querySelectorAll('.region-content').forEach(function(el) {
+          el.style.display = 'none';
+        });
+        document.querySelectorAll('.party-content').forEach(function(el) {
+          el.style.display = 'block';
+        });
+      } else if (selectedTab === 'Map') {
+        document.querySelectorAll('.party-content').forEach(function(el) {
+          el.style.display = 'none';
+        });
+        document.querySelectorAll('.region-content').forEach(function(el) {
+          el.style.display = 'block';
+        });
+      }
+    });
+  });
 });
 </script>
 <style>
@@ -329,4 +574,117 @@ body, html {
 }
 
 
+/* CSS for the styled reactable */
+
+/* Styles for the table container, title, and subtitle */
+.styled-table {
+  /* Center the table */
+  margin: 0 auto;
+  /* Reduce the table width */
+  width: 575px;
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* CSS for the styled reactable */
+
+/* Styles for the table container, title, and subtitle */
+.styled-table {
+  /* Center the table */
+  margin: 0 auto;
+  /* Reduce the table width */
+  width: 575px;
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+  border-bottom: 2px solid #555;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header:hover {
+  background-color: #eee;
+}
+
+/* Styles for the bar charts */
+.bar-cell {
+  display: flex;
+  align-items: center;
+}
+
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 0.84375rem;
+  white-space: pre;
+}
+
+.bar-chart {
+  flex-grow: 1;
+  margin-left: 0.375rem;
+  height: 0.875rem;
+}
+
+.bar {
+  height: 100%;
+  background-color: #3fc1c9;
+}
+
+.number-cell {
+  text-align: right;
+  font-family: monospace;
+}
+
+.type-cell {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.styled-table a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.styled-table a:hover,
+.styled-table a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+}
+
+
 </style>
+
+
+
+
+```{r}
+library(tidyr)
+library(dplyr)
+
+# Create the initial dataset
+thedata <- data.frame(
+  Political_party = c("Vlaams Belang", "Voor U", "N-VA", "MR", "Open Vld", "Volt", "Viva Palestina", "CD&V", "Défi", "Les Engagés", "Blanco", "PS", "Vooruit", "DierAnimal", "Groen", "Ecolo", "PVDA", "PTB"),
+  Lijsttrekkers_EU = c("Tom Vandendriessche", "Marta Barandiy", "Johan Van Overtveldt", "Sophie Wilmès", "Hilde Vautmans", "Sophia In ’t Veld", "/", "Wouter Beke", "Fabrice Van Dorpe", "Yvan Verougstraete", "/", "Elio Di Rupo", "Bruno Tobback", "/", "Sara Matthieu", "Saskia Bricmont", "Rudi Kennes", "Marc Botenga"),
+  Lijsttrekkers_federal_election = c("West-Vlaanderen: Wouter Vermeersch, Oost-Vlaanderen: Barbara Pas, Vlaams-Brabant: Britt Huybrechts, Antwerpen: Lode Vereeck, Limburg: Annick Ponthier, Brussel: Jan Verleysen", "West-Vlaanderen: Ivan Sabbe, Oost-Vlaanderen: Michael Verstraeten, Vlaams-Brabant: Els Ampe, Antwerpen: Frank Wouters, Limburg: Dirk Vijnck, Brussel: Rachid El Hajui", "West-Vlaanderen: Jean-Marie Dedecker, Oost-Vlaanderen: Anneleen Van Bossuyt, Vlaams-Brabant: Theo Francken, Antwerpen: Bart De Wever, Limburg: Steven Vandeput, Brussel: Toby De Backer", "Brussel: Valérie Glatigny, Henegouwen: Georges-Louis Bouchez, Waals-Brabant: Florence Reuter, Namen: David Clarinval, Luik: Pierre-Yves Jeholet, Luxemburg: Benoit Piedboeuf", "West-Vlaanderen: Vincent Van Quickenborne, Oost-Vlaanderen: Alexander De Croo, Vlaams-Brabant: Irina De Knop, Antwerpen: Paul Van Tigchelt, Limburg: Steven Coenegrachts", "Vlaams-Brabant: Richard Kelder, Antwerpen: Jeroen Van Loock", "/", "West-Vlaanderen: Nathalie Muylle, Oost-Vlaanderen: Vincent Van Peteghem, Vlaams-Brabant: Sammy Mahdi, Antwerpen: Annelies Verlinden, Limburg: Nawal Farih", "Brussel: François De Smet, Henegouwen: Mikhaël Jacquemain, Waals-Brabant: Pierre Pinte, Namen: Julien Lemoine, Luik: Freddy Debarsy, Luxemburg: Didier Serteyn", "Brussel: Elisbath Degryse, Henegouwen: Jean-Luc Crucke, Waals-Brabant: Yves Coppieters, Namen: Maxime Prévot, Luik: Vanessa Matz, Luxemburg: Benoît Lutgene", "Oost-Vlaanderen: Marian De Grauwe, Vlaams-Brabant: Dirk Laenen, Antwerpen: Raf Lens, Limburg: Joke Mulders, Brussel: Laurent Ryckaert", "Brussel: Caroline Désir, Henegouwen: Paul Magnette, Waals-Brabant: Dimitri Legasse, Namen: Pierre-Yves Dermagne, Luik: Frédéric Daerden, Luxemburg: Philippe Courard", "West-Vlaanderen: Melissa Depraetere, Oost-Vlaanderen: Joris Vandenbroucke, Vlaams-Brabant: Frank Vandenbroucke, Antwerpen: Jinnih Beels, Limburg: Funda Oru", "Antwerpen: Ilse Bastiaensen, Antwerpen: Rafaël Dockx", "West-Vlaanderen: Matti Vandemaele, Oost-Vlaanderen: Petra De Sutter, Vlaams-Brabant: Dieter Vanbesien, Antwerpen: Meyrem Almaci, Limburg: Dirk Opsteyn", "Brussel: Rajae Maouane, Henegouwen: Jean-Marc Nollet, Waals-Brabant: Simon Moutquin, Namen: Georges Gilkinet, Luik: Sarah Schlitz, Luxemburg: Olivier Vajda", "West-Vlaanderen: Natalie Eggermont, Oost-Vlaanderen: Robin Tonniau, Vlaams-Brabant: Kemal Bilmez, Antwerpen: Peter Mertens, Limburg: Kim De Witte, Brussel: Nabil Boukili", "Brussel: Nabil Boukili, Henegouwen: Sofie Merckx, Waals-Brabant: Amaury Laridon, Namen: Farah Jacquet, Luik: Raoul Hedebouw"),
+  Lijsttrekkers_Flemish_election = c("West-Vlaanderen: Immanuel De Reuse, Oost-Vlaanderen: Guy D’haeseleer, Vlaams-Brabant: Klaas Slootmans, Antwerpen: Tom Van Grieken, Limburg: Chris Janssens, Brussel: Dominiek Lootens-Stael", "West-Vlaanderen: Johan Kemel, Oost-Vlaanderen: Kim Geybels, Vlaams-Brabant: Steven Arrazola de Oñate, Antwerpen: Inge Faes, Limburg: Yasin Gül, Brussel: Jan Wostyn", "West-Vlaanderen: Sander Loones, Oost-Vlaanderen: Matthias Diependaele, Vlaams-Brabant: Ben Weyts, Antwerpen: Jan Jambon, Limburg: Zuhal Demir, Brussel: Karl Vanlouwe", "/", "West-Vlaanderen: Jasper Pillen, Oost-Vlaanderen: Stephanie D’Hose, Vlaams-Brabant: Gwendolyn Rutten, Antwerpen: Tom Ongena, Limburg: Lydia Peeters, Brussel: Chloë Van Hoegaerden", "Antwerpen: Jasper Coosemans", "/", "West-Vlaanderen: Hilde Crevits, Oost-Vlaanderen: Nicole de Moor, Vlaams-Brabant: Peter Van Rompuy, Antwerpen: Katrien Schryvers, Limburg: Jo Brouns, Brussel: Bianca Debaets", "/", "/", "/", "/", "West-Vlaanderen: Pablo Annys, Oost-Vlaanderen: Freya Van den Bossche, Vlaams-Brabant: Bieke Verlinden, Antwerpen: Caroline Gennez, Limburg: Kris Verduyckt, Brussel: Hannelore Goeman", "/", "West-Vlaanderen: Jeremie Vaneeckhout, Oost-Vlaanderen: Mieke Schauvliege, Vlaams-Brabant: Aimen Imed Edin Horch, Antwerpen: Kim Buyst, Limburg: Bright Adiyia", "/", "West-Vlaanderen: Ilona Vandenberghe, Oost-Vlaanderen: Onno Vandewalle, Vlaams-Brabant: Line De Witte, Antwerpen: Jos D’Haese, Limburg: Gaby Colebunders, Brussel: Anna Milojkowic", "/"),
+  Lijsttrekkers_Brussels_Gewest = c("/", "/", "Henegouwen: Michel De Wolf, Waals-Brabant: Drieu Godefridi, Namen: Laurence Genot, Luik: Evelien Barbieux, Luxemburg: Anne-Laure Mouligneaux", "David Leisterh", "Sven Gatz", "Hans Van Gaever", "Dyab Abou Jahjah", "Benjamin Dalle", "Bernard Clerfayt", "Christophe De Beukelaer", "/", "Ahmed Laaouej", "Ans Persoons", "/", "Groen: Nadia Naji, Elke Van den Brandt", "Zakia Khattabi", "Jan Busselen", "Françoise De Smedt")
+)
+
+# Convert the data to long format
+long_data <- thedata %>%
+  pivot_longer(
+    cols = -Political_party,
+    names_to = "type",
+    values_to = "Candidate"
+  ) %>%
+  separate_rows(Candidate, sep = ", ") %>%
+  mutate(
+    Region = sub(".*?: ", "", Candidate),
+    Candidate = sub(":.*", "", Candidate)
+  )
+
+long_data %>% 
+  openxlsx::write.xlsx("candidates.xlsx")
+
+```
+
