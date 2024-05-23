@@ -51,16 +51,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-:::: {.columns}
-
-::: {.column width="40%"}
+### Choose a partij
 
 
-::: {.panel-tabset}
-
-## Partijen
-
-Choose a partij
 
 ```{r}
 
@@ -68,6 +61,18 @@ lts <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0X
   janitor::clean_names() %>% 
   rename(page_name = candidate)
 
+# lts
+
+
+# election_dat30 %>% 
+#   distinct(page_name, internal_id) %>% 
+  # right_join(lts, by = "page_name") %>% 
+  # mutate(ad_library_page = ifelse(is.na(internal_id), NA, glue::glue(
+  #   "https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=BE&view_all_page_id={internal_id}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=page&media_type=all"
+  # ))) %>% 
+  # arrange(party, region) %>% 
+  # select(-internal_id, -facebook_id) %>% 
+  # openxlsx::write.xlsx("candidates.xlsx")
 
 ```
 
@@ -79,7 +84,8 @@ thedata <- election_dat30 %>%
   group_by(party) %>% 
   summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
   ungroup() %>% 
-  left_join(color_dat)
+  left_join(color_dat) %>% 
+  arrange(desc(total_spend_formatted))
 
 
 
@@ -177,77 +183,11 @@ hc %>%
 ```
 
 
-## Map
-
-Choose a region
-
-```{r}
-# Prepare demo data
-data <- data.frame(
-  code  = c('be-3530', 'be-3534', 'be-3528', 'be-3529', 'be-3532', 'be-489', 'be-3535', 'be-490', 'be-3526', 'be-3527', 'be-3533'),
-  value = c(10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
-)
-
-# Create the map chart
-hcmap(
-  "countries/be/be-all", 
-  data = data, 
-  name = "Random data",
-  value = "value",
-  joinBy = c("hc-key", "code"),
-  dataLabels = list(enabled = TRUE, format = '{point.name}'),
-  states = list(hover = list(color = '#BADA55')),
-  chart = list(
-    events = list(
-      render = JS("
-        function() {
-          console.log('Render event triggered');
-          var chart = this;
-          var container = chart.renderTo;
-          if (container) {
-            var containerWidth = container.clientWidth;
-            var aspectRatio = 3 / 4; // Set a default aspect ratio
-            var calculatedHeight = containerWidth * aspectRatio;
-            console.log('Calculated Height:', calculatedHeight);
-            chart.update({
-              chart: {
-                height: calculatedHeight
-              }
-            });
-          } else {
-            console.log('Container not found');
-          }
-        }
-      ")
-    )
-  ),
-  events = list(click = JS("function(event) { 
-                             var region = event.point.name;
-                             document.querySelectorAll('.region-content').forEach(function(el) {
-                               el.style.display = 'none';
-                             });
-                             document.getElementById(region).style.display = 'block';
-                           }"))
-) #%>% 
-  # hc_title(text = "Highcharts Maps basic demo") %>% 
-  # hc_size(height = 600)
-
-```
 
 
 
-::: 
 
 
-:::
-
-::: {.column width="2.5%"}
-<!-- empty column to create gap -->
-:::
-
-
-
-::: {.column width="57.5%"}
 
 
 
@@ -260,20 +200,6 @@ library(reactable)
 reactable(iris)
 ```
 </div>
-</div>
-
-<div id="content">
-  
-  
-<div id="Antwerp" class="region-content" style="display:none;">
-```{r}
-library(reactable)
-
-reactable(iris)
-```
-</div>
-  
-  
 
 
 <div id="N-VA" class="party-content" style="display:none;">
@@ -368,6 +294,7 @@ yes <-  election_dat30 %>%
 styled_reactable <- yes %>% 
   select(-internal_id) %>% 
   reactable(
+    fullWidth = T,
     pagination = T,
     defaultSorted = "Spent (€)",
     defaultColDef = colDef(headerClass = "header", align = "left"),
@@ -376,8 +303,7 @@ styled_reactable <- yes %>%
         cell = function(value) {
           url <- paste0("https://facebook.com/", value)
           tags$a(href = url, target = "_blank", value)
-        },
-        width = 150
+        }
       ),
       `Ads` = colDef(
         defaultSortOrder = "desc",
@@ -418,7 +344,7 @@ styled_reactable <- yes %>%
         }
       )
     ),
-    compact = TRUE,
+    # compact = TRUE,
     class = "styled-table",
     meta = list(showColors = TRUE, electionTypeColors = election_type_colors),
     details = function(index) {
@@ -428,6 +354,7 @@ styled_reactable <- yes %>%
       plant_data %>% select(target, ads_per, spend_per, perc, perc_ads),
       outlined = TRUE,
       pagination = T,
+    fullWidth = T,
       defaultColDef = colDef(headerClass = "header", align = "left"),
     defaultSorted = "perc",
       columns = list(
@@ -476,34 +403,25 @@ styled_reactable <- yes %>%
           format = colFormat(percent = TRUE, digits = 1)
         )
       ),
-      compact = TRUE,
+      # compact = TRUE,
       class = "styled-table"
     )
   )
 }
   )
 
-styled_reactable
+# styled_reactable
+
+yes %>% 
+  select(-internal_id) %>% 
+  reactable()
 ```
 
 
 </div>
 
-  <div id="Limburg" class="region-content" style="display:none;">
-    <h2>Limburg</h2>
-    <p>show me</p>
-  </div>
-  <div id="East Flanders" class="region-content" style="display:none;">
-    <h2>East Flanders</h2>
-    <p>yowhat</p>
-  </div>
-</div>
 
 
-
-:::
-
-::::
 
 
 <script>
@@ -517,30 +435,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.party-content').forEach(function(el) {
     el.style.display = 'none';
   });
-
-  // Handle tab switching logic
-  document.querySelectorAll('.panel-tabset .nav-link').forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      const selectedTab = tab.textContent.trim();
-
-      if (selectedTab === 'Partijen') {
-        document.querySelectorAll('.region-content').forEach(function(el) {
-          el.style.display = 'none';
-        });
-        document.querySelectorAll('.party-content').forEach(function(el) {
-          el.style.display = 'block';
-        });
-      } else if (selectedTab === 'Map') {
-        document.querySelectorAll('.party-content').forEach(function(el) {
-          el.style.display = 'none';
-        });
-        document.querySelectorAll('.region-content').forEach(function(el) {
-          el.style.display = 'block';
-        });
-      }
-    });
-  });
-});
 </script>
 <style>
 body, html {
@@ -592,7 +486,6 @@ body, html {
   /* Center the table */
   margin: 0 auto;
   /* Reduce the table width */
-  width: 575px;
   font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -653,38 +546,4 @@ body, html {
 
 
 </style>
-
-
-
-
-```{r}
-library(tidyr)
-library(dplyr)
-
-# Create the initial dataset
-thedata <- data.frame(
-  Political_party = c("Vlaams Belang", "Voor U", "N-VA", "MR", "Open Vld", "Volt", "Viva Palestina", "CD&V", "Défi", "Les Engagés", "Blanco", "PS", "Vooruit", "DierAnimal", "Groen", "Ecolo", "PVDA", "PTB"),
-  Lijsttrekkers_EU = c("Tom Vandendriessche", "Marta Barandiy", "Johan Van Overtveldt", "Sophie Wilmès", "Hilde Vautmans", "Sophia In ’t Veld", "/", "Wouter Beke", "Fabrice Van Dorpe", "Yvan Verougstraete", "/", "Elio Di Rupo", "Bruno Tobback", "/", "Sara Matthieu", "Saskia Bricmont", "Rudi Kennes", "Marc Botenga"),
-  Lijsttrekkers_federal_election = c("West-Vlaanderen: Wouter Vermeersch, Oost-Vlaanderen: Barbara Pas, Vlaams-Brabant: Britt Huybrechts, Antwerpen: Lode Vereeck, Limburg: Annick Ponthier, Brussel: Jan Verleysen", "West-Vlaanderen: Ivan Sabbe, Oost-Vlaanderen: Michael Verstraeten, Vlaams-Brabant: Els Ampe, Antwerpen: Frank Wouters, Limburg: Dirk Vijnck, Brussel: Rachid El Hajui", "West-Vlaanderen: Jean-Marie Dedecker, Oost-Vlaanderen: Anneleen Van Bossuyt, Vlaams-Brabant: Theo Francken, Antwerpen: Bart De Wever, Limburg: Steven Vandeput, Brussel: Toby De Backer", "Brussel: Valérie Glatigny, Henegouwen: Georges-Louis Bouchez, Waals-Brabant: Florence Reuter, Namen: David Clarinval, Luik: Pierre-Yves Jeholet, Luxemburg: Benoit Piedboeuf", "West-Vlaanderen: Vincent Van Quickenborne, Oost-Vlaanderen: Alexander De Croo, Vlaams-Brabant: Irina De Knop, Antwerpen: Paul Van Tigchelt, Limburg: Steven Coenegrachts", "Vlaams-Brabant: Richard Kelder, Antwerpen: Jeroen Van Loock", "/", "West-Vlaanderen: Nathalie Muylle, Oost-Vlaanderen: Vincent Van Peteghem, Vlaams-Brabant: Sammy Mahdi, Antwerpen: Annelies Verlinden, Limburg: Nawal Farih", "Brussel: François De Smet, Henegouwen: Mikhaël Jacquemain, Waals-Brabant: Pierre Pinte, Namen: Julien Lemoine, Luik: Freddy Debarsy, Luxemburg: Didier Serteyn", "Brussel: Elisbath Degryse, Henegouwen: Jean-Luc Crucke, Waals-Brabant: Yves Coppieters, Namen: Maxime Prévot, Luik: Vanessa Matz, Luxemburg: Benoît Lutgene", "Oost-Vlaanderen: Marian De Grauwe, Vlaams-Brabant: Dirk Laenen, Antwerpen: Raf Lens, Limburg: Joke Mulders, Brussel: Laurent Ryckaert", "Brussel: Caroline Désir, Henegouwen: Paul Magnette, Waals-Brabant: Dimitri Legasse, Namen: Pierre-Yves Dermagne, Luik: Frédéric Daerden, Luxemburg: Philippe Courard", "West-Vlaanderen: Melissa Depraetere, Oost-Vlaanderen: Joris Vandenbroucke, Vlaams-Brabant: Frank Vandenbroucke, Antwerpen: Jinnih Beels, Limburg: Funda Oru", "Antwerpen: Ilse Bastiaensen, Antwerpen: Rafaël Dockx", "West-Vlaanderen: Matti Vandemaele, Oost-Vlaanderen: Petra De Sutter, Vlaams-Brabant: Dieter Vanbesien, Antwerpen: Meyrem Almaci, Limburg: Dirk Opsteyn", "Brussel: Rajae Maouane, Henegouwen: Jean-Marc Nollet, Waals-Brabant: Simon Moutquin, Namen: Georges Gilkinet, Luik: Sarah Schlitz, Luxemburg: Olivier Vajda", "West-Vlaanderen: Natalie Eggermont, Oost-Vlaanderen: Robin Tonniau, Vlaams-Brabant: Kemal Bilmez, Antwerpen: Peter Mertens, Limburg: Kim De Witte, Brussel: Nabil Boukili", "Brussel: Nabil Boukili, Henegouwen: Sofie Merckx, Waals-Brabant: Amaury Laridon, Namen: Farah Jacquet, Luik: Raoul Hedebouw"),
-  Lijsttrekkers_Flemish_election = c("West-Vlaanderen: Immanuel De Reuse, Oost-Vlaanderen: Guy D’haeseleer, Vlaams-Brabant: Klaas Slootmans, Antwerpen: Tom Van Grieken, Limburg: Chris Janssens, Brussel: Dominiek Lootens-Stael", "West-Vlaanderen: Johan Kemel, Oost-Vlaanderen: Kim Geybels, Vlaams-Brabant: Steven Arrazola de Oñate, Antwerpen: Inge Faes, Limburg: Yasin Gül, Brussel: Jan Wostyn", "West-Vlaanderen: Sander Loones, Oost-Vlaanderen: Matthias Diependaele, Vlaams-Brabant: Ben Weyts, Antwerpen: Jan Jambon, Limburg: Zuhal Demir, Brussel: Karl Vanlouwe", "/", "West-Vlaanderen: Jasper Pillen, Oost-Vlaanderen: Stephanie D’Hose, Vlaams-Brabant: Gwendolyn Rutten, Antwerpen: Tom Ongena, Limburg: Lydia Peeters, Brussel: Chloë Van Hoegaerden", "Antwerpen: Jasper Coosemans", "/", "West-Vlaanderen: Hilde Crevits, Oost-Vlaanderen: Nicole de Moor, Vlaams-Brabant: Peter Van Rompuy, Antwerpen: Katrien Schryvers, Limburg: Jo Brouns, Brussel: Bianca Debaets", "/", "/", "/", "/", "West-Vlaanderen: Pablo Annys, Oost-Vlaanderen: Freya Van den Bossche, Vlaams-Brabant: Bieke Verlinden, Antwerpen: Caroline Gennez, Limburg: Kris Verduyckt, Brussel: Hannelore Goeman", "/", "West-Vlaanderen: Jeremie Vaneeckhout, Oost-Vlaanderen: Mieke Schauvliege, Vlaams-Brabant: Aimen Imed Edin Horch, Antwerpen: Kim Buyst, Limburg: Bright Adiyia", "/", "West-Vlaanderen: Ilona Vandenberghe, Oost-Vlaanderen: Onno Vandewalle, Vlaams-Brabant: Line De Witte, Antwerpen: Jos D’Haese, Limburg: Gaby Colebunders, Brussel: Anna Milojkowic", "/"),
-  Lijsttrekkers_Brussels_Gewest = c("/", "/", "Henegouwen: Michel De Wolf, Waals-Brabant: Drieu Godefridi, Namen: Laurence Genot, Luik: Evelien Barbieux, Luxemburg: Anne-Laure Mouligneaux", "David Leisterh", "Sven Gatz", "Hans Van Gaever", "Dyab Abou Jahjah", "Benjamin Dalle", "Bernard Clerfayt", "Christophe De Beukelaer", "/", "Ahmed Laaouej", "Ans Persoons", "/", "Groen: Nadia Naji, Elke Van den Brandt", "Zakia Khattabi", "Jan Busselen", "Françoise De Smedt")
-)
-
-# Convert the data to long format
-long_data <- thedata %>%
-  pivot_longer(
-    cols = -Political_party,
-    names_to = "type",
-    values_to = "Candidate"
-  ) %>%
-  separate_rows(Candidate, sep = ", ") %>%
-  mutate(
-    Region = sub(".*?: ", "", Candidate),
-    Candidate = sub(":.*", "", Candidate)
-  )
-
-long_data %>% 
-  openxlsx::write.xlsx("candidates.xlsx")
-
-```
 
