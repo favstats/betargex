@@ -10,14 +10,14 @@ website:
     href: index.qmd  # This makes the logo a clickable link that directs to the main dashboard
     left:
       - href: indexold.qmd
-        text: Uitgaven
+        text: "{{< iconify ph coins >}} Uitgaven"
       - sidebar:targeting
       - href: about.qmd
-        text: Over ons
+        text: "{{< iconify ph info-thin >}} Over ons"
   sidebar:
     - id: ""
     - id: targeting
-      title: "Selectiecriteria"
+      title: "{{< iconify ph users-three-thin >}} Selectiecriteria"
       style: "docked"
       collapse-level: 2
       contents:
@@ -25,6 +25,7 @@ website:
         - detailed.qmd
         - location.qmd
         - demographics.qmd
+  search: false
 
 format:
   html:

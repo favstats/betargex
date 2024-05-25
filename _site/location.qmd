@@ -1,6 +1,6 @@
 ---
 title: "Locatie"
-description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
 lang: nl
 format:
   html:
@@ -48,7 +48,7 @@ De hier getoonde gegevens verwijzen naar de laatste 30 dagen (`r last30days_stri
 
 ## Algemeen
 
-The chart below displays the geographical targeting of that political parties on Meta platforms.
+
 
 ::: {.panel-tabset}
 
@@ -180,7 +180,7 @@ if(nrow(region_dat)!=0) {
 
 ## EU
 
-The chart below displays the geographical targeting of that political parties on Meta platforms.
+
 
 Dit gedeelte toont de lijsttrekkers voor de verkiezingen voor het Europees Parlement voor elke partij.
 
@@ -325,7 +325,7 @@ if(nrow(region_dat)!=0) {
 
 ## Federaal
 
-The chart below displays the geographical targeting of that political parties on Meta platforms.
+
 
 Dit gedeelte toont de lijsttrekkers voor de federale verkiezingen voor elke partij.
 
@@ -469,7 +469,7 @@ if(nrow(region_dat)!=0) {
 
 ## Vlaanderen
 
-The chart below displays the geographical targeting of that political parties on Meta platforms.
+
 
 Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Vlaanderen voor elke partij.
 
@@ -616,7 +616,7 @@ if(nrow(region_dat)!=0) {
 
 ## Brussel
 
-The chart below displays the geographical targeting of that political parties on Meta platforms.
+
 
 Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Brussel voor elke partij.
 

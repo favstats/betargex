@@ -1,6 +1,6 @@
 ---
 title: "Uitgave per selectiecriterium"
-description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
 lang: nl
 format:
   html:

@@ -1,6 +1,6 @@
 ---
 title: "Gedetailleerde selectie"
-description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
 lang: nl
 format:
   html:
@@ -774,6 +774,9 @@ if(length(thegraph30$x$hc_opts$series)!=0){
 
 
 # Federaal
+
+Dit gedeelte toont de lijsttrekkers voor de federale verkiezingen voor elke partij.
+
 
 ::: {.panel-tabset}
 

@@ -210,8 +210,10 @@ blockquote {
 
 .panel-tabset .tab-content {
   order: 1; /* Ensures that the content is at the top */
-  border-top: 1px solid #ccc; /* Adds a subtle top border */
+  border-top: none; /* Adds a subtle top border */
   border-bottom: none; /* Adds a subtle top border */
+  border-left: none; /* Adds a subtle top border */
+  border-right: none; /* Adds a subtle top border */
 }
 
 /* Tooltip container */

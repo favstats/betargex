@@ -1,6 +1,6 @@
 ---
 title: "Demografie"
-description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
 lang: nl
 format:
   html:
@@ -45,11 +45,11 @@ De hier getoonde gegevens verwijzen naar de laatste 30 dagen (`r last30days_stri
 
 ::: panel-tabset
 
-# Overall
+# Algemeen
 
 ::: panel-tabset
 
-## Age Targeting
+## Leeftijd
 
 
 Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende leeftijdsgroepen.
@@ -194,7 +194,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 
-## Gender Targeting
+## Gender 
 
 De onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.
 
@@ -210,7 +210,7 @@ map_dfr(get_targ_perc, "gender") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -287,9 +287,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 
-## Language Targeting
+## Taal
 
-The following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende taalgroepen.
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -302,7 +302,7 @@ map_dfr(get_targ_perc, "language") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -378,9 +378,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-## Targeting based on Employment or Education Instituation
+## Beroep of Onderwijs(niveau)
 
-The following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende beroepscategorieën, studierichtingen en onderwijsinstellingen. 
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -406,7 +406,7 @@ x %>%
     filter(detailed_type == "DEMOGRAPHICS") %>%
   filter(!is_exclusion) %>%
     # count(value, sort = T) %>%
-    filter(str_detect(value, "Associate degree|Doctorate degree|In college|Master's degree|Some college|Some grad school|High school grad|In high school|Professional degree|Some high school|College grad|In grad school", negate = T)) %>%
+    # filter(str_detect(value, "Associate degree|Doctorate degree|In college|Master's degree|Some college|Some grad school|High school grad|In high school|Professional degree|Some high school|College grad|In grad school", negate = T)) %>%
     # filter(str_detect(value, "MBO", negate = T)) %>%
   mutate(total_spend = total_spend_formatted) %>%
   mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
@@ -428,8 +428,8 @@ x %>%
 job_targeting <- election_dat30 %>%
     group_split(party) %>%
     map_dfr(calc_jobs_perc) %>%
-    filter(perc >= 0.015) %>%
-    filter(str_detect(value, relationshipstuff, negate = T)) %>%
+    filter(perc >= 0.1) %>%
+    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
@@ -521,275 +521,6 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 ```
-
-
-
-## Education Levels Targeting
-
-The graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300, eval =T, results='asis'}
-
-
-calc_edu_perc <- function(x) {
-
-total_sppppeen <- x %>%
-# filter(coalition == "Coalizione di centro-destra") %>%
-  mutate(total_spend = total_spend_formatted) %>%
-  distinct(internal_id, .keep_all = T)  %>%
-  # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-  mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  select(internal_id, total_spend) %>%
-  arrange(desc(total_spend)) %>%
-  summarize(total_budget = sum(total_spend)) %>%
-  ungroup()
-
-x %>%
-    filter(type == "detailed") %>%
-    filter(detailed_type == "DEMOGRAPHICS") %>%
-  filter(!is_exclusion) %>%
-    # count(value, sort = T) %>%
-    filter(str_detect(value, "Associate degree|Doctorate degree|In college|Master's degree|Some college|Some grad school|High school grad|In high school|Professional degree|Some high school|College grad|In grad school")) %>%
-    filter(str_detect(value, "MBO", negate = T)) %>%
-    filter(str_detect(value, "Wine", negate = T)) %>%
-  mutate(total_spend = total_spend_formatted) %>%
-  mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  # filter(coalition == "Coalizione di centro-destra") %>%
-  # filter(total_spend_pct != 0) %>%
-  # group_by(internal_id) %>%
-  # mutate(n_ages = n()) %>% #count(n_ages, sort = T)
-  # ungroup()%>%
-  mutate(spend_per = total_spend * total_spend_pct) %>%
-  group_by(value) %>%
-  summarize(spend_per = sum(spend_per)) %>%
-  bind_cols(total_sppppeen) %>%
-  mutate(perc = spend_per/total_budget) %>%
-            mutate(coalition = x$coalition[1],
-                   party = x$party[1],
-                   election = x$election[1])
-}
-
-educ_targeting <- election_dat30 %>%
-    group_split(party) %>%
-    map_dfr(calc_edu_perc) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-                                  # "Terzo Polo",
-                                  # "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(educ_targeting$perc*100)
-
-# Create the charts
-charts <- educ_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this education level"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
-
-
-## Relationship Status Targeting
-
-The following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300}
-
-
-calc_relstatus_perc <- function(x) {
-
-total_sppppeen <- x %>%
-# filter(coalition == "Coalizione di centro-destra") %>%
-  mutate(total_spend = total_spend_formatted) %>%
-  distinct(internal_id, .keep_all = T)  %>%
-  # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-  mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  select(internal_id, total_spend) %>%
-  arrange(desc(total_spend)) %>%
-  summarize(total_budget = sum(total_spend)) %>%
-  ungroup()
-
-x %>%
-    filter(type == "detailed") %>%
-    filter(detailed_type == "DEMOGRAPHICS") %>%
-  filter(!is_exclusion) %>%
-    # count(value, sort = T) %>%
-    filter(str_detect(value, relationshipstuff)) %>%
-    # filter(str_detect(value, "MBO", negate = T)) %>%
-  mutate(total_spend = total_spend_formatted) %>%
-  mutate(total_spend = ifelse(total_spend == 50, 50, total_spend)) %>%
-  # filter(coalition == "Coalizione di centro-destra") %>%
-  # filter(total_spend_pct != 0) %>%
-  # group_by(internal_id) %>%
-  # mutate(n_ages = n()) %>% #count(n_ages, sort = T)
-  # ungroup()%>%
-  mutate(spend_per = total_spend * total_spend_pct) %>%
-  group_by(value) %>%
-  summarize(spend_per = sum(spend_per)) %>%
-  bind_cols(total_sppppeen) %>%
-  mutate(perc = spend_per/total_budget) %>%
-            mutate(coalition = x$coalition[1],
-                   party = x$party[1],
-                   election = x$election[1])
-}
-
-relationship_targeting <- election_dat30 %>%
-    group_split(party) %>%
-    map_dfr(calc_relstatus_perc) %>%
-    filter(perc >= 0.015) %>%
-    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-     #                              "Terzo Polo",
-     #                              "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    slice(1:20) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(relationship_targeting$perc*100)
-
-# Create the charts
-charts <- relationship_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this relationship status"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-```
-
-```{r echo=FALSE, results='asis'}
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
-
 
 :::
 
@@ -801,7 +532,7 @@ Dit gedeelte toont de lijsttrekkers voor de verkiezingen voor het Europees Parle
 
 ::: panel-tabset
 
-## Age Targeting
+## Leeftijd
 
 
 Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende leeftijdsgroepen.
@@ -918,7 +649,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```
 
-## Gender Targeting
+## Gender 
 
 De onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.
 
@@ -939,7 +670,7 @@ map_dfr(get_targ_perc, "gender") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -1016,9 +747,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 
-## Language Targeting
+## Taal
 
-The following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende taalgroepen.
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -1036,7 +767,7 @@ map_dfr(get_targ_perc, "language") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -1112,9 +843,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-## Targeting based on Employment or Education Instituation
+## Beroep of Onderwijs(niveau)
 
-The following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende beroepscategorieën, studierichtingen en onderwijsinstellingen. 
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -1131,8 +862,8 @@ job_targeting <- election_dat30 %>%
   filter(elex_type == "Lijsttrekkers_EU") %>% 
     group_split(party) %>%
     map_dfr(calc_jobs_perc) %>%
-    filter(perc >= 0.015) %>%
-    filter(str_detect(value, relationshipstuff, negate = T)) %>%
+    filter(perc >= 0.1) %>%
+    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
@@ -1225,207 +956,6 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```
 
-## Education Levels Targeting
-
-The graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300, eval =T, results='asis'}
-
-
-
-educ_targeting <- election_dat30 %>%
-    left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_EU") %>% 
-    group_split(party) %>%
-    map_dfr(calc_edu_perc) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-                                  # "Terzo Polo",
-                                  # "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(educ_targeting$perc*100)
-
-# Create the charts
-charts <- educ_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this education level"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
-
-
-## Relationship Status Targeting
-
-The following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300}
-
-
-relationship_targeting <- election_dat30 %>%
-    left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_EU") %>% 
-    group_split(party) %>%
-    map_dfr(calc_relstatus_perc) %>%
-    filter(perc >= 0.015) %>%
-    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-     #                              "Terzo Polo",
-     #                              "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    slice(1:20) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(relationship_targeting$perc*100)
-
-# Create the charts
-charts <- relationship_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this relationship status"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-```
-
-```{r echo=FALSE, results='asis'}
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
 
 :::
 
@@ -1436,7 +966,7 @@ Dit gedeelte toont de lijsttrekkers voor de federale verkiezingen voor elke part
 
 ::: panel-tabset
 
-## Age Targeting
+## Leeftijd
 
 
 Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende leeftijdsgroepen.
@@ -1553,7 +1083,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```
 
-## Gender Targeting
+## Gender 
 
 De onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.
 
@@ -1574,7 +1104,7 @@ map_dfr(get_targ_perc, "gender") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -1651,9 +1181,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 
-## Language Targeting
+## Taal
 
-The following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende taalgroepen.
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -1671,7 +1201,7 @@ map_dfr(get_targ_perc, "language") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -1747,9 +1277,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-## Targeting based on Employment or Education Instituation
+## Beroep of Onderwijs(niveau)
 
-The following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende beroepscategorieën, studierichtingen en onderwijsinstellingen. 
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -1766,8 +1296,8 @@ job_targeting <- election_dat30 %>%
   filter(elex_type == "Lijsttrekkers_federal_election") %>% 
     group_split(party) %>%
     map_dfr(calc_jobs_perc) %>%
-    filter(perc >= 0.015) %>%
-    filter(str_detect(value, relationshipstuff, negate = T)) %>%
+    filter(perc >= 0.1) %>%
+    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
@@ -1854,207 +1384,6 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-
-
-
-
-```
-
-## Education Levels Targeting
-
-The graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300, eval =T, results='asis'}
-
-
-
-educ_targeting <- election_dat30 %>%
-    left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_federal_election") %>% 
-    group_split(party) %>%
-    map_dfr(calc_edu_perc) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-                                  # "Terzo Polo",
-                                  # "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(educ_targeting$perc*100)
-
-# Create the charts
-charts <- educ_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this education level"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
-
-
-## Relationship Status Targeting
-
-The following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300}
-
-relationship_targeting <- election_dat30 %>%
-    left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_federal_election") %>% 
-    group_split(party) %>%
-    map_dfr(calc_relstatus_perc) %>%
-    filter(perc >= 0.015) %>%
-    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-     #                              "Terzo Polo",
-     #                              "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    slice(1:20) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(relationship_targeting$perc*100)
-
-# Create the charts
-charts <- relationship_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this relationship status"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-```
-
-```{r echo=FALSE, results='asis'}
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
 
 
 
@@ -2065,9 +1394,12 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 # Vlaanderen
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Vlaanderen voor elke partij.
+
+
 ::: panel-tabset
 
-## Age Targeting
+## Leeftijd
 
 
 Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende leeftijdsgroepen.
@@ -2184,7 +1516,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```
 
-## Gender Targeting
+## Gender 
 
 De onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.
 
@@ -2205,7 +1537,7 @@ map_dfr(get_targ_perc, "gender") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -2282,9 +1614,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 
-## Language Targeting
+## Taal
 
-The following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende taalgroepen.
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -2302,7 +1634,7 @@ map_dfr(get_targ_perc, "language") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -2378,9 +1710,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-## Targeting based on Employment or Education Instituation
+## Beroep of Onderwijs(niveau)
 
-The following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende beroepscategorieën, studierichtingen en onderwijsinstellingen. 
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -2397,8 +1729,8 @@ job_targeting <- election_dat30 %>%
   filter(elex_type == "Lijsttrekkers_Flemish_election") %>% 
     group_split(party) %>%
     map_dfr(calc_jobs_perc) %>%
-    filter(perc >= 0.015) %>%
-    filter(str_detect(value, relationshipstuff, negate = T)) %>%
+    filter(perc >= 0.1) %>%
+    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
@@ -2491,217 +1823,18 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```
 
-## Education Levels Targeting
-
-The graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300, eval =T, results='asis'}
-
-
-
-educ_targeting <- election_dat30 %>%
-      left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_Flemish_election") %>% 
-    group_split(party) %>%
-    map_dfr(calc_edu_perc) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-                                  # "Terzo Polo",
-                                  # "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(educ_targeting$perc*100)
-
-# Create the charts
-charts <- educ_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this education level"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
-
-
-## Relationship Status Targeting
-
-The following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300}
-
-
-
-relationship_targeting <- election_dat30 %>%
-      left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_Flemish_election") %>% 
-    group_split(party) %>%
-    map_dfr(calc_relstatus_perc) %>%
-    filter(perc >= 0.01) %>%
-    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-     #                              "Terzo Polo",
-     #                              "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    slice(1:20) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(relationship_targeting$perc*100)
-
-# Create the charts
-charts <- relationship_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this relationship status"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-```
-
-```{r echo=FALSE, results='asis'}
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
 
 
 :::
 
 # Brussel
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Brussel voor elke partij.
+
+
 ::: panel-tabset
 
-## Age Targeting
+## Leeftijd
 
 
 Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende leeftijdsgroepen.
@@ -2818,7 +1951,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ```
 
-## Gender Targeting
+## Gender 
 
 De onderstaande grafieken laten zien hoe partijen gender als focusgroep gebruiken en welk percentage van het budget daaraan werd uitgegeven.
 
@@ -2839,7 +1972,7 @@ map_dfr(get_targ_perc, "gender") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -2916,9 +2049,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 ```
 
 
-## Language Targeting
+## Taal
 
-The following graphs show how parties use different languages as focus groups and the percentage of the budget allocated to them.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende taalgroepen.
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -2936,7 +2069,7 @@ map_dfr(get_targ_perc, "language") %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
-    filter(!(value %in% "All")) %>%
+    filter(!(value %in% "Alles")) %>%
     group_by(party) %>%
     mutate(percsum = sum(perc)) %>%
     ungroup() %>%
@@ -3012,9 +2145,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-## Targeting based on Employment or Education Instituation
+## Beroep of Onderwijs(niveau)
 
-The following graphs depict how parties utilize various job sectors and types of education as focus groups and the percentage of the budget allocated to them. The next graph focuses on educational levels.
+Onderstaande grafieken tonen hoeveel procent van hun totale budget politieke partijen uitgeven aan verschillende beroepscategorieën, studierichtingen en onderwijsinstellingen. 
 
 > Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
 
@@ -3031,8 +2164,8 @@ job_targeting <- election_dat30 %>%
   filter(elex_type == "Lijsttrekkers_Brussels_Gewest") %>% 
     group_split(party) %>%
     map_dfr(calc_jobs_perc) %>%
-    filter(perc >= 0.015) %>%
-    filter(str_detect(value, relationshipstuff, negate = T)) %>%
+    filter(perc >= 0.1) %>%
+    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
      # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
      #                              "Terzo Polo",
      #                              "Coalizione di centro-destra"))) %>%
@@ -3119,209 +2252,6 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 
 
-
-
-
-
-```
-
-## Education Levels Targeting
-
-The graphs below illustrate how parties target various education levels as focus groups and the percentage of the budget allocated to each.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300, eval =T, results='asis'}
-
-
-
-educ_targeting <- election_dat30 %>%
-      left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_Brussels_Gewest") %>% 
-    group_split(party) %>%
-    map_dfr(calc_edu_perc) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-                                  # "Terzo Polo",
-                                  # "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(educ_targeting$perc*100)
-
-# Create the charts
-charts <- educ_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this education level"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
-
-
-
-
-```
-
-
-## Relationship Status Targeting
-
-The following graphs reveal how political parties utilize different relationship statuses as focus groups and the percentage of the budget allocated to them.
-
-> Let op: Verschillende selectiecriteria kunnen overlappen, dus het totaal kan meer dan 100% bedragen.
-
-
-```{r, fig.width= 8, fig.height=5, dpi = 300}
-
-
-
-relationship_targeting <- election_dat30 %>%
-        left_join(lts %>% select(-party, -page_name) %>% 
-              rename(internal_id = page_id,
-                     elex_type = type), 
-            by = "internal_id") %>% 
-  filter(elex_type == "Lijsttrekkers_Brussels_Gewest") %>% 
-    group_split(party) %>%
-    map_dfr(calc_relstatus_perc) %>%
-    filter(perc >= 0.01) %>%
-    # filter(str_detect(value, relationshipstuff, negate = T)) %>%
-     # mutate(coalition = fct_relevel(coalition, c("Coalizione di centro-sinistra",
-     #                              "Terzo Polo",
-     #                              "Coalizione di centro-destra"))) %>%
-    group_by(party) %>%
-    arrange(desc(perc)) %>%
-    slice(1:20) %>%
-    mutate(value = fct_reorder(value, perc))
-
-
-
-
-# Determine the maximum value for xlim
-max_x <- max(relationship_targeting$perc*100)
-
-# Create the charts
-charts <- relationship_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
-  mutate(perc = perc * 100) %>%
-  split(.$party) %>%
-  map(~ {
-    the_color <- color_dat$colors[color_dat$party == .x$party[1]]
-    hchart(.x, type = "bar", hcaes(x = value, y = perc), color = the_color) %>%
-      hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-      hc_yAxis(title = list(text = "% party budget spent on targeting method"),
-        max = max_x) %>%   # Set the maximum x-axis value) %>%
-      hc_xAxis(
-        title = "",
-        labels = list(style = list(fontSize = "10px"))
-      ) %>%
-      hc_add_theme(hc_theme_google()) %>%
-      highcharter::hc_tooltip(
-        pointFormat = paste0("<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this relationship status"),
-        headerFormat = ""
-      ) %>%
-      hc_title(text = unique(.x$party), align = "left", style = list(fontWeight = "bold")) %>%
-      hc_size(height = 300) %>%
-    hc_exporting(
-      enabled = TRUE
-    )
-  })
-
-
-
-
-```
-
-```{r echo=FALSE, results='asis'}
-
-# Map each plot to a column
-columns <- map(charts, ~ div(style = "width: 50%; float: left;", .x))
-
-if(length(columns)!=0){
-
-  # If there's an odd number of plots, add an empty div to the end to balance the columns
-if (length(columns) %% 2 == 1) {
-  columns <- c(columns, list(div(style = "width: 50%; float: left;")))
-}
-
-# Pair up the columns and wrap them in rows
-rows <- map(seq(from = 1, to = length(columns), by = 2), ~ {
-  div(class = "row",
-    list(
-      columns[[.x]],
-      columns[[.x + 1]]
-    )
-  )
-})
-
-
-
-# Print the rows
-tags$div(class = "container", do.call(tags$div, rows))
-
-} else {
-  shiny::HTML("No data (yet).")
-}
 
 
 

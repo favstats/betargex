@@ -207,9 +207,7 @@ hc %>%
 
 <div id="N-VA" class="party-content" style="display:none;">
 ```{r}
-
-
- library(reactablefmtr)
+library(reactablefmtr)
 
 # Render a bar chart with a label on the left
 bar_chart <- function(label, width = "100%", height = "1rem", fill = "#4fd0e8", background = NULL) {
@@ -275,11 +273,7 @@ interest_targeting30 <-  election_dat30 %>%
 findat <- interest_targeting30 %>% 
   mutate(perc_ads = num_ads / total_num_ads,
          perc = target_spend/total_spend_formatted) %>% 
-  select(internal_id, detailed_type, target = value, is_exclusion, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads) %>%
-  bind_rows(col_each30 %>% 
-  mutate(perc = perc/100, 
-         perc_ads = perc_ads/100) %>% 
-           mutate(is_exclusion = F)) %>% 
+  select(internal_id, detailed_type, target = value, is_exclusion, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads)  %>% 
   bind_rows(col_each30_incl %>% 
   mutate(perc = perc/100,
          perc_ads = perc_ads/100,
@@ -288,7 +282,12 @@ findat <- interest_targeting30 %>%
   bind_rows(col_each30_excl %>% 
   mutate(perc = perc/100,
          perc_ads = perc_ads/100,
-         is_exclusion = T) %>% 
+         is_exclusion = T) %>%
+  bind_rows(col_each30 %>% 
+  mutate(perc = perc/100, 
+         perc_ads = perc_ads/100) %>% 
+    filter(target %in% c("Gender: Mannen", "Gender: Vrouwen", "age", "language")) %>% 
+           mutate(is_exclusion = F)) %>%  
   filter(perc != 0)) %>% 
   filter(perc != 0)  %>%
   distinct(detailed_type, target, internal_id, is_exclusion, .keep_all = T) %>% 
@@ -348,6 +347,11 @@ findat <- interest_targeting30 %>%
     T ~ is_exclusion
   ))
 
+with_tooltip <- function(value, tooltip) {
+  tags$abbr(style = "text-decoration: underline; text-decoration-style: dotted; cursor: help",
+            title = tooltip, value)
+}
+
 make_tab <- function(tp = "N-VA") {
   
 yes <<-  election_dat30 %>%
@@ -400,7 +404,7 @@ styled_reactable <- yes %>%
         )
       ),
       `Uitgegeven (€)` = colDef(
-        name = "Uitgegeven (€)",
+        header = with_tooltip("Uitgegeven (€)", last30days_string),
         defaultSortOrder = "desc", 
         cell = data_bars(
           data = .,

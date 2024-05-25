@@ -1,6 +1,6 @@
 ---
 title: Spending
-description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
 lang: nl
 ---
 
@@ -73,7 +73,7 @@ add_ribbons <- function(x, adv, col) {
       style = "solid"
     ),
     locations = cells_body(
-      columns = `Number of Advertisers`,
+      columns = `Aantal adverteerders`,
       rows = adv
     ))
 }
@@ -89,7 +89,7 @@ add_ribbons2 <- function(x, adv, col) {
       style = "solid"
     ),
     locations = cells_body(
-      columns = `Number of Ads`,
+      columns = `Aantal advertenties`,
       rows = adv
     ))
 }
@@ -106,7 +106,7 @@ add_ribbons3 <- function(x, adv, col) {
       style = "solid"
     ),
     locations = cells_body(
-      columns = `Total Spend`,
+      columns = `Totale uitgave`,
       rows = adv
     ))
 }
@@ -123,7 +123,7 @@ Hier vindt u de uitgaven van de politieke partijen in de aanloop van de verkiezi
 
 #### `r last30days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` uitgegeven en `r sum30$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -149,7 +149,7 @@ get_table_dat <- function(x, var) {
         var
       }
     }, values_from = total_num_ads) %>%
-    mutate(`party_col` = "Number of Advertisers") %>%
+    mutate(`party_col` = "Aantal adverteerders") %>%
     bind_rows(
       x %>%
         filter(main_currency == the_currency) %>%
@@ -179,7 +179,7 @@ get_table_dat <- function(x, var) {
             var
           }
         }, values_from = lab) %>%
-        mutate(`party_col` = "Top Spenders")
+        mutate(`party_col` = "Grootste adverteerders")
     )  %>%
     bind_rows(
       x %>%
@@ -197,7 +197,7 @@ get_table_dat <- function(x, var) {
             var
           }
         }, values_from = total_num_ads) %>%
-        mutate(`party_col` = "Number of Ads")
+        mutate(`party_col` = "Aantal advertenties")
     ) %>%
     bind_rows(
       x %>%
@@ -218,7 +218,7 @@ get_table_dat <- function(x, var) {
             var
           }
         }, values_from = total_spend_formatted) %>%
-        mutate(`party_col` = "Total Spend")
+        mutate(`party_col` = "Totale uitgave")
     ) %>%
     t() %>%
     as.data.frame() %>%
@@ -229,7 +229,7 @@ get_table_dat <- function(x, var) {
 }
 
 the_table30 <- get_table_dat(election_dat30, party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 # print(the_table30)
 
@@ -251,7 +251,7 @@ add_ribbons_code <- the_table30 %>%
   # paste(collapse = "\n") %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
-eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
  # gt(the_table30, rowname_col = 'party_col') %>%
  #  fmt_markdown()
@@ -268,14 +268,14 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` uitgegeven en `r sum7$total_num_ads` advertenties getoond op Meta.
 
 
 
 ```{r, eval = T}
 
 the_table7 <- get_table_dat(election_dat7, party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 
 add_ribbons_code <- the_table7 %>%
@@ -286,7 +286,7 @@ add_ribbons_code <- the_table7 %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
 
-eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
 ```
 
@@ -334,11 +334,11 @@ sum7 <- lijst_dat7  %>%
 
 
 the_table30 <- get_table_dat(lijst_dat30 %>% filter(type == "EU"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 ```
 
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` uitgegeven en `r sum30$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -351,7 +351,7 @@ add_ribbons_code <- the_table30 %>%
   # paste(collapse = "\n") %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
-eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
  # gt(the_table30, rowname_col = 'party_col') %>%
  #  fmt_markdown()
@@ -368,14 +368,14 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` uitgegeven en `r sum7$total_num_ads` advertenties getoond op Meta.
 
 
 
 ```{r, eval = T}
 
 the_table7 <- get_table_dat(lijst_dat7 %>% filter(type == "EU"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 add_ribbons_code <- the_table7 %>%
   left_join(color_dat %>% mutate(party_col = party)) %>%
@@ -385,7 +385,7 @@ add_ribbons_code <- the_table7 %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
 
-eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
 ```
 
@@ -421,7 +421,7 @@ sum7 <- lijst_dat7  %>%
 
 #### `r last30days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` uitgegeven en `r sum30$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -431,7 +431,7 @@ Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbo
 
 
 the_table30 <- get_table_dat(lijst_dat30 %>% filter(type == "federal_election"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 
 # print(the_table30)
@@ -454,7 +454,7 @@ add_ribbons_code <- the_table30 %>%
   # paste(collapse = "\n") %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
-eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
  # gt(the_table30, rowname_col = 'party_col') %>%
  #  fmt_markdown()
@@ -471,7 +471,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` uitgegeven en `r sum7$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -479,7 +479,7 @@ Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbo
 
 
 the_table7 <- get_table_dat(lijst_dat7 %>% filter(type == "federal_election"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 
 add_ribbons_code <- the_table7 %>%
@@ -490,7 +490,7 @@ add_ribbons_code <- the_table7 %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
 
-eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
 ```
 
@@ -526,7 +526,7 @@ sum7 <- lijst_dat7  %>%
 
 #### `r last30days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` uitgegeven en `r sum30$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -537,7 +537,7 @@ Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbo
 
 
 the_table30 <- get_table_dat(lijst_dat30 %>% filter(type == "Flemish_election"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 # print(the_table30)
 
 # # Generate the HTML but save it to a variable instead of directly outputting
@@ -558,7 +558,7 @@ add_ribbons_code <- the_table30 %>%
   # paste(collapse = "\n") %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
-eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
  # gt(the_table30, rowname_col = 'party_col') %>%
  #  fmt_markdown()
@@ -575,14 +575,14 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` uitgegeven en `r sum7$total_num_ads` advertenties getoond op Meta.
 
 
 
 ```{r, eval = T}
 
 the_table7 <- get_table_dat(lijst_dat7 %>% filter(type == "Flemish_election"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 
 add_ribbons_code <- the_table7 %>%
@@ -593,7 +593,7 @@ add_ribbons_code <- the_table7 %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
 
-eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
 ```
 
@@ -627,7 +627,7 @@ sum7 <- lijst_dat7  %>%
 
 #### `r last30days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` uitgegeven en `r sum30$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -637,7 +637,7 @@ Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbo
 
 
 the_table30 <- get_table_dat(lijst_dat30 %>% filter(type == "Brussels_Gewest"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 # print(the_table30)
 
 # print(the_table30)
@@ -660,7 +660,7 @@ add_ribbons_code <- the_table30 %>%
   # paste(collapse = "\n") %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
-eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
  # gt(the_table30, rowname_col = 'party_col') %>%
  #  fmt_markdown()
@@ -677,7 +677,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
+Tijdens deze periode hebben politieke partijen in totaal `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` uitgegeven en `r sum7$total_num_ads` advertenties getoond op Meta.
 
 
 
@@ -685,7 +685,7 @@ Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbo
 
 
 the_table7 <- get_table_dat(lijst_dat7 %>% filter(type == "Brussels_Gewest"), party) %>%
-  arrange(desc(parse_number(`Total Spend`)))
+  arrange(desc(parse_number(`Totale uitgave`)))
 
 
 add_ribbons_code <- the_table7 %>%
@@ -696,7 +696,7 @@ add_ribbons_code <- the_table7 %>%
   paste(collapse = "%>%")  # Add pipe after each ribbon
 
 
-eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Top Spenders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Top Spenders`)) %>% ", add_ribbons_code)))
+eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_markdown(columns = everything()) %>% cols_align(align = 'center') %>%  cols_align(align = \"left\", columns = `Grootste adverteerders`) %>% gtExtras::gt_theme_538() %>% tab_style(style = 'vertical-align:center', locations = cells_body(columns = `Grootste adverteerders`)) %>% ", add_ribbons_code)))
 
 ```
 
