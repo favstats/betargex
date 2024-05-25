@@ -24,11 +24,11 @@ options(scipen = 999)
 # print(getwd())
 # here::here("")
 # prCint(getwd())
-# hcoptslang <- getOption("highcharter.lang")
-# 
-# hcoptslang$shortMonths <- c("Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec")
-# 
-# options(highcharter.lang = hcoptslang)
+hcoptslang <- getOption("highcharter.lang")
+
+hcoptslang$shortMonths <- c("Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec")
+
+options(highcharter.lang = hcoptslang)
 
 
 source("../utils.R")
@@ -117,7 +117,7 @@ Here you can see the expenditures of political parties in the lead-up to the ele
 
 ::: {.panel-tabset}
 
-### Overall
+### Algemeen
 
 ::: {.panel-tabset}
 
@@ -390,7 +390,7 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 :::
 
 
-### Federal
+### Federaal
 
 ```{r}
 
@@ -492,7 +492,7 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 :::
 
 
-### Flanders
+### Vlaanderen
 
 ```{r}
 
@@ -590,7 +590,7 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 :::
 
-### Brussels
+### Brussel
 
 
 ```{r}
@@ -691,10 +691,10 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 :::
 
-:::
+
+### Over Tijd
 
 
-### Over Time
 
 ```{r}
 if(Sys.info()["user"] != "fabio"){
@@ -757,10 +757,10 @@ endit %>%
   # mutate(spend)
   hchart("area", hcaes(x = date, y = `Daily Spend`, group = party, fill = colors)) %>%
   hc_plotOptions(    area = list(
-      stacking = "normal",
-      lineWidth = 1,
-      marker = list(enabled = FALSE)
-    )) %>%
+    stacking = "normal",
+    lineWidth = 1,
+    marker = list(enabled = FALSE)
+  )) %>%
   # hc_legend(share = TRUE)%>%
   hc_colors(color_order)%>%
   hc_tooltip(
@@ -768,5 +768,28 @@ endit %>%
     positioner = JS("function (labelWidth, labelHeight, point) {
         return { x: 200, y: this.chart.plotTop };
     }")
-  )  
+  )  %>%
+hc_xAxis(
+  plotLines = list(
+    list(
+      color = "black", # Color of the line
+      dashStyle = "Dash", # Dash style
+      value =  datetime_to_timestamp(as.Date("2024-02-09", tz = "UTC")), # Date of the line
+      width = 2, # Width of the line
+      label = list(
+        text = "Begin van Sperperiode", # Label text
+        align = "left",
+        style = list(
+          color = "black", # Label color
+          fontWeight = "bold"
+        )
+      )
+    )
+  )
+)
 ```
+
+
+
+:::
+

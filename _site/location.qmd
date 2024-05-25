@@ -1,5 +1,5 @@
 ---
-title: "Location"
+title: "Locatie"
 description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
 lang: nl
 format:
@@ -68,7 +68,7 @@ region_dat <- election_dat30 %>%
             num_ads = sum(num_ads)) %>%
   ungroup() %>%
   rename(region = value) %>%
-  mutate(region = str_remove_all(region, ", Belgium"))
+  mutate(region = str_remove_all(region, ", België"))
 
 the_colors <- region_dat %>%
   group_by(party) %>%
@@ -168,7 +168,7 @@ region_dat <- election_dat30 %>%
             num_ads = sum(num_ads)) %>%
   ungroup() %>%
   rename(region = value) %>%
-  mutate(region = str_remove_all(region, ", Belgium"))
+  mutate(region = str_remove_all(region, ", België"))
 
 the_colors <- region_dat %>%
   group_by(party) %>%
@@ -254,7 +254,7 @@ region_dat <- election_dat30 %>%
             num_ads = sum(num_ads)) %>%
   ungroup() %>%
   rename(region = value) %>%
-  mutate(region = str_remove_all(region, ", Belgium"))
+  mutate(region = str_remove_all(region, ", België"))
 
 the_colors <- region_dat %>%
   group_by(party) %>%
@@ -315,7 +315,7 @@ region_dat <- election_dat30 %>%
             num_ads = sum(num_ads)) %>%
   ungroup() %>%
   rename(region = value) %>%
-  mutate(region = str_remove_all(region, ", Belgium"))
+  mutate(region = str_remove_all(region, ", België"))
 
 the_colors <- region_dat %>%
   group_by(party) %>%

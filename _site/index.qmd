@@ -107,7 +107,7 @@ highchart() %>%
       ),
       formatter = JS("function() { return '<span style=\"color:' + this.point.color + '\">' + this.point.name + '</span>'; }")
     ),
-    name = "Total Spending in €",
+    name = "Totale Uitgaven in € (sinds 9 februari)",
     data = lapply(1:nrow(thedata), function(i) {
       list(
         name = thedata$party[i],
@@ -230,7 +230,9 @@ election_type_colors <- c(
 detailed_colors <- c(
   "INTERESSEN" = "#FFDDC1",
   "DEMOGRAFIE" = "#C1E1C1",
-  "GEDRAG" = "#C1E3E1"
+  "GEDRAG" = "#C1E3E1",
+  "DOELGREOPEN" = "#A1E3E1",
+  "GEOGRAFIE" = "#C1D4E1"
 )
 
 election_types <- c("federal_election", 
@@ -250,29 +252,17 @@ byparty30 <- election_dat30 %>%
   select(party, total_spenderino)
 
 col_each30 <- readRDS("col_each30.rds")
+col_each30_excl <- readRDS("col_each30_excl.rds")
+col_each30_incl <- readRDS("col_each30_incl.rds")
 
 
 interest_targeting30 <-  election_dat30 %>%
     mutate(total_spend = total_spend_formatted) %>%
     filter(type == "detailed") %>%
-    # mutate(total_spend = readr::parse_number(total_spend_formatted)) %>%
-    # mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
     mutate(target_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # drop_na(left_vs_right) %>%
-    # mutate(value = paste0(detailed_type,": ", value)) %>%
-    # group_by(page_name, value, is_exclusion, detailed_type) %>%
-    # summarise(total_spend = sum(total_spend)) %>%
-    # ungroup() %>%
     arrange(desc(total_spend))  %>%
-  # filter(!is_exclusion) %>%
-  # filter(total_spend >= 40000) %>%
   filter(total_spend >= 1) %>%
-  # add_count(value) %>%
-  # filter(n >= 5) %>%
-  # left_join(byparty30) %>%
-  # group_by(party) %>%
-  # mutate(total_spenderino = sum(total_spend)) %>%
   mutate(perc = target_spend/total_spend) %>%
   mutate(detailed_type = case_when(
     detailed_type == "INTERESTS" ~ "INTERESSEN",
@@ -280,39 +270,83 @@ interest_targeting30 <-  election_dat30 %>%
     detailed_type == "BEHAVIORS" ~ "GEDRAG",
     T ~ detailed_type
   ))
-  # mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) 
 
 
 findat <- interest_targeting30 %>% 
   mutate(perc_ads = num_ads / total_num_ads,
          perc = target_spend/total_spend_formatted) %>% 
   select(internal_id, detailed_type, target = value, is_exclusion, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads) %>%
-  bind_rows(col_each30%>% 
+  bind_rows(col_each30 %>% 
+  mutate(perc = perc/100, 
+         perc_ads = perc_ads/100) %>% 
+           mutate(is_exclusion = F)) %>% 
+  bind_rows(col_each30_incl %>% 
   mutate(perc = perc/100,
-         perc_ads = perc_ads/100)) %>% 
+         perc_ads = perc_ads/100,
+         is_exclusion = F) %>% 
+  filter(perc != 0)) %>% 
+  bind_rows(col_each30_excl %>% 
+  mutate(perc = perc/100,
+         perc_ads = perc_ads/100,
+         is_exclusion = T) %>% 
+  filter(perc != 0)) %>% 
   filter(perc != 0)  %>%
+  distinct(detailed_type, target, internal_id, is_exclusion, .keep_all = T) %>% 
   filter(target != "countries") %>% 
   filter(target != "interest") %>% 
+  filter(target != "Gender: Alles") %>% 
   # filter(n == 3) %>%
+  mutate(detailed_type = case_when(
+  target == "custom_audience" ~ "DOELGREOPEN",
+  target == "regions" ~ "GEOGRAFIE",
+  target == "lookalike_audience" ~ "DOELGREOPEN",
+  target == "interest" ~ "Gedetailleerd",
+  target == "age" ~ "DEMOGRAFIE",
+  target == "zips" ~ "GEOGRAFIE",
+  target == "CITY" ~ "GEOGRAFIE",
+  target == "language" ~ "DEMOGRAFIE",
+  target == "gender" ~ "DEMOGRAFIE",
+  target == "Gender: Mannen" ~ "DEMOGRAFIE",
+  target == "Gender: Vrouwen" ~ "DEMOGRAFIE",
+  target == "COMUNE" ~ "GEOGRAFIE",
+  target == "electoral_districts" ~ "GEOGRAFIE",
+  target == "COUNTY" ~ "GEOGRAFIE",
+  str_detect(target, "NEIGHBOR") ~ "GEOGRAFIE",
+  target == "MUNICIPALITY" ~ "GEOGRAFIE",
+    T ~ detailed_type
+  )) %>% 
   mutate(target = case_when(
-  target == "custom_audience" ~ "Custom Audiences",
-  target == "countries" ~ "GEOGRAFIE: Geheel Land",
-  target == "regions" ~ "GEOGRAFIE: Regio's",
-  target == "lookalike_audience" ~ "Lookalike Audiences",
+  target == "custom_audience" ~ "Doelgroepen",
+  target == "countries" ~ "Geheel Land",
+  target == "regions" ~ "Regio's",
+  target == "lookalike_audience" ~ "Gelijkaardige Doelgroepen",
   target == "interest" ~ "Gedetailleerd",
   target == "age" ~ "Leeftijd",
-  target == "zips" ~ "GEOGRAFIE: Postcode",
-  target == "CITY" ~ "GEOGRAFIE: Stad",
+  target == "zips" ~ "Postcode",
+  target == "CITY" ~ "Stad",
   target == "language" ~ "Taal",
   target == "gender" ~ "Geslacht",
-  target == "COMUNE" ~ "GEOGRAFIE: Gemeente",
-  target == "electoral_districts" ~ "GEOGRAFIE: Kiesdistricten",
-  target == "COUNTY" ~ "GEOGRAFIE: Provincies",
-  str_detect(target, "NEIGHBOR") ~ "GEOGRAFIE: Buurt",
+  target == "Gender: Men" ~ "Mannen",
+  target == "Gender: Women" ~ "Vrouwen",
+  target == "COMUNE" ~ "Gemeente",
+  target == "electoral_districts" ~ "Kiesdistricten",
+  target == "COUNTY" ~ "Provincies",
+  str_detect(target, "NEIGHBOR") ~ "Buurt",
     T ~ target
-  )) %>%
+  )) %>% 
     filter(target != "Unknown") %>% 
-  mutate(is_exclusion = ifelse(!is_exclusion, "✅", "❌"))
+  mutate(is_exclusion = ifelse(!is_exclusion, "✅", "❌")) %>% 
+  left_join(data.frame(detailed_colors ) %>%
+              rownames_to_column() %>%
+              rename(detailed_type = rowname)) %>% 
+  mutate(is_exclusion = case_when(
+    target == "Taal" ~ "✅", 
+    target == "Geslacht" ~ "✅", 
+    target == "Mannen" ~ "✅", 
+    target == "Vrouwen" ~ "✅", 
+    target == "Leeftijd" ~ "✅", 
+    T ~ is_exclusion
+  ))
 
 make_tab <- function(tp = "N-VA") {
   
@@ -328,7 +362,7 @@ yes <<-  election_dat30 %>%
   arrange(desc(total_spend_formatted)) %>%
   # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
   select(page_name, total_num_ads, total_spend_formatted, internal_id) %>%
-  set_names(c("Page", "Ads", "Spent (€)", "internal_id")) 
+  set_names(c("Pagina", "Advertenties", "Uitgegeven (€)", "internal_id"))
 
 # Assuming `election_dat30` and `lts` are your data frames
 styled_reactable <- yes %>%
@@ -336,20 +370,22 @@ styled_reactable <- yes %>%
   reactable(
     fullWidth = T,
     pagination = T,
-    defaultSorted = "Spent (€)",
+    defaultSorted = "Uitgegeven (€)",
     defaultColDef = colDef(headerClass = "header", align = "left"),
     columns = list(
-      Page = colDef(
+      Pagina = colDef(
+        name = "Pagina",
         cell = function(value) {
-          internal_id <- yes$internal_id[yes$Page == value]
+          internal_id <- yes$internal_id[yes$Pagina == value]
 
           url <- glue::glue(    "https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=BE&view_all_page_id={internal_id}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=page&media_type=all"
   )
           tags$a(href = url, target = "_blank", value)
         }
       ),
-      `Ads` = colDef(
+      `Advertenties` = colDef(
         defaultSortOrder = "desc",
+        name = "Advertenties",
         cell = data_bars(
           data = .,
           round_edges = TRUE,
@@ -363,8 +399,8 @@ styled_reactable <- yes %>%
           bar_height = 10
         )
       ),
-      `Spent (€)` = colDef(
-        name = "Spent (€)",
+      `Uitgegeven (€)` = colDef(
+        name = "Uitgegeven (€)",
         defaultSortOrder = "desc", 
         cell = data_bars(
           data = .,
@@ -391,10 +427,7 @@ styled_reactable <- yes %>%
     class = "styled-table",
     details = function(index) {
       plant_data <- findat[findat$internal_id == yes$internal_id[index],]
-      withindat <<- plant_data %>% select(detailed_type, target, is_exclusion, spend_per, perc) %>% 
-  left_join(data.frame(detailed_colors ) %>%
-              rownames_to_column() %>%
-              rename(detailed_type = rowname)) 
+      withindat <<- plant_data %>% select(detailed_type, target, is_exclusion, spend_per, perc, detailed_colors)
       htmltools::div(
         style = "padding: 1rem",
         reactable(
@@ -407,10 +440,10 @@ styled_reactable <- yes %>%
           columns = list(
             detailed_type = colDef(name = "Type",
                           cell = color_tiles(data = withindat,
-                                             color_ref = 'detailed_colors')), 
+                                             color_ref = 'detailed_colors'), width = 180), 
                 detailed_colors = colDef(show = FALSE),
             target = colDef(header = "Target"),
-            is_exclusion = colDef(header = "Include", maxWidth = 10),
+            is_exclusion = colDef(header = "Inclusief", width = 100),
 
             
         #     ads_per = colDef(
@@ -428,21 +461,22 @@ styled_reactable <- yes %>%
         #   bar_height = 10
         # )
         #     ),
-            spend_per = colDef(
-              header = "Spent (€)",
-                      cell = data_bars(
-          data = withindat,
-              fill_color = "#3fc1c9",
-          round_edges = TRUE,
-          background = "transparent",
-          text_position = "outside-end",
-          # text_color = text_color,
-          fill_gradient = FALSE,
-          # fill_color_ref = "energy_source_color",
-          number_fmt = scales::label_number(big.mark = ","),
-          bar_height = 10
-        )
-            ),
+        #     spend_per = colDef(
+        #       header = "Spent (€)",
+        #               cell = data_bars(
+        #   data = withindat,
+        #       fill_color = "#3fc1c9",
+        #   round_edges = TRUE,
+        #   background = "transparent",
+        #   text_position = "outside-end",
+        #   # text_color = text_color,
+        #   fill_gradient = FALSE,
+        #   # fill_color_ref = "energy_source_color",
+        #   number_fmt = scales::label_number(big.mark = ","),
+        #   bar_height = 10
+        # )
+        #     ),
+                spend_per = colDef(show = FALSE),
             perc = colDef(
               header = "% Budget",
               defaultSortOrder = "desc",
@@ -506,7 +540,7 @@ yes <<-  election_dat30 %>%
   arrange(desc(total_spend_formatted)) %>%
   # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
   select(page_name, total_num_ads, total_spend_formatted, type, internal_id) %>%
-  set_names(c("Page", "Ads", "Spent (€)", "Race", "internal_id")) 
+  set_names(c("Pagina", "Advertenties", "Uitgegeven (€)", "Race", "internal_id")) 
 
 yes
 
