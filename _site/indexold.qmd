@@ -112,7 +112,7 @@ add_ribbons3 <- function(x, adv, col) {
 }
 ```
 
-Here you can see the expenditures of political parties in the lead-up to the elections according to the latest data.
+Hier vindt u de uitgaven van de politieke partijen in de aanloop van de verkiezingen aan de hand van de meest recente data.
 
 
 ::: {.panel-tabset}
@@ -123,7 +123,7 @@ Here you can see the expenditures of political parties in the lead-up to the ele
 
 #### `r last30days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and displayed `r sum30$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -164,7 +164,7 @@ get_table_dat <- function(x, var) {
         mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
         mutate(n_words = str_count(page_name, " ")) %>%
         mutate(
-          lab =  glue::glue('[||ppage_namep||](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&country=NL&view_all_page_id=||pinternal_idp||) (||pcurrency_symbolp||||ptotal_spend_formattedp||)', .open = "||p", .close = "p||")
+          lab =  glue::glue('[||ppage_namep||](https://www.facebook.com/ads/library/?ad_type=political_and_issue_ads&country=BE&view_all_page_id=||pinternal_idp||) (||pcurrency_symbolp||||ptotal_spend_formattedp||)', .open = "||p", .close = "p||")
           ) %>%
         select({
           {
@@ -268,7 +268,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` and displayed `r sum7$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -293,6 +293,8 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 :::
 
 ### EU
+
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen voor het Europees Parlement voor elke partij.
 
 ::: {.panel-tabset}
 
@@ -336,7 +338,7 @@ the_table30 <- get_table_dat(lijst_dat30 %>% filter(type == "EU"), party) %>%
 ```
 
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and displayed `r sum30$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -366,7 +368,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` and displayed `r sum7$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -392,6 +394,9 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 ### Federaal
 
+Dit gedeelte toont de lijsttrekkers voor de federale verkiezingen voor elke partij.
+
+
 ```{r}
 
 sum30 <- lijst_dat30 %>%
@@ -416,7 +421,7 @@ sum7 <- lijst_dat7  %>%
 
 #### `r last30days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and displayed `r sum30$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -466,7 +471,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` and displayed `r sum7$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -494,6 +499,10 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 ### Vlaanderen
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Vlaanderen voor elke partij.
+
+
+
 ```{r}
 
 sum30 <- lijst_dat30 %>%
@@ -517,7 +526,7 @@ sum7 <- lijst_dat7  %>%
 
 #### `r last30days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and displayed `r sum30$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -566,7 +575,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` and displayed `r sum7$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -592,6 +601,8 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 ### Brussel
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Brussel voor elke partij.
+
 
 ```{r}
 
@@ -616,7 +627,7 @@ sum7 <- lijst_dat7  %>%
 
 #### `r last30days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted))` and displayed `r sum30$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum30$total_spend_formatted)) uitgegeven en r sum30$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -666,7 +677,7 @@ eval(parse(text = paste0("gt(the_table30, rowname_col = 'party_col') %>% fmt_mar
 
 #### `r last7days_string`
 
-During this period, political parties spent a total of `r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted))` and displayed `r sum7$total_num_ads` advertisements on Meta.
+Tijdens deze periode hebben politieke partijen in totaal r paste0(currency_symbol, scales::comma_format()(sum7$total_spend_formatted)) uitgegeven en r sum7$total_num_ads advertenties getoond op Meta.
 
 
 
@@ -693,8 +704,6 @@ eval(parse(text = paste0("gt(the_table7, rowname_col = 'party_col') %>% fmt_mark
 
 
 ### Over Tijd
-
-
 
 ```{r}
 if(Sys.info()["user"] != "fabio"){
@@ -747,6 +756,20 @@ saveRDS(endit, "endit.rds")
 } else {
   endit <- readRDS("endit.rds")
 }
+
+```
+
+```{r}
+total_spend <- endit %>% 
+  filter(date >= as.Date("2024-02-09")) %>% 
+  summarize(spnd = sum(`Daily Spend`, na.rm = T)) %>% 
+  pull(spnd) %>% 
+  scales::comma_format()(.)
+```
+
+In totaal hebben partijen en kandidaten sinds 9 februari `r total_spend` (€) uitgegeven.
+
+```{r}
 
 color_order <- color_dat %>%
   distinct(party, .keep_all = T) %>%

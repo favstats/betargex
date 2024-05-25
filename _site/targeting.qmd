@@ -431,6 +431,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ## EU
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen voor het Europees Parlement voor elke partij.
 
 ::: {.panel-tabset}
 
@@ -558,6 +559,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 
 ## Federaal
 
+Dit gedeelte toont de lijsttrekkers voor de federale verkiezingen voor elke partij.
+
+
 ::: {.panel-tabset}
 
 ### Totaal
@@ -683,6 +687,8 @@ tags$div(class = "container", do.call(tags$div, rows))
 :::
 
 ## Vlaanderen
+
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Vlaanderen voor elke partij.
 
 
 ::: {.panel-tabset}
@@ -810,6 +816,8 @@ tags$div(class = "container", do.call(tags$div, rows))
 :::
 
 ## Brussel
+
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Brussel voor elke partij.
 
 
 ::: {.panel-tabset}

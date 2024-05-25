@@ -208,6 +208,8 @@ lts <<- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0
 
 ```
 
+De onderstaande grafieken tonen de meest gebruikte en betwiste targeting- en uitsluitingscriteria door politieke partijen op Meta, gebaseerd op de uitgegeven bedragen.
+
 
 De hier getoonde gegevens verwijzen naar de laatste 30 dagen (`r last30days_string`).
 
@@ -218,11 +220,7 @@ De hier getoonde gegevens verwijzen naar de laatste 30 dagen (`r last30days_stri
 
 ::: {.panel-tabset}
 
-## Top Targeted Audiences
-
-The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent. The top focus groups predominantly target interests such as 'books' or 'politics.'
-
-
+## Top Doelgroepen
 
 ```{r}
 
@@ -346,10 +344,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Excluded Audiences
+## Top Uitsluitingscriteria
 
 
-Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent. Most focus groups are focused on interests such as 'books' or 'politics'.
 
 ```{r}
 
@@ -465,9 +462,10 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Contested Audiences
+## Gecontesteerde Doelgroepen
 
-The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.
+De onderstaande grafiek toont de populaties over wie de meeste strijd bestaat tussen de verschillende partijen. Dat wil zeggen de populaties aan wie de partijen het meeste geld uitgeven om hen via advertenties te bereiken.
+
 
 
 ```{r}
@@ -485,12 +483,13 @@ if(length(thegraph30$x$hc_opts$series)!=0){
 
 # EU
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen voor het Europees Parlement voor elke partij.
+
 ::: {.panel-tabset}
 
 
-## Top Targeted Audiences
+## Top Doelgroepen
 
-The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent. The top focus groups predominantly target interests such as 'books' or 'politics.'
 
 ```{r}
 
@@ -619,10 +618,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Excluded Audiences
+## Top Uitsluitingscriteria
 
 
-Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent. Most focus groups are focused on interests such as 'books' or 'politics'.
 
 
 
@@ -748,9 +746,10 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Contested Audiences
+## Gecontesteerde Doelgroepen
 
-The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.
+De onderstaande grafiek toont de populaties over wie de meeste strijd bestaat tussen de verschillende partijen. Dat wil zeggen de populaties aan wie de partijen het meeste geld uitgeven om hen via advertenties te bereiken.
+
 
 
 
@@ -779,9 +778,8 @@ if(length(thegraph30$x$hc_opts$series)!=0){
 ::: {.panel-tabset}
 
 
-## Top Targeted Audiences
+## Top Doelgroepen
 
-The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent. The top focus groups predominantly target interests such as 'books' or 'politics.'
 
 ```{r}
 
@@ -910,13 +908,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Excluded Audiences
-
-
-Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent. Most focus groups are focused on interests such as 'books' or 'politics'.
-
-
-
+## Top Uitsluitingscriteria
 
 ```{r}
 
@@ -1039,10 +1031,11 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Contested Audiences
+## Gecontesteerde Doelgroepen
 
-The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.
 
+
+De onderstaande grafiek toont de populaties over wie de meeste strijd bestaat tussen de verschillende partijen. Dat wil zeggen de populaties aan wie de partijen het meeste geld uitgeven om hen via advertenties te bereiken.
 
 
 
@@ -1067,12 +1060,15 @@ if(length(thegraph30$x$hc_opts$series)!=0){
 
 # Vlaanderen
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Vlaanderen voor elke partij.
+
+
+
 ::: {.panel-tabset}
 
 
-## Top Targeted Audiences
+## Top Doelgroepen
 
-The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent. The top focus groups predominantly target interests such as 'books' or 'politics.'
 
 ```{r}
 
@@ -1201,12 +1197,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Excluded Audiences
-
-
-Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent. Most focus groups are focused on interests such as 'books' or 'politics'.
-
-
+## Top Uitsluitingscriteria
 
 
 ```{r}
@@ -1330,9 +1321,10 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Contested Audiences
+## Gecontesteerde Doelgroepen
 
-The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.
+
+De onderstaande grafiek toont de populaties over wie de meeste strijd bestaat tussen de verschillende partijen. Dat wil zeggen de populaties aan wie de partijen het meeste geld uitgeven om hen via advertenties te bereiken.
 
 
 
@@ -1358,12 +1350,13 @@ if(length(thegraph30$x$hc_opts$series)!=0){
 
 # Brussel
 
+Dit gedeelte toont de lijsttrekkers voor de verkiezingen in Brussel voor elke partij.
+
 ::: {.panel-tabset}
 
 
-## Top Targeted Audiences
+## Top Doelgroepen
 
-The chart below displays the most utilized targeting criteria by political parties on Meta, based on the amounts spent. The top focus groups predominantly target interests such as 'books' or 'politics.'
 
 ```{r}
 
@@ -1492,13 +1485,7 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Excluded Audiences
-
-
-Among the detailed options offered by Meta, the chart below shows the most excluded target audiences per party. The ranking is based on the amounts spent. Most focus groups are focused on interests such as 'books' or 'politics'.
-
-
-
+## Top Uitsluitingscriteria
 
 ```{r}
 
@@ -1621,10 +1608,9 @@ tags$div(class = "container", do.call(tags$div, rows))
 <br>
 <br>
 
-## Top Contested Audiences
+## Gecontesteerde Doelgroepen
 
-The charts below show the target audiences where most competition takes place. For example, the groups in which all parties invest large amounts to reach voters with the same interests.
-
+De onderstaande grafiek toont de populaties over wie de meeste strijd bestaat tussen de verschillende partijen. Dat wil zeggen de populaties aan wie de partijen het meeste geld uitgeven om hen via advertenties te bereiken.
 
 
 
