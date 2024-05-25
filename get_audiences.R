@@ -24,7 +24,7 @@ if(Sys.info()[["sysname"]]=="Windows"){
   print(paste0("TF: ", tf))
 }
 
-jb <- get_targeting("7860876103", timeframe = glue::glue("LAST_90_DAYS"))
+jb <- get_targeting("7860876103", timeframe = glue::glue("LAST_90_DAYS"), lang = "nl-NL")
 
 new_ds <- jb %>% arrange(ds) %>% slice(1) %>% pull(ds)
 # new_ds <- "2023-01-01"
@@ -50,10 +50,11 @@ write_lines(lubridate::as_date(tstamp), "tstamp.txt")
 
 
 
-wtm_data <- read_csv("data/wtm-advertisers-be-2023-12-04T09_18_56.410Z.csv") %>% #names
+wtm_data <- read_csv("data/07e893b0-0703-4f8e-b587-9cf3b811c31b.csv.gzip") %>% #names
   select(page_id = advertisers_platforms.advertiser_platform_ref,
          page_name = name, party = entities.short_name)  %>%
   mutate(page_id = as.character(page_id)) %>% 
+  filter(party != "Aut") %>% 
   mutate(party = case_when(
     party == "NVA" ~ "N-VA",
     party == "VB" ~ "Vlaams Belang",
@@ -68,11 +69,21 @@ wtm_data <- read_csv("data/wtm-advertisers-be-2023-12-04T09_18_56.410Z.csv") %>%
   ))
   
 
+
+lts <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0XNMGPHY1OLNpoZqxR6_dlF_kxJ0C7KpOKuXcIVgcf6oy8ljxLghXaAX6pPLXCgO-o/pub?output=csv") %>% 
+  janitor::clean_names() %>% 
+  rename(page_name = candidate) %>% 
+  mutate(page_id = str_extract(ad_library_page, "view_all_page_id=.*") %>%
+           str_remove_all("view_all_page_id\\=")) %>% 
+  separate(page_id, into = c("page_id", "other"), sep = "&") %>% 
+  select(-other)
+
+
 all_dat <- #read_csv("nl_advertisers.csv") %>%
   # mutate(page_id = as.character(page_id)) %>%
   # bind_rows(internal_page_ids) %>%
   bind_rows(wtm_data) %>%
-  # bind_rows(rep) %>%
+  bind_rows(lts %>% select(page_name, page_id, party)) %>%
   # bind_rows(more_data %>% mutate(source = "new")) %>%
   # bind_rows(groenams) %>%
   distinct(page_id, .keep_all = T) %>%
@@ -81,7 +92,10 @@ all_dat <- #read_csv("nl_advertisers.csv") %>%
   filter(!remove_em) %>%
   # filter(n >= 2) %>%
   # filter(n >= 2 & str_ends(page_id, "0", negate = T)) %>%
-  select(-n)  
+  select(-n)  %>% 
+  drop_na(page_id)
+
+
 
 
 # all_dat %>% filter(str_detect(page_name, "GroenLinks-PvdA"))
@@ -94,7 +108,7 @@ scraper <- function(.x, time = tf) {
   
   # print(paste0(.x$page_name,": ", round(which(internal_page_ids$page_id == .x$page_id)/nrow(internal_page_ids)*100, 2)))
   
-  fin <- get_targeting(.x$page_id, timeframe = glue::glue("LAST_{time}_DAYS")) %>%
+  fin <- get_targeting(.x$page_id, timeframe = glue::glue("LAST_{time}_DAYS"), lang = "nl-NL") %>%
     mutate(tstamp = tstamp)
   
   if(nrow(fin)!=0){

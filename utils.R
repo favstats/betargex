@@ -240,13 +240,31 @@ add_ribbons <- function(x, adv, col) {
 
 
 
-get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
+#' Get Meta Ad Library targeting data for a page
+#'
+#' This function retrieves data for the targeting criteria of a Facebook page for a specified timeframe.
+#'
+#' @param id A character string representing the Facebook page ID.
+#' @param timeframe A character string representing the desired timeframe. Can either be "LAST_30_DAYS" or "LAST_7_DAYS". Defaults to "LAST_30_DAYS".
+#' @param lang An ISO language code character string representing the desired language of the targeting criteria. Defaults to "en-GB" but can be "en-US" and many more.
+#'
+#' @return A `tibble` containing the audience data for the specified Facebook page and timeframe.
+#'
+#' @examples
+#' \dontrun{
+#' get_targeting("123456789")
+#' get_targeting("987654321", "LAST_7_DAYS")
+#' }
+#'
+#' @export
+#'
+get_targeting <- function(id, timeframe = "LAST_30_DAYS", lang = "en-GB") {
   
   url <- "https://www.facebook.com/api/graphql/"
   
   heads_up <- httr::add_headers(`User-Agent` = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
                                 Accept = "*/*",
-                                `Accept-Language` = 'nl-NL,en;q=0.5',
+                                `Accept-Language` = paste0(lang, ',', stringr::str_split(lang, "-") %>% unlist() %>% .[1],';q=0.5'),
                                 `X-FB-Friendly-Name` = "AdLibraryPageAudienceTabQuery",
                                 `X-FB-LSD`= "AVrNiQCSUnA",
                                 `Alt-Used`= "www.facebook.com",
@@ -277,7 +295,7 @@ get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
     
     heads_up <- httr::add_headers(`User-Agent` = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
                                   Accept = "*/*",
-                                  `Accept-Language` = 'en-US,en;q=0.5',
+                                  `Accept-Language` = paste0(lang, ',', stringr::str_split(lang, "-") %>% unlist() %>% .[1],';q=0.5'),
                                   `X-FB-Friendly-Name` = "AdLibraryPageAudienceTabQuery",
                                   `X-FB-LSD`= "AVrNiQCSUnA",
                                   `Alt-Used`= "www.facebook.com",
@@ -299,7 +317,7 @@ get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
   
   contentwise <- httr::content(posted)
   
-  rate_limit <- str_detect(as.character(contentwise), "Rate limit exceeded")
+  rate_limit <- stringr::str_detect(as.character(contentwise), "Rate limit exceeded")
   if(rate_limit){
     stop(as.character(contentwise))
   }
@@ -309,7 +327,7 @@ get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
   out_raw <- contentwise %>%
     rvest::html_nodes("body") %>%
     rvest::html_nodes("p") %>%
-    as.character() %>% str_remove_all("</p>|<p>") %>%
+    as.character() %>% stringr::str_remove_all("</p>|<p>") %>%
     jsonlite::fromJSON()  %>%
     purrr::pluck("data") %>%
     purrr::pluck("page") %>%
@@ -341,6 +359,7 @@ get_targeting <- function(id, timeframe = "LAST_30_DAYS") {
   return(res)
   
 }
+
 
 get_targeting <- suppressWarnings(get_targeting)
 

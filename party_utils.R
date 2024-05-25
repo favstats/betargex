@@ -17,14 +17,39 @@ options(scipen = 999)
 
 # wtm_data %>% count(party,sort = T)
 
+wtm_data <- read_csv("../data/07e893b0-0703-4f8e-b587-9cf3b811c31b.csv.gzip")  #names
+  
+# wtm_data %>% 
+  # select(party = entities.short_name, colors = entities.color) %>% 
+  # distinct() %>% 
+  # filter(party != "Aut") %>% 
+  # mutate(party = case_when(
+  #   party == "NVA" ~ "N-VA",
+  #   party == "VB" ~ "Vlaams Belang",
+  #   party == "PS" ~ "PS",
+  #   party == "V" ~ "Vooruit",
+  #   party == "CDV" ~ "CD&V",
+  #   party == "Eco" ~ "Ecolo",
+  #   party == "GRO" ~ "Groen",
+  #   party == "Eng" ~ "Les Engagés",
+  #   party == "Open VLD" ~ "Open Vld",
+  #   T ~ party
+  # )) %>% 
+  # dput()
 
 # source("../party_utils.R")
-color_dat <- tibble(
-  party = c("N-VA", "Vlaams Belang", "PS", "CD&V", "PVDA", "MR", "Ecolo", 
-            "Groen", "DéFI", "Les Engagés", "Open Vld", "Vooruit"),
-  colors = c("#f9ce19", "#000000", "#ff0000", "#ff6200", "#8b0000", "#1f5db5", "#6eb651", 
-             "#01796f", "#df1e8f", "#00e6d2", "#0087dc", "#c60000")
-)
+color_dat <- structure(list(party = c("MR", "Les Engagés", "N-VA", "Ecolo", 
+                                      "Vlaams Belang", "CD&V", "Open Vld",
+                                      "Groen", "PVDA", "Vooruit", 
+                                      "PS", "DéFI", "VU", "ProDG", "l'Unie",
+                                      "PB", "B.U.B."), 
+                            colors = c("#0047AB", "#02E5D2", "#F9CE19",
+                                       "#5aad39", "#000000", "#FF6200",
+                                       "#0087DC", "#01796F", "#8B0000",
+                                       "#b60000", "#FF0000", "#DD0081",
+                                       "#DD00BB", "#A000a0", "#0000a0",
+                                       "#6000a0", "#A1cccc")), row.names = c(NA, -17L
+                                                                                                         ), class = c("tbl_df", "tbl", "data.frame"))
 
 most_left_party <- "Groen"
 
@@ -45,29 +70,36 @@ scale_color_parties <- function(...){
 }
 
 
+
 election_dat30 <- readRDS("../data/election_dat30.rds") %>%
   # left_join(all_dat) %>%
+  mutate(total_spend_formatted = str_remove_all(total_spend_formatted, "\\.") %>% as.numeric) %>%
+  # select(total_spend_formatted) %>%
   rename(internal_id = page_id) %>%
   filter(party != "Aut")  %>%
-  filter(is.na(no_data)) %>% 
-  mutate(party = case_when(
-    party == "NVA" ~ "N-VA",
-    party == "VB" ~ "Vlaams Belang",
-    party == "PS" ~ "PS",
-    party == "V" ~ "Vooruit",
-    party == "CDV" ~ "CD&V",
-    party == "Eco" ~ "Ecolo",
-    party == "GRO" ~ "Groen",
-    party == "Eng" ~ "Les Engagés",
-    party == "Open VLD" ~ "Open Vld",
-    T ~ party
-  )) %>% 
+  filter(is.na(no_data)) %>%
+  mutate(
+    party = case_when(
+      party == "NVA" ~ "N-VA",
+      party == "VB" ~ "Vlaams Belang",
+      party == "PS" ~ "PS",
+      party == "V" ~ "Vooruit",
+      party == "CDV" ~ "CD&V",
+      party == "Eco" ~ "Ecolo",
+      party == "GRO" ~ "Groen",
+      party == "Eng" ~ "Les Engagés",
+      party == "Open VLD" ~ "Open Vld",
+      T ~ party
+    )
+  ) %>%
   drop_na(party)
 
 
 
 election_dat7 <- readRDS("../data/election_dat7.rds") %>%
   # left_join(all_dat) %>%
+  mutate(total_spend_formatted = str_remove_all(total_spend_formatted, "\\.") %>% as.numeric) %>%
+  # select(total_spend_formatted) %>%
   rename(internal_id = page_id) %>%
   filter(party != "Aut")  %>%
   filter(is.na(no_data)) %>% 

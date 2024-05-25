@@ -58,9 +58,13 @@ knitr::opts_chunk$set(
 
 ```{r}
 
-lts <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0XNMGPHY1OLNpoZqxR6_dlF_kxJ0C7KpOKuXcIVgcf6oy8ljxLghXaAX6pPLXCgO-o/pub?output=csv") %>% 
+lts <<- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0XNMGPHY1OLNpoZqxR6_dlF_kxJ0C7KpOKuXcIVgcf6oy8ljxLghXaAX6pPLXCgO-o/pub?output=csv") %>% 
   janitor::clean_names() %>% 
-  rename(page_name = candidate)
+  rename(page_name = candidate) %>% 
+  mutate(page_id = str_extract(ad_library_page, "view_all_page_id=.*") %>%
+           str_remove_all("view_all_page_id\\=")) %>% 
+  separate(page_id, into = c("page_id", "other"), sep = "&") %>% 
+  select(-other)
 
 # lts
 
@@ -75,18 +79,22 @@ lts <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0X
   # select(-internal_id, -facebook_id) %>% 
   # openxlsx::write.xlsx("candidates.xlsx")
 
+# lts
+
 ```
 
 
 ```{r}
 
-thedata <- election_dat30 %>% 
-  distinct(internal_id, .keep_all = T) %>% 
+thedata <- readRDS("endit.rds") %>% 
+  filter(date >= as.Date("2024-02-19")) %>% 
   group_by(party) %>% 
-  summarize(total_spend_formatted = sum(total_spend_formatted)) %>% 
+  summarize(total_spend_formatted = sum(`Daily Spend`, na.rm = T)) %>% 
   ungroup() %>% 
   left_join(color_dat) %>% 
-  arrange(desc(total_spend_formatted))
+  arrange(desc(total_spend_formatted)) %>% 
+  filter(!(party %in% c("VU", "l'Unie", "B.U.B.", "ProDG")))
+
 
 
 
@@ -219,6 +227,12 @@ election_type_colors <- c(
   "EU" = "#C1D4E1"
 )
 
+detailed_colors <- c(
+  "INTERESSEN" = "#FFDDC1",
+  "DEMOGRAFIE" = "#C1E1C1",
+  "GEDRAG" = "#C1E3E1"
+)
+
 election_types <- c("federal_election", 
                     "Flemish_election", 
                     "Brussels_Gewest",
@@ -245,15 +259,13 @@ interest_targeting30 <-  election_dat30 %>%
     # mutate(total_spend = ifelse(total_spend == 100, 50, total_spend)) %>%
     mutate(target_spend = total_spend * total_spend_pct) %>%
     filter(main_currency == the_currency)  %>%
-    # left_join(page_names %>% select(internal_id = page_id, page_name) %>% distinct(internal_id, .keep_all =T)) %>%
-    # left_join(us_advertisers %>% rename(internal_id = page_id)) %>%
     # drop_na(left_vs_right) %>%
-    mutate(value = paste0(detailed_type,": ", value)) %>%
+    # mutate(value = paste0(detailed_type,": ", value)) %>%
     # group_by(page_name, value, is_exclusion, detailed_type) %>%
     # summarise(total_spend = sum(total_spend)) %>%
     # ungroup() %>%
     arrange(desc(total_spend))  %>%
-  filter(!is_exclusion) %>%
+  # filter(!is_exclusion) %>%
   # filter(total_spend >= 40000) %>%
   filter(total_spend >= 1) %>%
   # add_count(value) %>%
@@ -261,14 +273,20 @@ interest_targeting30 <-  election_dat30 %>%
   # left_join(byparty30) %>%
   # group_by(party) %>%
   # mutate(total_spenderino = sum(total_spend)) %>%
-  mutate(perc = target_spend/total_spend)# %>%
+  mutate(perc = target_spend/total_spend) %>%
+  mutate(detailed_type = case_when(
+    detailed_type == "INTERESTS" ~ "INTERESSEN",
+    detailed_type == "DEMOGRAPHICS" ~ "DEMOGRAFIE",
+    detailed_type == "BEHAVIORS" ~ "GEDRAG",
+    T ~ detailed_type
+  ))
   # mutate(value = str_remove_all(value, "INTERESTS: |DEMOGRAPHICS: |BEHAVIORS: ")) 
 
 
 findat <- interest_targeting30 %>% 
   mutate(perc_ads = num_ads / total_num_ads,
          perc = target_spend/total_spend_formatted) %>% 
-  select(internal_id, target = value, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads) %>%
+  select(internal_id, detailed_type, target = value, is_exclusion, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads) %>%
   bind_rows(col_each30%>% 
   mutate(perc = perc/100,
          perc_ads = perc_ads/100)) %>% 
@@ -277,44 +295,44 @@ findat <- interest_targeting30 %>%
   filter(target != "interest") %>% 
   # filter(n == 3) %>%
   mutate(target = case_when(
-    target == "custom_audience" ~ "Custom Audiences",
-    target == "countries" ~ "GEOGRAPHY: Entire Country",
-    target == "regions" ~ "GEOGRAPHY: Regions",
-    target == "lookalike_audience" ~ "Lookalike Audiences",
-    target == "interest" ~ "Detailed",
-    target == "age" ~ "Age",
-    target == "zips" ~ "GEOGRAPHY: Postal Code",
-    target == "CITY" ~ "GEOGRAPHY: City",
-    target == "language" ~ "Language",
-    target == "gender" ~ "Gender",
-    target == "COMUNE" ~ "GEOGRAPHY: Municipality",
-    target == "electoral_districts" ~ "GEOGRAPHY: Electoral Districts",
-    target == "COUNTY" ~ "GEOGRAPHY: Counties",
-    str_detect(target, "NEIGHBOR") ~ "GEOGRAPHY: Neighborhood",
+  target == "custom_audience" ~ "Custom Audiences",
+  target == "countries" ~ "GEOGRAFIE: Geheel Land",
+  target == "regions" ~ "GEOGRAFIE: Regio's",
+  target == "lookalike_audience" ~ "Lookalike Audiences",
+  target == "interest" ~ "Gedetailleerd",
+  target == "age" ~ "Leeftijd",
+  target == "zips" ~ "GEOGRAFIE: Postcode",
+  target == "CITY" ~ "GEOGRAFIE: Stad",
+  target == "language" ~ "Taal",
+  target == "gender" ~ "Geslacht",
+  target == "COMUNE" ~ "GEOGRAFIE: Gemeente",
+  target == "electoral_districts" ~ "GEOGRAFIE: Kiesdistricten",
+  target == "COUNTY" ~ "GEOGRAFIE: Provincies",
+  str_detect(target, "NEIGHBOR") ~ "GEOGRAFIE: Buurt",
     T ~ target
   )) %>%
-    filter(target != "Unknown") 
+    filter(target != "Unknown") %>% 
+  mutate(is_exclusion = ifelse(!is_exclusion, "✅", "❌"))
 
 make_tab <- function(tp = "N-VA") {
   
-yes <-  election_dat30 %>%
+yes <<-  election_dat30 %>%
   select(-type) %>% 
-  left_join(lts %>% select(-party)) %>%
+  left_join(lts %>% select(-party, -page_name) %>% 
+              rename(internal_id = page_id), 
+            by = "internal_id") %>%
   mutate(type = str_remove_all(type, "Lijsttrekkers_")) %>% 
   filter(party == tp) %>%
   filter(main_currency == the_currency) %>%
   distinct(internal_id, .keep_all = TRUE) %>%
   arrange(desc(total_spend_formatted)) %>%
   # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
-  select(page_name, total_num_ads, total_spend_formatted, type, internal_id) %>%
-  set_names(c("Page", "Ads", "Spent (€)", "Race", "internal_id")) 
+  select(page_name, total_num_ads, total_spend_formatted, internal_id) %>%
+  set_names(c("Page", "Ads", "Spent (€)", "internal_id")) 
 
 # Assuming `election_dat30` and `lts` are your data frames
 styled_reactable <- yes %>%
   # select(-internal_id) %>%
-  left_join(data.frame(election_type_colors) %>%
-              rownames_to_column() %>%
-              rename(Race = rowname)) %>%
   reactable(
     fullWidth = T,
     pagination = T,
@@ -361,19 +379,22 @@ styled_reactable <- yes %>%
           bar_height = 10
         )
       ),
-      Race = colDef(
-        name = "Race",
-        cell = color_tiles(data = .,
-                           color_ref = 'election_type_colors')
-      ),
-      election_type_colors = colDef(show = FALSE),
+      # Race = colDef(
+      #   name = "Race",
+      #   cell = color_tiles(data = .,
+      #                      color_ref = 'election_type_colors')
+      # ),
+      # election_type_colors = colDef(show = FALSE),
       internal_id = colDef(show = FALSE)
     ),
     # compact = TRUE,
     class = "styled-table",
     details = function(index) {
       plant_data <- findat[findat$internal_id == yes$internal_id[index],]
-      withindat <- plant_data %>% select(target, -ads_per, spend_per, perc, -perc_ads)
+      withindat <<- plant_data %>% select(detailed_type, target, is_exclusion, spend_per, perc) %>% 
+  left_join(data.frame(detailed_colors ) %>%
+              rownames_to_column() %>%
+              rename(detailed_type = rowname)) 
       htmltools::div(
         style = "padding: 1rem",
         reactable(
@@ -384,7 +405,14 @@ styled_reactable <- yes %>%
           defaultColDef = colDef(headerClass = "header", align = "left"),
           defaultSorted = "perc",
           columns = list(
+            detailed_type = colDef(name = "Type",
+                          cell = color_tiles(data = withindat,
+                                             color_ref = 'detailed_colors')), 
+                detailed_colors = colDef(show = FALSE),
             target = colDef(header = "Target"),
+            is_exclusion = colDef(header = "Include", maxWidth = 10),
+
+            
         #     ads_per = colDef(
         #       header = "Ads",
         #               cell = data_bars(
@@ -456,12 +484,39 @@ return(styled_reactable)
 }
 
 
-
+# debugonce(make_tab)
 # styled_reactable
 make_tab("N-VA")
+
+
  
 ```
 </div>
+
+```{r, eval = F}
+yes <<-  election_dat30 %>%
+  select(-type) %>% 
+  left_join(lts %>% select(-party, -page_name) %>% 
+              rename(internal_id = page_id), 
+            by = "internal_id") %>%
+  mutate(type = str_remove_all(type, "Lijsttrekkers_")) %>% 
+  filter(party == "N-VA") %>%
+  filter(main_currency == the_currency) %>%
+  distinct(internal_id, .keep_all = TRUE) %>%
+  arrange(desc(total_spend_formatted)) %>%
+  # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
+  select(page_name, total_num_ads, total_spend_formatted, type, internal_id) %>%
+  set_names(c("Page", "Ads", "Spent (€)", "Race", "internal_id")) 
+
+yes
+
+election_dat30 %>% 
+  select(total_spend_formatted) %>%
+  arrange(desc(election_dat30))
+
+# yes %>% reactable()
+```
+
 
 <div id="Groen" class="party-content" style="display:none;">
 ```{r}
@@ -556,12 +611,6 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-#map-container {
-  width: 100%;
-  height: 600px;
-  border: 2px solid red;
 }
 
 .highcharts-container {

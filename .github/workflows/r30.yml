@@ -60,6 +60,8 @@ jobs:
             any::sf
             any::prettydoc
             any::DT
+            any::reactable
+            any::reactablefmtr
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - name: "Install Packages"
         run: |

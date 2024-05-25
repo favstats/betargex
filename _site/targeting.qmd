@@ -77,6 +77,23 @@ if(Sys.info()[["user"]] == "fabio"){
 
 
 saveRDS(col_each30, "col_each30.rds")
+
+
+
+  col_each30_excl <- election_dat30 %>%
+    mutate(total_spend = total_spend_formatted) %>%
+    filter(main_currency == the_currency) %>%
+    group_split(internal_id) %>%
+    map_dfr(~{
+        calc_targeting(.x, exclude = T) %>%
+            mutate(#coalition = .x$coalition[1],
+                   party = .x$party[1],
+                   internal_id = .x$internal_id[1])
+    })
+  
+  saveRDS(col_each30_excl, "col_each30_exclrds")
+
+
 }
 
 
@@ -91,20 +108,20 @@ gg <- col_each30  %>%
   add_count(target) %>%
   # filter(n == 3) %>%
   mutate(target = case_when(
-    target == "custom_audience" ~ "Custom Audiences",
-    target == "countries" ~ "GEOGRAPHY: Entire Country",
-    target == "regions" ~ "GEOGRAPHY: Regions",
-    target == "lookalike_audience" ~ "Lookalike Audiences",
-    target == "interest" ~ "Detailed",
-    target == "age" ~ "Age",
-    target == "zips" ~ "GEOGRAPHY: Postal Code",
-    target == "CITY" ~ "GEOGRAPHY: City",
-    target == "language" ~ "Language",
-    target == "gender" ~ "Gender",
-    target == "COMUNE" ~ "GEOGRAPHY: Municipality",
-    target == "electoral_districts" ~ "GEOGRAPHY: Electoral Districts",
-    target == "COUNTY" ~ "GEOGRAPHY: Counties",
-    str_detect(target, "NEIGHBOR") ~ "GEOGRAPHY: Neighborhood",
+  target == "custom_audience" ~ "Custom Audiences",
+  target == "countries" ~ "GEOGRAFIE: Geheel Land",
+  target == "regions" ~ "GEOGRAFIE: Regio's",
+  target == "lookalike_audience" ~ "Lookalike Audiences",
+  target == "interest" ~ "Gedetailleerd",
+  target == "age" ~ "Leeftijd",
+  target == "zips" ~ "GEOGRAFIE: Postcode",
+  target == "CITY" ~ "GEOGRAFIE: Stad",
+  target == "language" ~ "Taal",
+  target == "gender" ~ "Geslacht",
+  target == "COMUNE" ~ "GEOGRAFIE: Gemeente",
+  target == "electoral_districts" ~ "GEOGRAFIE: Kiesdistricten",
+  target == "COUNTY" ~ "GEOGRAFIE: Provincies",
+  str_detect(target, "NEIGHBOR") ~ "GEOGRAFIE: Buurt",
     T ~ target
   )) %>%
     filter(target != "Unknown") %>%
@@ -306,6 +323,19 @@ col_each7 <- election_dat7 %>%
                    party = .x$party[1],
                    internal_id = .x$internal_id[1])
     })
+
+  col_each7_excl <- election_dat7 %>%
+    mutate(total_spend = total_spend_formatted) %>%
+    filter(main_currency == the_currency) %>%
+    group_split(internal_id) %>%
+    map_dfr(~{
+        calc_targeting(.x, exclude = T) %>%
+            mutate(#coalition = .x$coalition[1],
+                   party = .x$party[1],
+                   internal_id = .x$internal_id[1])
+    })
+  
+  saveRDS(col_each30_excl, "col_each30_exclrds")
 
 
 saveRDS(col_each7, "col_each7.rds")
