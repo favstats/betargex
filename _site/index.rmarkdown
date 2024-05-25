@@ -1,0 +1,833 @@
+---
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de verkiezingen monitoren we politieke microtargeting."
+lang: nl
+format: 
+  html:
+    page-layout: full
+---
+
+```{r setup, include=FALSE}
+library(highcharter)
+library(jsonlite)
+library(reactable)
+
+
+sets <- jsonlite::fromJSON("../settings.json")
+
+## Global options
+knitr::opts_chunk$set(
+    cache = F,
+    echo = F,
+    warning = F,
+    message = F,
+    cache.lazy = FALSE
+)
+
+
+pacman::p_load(htmltools, tidyverse, highcharter, gt, gtExtras)
+
+options(scipen = 999)
+# print(getwd())
+# here::here("")
+# prCint(getwd())
+hcoptslang <- getOption("highcharter.lang")
+# 
+hcoptslang$shortMonths <- c("Jan", "Feb", "Mrt", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dec")
+# 
+options(highcharter.lang = hcoptslang)
+
+
+source("../utils.R")
+source("../party_utils.R")
+
+
+## Global options
+knitr::opts_chunk$set(
+    cache = F,
+    echo = F,
+    warning = F,
+    message = F,
+    cache.lazy = FALSE
+)
+```
+
+
+<center>
+### Kies een partij
+</center>   
+
+
+
+```{r}
+
+lts <<- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0XNMGPHY1OLNpoZqxR6_dlF_kxJ0C7KpOKuXcIVgcf6oy8ljxLghXaAX6pPLXCgO-o/pub?output=csv") %>% 
+  janitor::clean_names() %>% 
+  rename(page_name = candidate) %>% 
+  mutate(page_id = str_extract(ad_library_page, "view_all_page_id=.*") %>%
+           str_remove_all("view_all_page_id\\=")) %>% 
+  separate(page_id, into = c("page_id", "other"), sep = "&") %>% 
+  select(-other)
+
+# lts
+
+
+# election_dat30 %>% 
+#   distinct(page_name, internal_id) %>% 
+  # right_join(lts, by = "page_name") %>% 
+  # mutate(ad_library_page = ifelse(is.na(internal_id), NA, glue::glue(
+  #   "https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=BE&view_all_page_id={internal_id}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=page&media_type=all"
+  # ))) %>% 
+  # arrange(party, region) %>% 
+  # select(-internal_id, -facebook_id) %>% 
+  # openxlsx::write.xlsx("candidates.xlsx")
+
+# lts
+
+```
+
+```{r}
+
+thedata <- readRDS("endit.rds") %>% 
+  filter(date >= as.Date("2024-02-19")) %>% 
+  group_by(party) %>% 
+  summarize(total_spend_formatted = sum(`Daily Spend`, na.rm = T)) %>% 
+  ungroup() %>% 
+  left_join(color_dat) %>% 
+  arrange(desc(total_spend_formatted)) %>% 
+  filter(!(party %in% c("VU", "l'Unie", "B.U.B.", "ProDG", "Viva Palestina", "Voor U", "Dieranimal")))
+
+
+
+
+highchart() %>%
+  hc_chart(type = "venn")  %>%
+  hc_add_series(
+    dataLabels = list(
+      style = list(
+        fontSize = "20px"
+      ),
+      formatter = JS("function() { return '<span style=\"color:' + this.point.color + '\">' + this.point.name + '</span>'; }")
+    ),
+    name = "Totale Uitgaven in € (sinds 9 februari)",
+    data = lapply(1:nrow(thedata), function(i) {
+      list(
+        name = thedata$party[i],
+        sets = list(thedata$party[i]),
+        value = thedata$total_spend_formatted[i],
+        color = thedata$colors[i]
+      )
+    })
+  ) %>%
+  hc_tooltip(
+    useHTML = TRUE,
+    pointFormat = "<b>{point.name}:</b> {point.value}"
+  )  %>%
+  hc_plotOptions(
+    series = list(
+      events = list(
+        click = JS("function(event) { 
+                     var party = event.point.name;
+                     console.log('Party clicked:', party);
+                     document.querySelectorAll('.party-content').forEach(function(el) {
+                       el.style.display = 'none';
+                     });
+                     var partyElement = document.getElementById(party);
+                     if (partyElement) {
+                       partyElement.style.display = 'block';
+                     } else {
+                       console.error('Party element with ID ' + party + ' not found');
+                     }
+                   }")
+      )
+    )
+  )
+
+
+
+
+```
+
+```{r, eval = F}
+
+data <- election_dat30 %>% 
+  distinct(internal_id, .keep_all = T) %>% 
+  group_by(party) %>% 
+  arrange(desc(total_spend_formatted)) %>% 
+  slice(1:5) %>% 
+  ungroup() 
+
+hc <- hchart(data, "packedbubble", hcaes(name = page_name, value = total_spend_formatted, group = party))
+
+
+hc %>% 
+  hc_tooltip(
+    useHTML = TRUE,
+    pointFormat = "<b>{point.name}:</b> {point.value}"
+  ) %>% 
+  hc_plotOptions(
+    packedbubble = list(
+      maxSize = "200%",
+      zMin = 0,
+      layoutAlgorithm = list(
+        gravitationalConstant = 0.1, # Increase to make it more stable
+        splitSeries = TRUE, # TRUE to group points by series
+        seriesInteraction = TRUE,
+        dragBetweenSeries = TRUE,
+        parentNodeLimit = TRUE,
+        initialPositions = "circle" # Default is random, can try 'circle'
+      ),
+      dataLabels = list(
+        enabled = TRUE,
+        format = "{point.name}",
+        style = list(
+          color = "black",
+          textOutline = "none",
+          fontWeight = "normal"
+        )
+      )
+    )
+  )
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+<div id="content">
+
+
+
+
+<div id="N-VA" class="party-content" style="display:none;">
+
+```{r}
+library(reactablefmtr)
+
+# Render a bar chart with a label on the left
+bar_chart <- function(label, width = "100%", height = "1rem", fill = "#4fd0e8", background = NULL) {
+  bar <- div(style = list(background = fill, width = width, height = height))
+  chart <- div(style = list(flexGrow = 1, marginLeft = "0.5rem", background = background), bar)
+  div(style = list(display = "flex", alignItems = "center"), label, chart)
+}
+
+# 
+# reactable(iris)
+election_type_colors <- c(
+  "federal_election" = "#FFDDC1",
+  "Flemish_election" = "#C1E1C1",
+  "Brussels_Gewest" = "#C1E3E1",
+  "EU" = "#C1D4E1"
+)
+
+detailed_colors <- c(
+  "INTERESSEN" = "#FFDDC1",
+  "DEMOGRAFIE" = "#C1E1C1",
+  "GEDRAG" = "#C1E3E1",
+  "DOELGREOPEN" = "#A1E3E1",
+  "GEOGRAFIE" = "#C1D4E1"
+)
+
+election_types <- c("federal_election", 
+                    "Flemish_election", 
+                    "Brussels_Gewest",
+                    "EU")
+# election_type_colors <- rgb(colorRampPalette(c("#ffe4cc", "#ff9f1a"))(length(election_types)), maxColorValue = 255)
+names(election_type_colors) <- election_types
+
+
+
+byparty30 <- election_dat30 %>%
+  distinct(internal_id, party, .keep_all = T) %>%
+  group_by(party) %>%
+  summarize(total_spenderino = sum(total_spend_formatted)) %>%
+  ungroup() %>%
+  select(party, total_spenderino)
+
+col_each30 <- readRDS("col_each30.rds")
+col_each30_excl <- readRDS("col_each30_excl.rds")
+col_each30_incl <- readRDS("col_each30_incl.rds")
+
+
+interest_targeting30 <-  election_dat30 %>%
+    mutate(total_spend = total_spend_formatted) %>%
+    filter(type == "detailed") %>%
+    mutate(target_spend = total_spend * total_spend_pct) %>%
+    filter(main_currency == the_currency)  %>%
+    arrange(desc(total_spend))  %>%
+  filter(total_spend >= 1) %>%
+  mutate(perc = target_spend/total_spend) %>%
+  mutate(detailed_type = case_when(
+    detailed_type == "INTERESTS" ~ "INTERESSEN",
+    detailed_type == "DEMOGRAPHICS" ~ "DEMOGRAFIE",
+    detailed_type == "BEHAVIORS" ~ "GEDRAG",
+    T ~ detailed_type
+  ))
+
+
+findat <- interest_targeting30 %>% 
+  mutate(perc_ads = num_ads / total_num_ads,
+         perc = target_spend/total_spend_formatted) %>% 
+  select(internal_id, detailed_type, target = value, is_exclusion, ads_per = num_ads, spend_per = target_spend, party, perc, perc_ads)  %>% 
+  bind_rows(col_each30_incl %>% 
+  mutate(perc = perc/100,
+         perc_ads = perc_ads/100,
+         is_exclusion = F) %>% 
+  filter(perc != 0)) %>% 
+  bind_rows(col_each30_excl %>% 
+  mutate(perc = perc/100,
+         perc_ads = perc_ads/100,
+         is_exclusion = T) %>%
+  bind_rows(col_each30 %>% 
+  mutate(perc = perc/100, 
+         perc_ads = perc_ads/100) %>% 
+    filter(target %in% c("Gender: Mannen", "Gender: Vrouwen", "age", "language")) %>% 
+           mutate(is_exclusion = F)) %>%  
+  filter(perc != 0)) %>% 
+  filter(perc != 0)  %>%
+  distinct(detailed_type, target, internal_id, is_exclusion, .keep_all = T) %>% 
+  filter(target != "countries") %>% 
+  filter(target != "interest") %>% 
+  filter(target != "Gender: Alles") %>% 
+  # filter(n == 3) %>%
+  mutate(detailed_type = case_when(
+  target == "custom_audience" ~ "DOELGREOPEN",
+  target == "regions" ~ "GEOGRAFIE",
+  target == "lookalike_audience" ~ "DOELGREOPEN",
+  target == "interest" ~ "Gedetailleerd",
+  target == "age" ~ "DEMOGRAFIE",
+  target == "zips" ~ "GEOGRAFIE",
+  target == "CITY" ~ "GEOGRAFIE",
+  target == "language" ~ "DEMOGRAFIE",
+  target == "gender" ~ "DEMOGRAFIE",
+  target == "Gender: Mannen" ~ "DEMOGRAFIE",
+  target == "Gender: Vrouwen" ~ "DEMOGRAFIE",
+  target == "COMUNE" ~ "GEOGRAFIE",
+  target == "electoral_districts" ~ "GEOGRAFIE",
+  target == "COUNTY" ~ "GEOGRAFIE",
+  str_detect(target, "NEIGHBOR") ~ "GEOGRAFIE",
+  target == "MUNICIPALITY" ~ "GEOGRAFIE",
+    T ~ detailed_type
+  )) %>% 
+  mutate(target = case_when(
+  target == "custom_audience" ~ "Doelgroepen",
+  target == "countries" ~ "Geheel Land",
+  target == "regions" ~ "Regio's",
+  target == "lookalike_audience" ~ "Gelijkaardige Doelgroepen",
+  target == "interest" ~ "Gedetailleerd",
+  target == "age" ~ "Leeftijd",
+  target == "zips" ~ "Postcode",
+  target == "CITY" ~ "Stad",
+  target == "language" ~ "Taal",
+  target == "gender" ~ "Geslacht",
+  target == "Gender: Men" ~ "Mannen",
+  target == "Gender: Women" ~ "Vrouwen",
+  target == "COMUNE" ~ "Gemeente",
+  target == "electoral_districts" ~ "Kiesdistricten",
+  target == "COUNTY" ~ "Provincies",
+  str_detect(target, "NEIGHBOR") ~ "Buurt",
+    T ~ target
+  )) %>% 
+    filter(target != "Unknown") %>% 
+  mutate(is_exclusion = ifelse(!is_exclusion, "✅", "❌")) %>% 
+  left_join(data.frame(detailed_colors ) %>%
+              rownames_to_column() %>%
+              rename(detailed_type = rowname)) %>% 
+  mutate(is_exclusion = case_when(
+    target == "Taal" ~ "✅", 
+    target == "Geslacht" ~ "✅", 
+    target == "Mannen" ~ "✅", 
+    target == "Vrouwen" ~ "✅", 
+    target == "Leeftijd" ~ "✅", 
+    T ~ is_exclusion
+  ))
+
+with_tooltip <- function(value, tooltip) {
+  tags$abbr(style = "text-decoration: underline; text-decoration-style: dotted; cursor: help",
+            title = tooltip, value)
+}
+
+make_tab <- function(tp = "N-VA") {
+  
+yes <<-  election_dat30 %>%
+  select(-type) %>% 
+  left_join(lts %>% select(-party, -page_name) %>% 
+              rename(internal_id = page_id), 
+            by = "internal_id") %>%
+  mutate(type = str_remove_all(type, "Lijsttrekkers_")) %>% 
+  filter(party == tp) %>%
+  filter(main_currency == the_currency) %>%
+  distinct(internal_id, .keep_all = TRUE) %>%
+  arrange(desc(total_spend_formatted)) %>%
+  # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
+  select(page_name, total_num_ads, total_spend_formatted, internal_id) %>%
+  set_names(c("Pagina", "Advertenties", "Uitgegeven (€)", "internal_id"))
+
+# Assuming `election_dat30` and `lts` are your data frames
+styled_reactable <- yes %>%
+  # select(-internal_id) %>%
+  reactable(
+    fullWidth = T,
+    pagination = T,
+    defaultSorted = "Uitgegeven (€)",
+    defaultColDef = colDef(headerClass = "header", align = "left"),
+    columns = list(
+      Pagina = colDef(
+        name = "Pagina",
+        cell = function(value) {
+          internal_id <- yes$internal_id[yes$Pagina == value]
+
+          url <- glue::glue(    "https://www.facebook.com/ads/library/?active_status=all&ad_type=political_and_issue_ads&country=BE&view_all_page_id={internal_id}&sort_data[direction]=desc&sort_data[mode]=relevancy_monthly_grouped&search_type=page&media_type=all"
+  )
+          tags$a(href = url, target = "_blank", value)
+        }
+      ),
+      `Advertenties` = colDef(
+        defaultSortOrder = "desc",
+        name = "Advertenties",
+        cell = data_bars(
+          data = .,
+          round_edges = TRUE,
+              fill_color = "#3fc1c9",
+          background = "transparent",
+          text_position = "outside-end",
+          # text_color = text_color,
+          fill_gradient = FALSE,
+          # fill_color_ref = "energy_source_color",
+          number_fmt = scales::label_number(big.mark = ","),
+          bar_height = 10
+        )
+      ),
+      `Uitgegeven (€)` = colDef(
+        header = with_tooltip("Uitgegeven (€)", last30days_string),
+        defaultSortOrder = "desc", 
+        cell = data_bars(
+          data = .,
+              fill_color = "#3fc1c9",
+          round_edges = TRUE,
+          background = "transparent",
+          text_position = "outside-end",
+          # text_color = text_color,
+          fill_gradient = FALSE,
+          # fill_color_ref = "energy_source_color",
+          number_fmt = scales::label_number(big.mark = ","),
+          bar_height = 10
+        )
+      ),
+      # Race = colDef(
+      #   name = "Race",
+      #   cell = color_tiles(data = .,
+      #                      color_ref = 'election_type_colors')
+      # ),
+      # election_type_colors = colDef(show = FALSE),
+      internal_id = colDef(show = FALSE)
+    ),
+    # compact = TRUE,
+    class = "styled-table",
+    details = function(index) {
+      plant_data <- findat[findat$internal_id == yes$internal_id[index],]
+      withindat <<- plant_data %>% select(detailed_type, target, is_exclusion, spend_per, perc, detailed_colors)
+      htmltools::div(
+        style = "padding: 1rem",
+        reactable(
+          withindat,
+          # outlined = TRUE,
+          pagination = T,
+          fullWidth = T,
+          defaultColDef = colDef(headerClass = "header", align = "left"),
+          defaultSorted = "perc",
+          columns = list(
+            detailed_type = colDef(name = "Type",
+                          cell = color_tiles(data = withindat,
+                                             color_ref = 'detailed_colors'), width = 180), 
+                detailed_colors = colDef(show = FALSE),
+            target = colDef(header = "Target"),
+            is_exclusion = colDef(header = "Inclusief", width = 100),
+
+            
+        #     ads_per = colDef(
+        #       header = "Ads",
+        #               cell = data_bars(
+        #   data =withindat,
+        #       fill_color = "#3fc1c9",
+        #   round_edges = TRUE,
+        #   background = "transparent",
+        #   text_position = "outside-end",
+        #   # text_color = text_color,
+        #   fill_gradient = FALSE,
+        #   # fill_color_ref = "energy_source_color",
+        #   number_fmt = scales::label_number(big.mark = ","),
+        #   bar_height = 10
+        # )
+        #     ),
+        #     spend_per = colDef(
+        #       header = "Spent (€)",
+        #               cell = data_bars(
+        #   data = withindat,
+        #       fill_color = "#3fc1c9",
+        #   round_edges = TRUE,
+        #   background = "transparent",
+        #   text_position = "outside-end",
+        #   # text_color = text_color,
+        #   fill_gradient = FALSE,
+        #   # fill_color_ref = "energy_source_color",
+        #   number_fmt = scales::label_number(big.mark = ","),
+        #   bar_height = 10
+        # )
+        #     ),
+                spend_per = colDef(show = FALSE),
+            perc = colDef(
+              header = "% Budget",
+              defaultSortOrder = "desc",
+              # format = colFormat(percent = TRUE, digits = 1),
+                                          cell = data_bars(
+              data = withindat,
+              fill_color = "#3fc1c9",
+              background = '#eafafc',  text_size = 12,
+              # text_color = "white",
+              brighten_text = T,
+              min_value = 0,
+              max_value = 1,
+              text_position = 'center',
+              number_fmt = scales::percent,
+          bar_height = 20)
+            )#,
+            # perc_ads = colDef(
+            #   header = "% Ads",
+            #   # format = colFormat(percent = TRUE, digits = 1),
+            #   cell = data_bars(
+            #   data = withindat,
+            #   fill_color = "#3fc1c9",
+            #   background = '#eafafc',  text_size = 12,
+            #   # text_color = "white",
+            #   brighten_text = T,
+            #   min_value = 0,
+            #   max_value = 1,
+            #   text_position = 'inside-base',
+            #   number_fmt = scales::percent))
+          ),
+          # compact = TRUE,
+          class = "styled-table"
+        )
+      )
+    }
+  )
+
+return(styled_reactable)
+}
+
+
+# debugonce(make_tab)
+# styled_reactable
+make_tab("N-VA")
+
+
+ 
+```
+
+</div>
+
+
+```{r, eval = F}
+yes <<-  election_dat30 %>%
+  select(-type) %>% 
+  left_join(lts %>% select(-party, -page_name) %>% 
+              rename(internal_id = page_id), 
+            by = "internal_id") %>%
+  mutate(type = str_remove_all(type, "Lijsttrekkers_")) %>% 
+  filter(party == "N-VA") %>%
+  filter(main_currency == the_currency) %>%
+  distinct(internal_id, .keep_all = TRUE) %>%
+  arrange(desc(total_spend_formatted)) %>%
+  # mutate(total_spend_formatted = scales::comma(total_spend_formatted)) %>%
+  select(page_name, total_num_ads, total_spend_formatted, type, internal_id) %>%
+  set_names(c("Pagina", "Advertenties", "Uitgegeven (€)", "Race", "internal_id")) 
+
+yes
+
+election_dat30 %>% 
+  select(total_spend_formatted) %>%
+  arrange(desc(election_dat30))
+
+# yes %>% reactable()
+```
+
+
+
+<div id="Groen" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Groen")
+```
+
+</div>
+
+
+<div id="Vooruit" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Vooruit")
+```
+
+</div>
+
+<div id="Vlaams Belang" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Vlaams Belang")
+```
+
+</div>
+
+<div id="PVDA" class="party-content" style="display:none;">
+
+```{r}
+make_tab("PVDA")
+```
+
+</div>
+
+<div id="PS" class="party-content" style="display:none;">
+
+```{r}
+make_tab("PS")
+```
+
+</div>
+
+<div id="MR" class="party-content" style="display:none;">
+
+```{r}
+make_tab("MR")
+```
+
+</div>
+
+<div id="Open Vld" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Open Vld")
+```
+
+</div>
+
+<div id="CD&V" class="party-content" style="display:none;">
+
+```{r}
+make_tab("CD&V")
+```
+
+</div>
+
+<div id="DéFI" class="party-content" style="display:none;">
+
+```{r}
+make_tab("DéFI")
+```
+
+</div>
+
+<div id="Ecolo" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Ecolo")
+```
+
+</div>
+
+<div id="Les Engagés" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Les Engagés")
+```
+
+</div>
+
+<div id="Viva Palestina" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Viva Palestina")
+```
+
+</div>
+
+<div id="Voor U" class="party-content" style="display:none;">
+
+```{r}
+make_tab("Voor U")
+```
+
+</div>
+
+<div id="VU" class="party-content" style="display:none;">
+
+```{r}
+make_tab("VU")
+```
+
+</div>
+
+<div id="l'Unie" class="party-content" style="display:none;">
+
+```{r}
+make_tab("l'Unie")
+```
+
+</div>
+
+<div id="B.U.B." class="party-content" style="display:none;">
+
+```{r}
+make_tab("B.U.B.")
+```
+
+</div>
+
+<div id="ProDG" class="party-content" style="display:none;">
+
+```{r}
+make_tab("ProDG")
+```
+
+</div>
+
+<div id="PB" class="party-content" style="display:none;">
+
+```{r}
+make_tab("PB")
+```
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('DOM fully loaded and parsed');
+
+  // Hide all content initially
+  document.querySelectorAll('.region-content').forEach(function(el) {
+    el.style.display = 'none';
+  });
+  document.querySelectorAll('.party-content').forEach(function(el) {
+    el.style.display = 'none';
+  });
+</script>
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.highcharts-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.highcharts-root {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.panel-tabset .tab-content {
+  border-top: none; /* Adds a subtle top border */
+  border-bottom: none; /* Adds a subtle top border */
+  border-left: none; /* Adds a subtle top border */
+  border-right: none; /* Adds a subtle top border */    
+}
+
+
+/* CSS for the styled reactable */
+
+/* Styles for the table container, title, and subtitle */
+.styled-table {
+  /* Center the table */
+  margin: 0 auto;
+  /* Reduce the table width */
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* CSS for the styled reactable */
+
+/* Styles for the table container, title, and subtitle */
+.styled-table {
+  /* Center the table */
+  margin: 0 auto;
+  /* Reduce the table width */
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header {
+  border-bottom: 2px solid #555;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header:hover {
+  background-color: #eee;
+}
+
+/* Styles for the bar charts */
+.bar-cell {
+  display: flex;
+  align-items: center;
+}
+
+.number {
+  font-family: "Fira Mono", Consolas, Monaco, monospace;
+  font-size: 0.84375rem;
+  white-space: pre;
+}
+
+.bar-chart {
+  flex-grow: 1;
+  margin-left: 0.375rem;
+  height: 0.875rem;
+}
+
+.bar {
+  height: 100%;
+  background-color: #3fc1c9;
+}
+
+.number-cell {
+  text-align: right;
+  font-family: monospace;
+}
+
+.type-cell {
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.styled-table a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.styled-table a:hover,
+.styled-table a:focus {
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+}
+
+
+</style>
+
+

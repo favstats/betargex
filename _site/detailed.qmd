@@ -1,6 +1,6 @@
 ---
 title: "Gedetailleerde selectie"
-description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de verkiezingen monitoren we politieke microtargeting."
 lang: nl
 format:
   html:
@@ -117,10 +117,10 @@ contested_dat <- contested_dat %>%
     hc_plotOptions(bar = list(stacking = "normal")) %>%
     hc_xAxis(title = list(text = "Targeting criteria"), labels = list(style = list(fontSize = "10px")),
                  categories = as.list(the_order)) %>%
-    hc_yAxis(title = list(text = "% of budget spent on targeting method"), labels = list(format = "{value}%"), max = 100, min = 0) %>%
+    hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)"), labels = list(format = "{value}%"), max = 100, min = 0) %>%
             # hc_add_theme(hc_theme_google()) %>%
   highcharter::hc_tooltip(
-    pointFormat = paste0("<b>{point.party}</b><br>..makes up {point.y:.1f}% of total budget spent on {point.value}. <br>..a total of ", currency_symbol, "{point.total_spend:.0f} on this audience.<br><br>Total Expenditure on audience is ", currency_symbol, "{point.total_spenderino:.0f}."),
+    pointFormat = paste0("<b>{point.party}</b><br>..maakt {point.y:.1f}% uit van het totale budget besteed aan {point.value}. <br>..in totaal ", currency_symbol, "{point.total_spend:.0f} aan deze doelgroep.<br><br>Totale uitgaven aan doelgroep is ", currency_symbol, "{point.total_spenderino:.0f}."),
     headerFormat = ""
   ) %>%
     hc_legend(enabled = TRUE, verticalAlign = "bottom", layout = "horizontal") %>%
@@ -138,13 +138,13 @@ contested_dat <- contested_dat %>%
 
 generate_plots <- function(data, exclusion = F) {
 
-  if(exclusion){
-    wooord <- "on ads excluding"
-    wooord2 <- "excluding"
-  } else {
-    wooord <- "on ads including"
+if (exclusion) {
+    wooord <- "voor advertenties die uitsluiten"
+    wooord2 <- "uitsluitende"
+} else {
+    wooord <- "voor advertenties die targeten"
     wooord2 <- "targeting"
-  }
+}
 
   gg <- data %>%
     group_by(party) %>%
@@ -164,7 +164,7 @@ generate_plots <- function(data, exclusion = F) {
              color = the_color) %>%
         hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
         hc_yAxis(
-          title = list(text = paste0("% party budget spent on ", wooord2, " audience")),
+                title = list(text = paste0("% partijbudget besteed aan ", wooord2, " doelgroep")),
           max = max(data$perc*100)#,
           # min = 0
         ) %>%
@@ -172,9 +172,9 @@ generate_plots <- function(data, exclusion = F) {
         hc_add_theme(hc_theme_google()) %>%
         highcharter::hc_tooltip(
           pointFormat = paste0(
-            "<b>{point.value}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ",
-            currency_symbol,
-            "{point.spend_perlab} ", wooord, " this audience."
+"<b>{point.value}</b><br>% van totaal budget besteed: {point.y:.1f}%<br>in totaal ",
+currency_symbol,
+"{point.spend_perlab} ", wooord, " deze doelgroep."
           ),
           headerFormat = ""
         ) %>%

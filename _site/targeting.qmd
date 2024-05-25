@@ -1,6 +1,6 @@
 ---
 title: "Uitgave per selectiecriterium"
-description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de Tweede Kamerverkiezingen monitoren we politieke microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de verkiezingen monitoren we politieke microtargeting."
 lang: nl
 format:
   html:
@@ -344,10 +344,10 @@ gg %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
   highcharter::hc_xAxis(labels = list(style = list(fontSize = "10px"))) %>%
-  highcharter::hc_yAxis(title = list(text = "Budget spent on targeting method (% of total spend)")) %>%
+  highcharter::hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)")) %>%
   highcharter::hc_add_theme(hc_theme_google()) %>%
  highcharter::hc_tooltip(
-    pointFormat = paste0("<b>{point.target}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this method."),
+    pointFormat = paste0("<b>{point.target}</b><br>% van totaal budget besteed: {point.y:.1f}%<br>in totaal ", currency_symbol, "{point.spend_perlab} aan deze methode."),
     headerFormat = ""
   ) %>%
   highcharter::hc_credits(
@@ -499,10 +499,10 @@ gg %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
   highcharter::hc_xAxis(labels = list(style = list(fontSize = "10px"))) %>%
-  highcharter::hc_yAxis(title = list(text = "Budget spent on targeting method (% of total spend)")) %>%
+  highcharter::hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)")) %>%
   highcharter::hc_add_theme(hc_theme_google()) %>%
  highcharter::hc_tooltip(
-    pointFormat = paste0("<b>{point.target}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this method."),
+    pointFormat = paste0("<b>{point.target}</b><br>% van totaal budget besteed: {point.y:.1f}%<br>in totaal ", currency_symbol, "{point.spend_perlab} aan deze methode."),
     headerFormat = ""
   ) %>%
   highcharter::hc_credits(
@@ -628,10 +628,10 @@ gg %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
   highcharter::hc_xAxis(labels = list(style = list(fontSize = "10px"))) %>%
-  highcharter::hc_yAxis(title = list(text = "Budget spent on targeting method (% of total spend)")) %>%
+  highcharter::hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)")) %>%
   highcharter::hc_add_theme(hc_theme_google()) %>%
  highcharter::hc_tooltip(
-    pointFormat = paste0("<b>{point.target}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this method."),
+    pointFormat = paste0("<b>{point.target}</b><br>% van totaal budget besteed: {point.y:.1f}%<br>in totaal ", currency_symbol, "{point.spend_perlab} aan deze methode."),
     headerFormat = ""
   ) %>%
   highcharter::hc_credits(
@@ -757,10 +757,10 @@ gg %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
   highcharter::hc_xAxis(labels = list(style = list(fontSize = "10px"))) %>%
-  highcharter::hc_yAxis(title = list(text = "Budget spent on targeting method (% of total spend)")) %>%
+  highcharter::hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)")) %>%
   highcharter::hc_add_theme(hc_theme_google()) %>%
  highcharter::hc_tooltip(
-    pointFormat = paste0("<b>{point.target}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this method."),
+    pointFormat = paste0("<b>{point.target}</b><br>% van totaal budget besteed: {point.y:.1f}%<br>in totaal ", currency_symbol, "{point.spend_perlab} aan deze methode."),
     headerFormat = ""
   ) %>%
   highcharter::hc_credits(
@@ -886,10 +886,10 @@ gg %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
   highcharter::hc_xAxis(labels = list(style = list(fontSize = "10px"))) %>%
-  highcharter::hc_yAxis(title = list(text = "Budget spent on targeting method (% of total spend)")) %>%
+  highcharter::hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)")) %>%
   highcharter::hc_add_theme(hc_theme_google()) %>%
  highcharter::hc_tooltip(
-    pointFormat = paste0("<b>{point.target}</b><br>% of total budget spent: {point.y:.1f}%<br>a total of ", currency_symbol, "{point.spend_perlab} on this method."),
+    pointFormat = paste0("<b>{point.target}</b><br>% van totaal budget besteed: {point.y:.1f}%<br>in totaal ", currency_symbol, "{point.spend_perlab} aan deze methode."),
     headerFormat = ""
   ) %>%
   highcharter::hc_credits(

@@ -1,5 +1,5 @@
 ---
-description-meta: "How do political parties chase your vote, what do they want to keep hidden, and how much money do they spend on it? In the lead-up to the elections, we monitor political microtargeting."
+description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de verkiezingen monitoren we politieke microtargeting."
 lang: nl
 format: 
   html:
@@ -93,7 +93,7 @@ thedata <- readRDS("endit.rds") %>%
   ungroup() %>% 
   left_join(color_dat) %>% 
   arrange(desc(total_spend_formatted)) %>% 
-  filter(!(party %in% c("VU", "l'Unie", "B.U.B.", "ProDG")))
+  filter(!(party %in% c("VU", "l'Unie", "B.U.B.", "ProDG", "Viva Palestina", "Voor U", "Dieranimal")))
 
 
 
@@ -620,6 +620,48 @@ make_tab("Ecolo")
 <div id="Les Engagés" class="party-content" style="display:none;">
 ```{r}
 make_tab("Les Engagés")
+```
+</div>
+
+<div id="Viva Palestina" class="party-content" style="display:none;">
+```{r}
+make_tab("Viva Palestina")
+```
+</div>
+
+<div id="Voor U" class="party-content" style="display:none;">
+```{r}
+make_tab("Voor U")
+```
+</div>
+
+<div id="VU" class="party-content" style="display:none;">
+```{r}
+make_tab("VU")
+```
+</div>
+
+<div id="l'Unie" class="party-content" style="display:none;">
+```{r}
+make_tab("l'Unie")
+```
+</div>
+
+<div id="B.U.B." class="party-content" style="display:none;">
+```{r}
+make_tab("B.U.B.")
+```
+</div>
+
+<div id="ProDG" class="party-content" style="display:none;">
+```{r}
+make_tab("ProDG")
+```
+</div>
+
+<div id="PB" class="party-content" style="display:none;">
+```{r}
+make_tab("PB")
 ```
 </div>
 
