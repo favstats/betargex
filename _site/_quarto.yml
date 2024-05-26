@@ -10,10 +10,13 @@ website:
     href: index.qmd  # This makes the logo a clickable link that directs to the main dashboard
     left:
       - href: indexold.qmd
-        text: "{{< iconify ph coins >}} Uitgaven"
+        text: "{{< iconify ph coins-thin >}} Uitgaven"
       - sidebar:targeting
+    right:
       - href: about.qmd
         text: "{{< iconify ph info-thin >}} Over ons"
+      - href: https://www.apache.be/
+        text: apache.be
   sidebar:
     - id: ""
     - id: targeting
@@ -25,9 +28,6 @@ website:
         - detailed.qmd
         - location.qmd
         - demographics.qmd
-      right:
-      - href: https://www.apache.be/
-        text: apache.be
   search: false
 
 format:

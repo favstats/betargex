@@ -93,7 +93,7 @@ thedata <- readRDS("endit.rds") %>%
   ungroup() %>% 
   left_join(color_dat) %>% 
   arrange(desc(total_spend_formatted)) %>% 
-  filter(!(party %in% c("VU", "l'Unie", "B.U.B.", "ProDG", "Viva Palestina", "Voor U", "Dieranimal")))
+  filter(!(party %in% c("VU", "l'Unie", "B.U.B.", "ProDG", "Viva Palestina", "Voor U", "DierAnimal")))
 
 
 
