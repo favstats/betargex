@@ -635,12 +635,6 @@ make_tab("Voor U")
 ```
 </div>
 
-<div id="VU" class="party-content" style="display:none;">
-```{r}
-make_tab("VU")
-```
-</div>
-
 <div id="l'Unie" class="party-content" style="display:none;">
 ```{r}
 make_tab("l'Unie")
@@ -661,7 +655,7 @@ make_tab("ProDG")
 
 <div id="PB" class="party-content" style="display:none;">
 ```{r}
-make_tab("PB")
+make_tab("Blanco")
 ```
 </div>
 

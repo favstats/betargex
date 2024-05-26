@@ -78,12 +78,12 @@ contested_dat <- contested_dat %>%
 
 # scales::label_number(big.mark = ".")(round(total_spenderino))))
 # scales::label_number(big.mark = ".")(round(lab_dat$total_spenderino[i])))
-# mutate(spend_perlab = label_number(big.mark = ".")(round(total_spend)))
+# mutate(spend_perlab = scales::label_number(big.mark = ".")(round(total_spend)))
 
 
 
 
-scales::label_number(big.mark = ".")(round(lab_dat$total_spenderino[i])))
+# scales::label_number(big.mark = ".")(round(lab_dat$total_spenderino[i])))
 
   the_order <- contested_dat %>%
     filter(party == most_left_party) %>%
@@ -161,7 +161,7 @@ if (exclusion) {
     slice(1:10)
 
   plots <- gg %>%
-    mutate(spend_perlab = label_number(big.mark = ".")(round(total_spend))) %>%
+    mutate(spend_perlab = scales::label_number(big.mark = ".")(round(total_spend))) %>%
     mutate(perc = perc * 100) %>%
     split(.$party) %>%
     map(~ {
