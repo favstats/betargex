@@ -757,7 +757,12 @@ endit <- hc_data_dafb %>%
 saveRDS(endit, "endit.rds")
 } else {
   endit <- readRDS("endit.rds") %>% 
-    mutate(party = ifelse(party == "Défi", "DéFI", party))
+    mutate(party = ifelse(party == "Défi", "DéFI", party)) %>% 
+    mutate(party = case_when(
+      party == "VU" ~ "Voor U",
+      party == "PB" ~ "Blanco",
+      T ~ party
+    ))
 }
 
 ```

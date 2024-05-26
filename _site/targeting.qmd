@@ -42,7 +42,13 @@ calc_targeting2 <- possibly(calc_targeting, otherwise = tibble(no_data = T))
 
 
 if(Sys.info()[["user"]] == "fabio"){
-  col_each30 <- readRDS("col_each30.rds")
+  col_each30 <- readRDS("col_each30.rds") %>% 
+    mutate(party = ifelse(party == "Défi", "DéFI", party)) %>% 
+    mutate(party = case_when(
+      party == "VU" ~ "Voor U",
+      party == "PB" ~ "Blanco",
+      T ~ party
+    ))
 } else {
   col_each30 <- election_dat30 %>%
     mutate(total_spend = total_spend_formatted) %>%
@@ -223,7 +229,7 @@ byparty <- x %>%
       
       hchart(daaat, type = "bar", hcaes(x = target, y = perc), color = the_color) %>%
             hc_plotOptions(bar = list(horizontal = TRUE, stacking = "normal")) %>%
-            hc_yAxis(title = list(text = "% Party Budget spent on targeting method"), max = 100, min = 0) %>%
+            hc_yAxis(title = list(text = "Budget voor targeting (% van totaal)"), max = 100, min = 0) %>%
             hc_xAxis(title = "", labels = list(style = list(fontSize = "10px"))) %>%
             hc_add_theme(hc_theme_google()) %>%
            highcharter::hc_tooltip(
@@ -424,6 +430,8 @@ tags$div(class = "container", do.call(tags$div, rows))
 #   filter(party == "Groen") %>% 
 #   arrange(desc(perc)) %>%
 #   filter(target != "countries") 
+
+# col_each30 %>% count(party)
 ```
 
 :::

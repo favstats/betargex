@@ -333,7 +333,8 @@ findat <- interest_targeting30 %>%
   str_detect(target, "NEIGHBOR") ~ "Buurt",
     T ~ target
   )) %>% 
-    filter(target != "Unknown") %>% 
+    filter(target != "Unknown")  %>% 
+  filter(target != "Onbekend") %>% 
   mutate(is_exclusion = ifelse(!is_exclusion, "✅", "❌")) %>% 
   left_join(data.frame(detailed_colors ) %>%
               rownames_to_column() %>%
