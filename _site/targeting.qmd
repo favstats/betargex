@@ -203,7 +203,7 @@ byparty <- x %>%
 
 
   charts <- gg %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
     split(.$party) %>%
     map(~ {
       the_color <-
@@ -339,7 +339,7 @@ the_order <- gg %>%
   levels()
 
 gg %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   dplyr::mutate(target = forcats::fct_relevel(target, the_order)) %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
@@ -494,7 +494,7 @@ the_order <- gg %>%
   levels()
 
 gg %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   dplyr::mutate(target = forcats::fct_relevel(target, the_order)) %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
@@ -612,7 +612,7 @@ gg <- col_each30this  %>%
   mutate(perc = spend_per/all_spend$total*100) %>% 
     arrange(desc(perc)) %>% 
   filter(perc >= 0.01)
-
+# scales::label_number(big.mark = ".")(round(spend_per))
 
 library(highcharter)
 
@@ -623,7 +623,7 @@ the_order <- gg %>%
   levels()
 
 gg %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   dplyr::mutate(target = forcats::fct_relevel(target, the_order)) %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
@@ -752,7 +752,7 @@ the_order <- gg %>%
   levels()
 
 gg %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   dplyr::mutate(target = forcats::fct_relevel(target, the_order)) %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%
@@ -881,7 +881,7 @@ the_order <- gg %>%
   levels()
 
 gg %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   dplyr::mutate(target = forcats::fct_relevel(target, the_order)) %>%
   highcharter::hchart(type = "bar", hcaes(x = target, y = perc)) %>%
   highcharter::hc_plotOptions(bar = list(color = "darkgrey")) %>%

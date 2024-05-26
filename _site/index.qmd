@@ -399,7 +399,7 @@ styled_reactable <- yes %>%
           # text_color = text_color,
           fill_gradient = FALSE,
           # fill_color_ref = "energy_source_color",
-          number_fmt = scales::label_number(big.mark = ","),
+          number_fmt = scales::label_number(big.mark = "."),
           bar_height = 10
         )
       ),
@@ -415,7 +415,7 @@ styled_reactable <- yes %>%
           # text_color = text_color,
           fill_gradient = FALSE,
           # fill_color_ref = "energy_source_color",
-          number_fmt = scales::label_number(big.mark = ","),
+          number_fmt = scales::label_number(big.mark = "."),
           bar_height = 10
         )
       ),
@@ -461,7 +461,7 @@ styled_reactable <- yes %>%
         #   # text_color = text_color,
         #   fill_gradient = FALSE,
         #   # fill_color_ref = "energy_source_color",
-        #   number_fmt = scales::label_number(big.mark = ","),
+        #   number_fmt = scales::label_number(big.mark = "."),
         #   bar_height = 10
         # )
         #     ),
@@ -476,7 +476,7 @@ styled_reactable <- yes %>%
         #   # text_color = text_color,
         #   fill_gradient = FALSE,
         #   # fill_color_ref = "energy_source_color",
-        #   number_fmt = scales::label_number(big.mark = ","),
+        #   number_fmt = scales::label_number(big.mark = "."),
         #   bar_height = 10
         # )
         #     ),

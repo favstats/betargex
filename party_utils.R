@@ -38,17 +38,20 @@ wtm_data <- read_csv("../data/07e893b0-0703-4f8e-b587-9cf3b811c31b.csv.gzip")  #
   # dput()
 
 # source("../party_utils.R")
-color_dat <- structure(list(party = c("MR", "Les Engagés", "N-VA", "Ecolo", 
-                                      "Vlaams Belang", "CD&V", "Open Vld",
-                                      "Groen", "PVDA", "Vooruit", 
-                                      "PS", "DéFI", "VU", "ProDG", "l'Unie",
-                                      "PB", "B.U.B."), 
+color_dat <- structure(list(party = c("MR", "Les Engagés", "N-VA",
+                                      "Ecolo", "Vlaams Belang", "CD&V",
+                                      "Open Vld", "Groen", "PVDA", 
+                                      "Vooruit", "PS", "DéFI",
+                                      "ProDG", "l'Unie", "Blanco",
+                                      "B.U.B.", "DierAnimal", "Viva Palestina",
+                                      "Voor U"), 
                             colors = c("#0047AB", "#02E5D2", "#F9CE19",
                                        "#5aad39", "#000000", "#FF6200",
                                        "#0087DC", "#01796F", "#8B0000",
                                        "#b60000", "#FF0000", "#DD0081",
-                                       "#DD00BB", "#A000a0", "#0000a0",
-                                       "#6000a0", "#A1cccc")), row.names = c(NA, -17L
+                                       "#6000a0", "#0000a0", "#D3D3D3",
+                                       "#A1cccc", "#C99990", "#C99000",
+                                       "#A99099")), row.names = c(NA, -19L
                                                                                                          ), class = c("tbl_df", "tbl", "data.frame"))
 
 most_left_party <- "Groen"
@@ -84,8 +87,10 @@ election_dat30 <- readRDS("../data/election_dat30.rds") %>%
       party == "VB" ~ "Vlaams Belang",
       party == "PS" ~ "PS",
       party == "V" ~ "Vooruit",
+      party == "VU" ~ "Voor U",
       party == "CDV" ~ "CD&V",
       party == "Eco" ~ "Ecolo",
+      party == "PB" ~ "Blanco",
       party == "GRO" ~ "Groen",
       party == "Eng" ~ "Les Engagés",
       party == "Open VLD" ~ "Open Vld",
@@ -108,6 +113,8 @@ election_dat7 <- readRDS("../data/election_dat7.rds") %>%
     party == "VB" ~ "Vlaams Belang",
     party == "PS" ~ "PS",
     party == "V" ~ "Vooruit",
+    party == "VU" ~ "Voor U",
+    party == "PB" ~ "Blanco",
     party == "CDV" ~ "CD&V",
     party == "Eco" ~ "Ecolo",
     party == "GRO" ~ "Groen",

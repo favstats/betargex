@@ -129,8 +129,11 @@ age_targeting <- election_dat30 %>%
 
 
 
+# mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per)))
+
+
 charts <- age_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map( ~ {
@@ -221,7 +224,7 @@ max_x <- max(gender_targeting$perc*100)
 
 # Create the charts
 charts <- gender_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -313,7 +316,7 @@ max_x <- max(lang_targeting$perc*100)
 
 # Create the charts
 charts <- lang_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -446,7 +449,7 @@ max_x <- max(job_targeting$perc*100)
 
 # Create the charts
 charts <- job_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -586,7 +589,7 @@ age_targeting <- election_dat30 %>%
 
 
 charts <- age_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map( ~ {
@@ -681,7 +684,7 @@ max_x <- max(gender_targeting$perc*100)
 
 # Create the charts
 charts <- gender_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -778,7 +781,7 @@ max_x <- max(lang_targeting$perc*100)
 
 # Create the charts
 charts <- lang_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -880,7 +883,7 @@ max_x <- max(job_targeting$perc*100)
 
 # Create the charts
 charts <- job_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1020,7 +1023,7 @@ age_targeting <- election_dat30 %>%
 
 
 charts <- age_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map( ~ {
@@ -1115,7 +1118,7 @@ max_x <- max(gender_targeting$perc*100)
 
 # Create the charts
 charts <- gender_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1212,7 +1215,7 @@ max_x <- max(lang_targeting$perc*100)
 
 # Create the charts
 charts <- lang_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1314,7 +1317,7 @@ max_x <- max(job_targeting$perc*100)
 
 # Create the charts
 charts <- job_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1453,7 +1456,7 @@ age_targeting <- election_dat30 %>%
 
 
 charts <- age_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map( ~ {
@@ -1549,7 +1552,7 @@ max_x <- max(gender_targeting$perc*100)
 
 # Create the charts
 charts <- gender_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1646,7 +1649,7 @@ max_x <- max(lang_targeting$perc*100)
 
 # Create the charts
 charts <- lang_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1748,7 +1751,7 @@ max_x <- max(job_targeting$perc*100)
 
 # Create the charts
 charts <- job_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -1889,7 +1892,7 @@ age_targeting <- election_dat30 %>%
 
 
 charts <- age_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map( ~ {
@@ -1984,7 +1987,7 @@ max_x <- max(gender_targeting$perc*100)
 
 # Create the charts
 charts <- gender_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -2081,7 +2084,7 @@ max_x <- max(lang_targeting$perc*100)
 
 # Create the charts
 charts <- lang_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {
@@ -2183,7 +2186,7 @@ max_x <- max(job_targeting$perc*100)
 
 # Create the charts
 charts <- job_targeting %>%
-  mutate(spend_perlab = scales::comma(round(spend_per))) %>%
+  mutate(spend_perlab = scales::label_number(big.mark = ".")(round(spend_per))) %>%
   mutate(perc = perc * 100) %>%
   split(.$party) %>%
   map(~ {

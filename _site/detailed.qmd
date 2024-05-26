@@ -76,6 +76,14 @@ justkeeptop20 <- contested_dat %>%
 contested_dat <- contested_dat %>%
   filter(value %in% justkeeptop20$value)
 
+# scales::label_number(big.mark = ".")(round(total_spenderino))))
+# scales::label_number(big.mark = ".")(round(lab_dat$total_spenderino[i])))
+# mutate(spend_perlab = label_number(big.mark = ".")(round(total_spend)))
+
+
+
+
+scales::label_number(big.mark = ".")(round(lab_dat$total_spenderino[i])))
 
   the_order <- contested_dat %>%
     filter(party == most_left_party) %>%
@@ -86,7 +94,7 @@ contested_dat <- contested_dat %>%
 
   lab_dat <- contested_dat %>%
     filter(party == most_left_party) %>%
-    mutate(labb = paste0(currency_symbol, scales::comma(round(total_spenderino)))) %>%
+    mutate(labb = paste0(currency_symbol, scales::label_number(big.mark = ".")(round(total_spenderino)))) %>%
     select(party, value, labb, total_spenderino) %>%
     mutate(value = factor(value, the_order)) %>%
     arrange(value)
@@ -95,7 +103,7 @@ contested_dat <- contested_dat %>%
   annotations <- lapply(1:nrow(lab_dat), function(i) {
   list(
     point = list(x = i - 1, y = 1, xAxis = 0, yAxis = 0),
-    text = paste0("Total Spend on Audience: ",  currency_symbol, scales::comma(round(lab_dat$total_spenderino[i]))),
+    text = paste0("Total Spend on Audience: ",  currency_symbol, scales::label_number(big.mark = ".")(round(lab_dat$total_spenderino[i]))),
           # align = "right",
           # verticalAlign = "middle",
           x = 10,
@@ -153,7 +161,7 @@ if (exclusion) {
     slice(1:10)
 
   plots <- gg %>%
-    mutate(spend_perlab = scales::comma(round(total_spend))) %>%
+    mutate(spend_perlab = label_number(big.mark = ".")(round(total_spend))) %>%
     mutate(perc = perc * 100) %>%
     split(.$party) %>%
     map(~ {
