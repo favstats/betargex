@@ -23,8 +23,8 @@ unlink("node_modules", recursive = T, force = T)
 unlink("out", recursive = T, force = T)
 
 
-# gert::git_pull()
-# gert::git_add(".")
-# gert::git_commit("update")
-# gert::git_push()
+gert::git_pull()
+gert::git_add(".")
+gert::git_commit("update")
+gert::git_push()
 
