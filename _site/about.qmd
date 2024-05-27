@@ -74,17 +74,17 @@ card <- div(
   )
 )
 
-# print(card)
 
-
-# print(card)
 card
 
 ```
 
 
+|                            |                            |                            |
+|----------------------------|----------------------------|----------------------------|
+| <a href="https://bsky.app/profile/favstats.bsky.social"> {{< iconify arcticons bluesky size=22px >}}</a> BlueSky |  <a href="https://x.com/favstats"> {{< iconify arcticons twitter size=22px >}}</a> Twitter | <a href="https://favstats.eu"> {{< iconify arcticons emoji-web size=22px >}}</a> Personal Website |
 
-
+<br>
 
 :::: {style="display: flex; justify-content: center; align-items: center;" }
 
@@ -93,8 +93,6 @@ card
 :::
 
 ::: {}
-Want to see how political parties target *you*? [Sign up](https://whotargets.me/) at **Who Targets Me** and download the gratis browser plugin to see how parties on Facebook use your data:
-
 Meer weten over hoe politieke partijen zich tot u richten? [Registreer](https://whotargets.me/) u op **Who Targets Me** en download de gratis plugin voor uw browser om te zien hoe partijen uw data gebruik op Facebook.
 
 [https://whotargets.me/](https://whotargets.me/)
