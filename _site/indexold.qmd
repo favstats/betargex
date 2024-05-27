@@ -730,6 +730,12 @@ hc_data_dafb <- spending_dat %>%
   left_join(all_dat %>% 
               select(page_id, party) %>% 
               distinct(page_id, party)) %>% 
+    mutate(party = ifelse(party == "Défi", "DéFI", party)) %>% 
+    mutate(party = case_when(
+      party == "VU" ~ "Voor U",
+      party == "PB" ~ "Blanco",
+      T ~ party
+    )) %>% 
   mutate(amount_spent_eur = parse_number(amount_spent_eur)) %>% 
   mutate(amount_spent_eur = ifelse(amount_spent_eur == 100, 1, amount_spent_eur)) %>% 
   group_by(date, party) %>% 

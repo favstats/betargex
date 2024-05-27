@@ -53,6 +53,9 @@ knitr::opts_chunk$set(
 
 <center>
 ### Kies een partij
+
+Ontdek hoeveel partijen en politici al hebben uitgegeven aan advertenties op Facebook en Instagram sinds de start van de sperperiode
+
 </center>   
 
 
