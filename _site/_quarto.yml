@@ -15,7 +15,7 @@ website:
     right:
       - href: about.qmd
         text: "{{< iconify ph info-thin >}} Over ons"
-      - href: https://www.apache.be/
+      - href: https://apache.be/2024/05/27/al-bijna-3-miljoen-euro-belastinggeld-naar-online-propaganda-van-vlaamse-partijen
         text: apache.be
   sidebar:
     - id: ""
