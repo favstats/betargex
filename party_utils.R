@@ -17,7 +17,7 @@ options(scipen = 999)
 
 # wtm_data %>% count(party,sort = T)
 
-wtm_data <- read_csv("../data/07e893b0-0703-4f8e-b587-9cf3b811c31b.csv.gzip")  #names
+wtm_data <- read_csv("../data/wtm.csv.gzip")  #names
   
 # wtm_data %>% 
   # select(party = entities.short_name, colors = entities.color) %>% 
@@ -97,7 +97,8 @@ election_dat30 <- readRDS("../data/election_dat30.rds") %>%
       T ~ party
     )
   ) %>%
-  drop_na(party)
+  drop_na(party) %>% 
+  filter(internal_id != "14619952769")
 
 
 
@@ -122,7 +123,8 @@ election_dat7 <- readRDS("../data/election_dat7.rds") %>%
     party == "Open VLD" ~ "Open Vld",
     T ~ party
   )) %>% 
-  drop_na(party)
+  drop_na(party) %>% 
+  filter(internal_id != "14619952769")
 
 
 # saveRDS(election_dat30, "../data/election_dat30.rds")

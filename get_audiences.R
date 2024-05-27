@@ -50,7 +50,7 @@ write_lines(lubridate::as_date(tstamp), "tstamp.txt")
 
 
 
-wtm_data <- read_csv("data/07e893b0-0703-4f8e-b587-9cf3b811c31b.csv.gzip") %>% #names
+wtm_data <- read_csv("data/wtm.csv.gzip") %>% #names
   select(page_id = advertisers_platforms.advertiser_platform_ref,
          page_name = name, party = entities.short_name)  %>%
   mutate(page_id = as.character(page_id)) %>% 
