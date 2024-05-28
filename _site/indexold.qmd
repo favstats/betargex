@@ -1,7 +1,10 @@
 ---
-title: Spending
+title: Uitgaven
 description-meta: "Hoe jagen politieke partijen op jouw stem, wat willen ze juist niet dat je ziet en hoeveel geld geven ze daaraan uit? In aanloop naar de verkiezingen monitoren we politieke microtargeting."
 lang: nl
+format: 
+  html:
+    page-layout: full
 ---
 
 ```{r setup, include=FALSE}

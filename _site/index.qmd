@@ -232,7 +232,7 @@ detailed_colors <- c(
   "INTERESSEN" = "#FFDDC1",
   "DEMOGRAFIE" = "#C1E1C1",
   "GEDRAG" = "#C1E3E1",
-  "DOELGREOPEN" = "#A1E3E1",
+  "DOELGROEPEN" = "#A1E3E1",
   "GEOGRAFIE" = "#C1D4E1"
 )
 
@@ -299,9 +299,9 @@ findat <- interest_targeting30 %>%
   filter(target != "Gender: Alles") %>% 
   # filter(n == 3) %>%
   mutate(detailed_type = case_when(
-  target == "custom_audience" ~ "DOELGREOPEN",
+  target == "custom_audience" ~ "DOELGROEPEN",
   target == "regions" ~ "GEOGRAFIE",
-  target == "lookalike_audience" ~ "DOELGREOPEN",
+  target == "lookalike_audience" ~ "DOELGROEPEN",
   target == "interest" ~ "Gedetailleerd",
   target == "age" ~ "DEMOGRAFIE",
   target == "zips" ~ "GEOGRAFIE",
