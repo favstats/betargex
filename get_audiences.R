@@ -66,8 +66,13 @@ wtm_data <- read_csv("data/wtm.csv.gzip") %>% #names
     party == "Eng" ~ "Les Engagés",
     party == "Open VLD" ~ "Open Vld",
     T ~ party
+  )) %>% 
+  bind_rows(tibble(
+    page_id = "57253967150", page_name = "Vooruit", party = "Vooruit"
   ))
   
+# wtm_data %>% 
+#   filter(page_id == "57253967150")
 
 
 lts <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vR0B2SBiIU4UX0XNMGPHY1OLNpoZqxR6_dlF_kxJ0C7KpOKuXcIVgcf6oy8ljxLghXaAX6pPLXCgO-o/pub?output=csv") %>% 
